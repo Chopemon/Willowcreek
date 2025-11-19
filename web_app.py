@@ -57,26 +57,26 @@ async def process_action(request: Request):
     global chat
     if chat is None:
         return JSONResponse({"error": "Sim not started. Click 'Start'."}, status_code=400)
-        
+
     data = await request.json()
     text = data.get("text", "").strip()
-    
+
     reply = ""
-    
+
     if text.lower() == "debug":
         chat.sim.debug_enabled = not chat.sim.debug_enabled
         reply = f"[Debug: {chat.sim.debug_enabled}]"
-        
+
     elif text.lower().startswith("wait"):
-        try: 
+        try:
             hours = float(text.split()[1])
-        except: 
+        except:
             hours = 1
-        
+
         # Advance time. The tick will populate scenario_buffer with any time-based events.
         chat.advance_time(hours)
         reply = f". {hours} hours pass ."
-        
+
         # --- FIXED: Event Reporting for WAIT ---
         if hasattr(chat.sim, 'scenario_buffer'):
             for e in chat.sim.scenario_buffer:
@@ -86,17 +86,17 @@ async def process_action(request: Request):
     else:
         # 1. Clear buffer before starting (to prevent carrying over events from a previous WAIT)
         chat.sim.scenario_buffer.clear()
-        
+
         # 2. Generate narrative
         reply = chat.narrate(text)
-        
+
         # 3. Advance time (tick runs and generates internal events into scenario_buffer)
         chat.advance_time(5.0 / 60.0)
 
         # 4. Run text-based event detection (appends to buffer)
         # FIXED: Use both LLM output (reply) and User Input (text) for better detection
         detection_text = reply + " " + text
-        
+
         try: chat.sim.quirks.process_quirks(detection_text)
         except Exception as e: print(f"Quirks detection failed: {e}")
         try:
@@ -113,6 +113,109 @@ async def process_action(request: Request):
 
     snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
     return JSONResponse({"narration": reply, "snapshot": snapshot})
+
+# --- NEW ENDPOINTS FOR ENHANCED DASHBOARD ---
+
+@app.get("/api/stats", response_class=JSONResponse)
+async def get_stats():
+    """Get real-time simulation statistics"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    stats = chat.sim.get_statistics()
+    return JSONResponse(stats)
+
+@app.get("/api/relationships", response_class=JSONResponse)
+async def get_relationships():
+    """Get relationship graph data"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    # Build relationship graph data
+    nodes = []
+    edges = []
+
+    for npc in chat.sim.npcs[:20]:  # Limit to first 20 for performance
+        nodes.append({
+            "id": npc.full_name,
+            "label": npc.full_name,
+            "age": npc.age,
+            "location": npc.current_location
+        })
+
+    # Get relationship edges
+    for npc in chat.sim.npcs[:20]:
+        for rel_name, rel_data in npc.relationships.items():
+            if rel_name in [n.full_name for n in chat.sim.npcs[:20]]:
+                affinity = rel_data.get('affinity', 0)
+                if affinity > 20:  # Only show significant relationships
+                    edges.append({
+                        "from": npc.full_name,
+                        "to": rel_name,
+                        "value": affinity,
+                        "title": f"Affinity: {affinity}"
+                    })
+
+    return JSONResponse({"nodes": nodes, "edges": edges})
+
+@app.post("/api/checkpoint/save", response_class=JSONResponse)
+async def save_checkpoint(request: Request):
+    """Save simulation checkpoint"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    data = await request.json()
+    name = data.get("name")
+    description = data.get("description", "")
+
+    try:
+        path = chat.sim.save_checkpoint(name, description)
+        return JSONResponse({"success": True, "path": path})
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.post("/api/checkpoint/load", response_class=JSONResponse)
+async def load_checkpoint(request: Request):
+    """Load simulation checkpoint"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    data = await request.json()
+    name = data.get("name")
+
+    try:
+        chat.sim.load_checkpoint(name)
+        return JSONResponse({"success": True})
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.get("/api/checkpoint/list", response_class=JSONResponse)
+async def list_checkpoints():
+    """List all checkpoints"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    checkpoints = chat.sim.list_checkpoints()
+    return JSONResponse({"checkpoints": checkpoints})
+
+@app.get("/api/locations", response_class=JSONResponse)
+async def get_locations():
+    """Get NPCs grouped by location"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    loc_map = chat.sim._build_location_map()
+    locations = {}
+    for loc, npcs in loc_map.items():
+        locations[loc] = [{"name": npc.full_name, "mood": npc.mood} for npc in npcs]
+
+    return JSONResponse({"locations": locations})
 
 if __name__ == "__main__":
     print("Starting server at http://127.0.0.1:8000")

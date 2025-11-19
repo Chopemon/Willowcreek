@@ -45,6 +45,7 @@ from systems.debug_overlay import DebugOverlay
 
 # COMPREHENSIVE WORLD SNAPSHOT FOR AI NARRATOR
 from world_snapshot_builder import WorldSnapshotBuilder
+from core.checkpoint_manager import CheckpointManager
 
 
 class WillowCreekSimulation:
@@ -61,6 +62,7 @@ class WillowCreekSimulation:
         self.scenario_buffer: List[str] = []  # For quirks & sexual events
         self.debug_enabled = True
         self.debug = DebugOverlay(self)
+        self._checkpoint_manager = CheckpointManager()  # Save/Load system
 
         # Load NPC roster
         base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -305,12 +307,36 @@ class WillowCreekSimulation:
             json.dump(data, f, indent=2, ensure_ascii=False)
         print(f"File created: {filename}")
 
+    # =====================================================================
+    # CHECKPOINT SAVE/LOAD
+    # =====================================================================
+
+    def save_checkpoint(self, name: Optional[str] = None, description: str = ""):
+        """Save simulation checkpoint"""
+        return self._checkpoint_manager.save_checkpoint(self, name, description)
+
+    def load_checkpoint(self, name: str):
+        """Load simulation checkpoint"""
+        self._checkpoint_manager.load_checkpoint(name, self)
+
+    def list_checkpoints(self):
+        """List all checkpoints"""
+        return self._checkpoint_manager.list_checkpoints()
+
+    def quick_save(self, slot: int = 1):
+        """Quick save to slot (1-10)"""
+        return self._checkpoint_manager.quick_save(self, slot)
+
+    def quick_load(self, slot: int = 1):
+        """Quick load from slot (1-10)"""
+        self._checkpoint_manager.quick_load(self, slot)
+
     def print_debug_overlay(self):
         """
         Debug overlay that **always** reflects the latest schedule state.
         """
 
-        
+
 
         # Build fresh map from current_location
         loc_groups = self._build_location_map()

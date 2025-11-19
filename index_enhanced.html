@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willow Creek Dashboard - Enhanced</title>
+    <link rel="stylesheet" href="/static/styles_enhanced.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://unpkg.com/vis-network@9.1.2/standalone/umd/vis-network.min.js"></script>
+    <link href="https://unpkg.com/vis-network@9.1.2/styles/vis-network.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="dashboard">
+        <!-- Header -->
+        <header class="header">
+            <h1>🏘️ Willow Creek 2025 - Enhanced Dashboard</h1>
+            <div class="header-controls">
+                <div class="mode-selector">
+                    <button id="local-btn" class="mode-btn">Local LLM</button>
+                    <button id="openrouter-btn" class="mode-btn active">OpenRouter</button>
+                </div>
+                <button id="init-btn" class="primary-btn">Start Simulation</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Left Panel: Interaction -->
+            <div class="panel interaction-panel">
+                <h2>💬 Interaction</h2>
+                <div id="output" class="output-area"></div>
+                <div class="input-controls">
+                    <input type="text" id="user-input" placeholder="Type your action..." />
+                    <button id="send-btn" class="btn">Send</button>
+                    <button id="wait-btn" class="btn">Wait 1h</button>
+                </div>
+            </div>
+
+            <!-- Right Panel: Monitoring -->
+            <div class="panel monitoring-panel">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="stats">📊 Stats</button>
+                    <button class="tab-btn" data-tab="locations">📍 Locations</button>
+                    <button class="tab-btn" data-tab="relationships">🔗 Network</button>
+                    <button class="tab-btn" data-tab="checkpoints">💾 Saves</button>
+                </div>
+
+                <!-- Stats Tab -->
+                <div id="stats-tab" class="tab-content active">
+                    <h3>Real-Time Statistics</h3>
+                    <div id="stats-grid" class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-label">Day</div>
+                            <div class="stat-value" id="stat-day">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Time</div>
+                            <div class="stat-value" id="stat-time">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">NPCs</div>
+                            <div class="stat-value" id="stat-npcs">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Avg Horny</div>
+                            <div class="stat-value" id="stat-horny">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Avg Lonely</div>
+                            <div class="stat-value" id="stat-lonely">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Secrets</div>
+                            <div class="stat-value" id="stat-secrets">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Weather</div>
+                            <div class="stat-value" id="stat-weather">-</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-label">Season</div>
+                            <div class="stat-value" id="stat-season">-</div>
+                        </div>
+                    </div>
+                    <canvas id="needs-chart" style="margin-top: 20px; max-height: 200px;"></canvas>
+                </div>
+
+                <!-- Locations Tab -->
+                <div id="locations-tab" class="tab-content">
+                    <h3>NPC Locations</h3>
+                    <div id="locations-list" class="locations-list"></div>
+                </div>
+
+                <!-- Relationships Tab -->
+                <div id="relationships-tab" class="tab-content">
+                    <h3>Relationship Network</h3>
+                    <div id="network-graph" style="width: 100%; height: 400px; border: 1px solid #ddd;"></div>
+                </div>
+
+                <!-- Checkpoints Tab -->
+                <div id="checkpoints-tab" class="tab-content">
+                    <h3>💾 Save/Load</h3>
+                    <div class="checkpoint-controls">
+                        <input type="text" id="checkpoint-name" placeholder="Checkpoint name..." />
+                        <input type="text" id="checkpoint-desc" placeholder="Description (optional)..." />
+                        <button id="save-checkpoint-btn" class="btn">Save</button>
+                    </div>
+                    <h4>Saved Checkpoints</h4>
+                    <div id="checkpoints-list" class="checkpoints-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script_enhanced.js"></script>
+</body>
+</html>
