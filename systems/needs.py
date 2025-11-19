@@ -66,32 +66,43 @@ class NeedsSystem:
         Returns a dict with:
         - action: "eat", "sleep", "bathroom", "shower", "fun", "social", or "free_time"
         - location: SEMANTIC target: "Kitchen", "Bedroom", "Bathroom", "Public", etc.
+
+        NOTE: These thresholds determine CRITICAL needs that override scheduled activities
+        (school, work, etc.). Thresholds are set high to prevent NPCs from abandoning
+        their schedules unless they're in genuine distress.
+
         Actual location is resolved in AutonomousSystem.
         """
         n = npc.needs
 
-        # Immediate criticals
-        if n.bladder > 85:
+        # CRITICAL EMERGENCIES ONLY - these override school/work
+        # Bladder emergency
+        if n.bladder > 90:
             return {"action": "bathroom", "location": "Bathroom"}
 
-        if n.hygiene < 20:
-            return {"action": "shower", "location": "Bathroom"}
-
-        if n.energy < 25:
+        # Extreme exhaustion - about to pass out
+        if n.energy < 15:
             return {"action": "sleep", "location": "Bedroom"}
 
-        if n.hunger > 75:
+        # Severe hygiene problem
+        if n.hygiene < 10:
+            return {"action": "shower", "location": "Bathroom"}
+
+        # Starvation level hunger
+        if n.hunger > 90:
             return {"action": "eat", "location": "Kitchen"}
 
-        # Secondary needs
-        if n.social < 30:
+        # Severe social isolation
+        if n.social < 15:
             return {"action": "socialize", "location": "Public"}
 
-        if n.fun < 30:
+        # Extreme boredom/depression
+        if n.fun < 15:
             return {"action": "fun", "location": "Public"}
 
         # Horny is handled by Emotional/Autonomous private logic
-        if n.horny > 85:
+        if n.horny > 90:
             return {"action": "privacy", "location": "Bedroom"}
 
+        # No critical needs - follow schedule
         return {"action": "free_time", "location": None}
