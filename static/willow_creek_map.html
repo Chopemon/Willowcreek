@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willow Creek Town Map</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1410 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            color: #f5e6d3;
+        }
+
+        .map-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, rgba(26, 20, 16, 0.95) 0%, rgba(15, 12, 9, 0.95) 100%);
+            border: 3px solid #8b6914;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 36px;
+            color: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8),
+                         0 0 20px rgba(212, 175, 55, 0.4);
+            margin-bottom: 30px;
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+        }
+
+        .map-svg {
+            width: 100%;
+            height: 800px;
+            background: #0f0c09;
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+        }
+
+        .location-marker {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .location-marker:hover {
+            filter: brightness(1.5);
+            transform: scale(1.2);
+        }
+
+        .location-marker:hover + .location-label {
+            font-weight: bold;
+            fill: #ffd700;
+        }
+
+        .location-label {
+            pointer-events: none;
+            font-size: 10px;
+            fill: #f5e6d3;
+        }
+
+        .district-label {
+            font-size: 14px;
+            font-weight: bold;
+            fill: #d4af37;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .street-line {
+            stroke: #3a3a3a;
+            stroke-width: 1;
+            opacity: 0.5;
+        }
+
+        .legend {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid #8b6914;
+            border-radius: 6px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid #d4af37;
+        }
+
+        .legend-label {
+            font-size: 13px;
+            color: #c9b8a0;
+        }
+
+        .info-panel {
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            min-height: 100px;
+        }
+
+        #location-info {
+            color: #f5e6d3;
+            line-height: 1.8;
+        }
+
+        #location-info h3 {
+            color: #d4af37;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="map-container">
+        <h1>⚔ Willow Creek Town Map ⚔</h1>
+
+        <svg class="map-svg" viewBox="0 0 1000 800" xmlns="http://www.w3.org/2000/svg">
+            <!-- Background grid -->
+            <defs>
+                <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <path d="M 100 0 L 0 0 0 100" fill="none" stroke="#3a3a3a" stroke-width="0.5" opacity="0.3"/>
+                </pattern>
+            </defs>
+            <rect width="1000" height="800" fill="url(#grid)"/>
+
+            <!-- Main Street (vertical) -->
+            <line x1="300" y1="0" x2="300" y2="800" class="street-line" stroke-width="3"/>
+            <text x="310" y="50" class="district-label">Main Street</text>
+
+            <!-- Maple Street (horizontal) -->
+            <line x1="0" y1="400" x2="1000" y2="400" class="street-line" stroke-width="3"/>
+            <text x="50" y="390" class="district-label">Maple Street</text>
+
+            <!-- DOWNTOWN / MAIN STREET DISTRICT -->
+            <circle cx="300" cy="200" r="12" fill="#8b4513" class="location-marker" data-loc="Main Street Diner"/>
+            <text x="300" y="230" text-anchor="middle" class="location-label">Main Street Diner</text>
+
+            <circle cx="320" cy="250" r="12" fill="#8b4513" class="location-marker" data-loc="Willow Creek Bar & Grill"/>
+            <text x="320" y="280" text-anchor="middle" class="location-label">Bar & Grill</text>
+
+            <circle cx="280" cy="300" r="12" fill="#8b4513" class="location-marker" data-loc="Police Station"/>
+            <text x="280" y="330" text-anchor="middle" class="location-label">Police Station</text>
+
+            <circle cx="320" cy="350" r="12" fill="#8b4513" class="location-marker" data-loc="Willow Creek Grocery"/>
+            <text x="320" y="380" text-anchor="middle" class="location-label">Grocery</text>
+
+            <!-- MAPLE STREET / WELLNESS DISTRICT -->
+            <circle cx="150" cy="400" r="12" fill="#228b22" class="location-marker" data-loc="Willow Creek Daycare Center"/>
+            <text x="150" y="430" text-anchor="middle" class="location-label">Daycare</text>
+
+            <circle cx="250" cy="400" r="12" fill="#228b22" class="location-marker" data-loc="Namaste Yoga Studio"/>
+            <text x="250" y="430" text-anchor="middle" class="location-label">Yoga Studio</text>
+
+            <circle cx="350" cy="400" r="12" fill="#228b22" class="location-marker" data-loc="Voss Massage Studio"/>
+            <text x="350" y="430" text-anchor="middle" class="location-label">Massage</text>
+
+            <circle cx="450" cy="400" r="12" fill="#228b22" class="location-marker" data-loc="Fire Department"/>
+            <text x="450" y="430" text-anchor="middle" class="location-label">Fire Dept</text>
+
+            <!-- HEALTHCARE DISTRICT -->
+            <circle cx="700" cy="500" r="12" fill="#ff69b4" class="location-marker" data-loc="Willow Creek Clinic"/>
+            <text x="700" y="530" text-anchor="middle" class="location-label">Clinic</text>
+
+            <circle cx="750" cy="550" r="12" fill="#ff69b4" class="location-marker" data-loc="Mental Health Center"/>
+            <text x="750" y="580" text-anchor="middle" class="location-label">Mental Health</text>
+
+            <!-- EDUCATION DISTRICT -->
+            <circle cx="500" cy="200" r="12" fill="#4169e1" class="location-marker" data-loc="Willow Creek High School"/>
+            <text x="500" y="230" text-anchor="middle" class="location-label">High School</text>
+
+            <circle cx="600" cy="200" r="12" fill="#4169e1" class="location-marker" data-loc="Pre-School"/>
+            <text x="600" y="230" text-anchor="middle" class="location-label">Pre-School</text>
+
+            <!-- CIVIC DISTRICT -->
+            <circle cx="150" cy="150" r="12" fill="#daa520" class="location-marker" data-loc="Town Hall"/>
+            <text x="150" y="180" text-anchor="middle" class="location-label">Town Hall</text>
+
+            <circle cx="100" cy="250" r="12" fill="#daa520" class="location-marker" data-loc="Public Library"/>
+            <text x="100" y="280" text-anchor="middle" class="location-label">Library</text>
+
+            <circle cx="150" cy="320" r="12" fill="#daa520" class="location-marker" data-loc="Post Office"/>
+            <text x="150" y="350" text-anchor="middle" class="location-label">Post Office</text>
+
+            <!-- INDUSTRIAL DISTRICT -->
+            <circle cx="800" cy="650" r="12" fill="#696969" class="location-marker" data-loc="Blake's Auto Repair"/>
+            <text x="800" y="680" text-anchor="middle" class="location-label">Blake's Auto</text>
+
+            <circle cx="850" cy="600" r="12" fill="#696969" class="location-marker" data-loc="Hanson Auto Shop"/>
+            <text x="850" y="630" text-anchor="middle" class="location-label">Hanson Auto</text>
+
+            <circle cx="900" cy="650" r="12" fill="#696969" class="location-marker" data-loc="County Roads"/>
+            <text x="900" y="680" text-anchor="middle" class="location-label">Roads Depot</text>
+
+            <circle cx="800" cy="700" r="12" fill="#696969" class="location-marker" data-loc="Thompson Carpentry"/>
+            <text x="800" y="730" text-anchor="middle" class="location-label">Carpentry</text>
+
+            <!-- RECREATION -->
+            <circle cx="500" cy="450" r="12" fill="#32cd32" class="location-marker" data-loc="Willow Creek Park"/>
+            <text x="500" y="480" text-anchor="middle" class="location-label">Park</text>
+
+            <circle cx="700" cy="650" r="12" fill="#32cd32" class="location-marker" data-loc="Bowling Alley"/>
+            <text x="700" y="680" text-anchor="middle" class="location-label">Bowling</text>
+
+            <!-- MALL COMPLEX -->
+            <circle cx="900" cy="300" r="12" fill="#ff6347" class="location-marker" data-loc="Willow Creek Mall"/>
+            <text x="900" y="330" text-anchor="middle" class="location-label">Mall</text>
+
+            <circle cx="920" cy="250" r="10" fill="#ff6347" class="location-marker" data-loc="Food Court"/>
+            <text x="920" y="280" text-anchor="middle" class="location-label">Food Court</text>
+
+            <circle cx="880" cy="250" r="10" fill="#ff6347" class="location-marker" data-loc="Arcade"/>
+            <text x="880" y="280" text-anchor="middle" class="location-label">Arcade</text>
+
+            <!-- RELIGIOUS -->
+            <circle cx="600" cy="100" r="12" fill="#9370db" class="location-marker" data-loc="Lutheran Church"/>
+            <text x="600" y="130" text-anchor="middle" class="location-label">Lutheran Church</text>
+
+            <circle cx="650" cy="100" r="12" fill="#9370db" class="location-marker" data-loc="Oak Street Church"/>
+            <text x="650" y="130" text-anchor="middle" class="location-label">Oak St Church</text>
+
+            <!-- OUTSKIRTS / SPECIALIZED -->
+            <circle cx="100" cy="700" r="12" fill="#2f4f4f" class="location-marker" data-loc="Naval Base"/>
+            <text x="100" y="730" text-anchor="middle" class="location-label">Naval Base</text>
+
+            <circle cx="50" cy="750" r="12" fill="#2f4f4f" class="location-marker" data-loc="Oil Rig"/>
+            <text x="50" y="780" text-anchor="middle" class="location-label">Offshore Rig</text>
+
+            <circle cx="800" cy="350" r="12" fill="#2f4f4f" class="location-marker" data-loc="Engineering Firm"/>
+            <text x="800" y="380" text-anchor="middle" class="location-label">Engineering</text>
+
+            <circle cx="500" cy="100" r="12" fill="#2f4f4f" class="location-marker" data-loc="Art Cooperative"/>
+            <text x="500" y="130" text-anchor="middle" class="location-label">Art Co-op</text>
+
+            <!-- RESIDENTIAL AREAS -->
+            <circle cx="400" cy="550" r="10" fill="#dda0dd" class="location-marker" data-loc="Blake House"/>
+            <text x="400" y="580" text-anchor="middle" class="location-label">Blake House</text>
+
+            <circle cx="450" cy="550" r="10" fill="#dda0dd" class="location-marker" data-loc="Carter House"/>
+            <text x="450" y="580" text-anchor="middle" class="location-label">Carter House</text>
+
+            <circle cx="400" cy="600" r="10" fill="#dda0dd" class="location-marker" data-loc="Madison House"/>
+            <text x="400" y="630" text-anchor="middle" class="location-label">Madison House</text>
+
+            <circle cx="450" cy="600" r="10" fill="#dda0dd" class="location-marker" data-loc="Sturm House"/>
+            <text x="450" y="630" text-anchor="middle" class="location-label">Sturm House</text>
+
+            <circle cx="500" cy="550" r="10" fill="#dda0dd" class="location-marker" data-loc="Thompson House"/>
+            <text x="500" y="580" text-anchor="middle" class="location-label">Thompson House</text>
+
+            <!-- Compass Rose -->
+            <g transform="translate(50, 50)">
+                <text x="0" y="-15" text-anchor="middle" class="district-label" font-size="16">N</text>
+                <line x1="0" y1="0" x2="0" y2="-10" stroke="#d4af37" stroke-width="2" marker-end="url(#arrow)"/>
+            </g>
+            <defs>
+                <marker id="arrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L0,6 L9,3 z" fill="#d4af37"/>
+                </marker>
+            </defs>
+        </svg>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: #8b4513;"></div>
+                <div class="legend-label">Downtown / Main St</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #228b22;"></div>
+                <div class="legend-label">Wellness / Maple St</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff69b4;"></div>
+                <div class="legend-label">Healthcare</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #4169e1;"></div>
+                <div class="legend-label">Education</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #daa520;"></div>
+                <div class="legend-label">Civic</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #696969;"></div>
+                <div class="legend-label">Industrial</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #32cd32;"></div>
+                <div class="legend-label">Recreation</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #ff6347;"></div>
+                <div class="legend-label">Shopping / Mall</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #9370db;"></div>
+                <div class="legend-label">Religious</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #2f4f4f;"></div>
+                <div class="legend-label">Outskirts / Special</div>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: #dda0dd;"></div>
+                <div class="legend-label">Residential</div>
+            </div>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="info-panel">
+            <div id="location-info">
+                <h3>Click on any location to see details</h3>
+                <p>Hover over markers to highlight them. The map shows Willow Creek's main districts and locations.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Location descriptions
+        const locationData = {
+            "Main Street Diner": "Classic small-town diner open 7 AM – 10 PM daily. Known for coffee and pie.",
+            "Willow Creek Bar & Grill": "After-work hangout with drinks, burgers, and karaoke nights.",
+            "Police Station": "Small station where everyone knows the officers by name. Open 24/7.",
+            "Willow Creek Grocery": "Local grocery store open 8 AM – 10 PM daily.",
+            "Willow Creek Daycare Center": "Daycare for children aged 3–6. Mon–Fri 7 AM – 6 PM.",
+            "Namaste Yoga Studio": "Yoga classes and workshops. Class-based schedule.",
+            "Voss Massage Studio": "Massage therapy by appointment. Known for... complications.",
+            "Fire Department": "Volunteer fire department. 24/7 emergency services.",
+            "Willow Creek Clinic": "Family medicine and minor injuries. Mon–Fri 9 AM – 5 PM.",
+            "Mental Health Center": "Therapy and counseling services. Mon–Fri 10 AM – 6 PM.",
+            "Willow Creek High School": "Grades 7–12. School hours Mon–Fri 8 AM – 3 PM.",
+            "Pre-School": "Early education for ages 3–6. Mon–Fri 8 AM – 2 PM.",
+            "Town Hall": "Permits, records, and council meetings. Mon–Fri 9 AM – 4 PM.",
+            "Public Library": "Books and study space. Mon–Sat 9 AM – 7 PM.",
+            "Post Office": "Mail and packages. Mon–Fri 8 AM – 5 PM, Sat 9 AM – 1 PM.",
+            "Blake's Auto Repair": "Local garage run by the Blake family. Mon–Sat 8 AM – 6 PM.",
+            "Hanson Auto Shop": "Automotive repair and maintenance services.",
+            "County Roads": "County roads maintenance depot.",
+            "Thompson Carpentry": "Carpentry and woodworking services.",
+            "Willow Creek Park": "Green heart of town with playground, trails, and pond. Dawn to dusk.",
+            "Bowling Alley": "Old-school bowling with league nights. Mon–Thu 3 PM – 11 PM.",
+            "Willow Creek Mall": "Aging mall with retail and food court. Mon–Sat 10 AM – 9 PM.",
+            "Food Court": "Mall food court with various vendors.",
+            "Arcade": "Galaxy Arcade with games and prize counter.",
+            "Lutheran Church": "Traditional Lutheran services. Sunday 9 AM & 11 AM.",
+            "Oak Street Church": "Community church with Sunday services.",
+            "Naval Base": "Military installation. Restricted access.",
+            "Oil Rig": "Offshore oil rig. Work site for oil workers.",
+            "Engineering Firm": "Engineering and design services.",
+            "Art Cooperative": "Artist studios and galleries.",
+            "Blake House": "Residential - Blake family home.",
+            "Carter House": "Residential - Carter family home.",
+            "Madison House": "Residential - Madison family home.",
+            "Sturm House": "Residential - Sturm family home.",
+            "Thompson House": "Residential - Thompson family home.",
+        };
+
+        // Add click handlers to all markers
+        document.querySelectorAll('.location-marker').forEach(marker => {
+            marker.addEventListener('click', function() {
+                const locName = this.getAttribute('data-loc');
+                const info = locationData[locName] || "No information available.";
+
+                document.getElementById('location-info').innerHTML = `
+                    <h3>${locName}</h3>
+                    <p>${info}</p>
+                `;
+            });
+        });
+    </script>
+</body>
+</html>
