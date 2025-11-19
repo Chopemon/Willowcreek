@@ -69,6 +69,16 @@ class ScheduleSystem:
             "driver": "Local Transportation",
             "nightclub": "Willow Creek Nightlife District",
             "the circuit": "Willow Creek Nightlife District",
+            # Military
+            "navy": "Willow Creek Naval Base",
+            "seal": "Willow Creek Naval Base",
+            "military": "Willow Creek Naval Base",
+            "army": "Willow Creek Naval Base",
+            "marine": "Willow Creek Naval Base",
+            # Oil/Industrial
+            "oil": "Offshore Oil Rig",
+            "rig": "Offshore Oil Rig",
+            "offshore": "Offshore Oil Rig",
         }
 
     # ---------------------------------------------------------
