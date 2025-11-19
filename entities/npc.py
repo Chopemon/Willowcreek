@@ -35,6 +35,23 @@ class PsycheState:
 
 
 # ---------------------------------------------------------
+# Activity state for contextual need handling
+# ---------------------------------------------------------
+@dataclass
+class ActivityState:
+    """
+    Tracks what an NPC is currently doing to satisfy a need.
+    This allows NPCs to eat/bathroom/etc at their current location
+    instead of always going home.
+    """
+    activity: str              # "eating", "bathroom", "sleeping", "socializing"
+    sub_location: str          # "cafeteria", "restroom", "break room"
+    duration_remaining: float  # hours left in activity
+    satisfying_need: str       # "hunger", "bladder", "energy", etc.
+    started_at: float = 0.0    # simulation time when started (optional)
+
+
+# ---------------------------------------------------------
 # Background data class
 # ---------------------------------------------------------
 @dataclass
@@ -70,7 +87,8 @@ class NPC:
     current_location: str = "Home"
     home_location: str = "Home"
     mood: str = "Neutral" # <-- NEW: Fixed AttributeError
-    
+    activity: Optional[ActivityState] = None  # Current activity (eating, bathroom, etc.)
+
     needs: Needs = field(default_factory=Needs)
     psyche: PsycheState = field(default_factory=PsycheState)
 

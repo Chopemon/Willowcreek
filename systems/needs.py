@@ -6,7 +6,12 @@ AutonomousSystem handles mapping using households.get_household().
 """
 
 from dataclasses import dataclass
-from typing import Dict
+from typing import Dict, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entities.npc import NPC, ActivityState
+
+from systems.location_facilities import get_activity_satisfaction
 
 
 @dataclass
@@ -106,3 +111,33 @@ class NeedsSystem:
 
         # No critical needs - follow schedule
         return {"action": "free_time", "location": None}
+
+    def satisfy_need_from_activity(self, npc: "NPC", activity: "ActivityState"):
+        """
+        Satisfy a need when an activity completes.
+
+        This is called when an NPC finishes an activity (eating, bathroom, etc.)
+        to apply the satisfaction to their needs.
+        """
+        need = activity.satisfying_need
+        satisfaction = get_activity_satisfaction(activity.activity)
+
+        n = npc.needs
+
+        # Apply satisfaction based on need type
+        # Some needs decrease (hunger, bladder, horny)
+        # Others increase (energy, hygiene, social, fun)
+        if need == "hunger":
+            n.hunger = max(0, n.hunger - satisfaction)
+        elif need == "bladder":
+            n.bladder = max(0, n.bladder - satisfaction)
+        elif need == "horny":
+            n.horny = max(0, n.horny - satisfaction)
+        elif need == "energy":
+            n.energy = min(100, n.energy + satisfaction)
+        elif need == "hygiene":
+            n.hygiene = min(100, n.hygiene + satisfaction)
+        elif need == "social":
+            n.social = min(100, n.social + satisfaction)
+        elif need == "fun":
+            n.fun = min(100, n.fun + satisfaction)

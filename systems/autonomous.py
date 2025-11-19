@@ -3,6 +3,12 @@ from typing import TYPE_CHECKING
 import random
 
 from households import get_household
+from systems.location_facilities import (
+    can_satisfy_need_at_location,
+    get_sub_location_for_need,
+    get_activity_duration,
+)
+from entities.npc import ActivityState
 
 if TYPE_CHECKING:
     from core.simulation_v2 import WillowCreekSimulation
@@ -41,29 +47,89 @@ class AutonomousSystem:
         self.sim = sim
 
     def process_all(self, hours: float):
+        """
+        Process autonomous behavior for all NPCs.
+
+        New behavior: NPCs handle needs at their current location (eating at school cafeteria,
+        using work bathrooms, etc.) instead of always going home.
+        """
         for npc in self.sim.npcs:
             # Malcolm is player-driven; don't auto-move him
             if npc.full_name == "Malcolm Newt":
                 continue
 
-            # 1. Critical needs override everything
-            action = self.sim.needs.suggest_action(npc)
-            if action["action"] != "free_time":
-                npc.current_location = self._resolve_location(action["location"], npc)
+            # 1. If NPC is in an activity, continue it
+            if npc.activity:
+                npc.activity.duration_remaining -= hours
+                if npc.activity.duration_remaining <= 0:
+                    # Activity complete - satisfy the need
+                    self.sim.needs.satisfy_need_from_activity(npc, npc.activity)
+                    # Clear activity
+                    npc.activity = None
                 continue
 
-            # 2. Goals
+            # 2. Check for critical needs
+            action = self.sim.needs.suggest_action(npc)
+            if action["action"] != "free_time":
+                # Try to handle need at current location first
+                need_type = self._action_to_need(action["action"])
+
+                if can_satisfy_need_at_location(npc.current_location, need_type):
+                    # Start activity at current location
+                    self._start_activity(npc, action["action"], need_type)
+                    continue
+                else:
+                    # No facilities here - need to move somewhere
+                    npc.current_location = self._resolve_location(action["location"], npc)
+                    # Start activity at new location
+                    self._start_activity(npc, action["action"], need_type)
+                    continue
+
+            # 3. Goals (only if no critical needs)
             active_goals = self.sim.goals.get_active_goals(npc.full_name)
             if active_goals and random.random() < 0.8:
                 goal = active_goals[0]  # highest urgency goal
                 npc.current_location = self._goal_to_location(goal, npc)
                 continue
 
-            # 3. Default schedule
+            # 4. Default schedule
             # NOTE: ScheduleSystem already handles default scheduling comprehensively,
             # so we don't need to override it here. Only critical needs and goals
             # should override the schedule system's placement.
-            # self._default_schedule(npc)
+            # NPCs stay at their scheduled location
+
+    def _action_to_need(self, action: str) -> str:
+        """Map action type to need type."""
+        mapping = {
+            "eat": "hunger",
+            "bathroom": "bladder",
+            "shower": "hygiene",
+            "sleep": "energy",
+            "socialize": "social",
+            "fun": "fun",
+            "privacy": "horny",
+        }
+        return mapping.get(action, action)
+
+    def _start_activity(self, npc: "NPC", action: str, need_type: str):
+        """
+        Start an activity for the NPC at their current location.
+        This allows them to satisfy needs without changing location.
+        """
+        sub_location = get_sub_location_for_need(npc.current_location, need_type)
+        if not sub_location:
+            # No specific sub-location, use generic
+            sub_location = npc.current_location
+
+        duration = get_activity_duration(action)
+
+        npc.activity = ActivityState(
+            activity=action,
+            sub_location=sub_location,
+            duration_remaining=duration,
+            satisfying_need=need_type,
+            started_at=self.sim.time.current_time.timestamp() if hasattr(self.sim.time, 'current_time') else 0.0,
+        )
 
     def _resolve_location(self, suggested: str, npc: "NPC") -> str:
         """
