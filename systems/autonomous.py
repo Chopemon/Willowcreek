@@ -53,8 +53,9 @@ class AutonomousSystem:
                 continue
 
             # 2. Goals
-            goal = self.sim.goals.get_highest_priority_goal(npc.full_name)
-            if goal and random.random() < 0.8:
+            active_goals = self.sim.goals.get_active_goals(npc.full_name)
+            if active_goals and random.random() < 0.8:
+                goal = active_goals[0]  # highest urgency goal
                 npc.current_location = self._goal_to_location(goal, npc)
                 continue
 
