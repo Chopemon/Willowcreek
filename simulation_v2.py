@@ -47,6 +47,11 @@ from systems.debug_overlay import DebugOverlay
 from world_snapshot_builder import WorldSnapshotBuilder
 from core.checkpoint_manager import CheckpointManager
 
+# NEW ENHANCED SYSTEMS
+from systems.milestone_tracker import MilestoneTracker
+from systems.personality_engine import PersonalityEngine
+from analysis.simulation_analyzer import SimulationAnalyzer
+
 
 class WillowCreekSimulation:
     def __init__(self, num_npcs: int = 41, start_date: Optional[datetime] = None):
@@ -112,6 +117,11 @@ class WillowCreekSimulation:
         # NEW SYSTEMS
         self.quirks = NPCQuirksSystem(self)
         self.sexual = SexualActivitySystem(self)
+
+        # ENHANCED SYSTEMS (New Features)
+        self.milestones = MilestoneTracker(self)
+        self.personality = PersonalityEngine()
+        self.analyzer = SimulationAnalyzer(self)
 
         # WORLD SNAPSHOT BUILDER - Comprehensive state for AI narrator
         self.snapshot_builder = WorldSnapshotBuilder(self)
@@ -191,6 +201,9 @@ class WillowCreekSimulation:
         # Autonomous sexual & quirk behavior
         self.sexual.try_autonomous_behavior()
 
+        # Update milestone tracker
+        self.milestones.update(self.npcs)
+
     # =====================================================================
     # CLASS METHODS (OUTSIDE OF __INIT__)
     # =====================================================================
@@ -264,6 +277,9 @@ class WillowCreekSimulation:
 
             # Autonomous sexual & quirk behavior
             self.sexual.try_autonomous_behavior()
+
+            # Update milestone tracker
+            self.milestones.update(self.npcs)
 
     def get_statistics(self):
         if self.npcs:
