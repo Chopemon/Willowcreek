@@ -142,3 +142,63 @@ class NarrativeChat:
     def advance_time(self, hours):
         if self.sim:
             self.sim.tick(hours)
+
+    def convert_events_to_narrative(self, events: List[str]) -> str:
+        """Convert system events into flowing narrative prose.
+
+        Takes a list of system events like:
+        '[EMMA REFLEX: Body arches involuntarily...]'
+
+        Returns narrative prose that flows naturally from Malcolm's POV.
+        """
+        if not events:
+            return ""
+
+        # Combine all events into a single batch for context
+        events_text = "\n".join(events)
+
+        # Create a prompt to convert events to narrative
+        system_prompt = (
+            "You are the narrative voice of Willow Creek. Convert the following system events "
+            "into flowing third-person limited prose from Malcolm Newt's perspective. "
+            "Match the atmospheric, observational style of the main narrative. "
+            "Use sensory details and Malcolm's analytical observations. "
+            "Write 2-4 sentences maximum. Never use brackets or [SYSTEM EVENT] markers. "
+            "Make it feel like natural continuation of the story."
+        )
+
+        user_prompt = f"""Current scene context:
+\"\"\"{self.last_narrated}\"\"\"
+
+System events to convert to narrative:
+{events_text}
+
+Convert these events into flowing narrative prose (2-4 sentences), third-person limited from Malcolm's POV."""
+
+        messages = [
+            {"role": "system", "content": system_prompt},
+            {"role": "user", "content": user_prompt}
+        ]
+
+        headers = {"Content-Type": "application/json"}
+        if self.api_key and self.api_key != "NOT_REQUIRED":
+            headers["Authorization"] = f"Bearer {self.api_key}"
+
+        payload = {
+            "model": self.model_name,
+            "messages": messages,
+            "temperature": 0.8,
+            "max_tokens": 300
+        }
+
+        try:
+            res = requests.post(self.api_url, headers=headers, json=payload)
+            if res.status_code != 200:
+                print(f"Event conversion API error: {res.text}")
+                return ""  # Fail silently, don't break the flow
+
+            content = res.json()["choices"][0]["message"]["content"]
+            return content.strip()
+        except Exception as e:
+            print(f"Event conversion error: {e}")
+            return ""  # Fail silently

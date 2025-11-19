@@ -76,11 +76,12 @@ async def process_action(request: Request):
         # Advance time. The tick will populate scenario_buffer with any time-based events.
         chat.advance_time(hours)
         reply = f". {hours} hours pass ."
-        
-        # --- FIXED: Event Reporting for WAIT ---
-        if hasattr(chat.sim, 'scenario_buffer'):
-            for e in chat.sim.scenario_buffer:
-                reply += f"\n\n[SYSTEM EVENT]: {e}"
+
+        # --- Convert events to narrative ---
+        if hasattr(chat.sim, 'scenario_buffer') and chat.sim.scenario_buffer:
+            narrative = chat.convert_events_to_narrative(chat.sim.scenario_buffer)
+            if narrative:
+                reply += f"\n\n{narrative}"
             chat.sim.scenario_buffer.clear() # Clear after reporting
 
     else:
@@ -105,10 +106,11 @@ async def process_action(request: Request):
                 chat.sim.scenario_buffer.append(hint)
         except Exception as e: print(f"Sexual detection failed: {e}")
 
-        # 5. Report events
-        if hasattr(chat.sim, 'scenario_buffer'):
-            for e in chat.sim.scenario_buffer:
-                reply += f"\n\n[SYSTEM EVENT]: {e}"
+        # 5. Convert events to narrative
+        if hasattr(chat.sim, 'scenario_buffer') and chat.sim.scenario_buffer:
+            narrative = chat.convert_events_to_narrative(chat.sim.scenario_buffer)
+            if narrative:
+                reply += f"\n\n{narrative}"
             chat.sim.scenario_buffer.clear() # Clear after reporting
 
     snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
