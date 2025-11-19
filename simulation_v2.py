@@ -154,13 +154,15 @@ class WillowCreekSimulation:
 
         # Update schedules and locations
         self.schedule.update_locations()
-        loc_map = self._build_location_map()
 
         # Core simulation systems
         self.needs.process_needs(self.npcs, time_step_hours)
         self.seasonal.update(self.time)
         self.environmental.check_triggers(self.npcs, self.time)
         self.autonomous.process_all(time_step_hours)
+
+        # Build location map AFTER autonomous system runs (fixes location display bug)
+        loc_map = self._build_location_map()
         self.emotional.spread_emotions(self.npcs)
         self.memory.consolidate_memories(self.time.total_days)
         self.goals.update_all(self.time.total_days)
@@ -231,12 +233,14 @@ class WillowCreekSimulation:
             self.time.advance(time_step_hours)
 
             self.schedule.update_locations()
-            loc_map = self._build_location_map()
 
             self.needs.process_needs(self.npcs, time_step_hours)
             self.seasonal.update(self.time)
             self.environmental.check_triggers(self.npcs, self.time)
             self.autonomous.process_all(time_step_hours)
+
+            # Build location map AFTER autonomous system runs (fixes location display bug)
+            loc_map = self._build_location_map()
             self.emotional.spread_emotions(self.npcs)
             self.memory.consolidate_memories(self.time.total_days)
             self.goals.update_all(self.time.total_days)
