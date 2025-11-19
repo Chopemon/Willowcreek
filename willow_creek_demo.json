@@ -1,0 +1,4157 @@
+{
+  "time": {
+    "current_time": "2025-09-04T08:00:00",
+    "total_days": 4
+  },
+  "npcs": [
+    {
+      "full_name": "Sarah Madison",
+      "age": 26,
+      "gender": "female",
+      "occupation": "Artist, Art Cooperative Owner",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Met David at college",
+        "Struggles to make art profitable"
+      ],
+      "private_secrets": [
+        "Paints late at night",
+        "Uses own body as model"
+      ]
+    },
+    {
+      "full_name": "Scarlet Carter",
+      "age": 38,
+      "gender": "female",
+      "occupation": "School Teacher, Wife, Mother",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Loves teaching",
+        "Grew up in small town",
+        "Balances career and family",
+        "Moved to city after marrying Daniel"
+      ],
+      "private_secrets": [
+        "Wants to be touched by young boys, gives glimpses",
+        "Does not wear undergarments",
+        "Always has tea in morning",
+        "Loves to plan family trips",
+        "Obsessive masturbation"
+      ]
+    },
+    {
+      "full_name": "Steve Kallio",
+      "age": 15,
+      "gender": "female",
+      "occupation": "Lutheran youth, sheltered",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Sheltered",
+        "Naive about girls"
+      ],
+      "private_secrets": [
+        "Prays before meals",
+        "Blushes at compliments"
+      ]
+    },
+    {
+      "full_name": "Tessa",
+      "age": 35,
+      "gender": "female",
+      "occupation": "Single Mother, former athlete",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Former track star",
+        "Separated from Nate 2 years ago",
+        "Raises Milo and Ivy"
+      ],
+      "private_secrets": [
+        "Claps excitedly",
+        "Loses phone frequently",
+        "Forgets to attend courses",
+        "Twirls hair"
+      ]
+    },
+    {
+      "full_name": "Tim Thompson",
+      "age": 17,
+      "gender": "female",
+      "occupation": "Son of Lisa, Brother of Anna, High School Student",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Observes world with unusual intensity",
+        "Analytical mind with dark curiosity",
+        "Struggles with guilt after impulses",
+        "Prone to stammering"
+      ],
+      "private_secrets": [
+        "Analyzes social situations intensely",
+        "Developing photographic skills (for secretive purposes)",
+        "Secretive rituals (internal focus)",
+        "Driven by impulsive actions"
+      ]
+    },
+    {
+      "full_name": "Tom Kunitz",
+      "age": 15,
+      "gender": "female",
+      "occupation": "Mindy's Brother, Comatose",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Loved by Mindy and Caty",
+        "Comatose in hospital for 1 year"
+      ],
+      "private_secrets": [
+        "Unresponsive",
+        "Requires life support"
+      ]
+    },
+    {
+      "full_name": "Agnes Montgomery",
+      "age": 29,
+      "gender": "female",
+      "occupation": "Masseuse, single, professional",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Uses profession to satisfy desires",
+        "Strict upbringing",
+        "Craves taboo",
+        "Became masseuse to get close to young clients"
+      ],
+      "private_secrets": [
+        "Compliments clients seductively",
+        "Secretly desires young boys",
+        "Fiddles with hair when excited",
+        "Touches clients more than necessary"
+      ]
+    },
+    {
+      "full_name": "Alex Sturm",
+      "age": 13,
+      "gender": "female",
+      "occupation": "Son of John and Maria, Brother to Elena",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Steals glances then feels guilt",
+        "Fantasizes during family dinners",
+        "Masturbates in garage after workouts",
+        "Triggered by Maria's unconscious affection",
+        "Grew up with John often away"
+      ],
+      "private_secrets": [
+        "Masturbates in garage after workouts",
+        "Fantasizes about Maria",
+        "Steals glances then feels guilt",
+        "Constant battle between guilt and desire"
+      ]
+    },
+    {
+      "full_name": "Anna Thompson",
+      "age": 7,
+      "gender": "female",
+      "occupation": "Daughter of Lisa, Sister of Tim",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Non-verbal",
+        "Confined to wheelchair",
+        "Adoring gaze toward Tim"
+      ],
+      "private_secrets": [
+        "Requires constant care",
+        "Expresses affection through gaze"
+      ]
+    },
+    {
+      "full_name": "Caty Kunitz",
+      "age": 38,
+      "gender": "female",
+      "occupation": "Mother, Widow, Caretaker",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Mother to Mindy and comatose Tom",
+        "Visits hospital regularly",
+        "Widowed 1 year ago (husband Mike)"
+      ],
+      "private_secrets": [
+        "Supportive of Mindy's interests",
+        "Visits hospital frequently",
+        "takes care of her son's sexual needs",
+        "Shows signs of grief"
+      ]
+    },
+    {
+      "full_name": "Isabella Ruiz",
+      "age": 31,
+      "gender": "female",
+      "occupation": "Yoga Instructor, Lingerie Model, Mother",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Tumultuous childhood",
+        "Divorced due to exhibitionist behavior",
+        "Entered yoga/modeling in teens"
+      ],
+      "private_secrets": [
+        "Enjoys attention from young boys",
+        "Accidentally flashing",
+        "Masturbates daily",
+        "Needs to be center of attention"
+      ]
+    },
+    {
+      "full_name": "Eve Madison",
+      "age": 7,
+      "gender": "female",
+      "occupation": "Child, artist family",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Shy with strangers"
+      ],
+      "private_secrets": [
+        "Hums constantly",
+        "Draws on walls"
+      ]
+    },
+    {
+      "full_name": "Emma Pearson",
+      "age": 18,
+      "gender": "female",
+      "occupation": "High school senior",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Reads erotic fiction",
+        "Fantasizes about math teacher"
+      ],
+      "private_secrets": [
+        "Reads erotica",
+        "Aroused in class",
+        "Masturbates frequently"
+      ]
+    },
+    {
+      "full_name": "Daniel Carter",
+      "age": 40,
+      "gender": "female",
+      "occupation": "Husband of Scarlet, Father",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Strict with Tony",
+        "Married to Scarlet, trusting",
+        "Works long hours to provide",
+        "Supportive of Lianna's art"
+      ],
+      "private_secrets": [
+        "Reads financial news before bed",
+        "Argues with Tony frequently",
+        "Enjoys quiet evenings with Scarlet"
+      ]
+    },
+    {
+      "full_name": "Elena Sturm",
+      "age": 8,
+      "gender": "female",
+      "occupation": "Young child, Sturm family",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Has disability",
+        "Loves Maria's hugs"
+      ],
+      "private_secrets": [
+        "Asks 'why' constantly",
+        "Hides when John angry",
+        "Copies Maria"
+      ]
+    },
+    {
+      "full_name": "Hanna",
+      "age": 17,
+      "gender": "female",
+      "occupation": "Church youth",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Volunteers at events"
+      ],
+      "private_secrets": [
+        "Sings hymns quietly"
+      ]
+    },
+    {
+      "full_name": "Hiro Lockheart",
+      "age": 13,
+      "gender": "female",
+      "occupation": "Son of Kenny, Brother to Penny, Middle School Student",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Mother Sally left when very young",
+        "Close with Penny",
+        "Spends most time playing video games (RPGs/strategy)",
+        "Avoids family conflict by retreating to room"
+      ],
+      "private_secrets": [
+        "Wears headphones nearly constantly",
+        "Speaks mostly in gaming terminology",
+        "Only leaves room for food/bathroom",
+        "Mumbles when forced to interact socially"
+      ]
+    },
+    {
+      "full_name": "Christine Brunn",
+      "age": 35,
+      "gender": "female",
+      "occupation": "Psychiatrist, emotionally guarded",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Estranged from mother",
+        "Father left at 10",
+        "Relocated to Willow Creek",
+        "From NYC"
+      ],
+      "private_secrets": [
+        "Drinks excessively alone",
+        "Bites nails when stressed",
+        "Falls asleep to porn",
+        "Casual sex"
+      ]
+    },
+    {
+      "full_name": "Eva Seinfeld",
+      "age": 10,
+      "gender": "female",
+      "occupation": "Student, single father's daughter",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Obsessed with penises and masturbation",
+        "Father allowed touching his penis since age 3",
+        "Has no knowledge of sexual matters",
+        "Raised by James after mother's death"
+      ],
+      "private_secrets": [
+        "Abuses sleeping people",
+        "Discreet self-touching in public",
+        "Lacks self-discipline",
+        "Difficulty managing emotions"
+      ]
+    },
+    {
+      "full_name": "Damien Voss",
+      "age": 32,
+      "gender": "female",
+      "occupation": "Massage Therapist, New to town",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Moved to legitimize practice",
+        "Licensed in Santa Monica",
+        "Offered 'extras'"
+      ],
+      "private_secrets": [
+        "Offers happy endings to select clients",
+        "Touches silver ring when anxious",
+        "Lights lavender candle"
+      ]
+    },
+    {
+      "full_name": "Kenny Lockheart",
+      "age": 45,
+      "gender": "female",
+      "occupation": "Single Father of Penny and Hiro",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Struggles with grief and single parenthood",
+        "Exhibits inappropriate touching toward Penny",
+        "Deeply loves children",
+        "Wife Sally left when Penny was very young"
+      ],
+      "private_secrets": [
+        "Attempts to be 'cool' or 'understanding'",
+        "Makes awkward, sometimes suggestive comments",
+        "Lingers in conversation/physical contact with Penny",
+        "Often sighs softly (grief)"
+      ]
+    },
+    {
+      "full_name": "Lianna Carter",
+      "age": 16,
+      "gender": "female",
+      "occupation": "Student, writer, guitarist",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Caught Tony changing once",
+        "Writes coded fantasies"
+      ],
+      "private_secrets": [
+        "Touches herself thinking of Tony",
+        "Waits for parents to leave"
+      ]
+    },
+    {
+      "full_name": "Lily Harper",
+      "age": 40,
+      "gender": "female",
+      "occupation": "High-School Art Teacher, Single Mother",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Divorced 2018",
+        "Teaching at Willow Creek High",
+        "Secret addictions"
+      ],
+      "private_secrets": [
+        "Secret chats",
+        "Twists hair",
+        "Nervous laugh",
+        "Compulsive masturbation"
+      ]
+    },
+    {
+      "full_name": "Lisa Thompson",
+      "age": 42,
+      "gender": "female",
+      "occupation": "Single Mother, Teacher, Caregiver",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Widow",
+        "Internal conflict",
+        "Cares for disabled Anna"
+      ],
+      "private_secrets": [
+        "Gives handjobs to male students",
+        "Longing sighs",
+        "Self-soothing escapes",
+        "Subtle sensual undertones"
+      ]
+    },
+    {
+      "full_name": "Ivy",
+      "age": 7,
+      "gender": "female",
+      "occupation": "Child of Tessa",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Picked up by Nate every other weekend",
+        "Left at school once (trauma)",
+        "Lives with Tessa"
+      ],
+      "private_secrets": [
+        "Asks pointed questions",
+        "Organizes toys rigorously",
+        "Watches mother closely"
+      ]
+    },
+    {
+      "full_name": "James Seinfeld",
+      "age": 48,
+      "gender": "female",
+      "occupation": "Police Officer, Single Father",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Widowed after wife's death during Eva's birth",
+        "Dedicated single parent to Eva",
+        "Allowed inappropriate touching by Eva in past"
+      ],
+      "private_secrets": [
+        "Calm demeanor under stress",
+        "Deals with parenting challenges alone",
+        "Treats others with respect"
+      ]
+    },
+    {
+      "full_name": "Ken Blake",
+      "age": 38,
+      "gender": "female",
+      "occupation": "Navy SEAL, Husband, Father",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Strict but caring father",
+        "Struggles with deployment stress",
+        "Married Nina when Nora was 7",
+        "Widowed after Aiko's death"
+      ],
+      "private_secrets": [
+        "Has secret voyeuristic hobby (photos, cloud-stored)",
+        "Eyes linger on women's assets",
+        "Checks homework strictly",
+        "Alpha male among SEALs"
+      ]
+    },
+    {
+      "full_name": "John Sturm",
+      "age": 37,
+      "gender": "female",
+      "occupation": "Oil worker, father",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Caught Alex staring once",
+        "Missed birthdays"
+      ],
+      "private_secrets": [
+        "Squeezes Elena's butt",
+        "Fantasizes about control",
+        "Drinks alone",
+        "Checks Maria's phone"
+      ]
+    },
+    {
+      "full_name": "Lucas Ruiz",
+      "age": 13,
+      "gender": "female",
+      "occupation": "Isabella Ruiz's Son, student, special needs",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Struggles with social norms",
+        "Spies on mother",
+        "Lives with Isabella",
+        "Fascinated by female bodies especially mother's"
+      ],
+      "private_secrets": [
+        "Inappropriate comments",
+        "Takes photos without permission",
+        "Voyeuristic tendencies",
+        "Obsessive observation of women"
+      ]
+    },
+    {
+      "full_name": "Luke Stephens",
+      "age": 13,
+      "gender": "female",
+      "occupation": "Step-brother to Rose, middle school student",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "At odds with Rose but secretly cares",
+        "Dreams of being pro gamer",
+        "Stepsiblings with Rose since age 3",
+        "Secretly spies on women"
+      ],
+      "private_secrets": [
+        "Hides affection for Rose",
+        "Takes photos secretly",
+        "Skateboards",
+        "Voyeuristic tendencies (secret)",
+        "Fidgets a lot"
+      ]
+    },
+    {
+      "full_name": "Nate",
+      "age": 37,
+      "gender": "female",
+      "occupation": "Ex-husband of Tessa",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Separated from Tessa 2 years ago",
+        "Critical of Tessa",
+        "Takes custody every other weekend"
+      ],
+      "private_secrets": [
+        "Makes judgmental comments",
+        "Calls at precise times"
+      ]
+    },
+    {
+      "full_name": "Pastor Naomi",
+      "age": 48,
+      "gender": "female",
+      "occupation": "Lutheran pastor",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Leads youth group"
+      ],
+      "private_secrets": [
+        "masturbates with a massive dildo",
+        "Writes sermons late",
+        "Visits sick"
+      ]
+    },
+    {
+      "full_name": "Rose Stephens",
+      "age": 16,
+      "gender": "female",
+      "occupation": "Step-sister to Luke, high school student",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Sexually naive",
+        "Acts mean but cares deeply",
+        "Stepsiblings with Luke since Luke was 3",
+        "Hides true feelings"
+      ],
+      "private_secrets": [
+        "Bothers Luke constantly",
+        "Tries to show off",
+        "Acts superior",
+        "Fakes dislike for Luke's interests"
+      ]
+    },
+    {
+      "full_name": "Maria Sturm",
+      "age": 34,
+      "gender": "female",
+      "occupation": "Mother, nurse",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "John's long trips",
+        "Accidental touches"
+      ],
+      "private_secrets": [
+        "Hugs linger too long",
+        "Changes in front of window",
+        "Fantasizes about being wanted"
+      ]
+    },
+    {
+      "full_name": "Nina Blake",
+      "age": 25,
+      "gender": "female",
+      "occupation": "Yoga Instructor, Instagram Model, Step-mother",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Distant relationship with step-children",
+        "Has secret affairs during Ken's deployments",
+        "Joined Blake family when Nora was 7",
+        "Yoga instructor and Instagram model"
+      ],
+      "private_secrets": [
+        "Avoids deep interaction with kids",
+        "Posts suggestive content",
+        "Snaps selfies frequently",
+        "Secretive about phone/affairs"
+      ]
+    },
+    {
+      "full_name": "Milo",
+      "age": 4,
+      "gender": "female",
+      "occupation": "Child of Tessa",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Picked up by Nate every other weekend",
+        "Lives with Tessa"
+      ],
+      "private_secrets": [
+        "Mirrors Tessa's moods",
+        "Asks lots of questions",
+        "Constant motion"
+      ]
+    },
+    {
+      "full_name": "Mindy Kunitz",
+      "age": 13,
+      "gender": "female",
+      "occupation": "High School Student, bookworm, clumsy",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Cherishes memories of late father",
+        "Moved to city from small town",
+        "Passionate about reading adult novels",
+        "Does not wear undergarments"
+      ],
+      "private_secrets": [
+        "Clumsy (trips, knocks things over)",
+        "Always reading",
+        "Blushes easily",
+        "Secretive about self-pleasuring"
+      ]
+    },
+    {
+      "full_name": "Nora Blake",
+      "age": 10,
+      "gender": "female",
+      "occupation": "Daughter of Ken, Middle School Student",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Close bond with Michael",
+        "Fascinated by TikTok",
+        "Lost mother at age 3",
+        "Nina joined family at age 7",
+        "Born to Ken and Aiko"
+      ],
+      "private_secrets": [
+        "Sketches dragons",
+        "Clutches blanket when scared/anxious",
+        "Asks wide-eyed questions",
+        "Scrolls TikTok"
+      ]
+    },
+    {
+      "full_name": "Michael Blake",
+      "age": 14,
+      "gender": "female",
+      "occupation": "Son of Ken, High School Student",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Nina's arrival at 11 triggered voyeuristic urges",
+        "Lost mother Aiko at age 7",
+        "Close bond with Nora",
+        "Recent discovery of porn and masturbation"
+      ],
+      "private_secrets": [
+        "Hides phone usage (porn)",
+        "Watches girls (voyeuristic, especially Nina)",
+        "Plays video games (Call of Duty)",
+        "Seeks praise (praise kink - hidden)",
+        "Daydreams"
+      ]
+    },
+    {
+      "full_name": "Maria Kallio",
+      "age": 43,
+      "gender": "female",
+      "occupation": "Lutheran mother, devout",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "15 years solitude",
+        "Mother of Steve"
+      ],
+      "private_secrets": [
+        "Reads Bible alone",
+        "Kneels to pray at night"
+      ]
+    },
+    {
+      "full_name": "Penny Lockheart",
+      "age": 15,
+      "gender": "female",
+      "occupation": "Daughter of Kenny, Sister to Hiro, High School Student, Musician",
+      "home_address": null,
+      "current_location": "Home",
+      "needs": {
+        "hunger": 0,
+        "energy": 0,
+        "bladder": 100,
+        "hygiene": 0,
+        "fun": 0,
+        "social": 0,
+        "horny": 87.59999999999981
+      },
+      "psyche": {
+        "lonely": 100,
+        "frustrated": 0,
+        "horny": 48.60000000000001,
+        "angry": 0,
+        "depressed": 0,
+        "anxious": 0.6000000000000199
+      },
+      "memory_bank": [
+        "Exploring bisexuality",
+        "Passionate about music (BABYMETAL inspired)",
+        "Channels emotions into dark lyrics",
+        "Mother Sally left when very young",
+        "Close friendship with Yuna"
+      ],
+      "private_secrets": [
+        "Fidgets with hair, bites lip (anxiety)",
+        "Voyeuristic thoughts (guilt)",
+        "Stammers frequently",
+        "Craves praise"
+      ]
+    }
+  ],
+  "relationships": {},
+  "goals": {
+    "goals": {
+      "Sarah Madison": {
+        "long_term": [
+          {
+            "goal": "Excel in Artist, Art Cooperative Owner",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Scarlet Carter": {
+        "long_term": [
+          {
+            "goal": "Excel in School Teacher, Wife, Mother",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Steve Kallio": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Tessa": {
+        "long_term": [
+          {
+            "goal": "Excel in Single Mother, former athlete",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Tim Thompson": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Tom Kunitz": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Agnes Montgomery": {
+        "long_term": [
+          {
+            "goal": "Excel in Masseuse, single, professional",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Alex Sturm": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Anna Thompson": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Caty Kunitz": {
+        "long_term": [
+          {
+            "goal": "Excel in Mother, Widow, Caretaker",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Isabella Ruiz": {
+        "long_term": [
+          {
+            "goal": "Excel in Yoga Instructor, Lingerie Model, Mother",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Eve Madison": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Emma Pearson": {
+        "long_term": [
+          {
+            "goal": "Excel in High school senior",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Daniel Carter": {
+        "long_term": [
+          {
+            "goal": "Excel in Husband of Scarlet, Father",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Elena Sturm": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Hanna": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Hiro Lockheart": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Christine Brunn": {
+        "long_term": [
+          {
+            "goal": "Excel in Psychiatrist, emotionally guarded",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Eva Seinfeld": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Damien Voss": {
+        "long_term": [
+          {
+            "goal": "Excel in Massage Therapist, New to town",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Kenny Lockheart": {
+        "long_term": [
+          {
+            "goal": "Excel in Single Father of Penny and Hiro",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Lianna Carter": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Lily Harper": {
+        "long_term": [
+          {
+            "goal": "Excel in High-School Art Teacher, Single Mother",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Lisa Thompson": {
+        "long_term": [
+          {
+            "goal": "Excel in Single Mother, Teacher, Caregiver",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Ivy": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "James Seinfeld": {
+        "long_term": [
+          {
+            "goal": "Excel in Police Officer, Single Father",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Ken Blake": {
+        "long_term": [
+          {
+            "goal": "Excel in Navy SEAL, Husband, Father",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "John Sturm": {
+        "long_term": [
+          {
+            "goal": "Excel in Oil worker, father",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Lucas Ruiz": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Luke Stephens": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Nate": {
+        "long_term": [
+          {
+            "goal": "Excel in Ex-husband of Tessa",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Pastor Naomi": {
+        "long_term": [
+          {
+            "goal": "Excel in Lutheran pastor",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Rose Stephens": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Maria Sturm": {
+        "long_term": [
+          {
+            "goal": "Excel in Mother, nurse",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Nina Blake": {
+        "long_term": [
+          {
+            "goal": "Excel in Yoga Instructor, Instagram Model, Step-mother",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Milo": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Mindy Kunitz": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Nora Blake": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Michael Blake": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      },
+      "Maria Kallio": {
+        "long_term": [
+          {
+            "goal": "Excel in Lutheran mother, devout",
+            "type": "career",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 60,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Achieve financial stability",
+            "type": "financial",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": []
+      },
+      "Penny Lockheart": {
+        "long_term": [
+          {
+            "goal": "Maintain good grades",
+            "type": "academic",
+            "priority": 6,
+            "progress": 0.0,
+            "difficulty": 50,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 365,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          },
+          {
+            "goal": "Improve social status",
+            "type": "social",
+            "priority": 7,
+            "progress": 0.0,
+            "difficulty": 70,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 180,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ],
+        "short_term": [],
+        "daily": [
+          {
+            "goal": "Attend school",
+            "type": "academic",
+            "priority": 8,
+            "progress": 0.0,
+            "difficulty": 10,
+            "obstacles": [],
+            "days_active": 0,
+            "last_attempt_day": 0,
+            "duration": 1,
+            "failing": false,
+            "succeeding": false,
+            "completed": false,
+            "abandoned": false,
+            "method": null,
+            "shame_level": 0,
+            "completion_reward": null,
+            "failure_consequence": null
+          }
+        ]
+      }
+    },
+    "achievements": [],
+    "failures": []
+  },
+  "reputation": {
+    "reputations": {
+      "Sarah Madison": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Scarlet Carter": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Steve Kallio": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Tessa": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Tim Thompson": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Tom Kunitz": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Agnes Montgomery": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Alex Sturm": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Anna Thompson": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Caty Kunitz": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Isabella Ruiz": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Eve Madison": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Emma Pearson": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Daniel Carter": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Elena Sturm": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Hanna": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Hiro Lockheart": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Christine Brunn": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Eva Seinfeld": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Damien Voss": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Kenny Lockheart": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Lianna Carter": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Lily Harper": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Lisa Thompson": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Ivy": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "James Seinfeld": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Ken Blake": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "John Sturm": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Lucas Ruiz": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Luke Stephens": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Nate": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Pastor Naomi": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Rose Stephens": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Maria Sturm": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Nina Blake": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Milo": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Mindy Kunitz": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Nora Blake": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Michael Blake": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Maria Kallio": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      },
+      "Penny Lockheart": {
+        "town_reputation": 50.0,
+        "known_secrets": [],
+        "gossip_about": [],
+        "social_status": "normal"
+      }
+    },
+    "gossip_network": [],
+    "life_events": []
+  },
+  "emotions": {
+    "active_emotions": [
+      {
+        "emotion": "tension",
+        "source": "Alex-Maria-John dynamic",
+        "epicenter": "Sturm House",
+        "affected_people": [
+          "Alex Sturm",
+          "Maria Sturm",
+          "John Sturm",
+          "Elena Sturm"
+        ],
+        "intensity": 8,
+        "chronic": true,
+        "escalating": true
+      },
+      {
+        "emotion": "fear",
+        "source": "Tony's violence",
+        "epicenter": "Carter House",
+        "affected_people": [
+          "Scarlet Carter",
+          "Lianna Carter"
+        ],
+        "intensity": 10,
+        "chronic": true,
+        "escalating": false
+      },
+      {
+        "emotion": "desire",
+        "source": "Nina's unmet sexual needs",
+        "epicenter": "Blake House",
+        "affected_people": [
+          "Nina Blake"
+        ],
+        "intensity": 7,
+        "chronic": false,
+        "escalating": false
+      }
+    ],
+    "household_moods": {
+      "Sturm House": {
+        "primary_mood": "Extreme tension",
+        "intensity": 8,
+        "sources": [
+          "Alex-Maria forbidden attraction",
+          "John's jealousy",
+          "Elena's confusion"
+        ],
+        "atmosphere": "Awkward silences, unspoken conflict"
+      },
+      "Carter House": {
+        "primary_mood": "Fear",
+        "intensity": 10,
+        "sources": [
+          "Tony's violence",
+          "Unpredictable outbursts",
+          "Economic control"
+        ],
+        "atmosphere": "Walking on eggshells, hypervigilance"
+      },
+      "Blake House": {
+        "primary_mood": "Disconnected",
+        "intensity": 6,
+        "sources": [
+          "Nina's affair interest",
+          "Ken's suspicion",
+          "Sexual frustration"
+        ],
+        "atmosphere": "Polite strangers living together"
+      },
+      "Madison House": {
+        "primary_mood": "Stable/Loving",
+        "intensity": 8,
+        "sources": [
+          "David's devotion",
+          "Sarah's contentment"
+        ],
+        "atmosphere": "Warm, safe"
+      }
+    },
+    "group_states": {
+      "High School": {
+        "dominant_mood": "Teenage angst + excitement",
+        "intensity": 7
+      },
+      "Church Community": {
+        "dominant_mood": "Judgmental piety",
+        "intensity": 6
+      },
+      "The Tipsy Stag": {
+        "dominant_mood": "Escapism",
+        "intensity": 6
+      }
+    }
+  },
+  "seasonal": {
+    "cyclical_events": [
+      {
+        "name": "Full Moon",
+        "frequency_days": 28,
+        "last_occurrence": 0,
+        "effects": [
+          "Sleep disruption",
+          "Moods intensified",
+          "Supernatural beliefs activated"
+        ]
+      },
+      {
+        "name": "Payday (1st)",
+        "frequency_days": 30,
+        "last_occurrence": 1,
+        "effects": [
+          "Financial stress relief",
+          "Spending increases",
+          "Scarlet saves portion for escape",
+          "Tony drinks more with money"
+        ]
+      },
+      {
+        "name": "Payday (15th)",
+        "frequency_days": 30,
+        "last_occurrence": 15,
+        "effects": [
+          "Financial stress relief",
+          "Spending increases"
+        ]
+      }
+    ],
+    "active_effects": [
+      "SEASON (autumn): Back-to-routine stress, melancholy"
+    ]
+  },
+  "memory": {
+    "memories": {
+      "Sarah Madison": [],
+      "Scarlet Carter": [],
+      "Steve Kallio": [],
+      "Tessa": [],
+      "Tim Thompson": [],
+      "Tom Kunitz": [],
+      "Agnes Montgomery": [],
+      "Alex Sturm": [],
+      "Anna Thompson": [],
+      "Caty Kunitz": [],
+      "Isabella Ruiz": [],
+      "Eve Madison": [],
+      "Emma Pearson": [],
+      "Daniel Carter": [],
+      "Elena Sturm": [],
+      "Hanna": [],
+      "Hiro Lockheart": [],
+      "Christine Brunn": [],
+      "Eva Seinfeld": [],
+      "Damien Voss": [],
+      "Kenny Lockheart": [],
+      "Lianna Carter": [],
+      "Lily Harper": [],
+      "Lisa Thompson": [],
+      "Ivy": [],
+      "James Seinfeld": [],
+      "Ken Blake": [],
+      "John Sturm": [],
+      "Lucas Ruiz": [],
+      "Luke Stephens": [],
+      "Nate": [],
+      "Pastor Naomi": [],
+      "Rose Stephens": [],
+      "Maria Sturm": [],
+      "Nina Blake": [],
+      "Milo": [],
+      "Mindy Kunitz": [],
+      "Nora Blake": [],
+      "Michael Blake": [],
+      "Maria Kallio": [],
+      "Penny Lockheart": []
+    },
+    "secrets": {
+      "Sarah Madison": [],
+      "Scarlet Carter": [],
+      "Steve Kallio": [],
+      "Tessa": [],
+      "Tim Thompson": [],
+      "Tom Kunitz": [],
+      "Agnes Montgomery": [],
+      "Alex Sturm": [],
+      "Anna Thompson": [],
+      "Caty Kunitz": [],
+      "Isabella Ruiz": [],
+      "Eve Madison": [],
+      "Emma Pearson": [],
+      "Daniel Carter": [],
+      "Elena Sturm": [],
+      "Hanna": [],
+      "Hiro Lockheart": [],
+      "Christine Brunn": [],
+      "Eva Seinfeld": [],
+      "Damien Voss": [],
+      "Kenny Lockheart": [],
+      "Lianna Carter": [],
+      "Lily Harper": [],
+      "Lisa Thompson": [],
+      "Ivy": [],
+      "James Seinfeld": [],
+      "Ken Blake": [],
+      "John Sturm": [],
+      "Lucas Ruiz": [],
+      "Luke Stephens": [],
+      "Nate": [],
+      "Pastor Naomi": [],
+      "Rose Stephens": [],
+      "Maria Sturm": [],
+      "Nina Blake": [],
+      "Milo": [],
+      "Mindy Kunitz": [],
+      "Nora Blake": [],
+      "Michael Blake": [],
+      "Maria Kallio": [],
+      "Penny Lockheart": []
+    }
+  },
+  "environment": {
+    "active_events": [],
+    "event_history_count": 0
+  },
+  "world_state": {
+    "town_name": "Willow Creek",
+    "population": 68,
+    "weather": "Clear and mild"
+  }
+}

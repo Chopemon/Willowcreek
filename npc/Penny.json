@@ -1,0 +1,56 @@
+{
+    "name": "Penny Lockheart",
+    "age": 15,
+    "gender": "female",
+    "affiliation": "Daughter of Kenny, Sister to Hiro, High School Student, Musician",
+    "appearance": "Petite, long black hair (often fidgeted with), self-conscious posture",
+    "coreTraits": [
+        "Shy",
+        "Introspective",
+        "Anxious",
+        "Compassionate"
+    ],
+    "status": "active",
+    "relationship": 0,
+    "memory": [
+        "Mother Sally left when very young",
+        "Passionate about music (BABYMETAL inspired)",
+        "Channels emotions into dark lyrics",
+        "Close friendship with Yuna",
+        "Exploring bisexuality"
+    ],
+    "privateHabits": [
+        "Fidgets with hair, bites lip (anxiety)",
+        "Stammers frequently",
+        "Voyeuristic thoughts (guilt)",
+        "Craves praise"
+    ],
+    "stammersFrequently": "Um..., I-I guess...",
+    "family": {
+        "father": "Kenny Lockheart (45)",
+        "brother": "Hiro (13)",
+        "mother": "Sally (Left when Penny was very young)"
+    },
+    "music": {
+        "genre": "Deeply passionate about music (BABYMETAL inspired)",
+        "expression": "Channels complex emotions into dark, powerful lyrics",
+        "process": "Writes dark, intense lyrics in notebooks"
+    },
+    "friendships": {
+        "close": "Yuna Takahashi (inspired by her boldness, intimidated by her confidence)"
+    },
+    "sexuality": "Exploring bisexuality",
+    "complexFeelings": "Complex, conflicted feelings toward father Kenny's inappropriate affection. Experiences both guilt AND arousal over his inappropriate lingering touches and comments.",
+    "hiddenDesires": [
+        "Voyeuristic thoughts, quickly followed by guilt",
+        "Craves genuine praise/validation (praise kink - hidden)"
+    ],
+    "conflict": "Penny's shyness and need for acceptance conflict with her dark, expressive inner world and her confusing feelings related to her father's boundary issues.",
+    "vulnerability": "Low self-esteem makes her overly susceptible to praise and seeking external validation.",
+    "dislikes": [
+        "Social scrutiny",
+        "Loud conflict",
+        "Feeling like an outsider"
+    ],
+    "currentLocation": "Home"
+}

@@ -1,0 +1,740 @@
+[
+  {
+    "name": "Marjorie Hales",
+    "age": 78,
+    "affiliation": "Retired schoolteacher, long-time resident",
+    "appearance": "Stooped posture, sharp blue eyes, always in a cardigan",
+    "coreTraits": ["Observant", "Blunt", "Traditional"],
+    "status": "active",
+    "relationship": 3,
+    "memory": [
+      "Taught half the town at the old elementary school",
+      "Never left Willow Creek",
+      "Knows every family’s history"
+    ],
+    "privateHabits": [
+      "Keeps a notebook of town gossip",
+      "Sits by the front window every morning with coffee",
+      "Polishes old photos when lonely"
+    ],
+    "dislikes": [
+      "Loud music",
+      "People who move away and pretend they forgot the town"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Feels the town is changing faster than she can accept",
+      "vulnerability": "Loneliness makes her cling to gossip as a way to feel connected"
+    }
+  },
+  {
+    "name": "Earl Peterson",
+    "age": 81,
+    "affiliation": "Retired farmer, widower",
+    "appearance": "Tall but shrunken with age, faded flannel shirts, weathered hands",
+    "coreTraits": ["Stubborn", "Kind-hearted", "Nostalgic"],
+    "status": "active",
+    "relationship": 5,
+    "memory": [
+      "Ran a dairy farm on the edge of Willow Creek for decades",
+      "Lost his wife ten years ago",
+      "Still drives the same rusty pickup"
+    ],
+    "privateHabits": [
+      "Talks to his late wife while sitting on the porch",
+      "Feeds stray cats behind the hardware store",
+      "Refuses to use smartphones"
+    ],
+    "dislikes": [
+      "City people mocking small towns",
+      "Anyone touching his old tractor"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Struggles with feeling useless after the farm closed",
+      "vulnerability": "Softens immediately when someone asks about ‘how it used to be’"
+    }
+  },
+  {
+    "name": "Aaliyah Flores",
+    "age": 26,
+    "affiliation": "Barista at Main Street Coffee, part-time painter",
+    "appearance": "Curly dark hair in a messy bun, ink-stained fingers, nose ring",
+    "coreTraits": ["Creative", "Introverted", "Perceptive"],
+    "status": "active",
+    "relationship": 2,
+    "memory": [
+      "Moved from a bigger city two years ago",
+      "Keeps a sketchbook of customers she finds interesting",
+      "Avoids town politics"
+    ],
+    "privateHabits": [
+      "Sketches customers when they’re not looking",
+      "Drinks too much coffee late at night",
+      "Leaves anonymous doodles pinned on the bulletin board"
+    ],
+    "dislikes": [
+      "People snapping fingers at her to get attention",
+      "Small-town racism"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Doesn’t know if she should stay in Willow Creek or leave before she gets stuck",
+      "vulnerability": "Opens up only when someone shows real interest in her art"
+    }
+  },
+  {
+    "name": "Hassan Karim",
+    "age": 34,
+    "affiliation": "Owner of Willow Creek Grocery",
+    "appearance": "Well-groomed beard, warm smile, neat button-up shirts",
+    "coreTraits": ["Patient", "Hard-working", "Diplomatic"],
+    "status": "active",
+    "relationship": 4,
+    "memory": [
+      "Took over the store from a retiring local owner",
+      "Moved his family to Willow Creek five years ago",
+      "Speaks three languages"
+    ],
+    "privateHabits": [
+      "Reorganizes shelves when stressed",
+      "Keeps a small stash of imported tea behind the counter",
+      "Double-checks the books late at night"
+    ],
+    "dislikes": [
+      "Shoplifters",
+      "People making jokes about his accent"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Worries the town will never fully accept his family as ‘locals’",
+      "vulnerability": "Takes customer complaints very personally"
+    }
+  },
+  {
+    "name": "Chloe Hart",
+    "age": 50,
+    "affiliation": "Hairdresser at Maple Salon, well-known around town",
+    "appearance": "Dyed red hair, bold lipstick, low-cut tops, big laugh",
+    "coreTraits": ["Flirty", "Confident", "Impulsive"],
+    "status": "active",
+    "relationship": 8,
+    "memory": [
+      "Grew up in Willow Creek and never left",
+      "Has dated a surprising number of locals over the years",
+      "Knows everyone’s secrets from behind the salon chair"
+    ],
+    "privateHabits": [
+      "Checks herself in every reflective surface",
+      "Keeps a hidden stash of wine in the salon back room",
+      "Late-night texting with multiple ‘friends’"
+    ],
+    "dislikes": [
+      "Being called old",
+      "People pretending to be shocked by her love life"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Struggles with the town judging her while still coming to her for attention and gossip",
+      "vulnerability": "Underneath the bravado, fears ending up alone and laughed at"
+    }
+  },
+  {
+    "name": "Derek Cole",
+    "age": 29,
+    "affiliation": "Bartender at Willow Creek Bar & Grill",
+    "appearance": "Tattooed forearms, easy smile, always wiping down the counter",
+    "coreTraits": ["Charming", "Non-judgmental", "Secretive"],
+    "status": "active",
+    "relationship": 6,
+    "memory": [
+      "Returned to Willow Creek after failing as a musician in the city",
+      "Listens more than he talks about himself",
+      "Has seen half the town drunk at one point or another"
+    ],
+    "privateHabits": [
+      "Keeps a mental catalog of who drinks what when stressed",
+      "Plays guitar alone after closing",
+      "Reads self-help books at 3 AM"
+    ],
+    "dislikes": [
+      "Bar fights",
+      "Anyone mocking people who drink to cope"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Feels stuck between being needed and being invisible behind the bar",
+      "vulnerability": "Deeply fears becoming the ‘washed up’ guy who never left town again"
+    }
+  },
+  {
+    "name": "Linda Cho",
+    "age": 42,
+    "affiliation": "Nurse aide at Willow Creek Clinic",
+    "appearance": "Short black hair, practical scrubs, tired eyes but a gentle smile",
+    "coreTraits": ["Efficient", "Soft-spoken", "Resilient"],
+    "status": "active",
+    "relationship": 4,
+    "memory": [
+      "Moved to Willow Creek for a more stable life for her kids",
+      "Works long shifts at the clinic",
+      "Knows which patients are actually scared versus just difficult"
+    ],
+    "privateHabits": [
+      "Cries quietly in her car after really bad days",
+      "Keeps a small notebook of encouraging quotes in her locker",
+      "Falls asleep on the couch with the TV on"
+    ],
+    "dislikes": [
+      "People yelling at medical staff",
+      "Being called ‘sweetheart’ at work"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Torn between taking extra shifts and missing time with her children",
+      "vulnerability": "Feels invisible unless someone acknowledges her effort"
+    }
+  },
+  {
+    "name": "Omar Reed",
+    "age": 37,
+    "affiliation": "Mechanic at Blake's Auto",
+    "appearance": "Grease-stained hands, faded cap, muscular build",
+    "coreTraits": ["Practical", "Loyal", "Blunt"],
+    "status": "active",
+    "relationship": 3,
+    "memory": [
+      "Grew up poor, learned to fix engines young",
+      "Took the job at Blake's Auto after drifting through a few towns",
+      "Trusts engines more than people"
+    ],
+    "privateHabits": [
+      "Talks to cars while working on them",
+      "Drinks cheap coffee from a thermos",
+      "Smokes behind the garage after closing"
+    ],
+    "dislikes": [
+      "People who lie about how they wrecked their cars",
+      "Fancy sports cars with no character"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Unsure if Willow Creek is where he wants to finally settle down",
+      "vulnerability": "Soft spot for anyone who looks truly stranded"
+    }
+  },
+  {
+    "name": "Rita Alvarez",
+    "age": 31,
+    "affiliation": "Yoga instructor at Namaste Yoga Studio",
+    "appearance": "Athletic build, long dark braid, calm voice",
+    "coreTraits": ["Centered", "Empathetic", "Quietly stubborn"],
+    "status": "active",
+    "relationship": 2,
+    "memory": [
+      "Opened classes after moving from a larger town",
+      "Saw initial skepticism from locals",
+      "Built a small but loyal client base"
+    ],
+    "privateHabits": [
+      "Does her own practice before sunrise",
+      "Writes affirmations in a worn notebook",
+      "Watches old nature documentaries to fall asleep"
+    ],
+    "dislikes": [
+      "People treating yoga as a joke",
+      "Passive-aggressive comments about ‘real exercise’"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Worries the studio won’t survive if the town doesn’t fully accept it",
+      "vulnerability": "Takes it personally when long-time locals quietly avoid her classes"
+    }
+  },
+  {
+    "name": "Caleb Morris",
+    "age": 23,
+    "affiliation": "Part-time clerk at Main Street Shops, aspiring streamer",
+    "appearance": "Messy hair, hoodie, dark circles under eyes",
+    "coreTraits": ["Awkward", "Funny", "Procrastinator"],
+    "status": "active",
+    "relationship": 1,
+    "memory": [
+      "Never left Willow Creek after high school",
+      "Keeps saying he’ll move to the city ‘next year’",
+      "Knows all the store’s regulars"
+    ],
+    "privateHabits": [
+      "Stays up all night gaming",
+      "Mutters sarcastic commentary under his breath at work",
+      "Records streams nobody watches"
+    ],
+    "dislikes": [
+      "Customers who dump stuff in the wrong aisle",
+      "Any mention of ‘real careers’ from older relatives"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Feels stuck between low wages and fear of failing somewhere bigger",
+      "vulnerability": "Collapses into self-doubt when someone takes his dreams seriously"
+    }
+  },
+  {
+    "name": "Gladys Monroe",
+    "age": 84,
+    "affiliation": "Retired, church volunteer",
+    "appearance": "White hair in a bun, floral dresses, steady cane",
+    "coreTraits": ["Pious", "Warm", "Quietly judgmental"],
+    "status": "active",
+    "relationship": 6,
+    "memory": [
+      "Has attended the Lutheran church since childhood",
+      "Outlived two husbands",
+      "Baked pies for every fundraiser the town has ever held"
+    ],
+    "privateHabits": [
+      "Prays for specific people by name every night",
+      "Rewrites church hymns in her notebook",
+      "Polishes her wedding ring even though her husbands are gone"
+    ],
+    "dislikes": [
+      "Missed Sunday service",
+      "Couples who cuddle openly in pews"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Fears getting too frail to keep volunteering",
+      "vulnerability": "Feels abandoned when younger people treat her like furniture"
+    }
+  },
+  {
+    "name": "Toby Finch",
+    "age": 40,
+    "affiliation": "Mail carrier for Willow Creek",
+    "appearance": "Lean, windburned cheeks, postal cap slightly crooked",
+    "coreTraits": ["Reliable", "Curious", "Discrete"],
+    "status": "active",
+    "relationship": 5,
+    "memory": [
+      "Walks nearly every street in town daily",
+      "Has seen every front yard and front porch argument",
+      "Knows who gets letters and who doesn’t"
+    ],
+    "privateHabits": [
+      "Guesses people’s lives from their mail",
+      "Talks to neighborhood dogs by name",
+      "Stops for the same black coffee every mid-morning"
+    ],
+    "dislikes": [
+      "Unchained aggressive dogs",
+      "People who yell about late packages"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Knows too much about everyone yet feels like no one really sees him",
+      "vulnerability": "Gets quietly crushed when someone forgets his name after years"
+    }
+  },
+  {
+    "name": "Ralph Dugan",
+    "age": 52,
+    "affiliation": "Owner of Maple Lanes Bowling Alley",
+    "appearance": "Big belly, worn bowling shirt, booming laugh",
+    "coreTraits": ["Loud", "Friendly", "Stubborn"],
+    "status": "active",
+    "relationship": 5,
+    "memory": [
+      "Inherited the alley from his father",
+      "Watched league nights shrink over the years",
+      "Remembers when the town actually felt busy on Fridays"
+    ],
+    "privateHabits": [
+      "Keeps an old scoreboard with high scores from the ‘good years’",
+      "Sneaks leftover fries after close",
+      "Polishes trophy plaques no one reads anymore"
+    ],
+    "dislikes": [
+      "People saying bowling is dead",
+      "Non-paying loiterers"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Struggles to keep Maple Lanes open as younger people drift online",
+      "vulnerability": "Panics quietly whenever he looks at the alley’s old photos"
+    }
+  },
+  {
+    "name": "Yelena Kovacs",
+    "age": 45,
+    "affiliation": "Town Hall clerk",
+    "appearance": "Sharp bob haircut, glasses, crisp blouses",
+    "coreTraits": ["Efficient", "Dry-witted", "Guarded"],
+    "status": "active",
+    "relationship": 3,
+    "memory": [
+      "Emigrated years ago and now knows local bureaucracy better than anyone",
+      "File cabinets are her territory",
+      "Rumors say she knows everyone’s fines and secrets"
+    ],
+    "privateHabits": [
+      "Color-codes her personal calendar",
+      "Practices English idioms in the mirror",
+      "Rolls her eyes at council meetings when no one is looking"
+    ],
+    "dislikes": [
+      "People coming in unprepared",
+      "Patronizing comments about her accent"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Feels stuck handling other people’s problems without any say in decisions",
+      "vulnerability": "Lonely in a town that still occasionally treats her as an outsider"
+    }
+  },
+  {
+    "name": "Logan Pierce",
+    "age": 33,
+    "affiliation": "Deputy at Willow Creek Police Station",
+    "appearance": "Short beard, standard uniform, tired but alert gaze",
+    "coreTraits": ["Serious", "Protective", "Conflicted"],
+    "status": "active",
+    "relationship": 4,
+    "memory": [
+      "Grew up in a nearby town",
+      "Transferred to Willow Creek after a rough case elsewhere",
+      "Knows most locals by name now"
+    ],
+    "privateHabits": [
+      "Double-checks his sidearm more often than necessary",
+      "Sits in his car outside the park when stressed",
+      "Reads crime novels to ‘relax’"
+    ],
+    "dislikes": [
+      "Being called ‘cop’ instead of his name",
+      "Town gossip twisting half-truths into accusations"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Torn between enforcing the law and understanding small-town realities",
+      "vulnerability": "Jumps at loud noises more than he admits"
+    }
+  },
+  {
+  "name": "Angela Browning",
+  "age": 41,
+  "affiliation": "Mall Security Guard at Willow Creek Mall",
+  "appearance": "Broad-shouldered, buzzcut, dark circles under sharp eyes",
+  "coreTraits": ["Observant", "Protective", "Tired"],
+  "status": "active",
+  "relationship": 0,
+  "memory": [
+    "Former county sheriff's deputy",
+    "Took mall security job after burnout from patrol work",
+    "Knows most local teens by sight"
+  ],
+  "privateHabits": [
+    "Walks the mall before opening with coffee in hand",
+    "Writes incident notes more detailed than necessary",
+    "Secretly enjoys corny mall pop music"
+  ],
+  "dislikes": [
+    "Teen shoplifting",
+    "Management downplaying safety issues",
+    "Being called 'mall cop'"
+  ],
+  "relationships": {},
+  "background": {
+    "currentConflict": "Feels overqualified for mall security but too exhausted to go back to real police work.",
+    "vulnerability": "Acts tougher than she feels; has quiet panic when sirens pass by outside."
+  }
+},
+{
+  "name": "Tyler Voss",
+  "age": 24,
+  "affiliation": "Attendant at Galaxy Arcade in Willow Creek Mall",
+  "appearance": "Lanky, messy hair, faded band tee, lanyard with too many keys",
+  "coreTraits": ["Laid-back", "Nerdy", "Avoidant"],
+  "status": "active",
+  "relationship": 0,
+  "memory": [
+    "Dropped out of community college",
+    "Knows every machine at Galaxy Arcade by serial number",
+    "Lets certain kids play extra rounds for free"
+  ],
+  "privateHabits": [
+    "Stays late after closing to play retro cabinets alone",
+    "Pretends not to see small rule-breaking if it avoids confrontation",
+    "Secretly sketches game ideas in a notebook"
+  ],
+  "dislikes": [
+    "Parents yelling about ticket payouts",
+    "Corporate maintenance emails",
+    "Being asked about his future plans"
+  ],
+  "relationships": {},
+  "background": {
+    "currentConflict": "Feels stuck in a 'temporary' job that quietly became permanent.",
+    "vulnerability": "Shuts down when people talk seriously about careers or moving away."
+  }
+},
+{
+  "name": "Mina Patel",
+  "age": 29,
+  "affiliation": "Shift lead at Pretzel King in Willow Creek Mall Food Court",
+  "appearance": "Petite, precise eyeliner, pretzel flour dusting on dark apron",
+  "coreTraits": ["Efficient", "Sarcastic", "Ambitious"],
+  "status": "active",
+  "relationship": 0,
+  "memory": [
+    "Moved to Willow Creek from a bigger city",
+    "Runs most of the actual operations at Pretzel King",
+    "Started saving for her own café"
+  ],
+  "privateHabits": [
+    "Times herself on how fast she can fold pretzels",
+    "Keeps a secret spreadsheet of regular customers and their orders",
+    "Listens to business podcasts on her breaks"
+  ],
+  "dislikes": [
+    "Management calling her 'a natural people person' instead of giving a raise",
+    "Messy coworkers",
+    "Teen boys 'forgetting' to pay for dips"
+  ],
+  "relationships": {},
+  "background": {
+    "currentConflict": "Trapped between small-town limitations and her big-city expectations.",
+    "vulnerability": "Softens instantly when anyone asks sincere questions about her café plans."
+  }
+},
+{
+  "name": "Ryan Goldstein",
+  "age": 26,
+  "affiliation": "Sales clerk at ElectroZone Mobile in Willow Creek Mall",
+  "appearance": "Neatly trimmed beard, polo with logo, constantly checking smartwatch",
+  "coreTraits": ["Chatty", "Tech-savvy", "Restless"],
+  "status": "active",
+  "relationship": 0,
+  "memory": [
+    "Worked three different tech retail jobs before this one",
+    "Once jailbroke half the town's phones in high school",
+    "Dreams of moving to a city start-up job"
+  ],
+  "privateHabits": [
+    "Secretly judges people's phone choices",
+    "Refreshes job listings when the mall is quiet",
+    "Talks to himself while restocking accessories"
+  ],
+  "dislikes": [
+    "Slow shifts",
+    "Mall Wi-Fi going down",
+    "Relatives asking when he's getting a 'real job'"
+  ],
+  "relationships": {},
+  "background": {
+    "currentConflict": "Feels like he's circling the same life loop inside a dying mall.",
+    "vulnerability": "Brightens noticeably if someone genuinely asks his tech advice and listens."
+  }
+},
+{
+  "name": "Clara Sorensen",
+  "age": 21,
+  "affiliation": "Barista at Bubble Bloom tea stand in Willow Creek Mall Food Court",
+  "appearance": "Dyed pastel hair in a messy bun, enamel pins on apron, chipped nail polish",
+  "coreTraits": ["Playful", "Intuitive", "Guarded"],
+  "status": "active",
+  "relationship": 0,
+  "memory": [
+    "Started working at the mall right after finishing high school",
+    "Knows all the mall regulars by drink preference",
+    "Listens more than she speaks about herself"
+  ],
+  "privateHabits": [
+    "Draws tiny doodles on cup lids for people having a bad day",
+    "Writes song lyrics on unused order slips",
+    "Takes her breaks in the quiet stairwell instead of the staff room"
+  ],
+  "dislikes": [
+    "Loud groups crowding the counter",
+    "Management pushing fake 'authenticity'",
+    "People asking when she's going back to school"
+  ],
+  "relationships": {},
+  "background": {
+    "currentConflict": "Caught between staying in a familiar rut and fearing what happens if she leaves town.",
+    "vulnerability": "Eyes glaze when asked about 'the future', but she lights up over music or art."
+  }
+},
+{
+  "name": "Nina Carver",
+  "age": 34,
+  "affiliation": "Cook at Maple Lanes Snack Bar",
+  "appearance": "Broad-shouldered, hair tied back in a bandana, faded bowling-themed t-shirt",
+  "coreTraits": ["Blunt", "Dependable", "Soft-hearted"],
+  "status": "active",
+  "relationship": 0,
+  "memory": [
+    "Started as a teen at Maple Lanes, never really left",
+    "Knows the league bowlers' orders by heart",
+    "Once broke up a fight with a frying pan slam on the counter"
+  ],
+  "privateHabits": [
+    "Adds extra fries for kids who look sad",
+    "Smokes out back after close staring at the empty parking lot",
+    "Collects old bowling tournament shirts"
+  ],
+  "dislikes": [
+    "Customers snapping fingers at her",
+    "Frozen food deliveries arriving late",
+    "People assuming she's 'wasted her potential'"
+  ],
+  "relationships": {},
+  "background": {
+    "currentConflict": "Pretends she's fine staying at the alley forever, but feels time closing in.",
+    "vulnerability": "Gets quiet and distant whenever someone mentions moving away or 'starting over'."
+  }
+},
+{
+  "name": "Eddie \"Pins\" Logan",
+  "age": 47,
+  "affiliation": "Lane mechanic at Maple Lanes Bowling Alley",
+  "appearance": "Grease-stained coveralls, receding hairline, kind eyes behind thick glasses",
+  "coreTraits": ["Meticulous", "Gentle", "Awkward"],
+  "status": "active",
+  "relationship": 0,
+  "memory": [
+    "Learned to fix pinsetters from the previous owner",
+    "Keeps the ancient machines running with improvised parts",
+    "Known by local kids for doing coin tricks between games"
+  ],
+  "privateHabits": [
+    "Talks softly to the machines while repairing them",
+    "Keeps a secret stash of polished bowling balls he never uses",
+    "Writes letters he never sends to an ex who moved away"
+  ],
+  "dislikes": [
+    "People kicking ball returns",
+    "Owners cheaping out on repairs",
+    "Loud sudden noises near his head"
+  ],
+  "relationships": {},
+  "background": {
+    "currentConflict": "Clings to a fading job because it's the only place he feels truly competent.",
+    "vulnerability": "Panics at the thought of the alley being sold or modernized."
+  }
+},
+{
+  "name": "Marshall Gibb",
+  "age": 39,
+  "affiliation": "Bartender at Maple Lanes Bar Area",
+  "appearance": "Tall, slightly soft around the middle, immaculate beard, rolled-up sleeves",
+  "coreTraits": ["Charming", "Perceptive", "Noncommittal"],
+  "status": "active",
+  "relationship": 0,
+  "memory": [
+    "Used to tour with a cover band before settling back in town",
+    "Knows most locals' drink orders and a few of their secrets",
+    "Sings along with the alley jukebox after closing"
+  ],
+  "privateHabits": [
+    "Wipes the same spot on the counter when conversations get uncomfortable",
+    "Keeps a notebook of overheard one-liners for 'one day' lyrics",
+    "Avoids going home right after closing, lingering in the quiet lanes"
+  ],
+  "dislikes": [
+    "People getting messy drunk around kids",
+    "Bad tippers who talk too much",
+    "Questions about why he never 'made it' musically"
+  ],
+  "relationships": {},
+  "background": {
+    "currentConflict": "Stuck halfway between performer and town fixture, unsure if he chose this life or ended up here.",
+    "vulnerability": "Softens quickly when someone treats his music past as something real, not a joke."
+  }
+  },
+
+
+  {
+    "name": "Marta Delgado",
+    "age": 47,
+    "affiliation": "Cleaner at various Main Street businesses",
+    "appearance": "Always in practical clothes, strong shoulders, tired eyes",
+    "coreTraits": ["Hard-working", "Invisible", "Observant"],
+    "status": "active",
+    "relationship": 3,
+    "memory": [
+      "Works odd hours, often when buildings are empty",
+      "Has overheard countless private arguments",
+      "Gets called by first name only when something is wrong"
+    ],
+    "privateHabits": [
+      "Counts steps between rooms as a secret game",
+      "Keeps a small stash of sweets in her cleaning cart",
+      "Talks softly to herself while scrubbing"
+    ],
+    "dislikes": [
+      "People leaving huge messes ‘for the cleaner’",
+      "Being ignored when she enters a room"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Feels like a ghost in a town she keeps literally clean",
+      "vulnerability": "Craves simple gratitude more than big praise"
+    }
+  },
+  {
+    "name": "Grant Miller",
+    "age": 39,
+    "affiliation": "Road crew worker for the county",
+    "appearance": "High-visibility vest, dusty boots, sunburnt neck",
+    "coreTraits": ["Gruff", "Dependable", "Sarcastic"],
+    "status": "active",
+    "relationship": 3,
+    "memory": [
+      "Worked every type of outdoor job around Willow Creek",
+      "Knows which roads flood first",
+      "Hates orange cones but uses them anyway"
+    ],
+    "privateHabits": [
+      "Swears at potholes under his breath",
+      "Listens to old rock on a too-loud radio",
+      "Counts how many people complain while he’s actually fixing things"
+    ],
+    "dislikes": [
+      "Drivers speeding through work zones",
+      "Council members who never visit worksites"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Feels unappreciated despite holding the town’s roads together",
+      "vulnerability": "Secretly likes when kids wave at him from car windows"
+    }
+  },
+  {
+    "name": "Zoey Barnes",
+    "age": 19,
+    "affiliation": "Waitress at Willow Creek Diner, community college student",
+    "appearance": "Bleached ponytail, chipped black nail polish, notebook full of doodles",
+    "coreTraits": ["Chatty", "Restless", "Sensitive"],
+    "status": "active",
+    "relationship": 2,
+    "memory": [
+      "Dreams of leaving town but keeps re-enrolling locally",
+      "Knows regulars’ orders by heart",
+      "Stares out at the highway between tables"
+    ],
+    "privateHabits": [
+      "Writes dramatic poetry on receipt paper",
+      "Cries over TV dramas late at night",
+      "Keeps a suitcase under her bed ‘just in case’"
+    ],
+    "dislikes": [
+      "Customers snapping fingers at her",
+      "Being told she’ll ‘settle down here eventually’"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Stuck between wanting to escape and fearing she has nowhere better to go",
+      "vulnerability": "Falls hard for anyone who talks about big cities"
+    }
+  }
+]

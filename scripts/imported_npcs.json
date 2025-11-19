@@ -1,0 +1,1642 @@
+[
+  {
+    "full_name": "Agnes Montgomery",
+    "first_name": "Agnes",
+    "last_name": "Montgomery",
+    "age": 29,
+    "gender": "female",
+    "home_address": "Unknown",
+    "current_location": "home",
+    "occupation": "Masseuse (Harmony Studio)",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 6.057998,
+      "conscientiousness": 2.765398,
+      "extroversion": 5.917399,
+      "agreeableness": 4.564211,
+      "neuroticism": 3.089375
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.264227"
+  },
+  {
+    "full_name": "Alex Sturm",
+    "first_name": "Alex",
+    "last_name": "Sturm",
+    "age": 13,
+    "gender": "male",
+    "home_address": "Oak St",
+    "current_location": "home",
+    "occupation": "Student",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 5.921722,
+      "conscientiousness": 3.632084,
+      "extroversion": 4.431862,
+      "agreeableness": 5.034675,
+      "neuroticism": 6.020667
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.264227"
+  },
+  {
+    "full_name": "Anna Thompson",
+    "first_name": "Anna",
+    "last_name": "Thompson",
+    "age": 7,
+    "gender": "female",
+    "home_address": "204 Maple Ave",
+    "current_location": "home",
+    "occupation": "Student",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 2.971923,
+      "conscientiousness": 5.192811,
+      "extroversion": 2.801187,
+      "agreeableness": 5.843211,
+      "neuroticism": 5.588983
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.265230"
+  },
+  {
+    "full_name": "Caty Kunitz",
+    "first_name": "Caty",
+    "last_name": "Kunitz",
+    "age": 38,
+    "gender": "female",
+    "home_address": "309 Pine Way",
+    "current_location": "home",
+    "occupation": "Housewife",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 5.748576,
+      "conscientiousness": 5.484173,
+      "extroversion": 3.900886,
+      "agreeableness": 6.124186,
+      "neuroticism": 4.907549
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.265230"
+  },
+  {
+    "full_name": "Christine Brunn",
+    "first_name": "Christine",
+    "last_name": "Brunn",
+    "age": 35,
+    "gender": "female",
+    "home_address": "Unknown",
+    "current_location": "home",
+    "occupation": "Psychiatrist (Magnolia Clinic)",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 4.775016,
+      "conscientiousness": 4.176607,
+      "extroversion": 4.689979,
+      "agreeableness": 4.657863,
+      "neuroticism": 6.170034
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.266234"
+  },
+  {
+    "full_name": "Damien Voss",
+    "first_name": "Damien",
+    "last_name": "Voss",
+    "age": 32,
+    "gender": "female",
+    "home_address": "Unknown",
+    "current_location": "home",
+    "occupation": "Massage Therapist (Harmony Studio)",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 3.811608,
+      "conscientiousness": 5.535343,
+      "extroversion": 4.856076,
+      "agreeableness": 7.174954,
+      "neuroticism": 1.197441
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.266234"
+  },
+  {
+    "full_name": "Daniel Carter",
+    "first_name": "Daniel",
+    "last_name": "Carter",
+    "age": 40,
+    "gender": "male",
+    "home_address": "202 Maple Ave",
+    "current_location": "home",
+    "occupation": "Resident",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 7.076722,
+      "conscientiousness": 5.374249,
+      "extroversion": 6.173101,
+      "agreeableness": 4.91938,
+      "neuroticism": 0.059126
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.266234"
+  },
+  {
+    "full_name": "David Madison",
+    "first_name": "David",
+    "last_name": "Madison",
+    "age": 31,
+    "gender": "male",
+    "home_address": "307 Pine Way",
+    "current_location": "home",
+    "occupation": "Librarian",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 3.172179,
+      "conscientiousness": 7.609628,
+      "extroversion": 4.286066,
+      "agreeableness": 4.698538,
+      "neuroticism": 3.533432
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.267237"
+  },
+  {
+    "full_name": "Elena Sturm",
+    "first_name": "Elena",
+    "last_name": "Sturm",
+    "age": 8,
+    "gender": "male",
+    "home_address": "103 Oak St",
+    "current_location": "home",
+    "occupation": "Resident",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 4.77808,
+      "conscientiousness": 4.892756,
+      "extroversion": 7.201276,
+      "agreeableness": 6.546128,
+      "neuroticism": 3.419717
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.267237"
+  },
+  {
+    "full_name": "Emma Pearson",
+    "first_name": "Emma",
+    "last_name": "Pearson",
+    "age": 18,
+    "gender": "female",
+    "home_address": "Unknown",
+    "current_location": "home",
+    "occupation": "Resident",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 5.519786,
+      "conscientiousness": 5.136038,
+      "extroversion": 5.278208,
+      "agreeableness": 7.68057,
+      "neuroticism": 5.204506
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.268241"
+  },
+  {
+    "full_name": "Eva Seinfeld",
+    "first_name": "Eva",
+    "last_name": "Seinfeld",
+    "age": 10,
+    "gender": "male",
+    "home_address": "406 Willow Creek Dr",
+    "current_location": "home",
+    "occupation": "Student",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 9.421709,
+      "conscientiousness": 3.833774,
+      "extroversion": 3.667416,
+      "agreeableness": 5.388822,
+      "neuroticism": 2.745773
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.268241"
+  },
+  {
+    "full_name": "Eve Madison",
+    "first_name": "Eve",
+    "last_name": "Madison",
+    "age": 7,
+    "gender": "male",
+    "home_address": "307 Pine Way",
+    "current_location": "home",
+    "occupation": "Resident",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 4.443848,
+      "conscientiousness": 4.671076,
+      "extroversion": 2.900594,
+      "agreeableness": 6.808634,
+      "neuroticism": 3.859837
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.268241"
+  },
+  {
+    "full_name": "Hanna",
+    "first_name": "Hanna",
+    "last_name": "",
+    "age": 17,
+    "gender": "male",
+    "home_address": "Unknown",
+    "current_location": "home",
+    "occupation": "Resident",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 8.966239,
+      "conscientiousness": 5.221869,
+      "extroversion": 5.252222,
+      "agreeableness": 7.466593,
+      "neuroticism": 4.678163
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.269247"
+  },
+  {
+    "full_name": "Hiro Lockheart",
+    "first_name": "Hiro",
+    "last_name": "Lockheart",
+    "age": 13,
+    "gender": "male",
+    "home_address": "305 Pine Way",
+    "current_location": "home",
+    "occupation": "Student",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 5.974322,
+      "conscientiousness": 6.910792,
+      "extroversion": 1.940493,
+      "agreeableness": 2.861907,
+      "neuroticism": 4.116606
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.269247"
+  },
+  {
+    "full_name": "Isabella Ruiz",
+    "first_name": "Isabella",
+    "last_name": "Ruiz",
+    "age": 31,
+    "gender": "female",
+    "home_address": "303 Pine Way",
+    "current_location": "home",
+    "occupation": "Yoga Instructor/Lingerie Model",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 4.41388,
+      "conscientiousness": 5.282292,
+      "extroversion": 6.083676,
+      "agreeableness": 4.334482,
+      "neuroticism": 2.115413
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.270251"
+  },
+  {
+    "full_name": "Ivy",
+    "first_name": "Ivy",
+    "last_name": "",
+    "age": 7,
+    "gender": "female",
+    "home_address": "Unknown",
+    "current_location": "home",
+    "occupation": "Resident",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 5.672223,
+      "conscientiousness": 4.853331,
+      "extroversion": 5.199515,
+      "agreeableness": 7.104568,
+      "neuroticism": 4.591684
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.270251"
+  },
+  {
+    "full_name": "James Seinfeld",
+    "first_name": "James",
+    "last_name": "Seinfeld",
+    "age": 48,
+    "gender": "male",
+    "home_address": "406 Willow Creek Dr",
+    "current_location": "home",
+    "occupation": "Police Chief (WCPD)",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 5.791376,
+      "conscientiousness": 4.306206,
+      "extroversion": 7.081746,
+      "agreeableness": 8.29698,
+      "neuroticism": 6.268231
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.270251"
+  },
+  {
+    "full_name": "John Sturm",
+    "first_name": "John",
+    "last_name": "Sturm",
+    "age": 37,
+    "gender": "male",
+    "home_address": "103 Oak St",
+    "current_location": "home",
+    "occupation": "Oil worker",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 5.68886,
+      "conscientiousness": 4.959588,
+      "extroversion": 1.771676,
+      "agreeableness": 4.281529,
+      "neuroticism": 7.853676
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.271256"
+  },
+  {
+    "full_name": "Ken Blake",
+    "first_name": "Ken",
+    "last_name": "Blake",
+    "age": 38,
+    "gender": "male",
+    "home_address": "301 Pine Way",
+    "current_location": "home",
+    "occupation": "Navy SEAL",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 5.576158,
+      "conscientiousness": 5.321059,
+      "extroversion": 3.711724,
+      "agreeableness": 5.427711,
+      "neuroticism": 7.347707
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.271256"
+  },
+  {
+    "full_name": "Kenny Lockheart",
+    "first_name": "Kenny",
+    "last_name": "Lockheart",
+    "age": 45,
+    "gender": "male",
+    "home_address": "305 Pine Way",
+    "current_location": "home",
+    "occupation": "Resident",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 3.675212,
+      "conscientiousness": 5.656972,
+      "extroversion": 8.774854,
+      "agreeableness": 4.792014,
+      "neuroticism": 5.007393
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.272332"
+  },
+  {
+    "full_name": "Lianna Carter",
+    "first_name": "Lianna",
+    "last_name": "Carter",
+    "age": 16,
+    "gender": "male",
+    "home_address": "202 Maple Ave",
+    "current_location": "home",
+    "occupation": "Student",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 3.621182,
+      "conscientiousness": 8.044797,
+      "extroversion": 2.278454,
+      "agreeableness": 4.210481,
+      "neuroticism": 0.0
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.272332"
+  },
+  {
+    "full_name": "Lily Harper",
+    "first_name": "Lily",
+    "last_name": "Harper",
+    "age": 40,
+    "gender": "female",
+    "home_address": "Unknown",
+    "current_location": "home",
+    "occupation": "Art Teacher",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 3.003545,
+      "conscientiousness": 5.058408,
+      "extroversion": 6.320375,
+      "agreeableness": 7.704491,
+      "neuroticism": 5.761949
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.272332"
+  },
+  {
+    "full_name": "Lisa Thompson",
+    "first_name": "Lisa",
+    "last_name": "Thompson",
+    "age": 42,
+    "gender": "male",
+    "home_address": "204 Maple Ave",
+    "current_location": "home",
+    "occupation": "Teacher/Caregiver",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 3.043871,
+      "conscientiousness": 5.970489,
+      "extroversion": 3.590821,
+      "agreeableness": 2.593961,
+      "neuroticism": 4.01673
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.273336"
+  },
+  {
+    "full_name": "Lucas Ruiz",
+    "first_name": "Lucas",
+    "last_name": "Ruiz",
+    "age": 13,
+    "gender": "male",
+    "home_address": "303 Pine Way",
+    "current_location": "home",
+    "occupation": "Resident",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 1.486138,
+      "conscientiousness": 5.629727,
+      "extroversion": 3.673544,
+      "agreeableness": 3.446005,
+      "neuroticism": 2.583739
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.273336"
+  },
+  {
+    "full_name": "Luke Stephens",
+    "first_name": "Luke",
+    "last_name": "Stephens",
+    "age": 13,
+    "gender": "male",
+    "home_address": "404 Willow Creek Dr",
+    "current_location": "home",
+    "occupation": "Student",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 4.222817,
+      "conscientiousness": 7.132833,
+      "extroversion": 3.347538,
+      "agreeableness": 0.881854,
+      "neuroticism": 2.119284
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.273336"
+  },
+  {
+    "full_name": "Maria Sturm",
+    "first_name": "Maria",
+    "last_name": "Sturm",
+    "age": 34,
+    "gender": "female",
+    "home_address": "103 Oak St",
+    "current_location": "home",
+    "occupation": "Nurse",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 5.159021,
+      "conscientiousness": 2.453538,
+      "extroversion": 6.613227,
+      "agreeableness": 4.096231,
+      "neuroticism": 3.174728
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.274338"
+  },
+  {
+    "full_name": "Maria Kallio",
+    "first_name": "Maria",
+    "last_name": "Kallio",
+    "age": 43,
+    "gender": "female",
+    "home_address": "408 Willow Creek Dr",
+    "current_location": "home",
+    "occupation": "Housewife",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 5.5443,
+      "conscientiousness": 2.769135,
+      "extroversion": 5.360254,
+      "agreeableness": 4.691087,
+      "neuroticism": 5.377513
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.274338"
+  },
+  {
+    "full_name": "Michael Blake",
+    "first_name": "Michael",
+    "last_name": "Blake",
+    "age": 14,
+    "gender": "male",
+    "home_address": "301 Pine Way",
+    "current_location": "home",
+    "occupation": "Student",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 6.921442,
+      "conscientiousness": 6.030231,
+      "extroversion": 4.302896,
+      "agreeableness": 5.870573,
+      "neuroticism": 3.318629
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.274338"
+  },
+  {
+    "full_name": "Milo",
+    "first_name": "Milo",
+    "last_name": "",
+    "age": 4,
+    "gender": "male",
+    "home_address": "Unknown",
+    "current_location": "home",
+    "occupation": "Resident",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 10.0,
+      "conscientiousness": 5.177143,
+      "extroversion": 3.728626,
+      "agreeableness": 4.907271,
+      "neuroticism": 5.814719
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.275343"
+  },
+  {
+    "full_name": "Mindy Kunitz",
+    "first_name": "Mindy",
+    "last_name": "Kunitz",
+    "age": 13,
+    "gender": "male",
+    "home_address": "309 Pine Way",
+    "current_location": "home",
+    "occupation": "Student",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 8.397626,
+      "conscientiousness": 2.35084,
+      "extroversion": 3.499344,
+      "agreeableness": 6.659551,
+      "neuroticism": 6.685826
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.275343"
+  },
+  {
+    "full_name": "Pastor Naomi",
+    "first_name": "Pastor",
+    "last_name": "Naomi",
+    "age": 48,
+    "gender": "male",
+    "home_address": "Unknown",
+    "current_location": "home",
+    "occupation": "Lutheran Pastor",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 2.298692,
+      "conscientiousness": 4.510182,
+      "extroversion": 5.65821,
+      "agreeableness": 5.641902,
+      "neuroticism": 5.177226
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.276363"
+  },
+  {
+    "full_name": "Nate",
+    "first_name": "Nate",
+    "last_name": "",
+    "age": 37,
+    "gender": "male",
+    "home_address": "Unknown",
+    "current_location": "home",
+    "occupation": "Resident",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 5.055773,
+      "conscientiousness": 2.200112,
+      "extroversion": 5.395717,
+      "agreeableness": 5.930637,
+      "neuroticism": 4.826364
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.276363"
+  },
+  {
+    "full_name": "Nina Blake",
+    "first_name": "Nina",
+    "last_name": "Blake",
+    "age": 25,
+    "gender": "female",
+    "home_address": "301 Pine Way",
+    "current_location": "home",
+    "occupation": "Yoga Instructor/Instagram Model",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 7.540616,
+      "conscientiousness": 4.557853,
+      "extroversion": 2.825484,
+      "agreeableness": 4.946932,
+      "neuroticism": 3.681625
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.277366"
+  },
+  {
+    "full_name": "Nora Blake",
+    "first_name": "Nora",
+    "last_name": "Blake",
+    "age": 10,
+    "gender": "male",
+    "home_address": "301 Pine Way",
+    "current_location": "home",
+    "occupation": "Student",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 6.453029,
+      "conscientiousness": 5.809579,
+      "extroversion": 6.526335,
+      "agreeableness": 6.626052,
+      "neuroticism": 4.362293
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.277366"
+  },
+  {
+    "full_name": "Rose Stephens",
+    "first_name": "Rose",
+    "last_name": "Stephens",
+    "age": 16,
+    "gender": "male",
+    "home_address": "404 Willow Creek Dr",
+    "current_location": "home",
+    "occupation": "Student",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 2.24518,
+      "conscientiousness": 4.045137,
+      "extroversion": 5.086368,
+      "agreeableness": 6.156302,
+      "neuroticism": 3.412674
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.277366"
+  },
+  {
+    "full_name": "Sarah Madison",
+    "first_name": "Sarah",
+    "last_name": "Madison",
+    "age": 26,
+    "gender": "female",
+    "home_address": "307 Pine Way",
+    "current_location": "home",
+    "occupation": "Artist/Art Cooperative Owner",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 9.846821,
+      "conscientiousness": 1.454484,
+      "extroversion": 5.495245,
+      "agreeableness": 4.220168,
+      "neuroticism": 8.370815
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.278370"
+  },
+  {
+    "full_name": "Scarlet Carter",
+    "first_name": "Scarlet",
+    "last_name": "Carter",
+    "age": 38,
+    "gender": "female",
+    "home_address": "202 Maple Ave",
+    "current_location": "home",
+    "occupation": "School teacher",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 2.09624,
+      "conscientiousness": 4.515064,
+      "extroversion": 3.086978,
+      "agreeableness": 3.815988,
+      "neuroticism": 4.717954
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.278370"
+  },
+  {
+    "full_name": "Steve Kallio",
+    "first_name": "Steve",
+    "last_name": "Kallio",
+    "age": 15,
+    "gender": "male",
+    "home_address": "408 Willow Creek Dr",
+    "current_location": "home",
+    "occupation": "Resident",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 3.525369,
+      "conscientiousness": 4.409851,
+      "extroversion": 4.733595,
+      "agreeableness": 5.787005,
+      "neuroticism": 3.306472
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.278370"
+  },
+  {
+    "full_name": "Tessa",
+    "first_name": "Tessa",
+    "last_name": "",
+    "age": 35,
+    "gender": "female",
+    "home_address": "Unknown",
+    "current_location": "home",
+    "occupation": "Housewife",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 3.837472,
+      "conscientiousness": 4.46671,
+      "extroversion": 10.0,
+      "agreeableness": 5.907896,
+      "neuroticism": 5.831447
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.279376"
+  },
+  {
+    "full_name": "Tim Thompson",
+    "first_name": "Tim",
+    "last_name": "Thompson",
+    "age": 17,
+    "gender": "male",
+    "home_address": "204 Maple Ave",
+    "current_location": "home",
+    "occupation": "Student",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 2.736164,
+      "conscientiousness": 1.876853,
+      "extroversion": 4.112482,
+      "agreeableness": 7.700437,
+      "neuroticism": 4.234316
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.279376"
+  },
+  {
+    "full_name": "Tom Kunitz",
+    "first_name": "Tom",
+    "last_name": "Kunitz",
+    "age": 15,
+    "gender": "male",
+    "home_address": "309 Pine Way",
+    "current_location": "home",
+    "occupation": "Resident",
+    "birth_month": 1,
+    "birth_day": 1,
+    "personality": {
+      "openness": 6.982211,
+      "conscientiousness": 6.538088,
+      "extroversion": 2.014219,
+      "agreeableness": 7.993174,
+      "neuroticism": 5.37925
+    },
+    "needs": {
+      "hunger": 0.0,
+      "social": 0.0,
+      "sleep": 0.0,
+      "hygiene": 0.0,
+      "entertainment": 0.0
+    },
+    "psych_state": {
+      "drunk": 0.0,
+      "lonely": 0.0,
+      "frustrated": 0.0,
+      "horny": 0.0,
+      "angry": 0.0,
+      "depressed": 0.0,
+      "anxious": 0.0
+    },
+    "relationship_ids": [],
+    "current_goal": null,
+    "schedule": {},
+    "last_interaction_day": 0,
+    "created_at": "2025-11-15T22:37:20.280379"
+  }
+]

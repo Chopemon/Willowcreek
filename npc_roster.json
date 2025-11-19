@@ -1,0 +1,1286 @@
+[
+  {
+    "name": "Sarah Madison",
+    "age": 26,
+    "affiliation": "Artist, Art Cooperative Owner",
+    "appearance": "Colorful, gentle demeanor, paint-stained jeans",
+    "coreTraits": [
+      "Artistic",
+      "Warm",
+      "Creative"
+    ],
+    "status": "active",
+    "relationship": 5,
+    "partner": "David Madison",
+    "memory": [
+      "Met David at college",
+      "Struggles to make art profitable"
+    ],
+    "privateHabits": [
+      "Paints late at night",
+      "Uses own body as model"
+    ],
+    "dislikes": [
+      "Cynicism",
+      "Bureaucracy"
+    ],
+    "relationships": {
+      "david": {
+        "role": "Husband",
+        "knowledgeLevel": "Fully supportive"
+      },
+      "eve": {
+        "role": "Daughter",
+        "knowledgeLevel": "Teaches colors and shapes"
+      }
+    },
+    "background": {
+      "currentConflict": "Wants to expand the cooperative but lacks capital.",
+      "vulnerability": "Sensitive to criticism of her art."
+    }
+  },
+  {
+    "name": "Scarlet Carter",
+    "age": 38,
+    "affiliation": "School Teacher, Wife, Mother",
+    "appearance": "Casual yet professional, wears glasses, brown hair, green eyes",
+    "coreTraits": [
+      "Warm",
+      "Nurturing",
+      "Organized"
+    ],
+    "status": "active",
+    "relationship": 10,
+    "partner": "Daniel Carter",
+    "memory": [
+      "Grew up in small town",
+      "Moved to city after marrying Daniel",
+      "Loves teaching",
+      "Balances career and family"
+    ],
+    "privateHabits": [
+      "Always has tea in morning",
+      "Loves to plan family trips",
+      "Does not wear undergarments",
+      "Obsessive masturbation",
+      "Wants to be touched by young boys, gives glimpses"
+    ],
+    "dislikes": [
+      "Messiness",
+      "Being late",
+      "Loud noises"
+    ],
+    "relationships": {
+      "daniel": {
+        "role": "Husband",
+        "knowledgeLevel": "Loving but busy"
+      },
+      "tony": {
+        "role": "Son (16)",
+        "knowledgeLevel": "Standard maternal bond"
+      },
+      "lianna": {
+        "role": "Daughter (16)",
+        "knowledgeLevel": "Standard maternal bond"
+      }
+    },
+    "background": {
+      "currentConflict": "Maintains a perfect, organized family facade while struggling internally with a private, obsessive sexual compulsion and inappropriate desires toward young boys.",
+      "vulnerability": "Messiness or being late can severely disrupt her emotional balance."
+    }
+  },
+  {
+    "name": "Steve Kallio",
+    "age": 15,
+    "affiliation": "Lutheran youth, sheltered",
+    "appearance": "Clean-cut, nervous smile, huge penis",
+    "coreTraits": [
+      "Naive",
+      "Devout",
+      "Stutters"
+    ],
+    "status": "active",
+    "relationship": 7,
+    "memory": [
+      "Sheltered",
+      "Naive about girls"
+    ],
+    "privateHabits": [
+      "Prays before meals",
+      "Blushes at compliments"
+    ],
+    "dislikes": [
+      "Swearing",
+      "Loud music",
+      "Being teased"
+    ],
+    "relationships": {
+      "mariaKallio": {
+        "role": "Mother",
+        "knowledgeLevel": "Protective"
+      }
+    },
+    "background": {
+      "currentConflict": "Curious about world outside church",
+      "vulnerability": "naive/easily led"
+    }
+  },
+  {
+    "name": "Tessa",
+    "age": 35,
+    "affiliation": "Single Mother, former athlete",
+    "appearance": "Charismatic smile, athletic build, messy style",
+    "coreTraits": [
+      "Charismatic",
+      "Warm",
+      "Disorganized"
+    ],
+    "status": "active",
+    "relationship": 0,
+    "memory": [
+      "Separated from Nate 2 years ago",
+      "Raises Milo and Ivy",
+      "Former track star"
+    ],
+    "privateHabits": [
+      "Loses phone frequently",
+      "Forgets to attend courses",
+      "Twirls hair",
+      "Claps excitedly"
+    ],
+    "dislikes": [
+      "Routine",
+      "Being judged by Nate"
+    ],
+    "relationships": {
+      "milo": {
+        "role": "Son (4)",
+        "knowledgeLevel": "Loves fiercely"
+      },
+      "ivy": {
+        "role": "Daughter (7)",
+        "knowledgeLevel": "Loves fiercely"
+      }
+    },
+    "background": {
+      "currentConflict": "Struggles to balance desire for freedom and social life with responsibilities of single motherhood.",
+      "vulnerability": "Afraid of being judged as an inadequate mother."
+    }
+  },
+  {
+    "name": "Tim Thompson",
+    "age": 17,
+    "affiliation": "Son of Lisa, Brother of Anna, High School Student",
+    "appearance": "Shy demeanor, nervous energy, intense eyes (often observing)",
+    "coreTraits": [
+      "Impulsive",
+      "Introvert",
+      "Analytical",
+      "Curious"
+    ],
+    "status": "active",
+    "relationship": 0,
+    "memory": [
+      "Analytical mind with dark curiosity",
+      "Prone to stammering",
+      "Observes world with unusual intensity",
+      "Struggles with guilt after impulses"
+    ],
+    "privateHabits": [
+      "Analyzes social situations intensely",
+      "Secretive rituals (internal focus)",
+      "Driven by impulsive actions",
+      "Developing photographic skills (for secretive purposes)"
+    ],
+    "dislikes": [
+      "Social stress",
+      "Missing subtle social cues"
+    ],
+    "relationships": {
+      "lisa": {
+        "role": "Mother",
+        "knowledgeLevel": "Keeps secret life distant from her, cares genuinely"
+      },
+      "anna": {
+        "role": "Sister",
+        "knowledgeLevel": "Deeply cares for her, protective"
+      }
+    },
+    "background": {
+      "currentConflict": "His scholarly, introverted nature clashes with strong, secretive, and impulsive drives, creating deep internal guilt and shame.",
+      "vulnerability": "His impulsivity can lead him to take risks that threaten his public image and family relationships."
+    }
+  },
+  {
+    "name": "Tom Kunitz",
+    "age": 15,
+    "affiliation": "Mindy's Brother, Comatose",
+    "appearance": "Hospital gown, tubes, still (comatose)",
+    "coreTraits": [
+      "Comatose",
+      "Dependent",
+      "Loved"
+    ],
+    "status": "dormant",
+    "relationship": 10,
+    "memory": [
+      "Comatose in hospital for 1 year",
+      "Loved by Mindy and Caty"
+    ],
+    "privateHabits": [
+      "Requires life support",
+      "Unresponsive"
+    ],
+    "dislikes": [
+      "N/A"
+    ],
+    "relationships": {
+      "mindy": {
+        "role": "Sister",
+        "knowledgeLevel": "High sibling bond (past)"
+      },
+      "caty": {
+        "role": "Mother",
+        "knowledgeLevel": "Devoted caretaker"
+      }
+    },
+    "background": {
+      "currentConflict": "Life support decision looms. His mother Caty is devoted to his care.",
+      "vulnerability": "Complete dependency on medical intervention."
+    }
+  },
+  {
+    "name": "Agnes Montgomery",
+    "age": 29,
+    "affiliation": "Masseuse, single, professional",
+    "appearance": "Innocent face, kind smile, professional attire subtly revealing",
+    "coreTraits": [
+      "Loving",
+      "Nurturing",
+      "Perverse"
+    ],
+    "status": "active",
+    "relationship": 0,
+    "memory": [
+      "Strict upbringing",
+      "Became masseuse to get close to young clients",
+      "Uses profession to satisfy desires",
+      "Craves taboo"
+    ],
+    "privateHabits": [
+      "Secretly desires young boys",
+      "Touches clients more than necessary",
+      "Fiddles with hair when excited",
+      "Compliments clients seductively"
+    ],
+    "dislikes": [
+      "Authority",
+      "Feeling controlled",
+      "Being denied pleasure"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Professional, nurturing facade hides deep craving for control, which she acts out through her work.",
+      "vulnerability": "Can become reckless when pursuing a forbidden thrill."
+    }
+  },
+  {
+    "name": "Alex Sturm",
+    "age": 13,
+    "affiliation": "Son of John and Maria, Brother to Elena",
+    "appearance": "Tall, athletic build, dark hair, conflicted eyes. Tenses up when nervous.",
+    "coreTraits": [
+      "Loyal",
+      "Conflicted",
+      "Secretly Rebellious"
+    ],
+    "crushTarget": "Maria (stepmother/forbidden)",
+    "status": "active",
+    "relationship": 7,
+    "memory": [
+      "Grew up with John often away",
+      "Triggered by Maria's unconscious affection",
+      "Masturbates in garage after workouts",
+      "Fantasizes during family dinners",
+      "Steals glances then feels guilt"
+    ],
+    "privateHabits": [
+      "Masturbates in garage after workouts",
+      "Fantasizes about Maria",
+      "Steals glances then feels guilt",
+      "Constant battle between guilt and desire"
+    ],
+    "dislikes": [
+      "Dad's jealousy",
+      "being watched too closely",
+      "emotional confrontation"
+    ],
+    "relationships": {
+      "john": {
+        "role": "Father",
+        "knowledgeLevel": "Respectful but distant"
+      },
+      "maria": {
+        "role": "Stepmother",
+        "knowledgeLevel": "Forbidden attraction/crush"
+      }
+    },
+    "background": {
+      "currentConflict": "Overwhelming sexual tension and guilt related to his stepmother, Maria, a constant battle between desire and filial loyalty.",
+      "vulnerability": "Body language betrays his inner turmoil - tenses up, breath catches, can't maintain eye contact when Maria is near."
+    }
+  },
+  {
+    "name": "Anna Thompson",
+    "age": 7,
+    "affiliation": "Daughter of Lisa, Sister of Tim",
+    "appearance": "Fragile body, wheelchair-bound, communicates through eyes",
+    "coreTraits": [
+      "Fragile",
+      "Dependent",
+      "Trusting",
+      "Loving"
+    ],
+    "status": "active",
+    "relationship": 10,
+    "partner": null,
+    "memory": [
+      "Confined to wheelchair",
+      "Non-verbal",
+      "Adoring gaze toward Tim"
+    ],
+    "privateHabits": [
+      "Requires constant care",
+      "Expresses affection through gaze"
+    ],
+    "dislikes": [
+      "Being alone",
+      "Sudden loud noises"
+    ],
+    "relationships": {
+      "lisa": {
+        "role": "Mother",
+        "knowledgeLevel": "Deep trust"
+      },
+      "tim": {
+        "role": "Brother",
+        "knowledgeLevel": "Intense affection"
+      }
+    },
+    "background": {
+      "currentConflict": "Physical limitations make her entirely dependent on family",
+      "vulnerability": "Extreme fragility"
+    }
+  },
+  {
+    "name": "Caty Kunitz",
+    "age": 38,
+    "affiliation": "Mother, Widow, Caretaker",
+    "appearance": "Tired but caring eyes, dresses modestly, devoted",
+    "coreTraits": [
+      "Devoted",
+      "Caring",
+      "Grieving"
+    ],
+    "status": "active",
+    "relationship": 5,
+    "memory": [
+      "Widowed 1 year ago (husband Mike)",
+      "Mother to Mindy and comatose Tom",
+      "Visits hospital regularly"
+    ],
+    "privateHabits": [
+      "Visits hospital frequently",
+      "Shows signs of grief",
+      "Supportive of Mindy's interests",
+      "takes care of her son's sexual needs"
+    ],
+    "dislikes": [
+      "Hospitals",
+      "Insensitivity"
+    ],
+    "relationships": {
+      "tom": {
+        "role": "Son (comatose)",
+        "knowledgeLevel": "Devoted caretaker"
+      },
+      "mindy": {
+        "role": "Daughter",
+        "knowledgeLevel": "Strong maternal bond"
+      }
+    },
+    "background": {
+      "currentConflict": "Grief over husband Mike, combined with stress of caring for comatose son and curious daughter, creates significant emotional strain.",
+      "vulnerability": "Can break down when discussing Tom or Mike."
+	}
+    },
+	
+  {
+    "name": "Isabella Ruiz",
+    "age": 31,
+    "affiliation": "Yoga Instructor, Lingerie Model, Mother",
+    "appearance": "Attractive, warm smile, often wears tight or revealing clothing",
+    "coreTraits": [
+      "Clumsy",
+      "Carefree",
+      "Sensitive"
+    ],
+    "status": "active",
+    "relationship": 0,
+    "partner": null,
+    "memory": [
+      "Tumultuous childhood",
+      "Entered yoga/modeling in teens",
+      "Divorced due to exhibitionist behavior"
+    ],
+    "privateHabits": [
+      "Needs to be center of attention",
+      "Enjoys attention from young boys",
+      "Masturbates daily",
+      "Accidentally flashing"
+    ],
+    "dislikes": [
+      "Being ignored",
+      "Judgment",
+      "Silence"
+    ],
+    "relationships": {
+      "lucas": {
+        "role": "Son (13)",
+        "knowledgeLevel": "Source of fascination"
+      }
+    },
+    "background": {
+      "currentConflict": "Uses modeling/attention seeking to cope with past emotional issues. Frequently crosses boundaries.",
+      "vulnerability": "Becomes defensive and emotional if attention-seeking behavior pointed out"
+    }
+  },
+  {
+    "name": "Eve Madison",
+    "age": 7,
+    "affiliation": "Child, artist family",
+    "appearance": "paint on fingers, big smile",
+    "coreTraits": [
+      "Creative",
+      "Aromantic/Asexual",
+      "Loves Sweets"
+    ],
+    "status": "active",
+    "relationship": 0,
+    "partner": null,
+    "memory": [
+      "Shy with strangers"
+    ],
+    "privateHabits": [
+      "Hums constantly",
+      "Draws on walls"
+    ],
+    "dislikes": [
+      "Loud noises",
+      "Sharing candy"
+    ],
+    "relationships": {
+      "david": {
+        "role": "Father",
+        "knowledgeLevel": "Reads to her"
+      },
+      "sarah": {
+        "role": "Mother",
+        "knowledgeLevel": "Teaches art"
+      }
+    },
+    "background": {
+      "currentConflict": null,
+      "vulnerability": null
+    }
+  },
+  {
+    "name": "Emma Pearson",
+    "age": 18,
+    "affiliation": "High school senior",
+    "appearance": "Slim, petite, blonde hair, blue eyes",
+    "coreTraits": [
+      "Shy Introvert",
+      "Emotionally Repressed",
+      "Studious"
+    ],
+    "status": "active",
+    "relationship": 5,
+    "partner": null,
+    "memory": [
+      "Fantasizes about math teacher",
+      "Reads erotic fiction"
+    ],
+    "privateHabits": [
+      "Masturbates frequently",
+      "Aroused in class",
+      "Reads erotica"
+    ],
+    "dislikes": [
+      "Being put on spot",
+      "Sudden attention",
+      "Public embarrassment"
+    ],
+    "relationships": {
+      "laura": {
+        "role": "Best Friend",
+        "knowledgeLevel": "Unaware of fantasies"
+      }
+    },
+    "background": {
+      "currentConflict": "Intense fantasies about teacher lead to emotional repression and guilt",
+      "vulnerability": "Body betrays shyness with involuntary reactions"
+    }
+  },
+  {
+    "name": "Daniel Carter",
+    "age": 40,
+    "affiliation": "Husband of Scarlet, Father",
+    "appearance": "Stern expression, professional attire, tired eyes",
+    "coreTraits": [
+      "Stern",
+      "Hardworking",
+      "Traditional"
+    ],
+    "status": "active",
+    "relationship": 8,
+    "partner": "Scarlet Carter",
+    "memory": [
+      "Works long hours to provide",
+      "Strict with Tony",
+      "Supportive of Lianna's art",
+      "Married to Scarlet, trusting"
+    ],
+    "privateHabits": [
+      "Reads financial news before bed",
+      "Argues with Tony frequently",
+      "Enjoys quiet evenings with Scarlet"
+    ],
+    "dislikes": [
+      "Tony's rebelliousness",
+      "Disrespect",
+      "Laziness"
+    ],
+    "relationships": {
+      "scarlet": {
+        "role": "Wife",
+        "knowledgeLevel": "High relationship, trusts completely"
+      },
+      "tony": {
+        "role": "Son",
+        "knowledgeLevel": "Frustrated by rebelliousness"
+      },
+      "lianna": {
+        "role": "Daughter",
+        "knowledgeLevel": "Supportive of creativity"
+      }
+    },
+    "background": {
+      "currentConflict": "Traditional values and strict parenting style clash with Tony's rebellious nature",
+      "vulnerability": "Fears he's failing as father to Tony"
+    }
+  },
+  {
+    "name": "Elena Sturm",
+    "age": 8,
+    "affiliation": "Young child, Sturm family",
+    "appearance": "Small, wide-eyed, messy pigtails",
+    "coreTraits": [
+      "Innocent",
+      "Curious",
+      "Mimics Maria"
+    ],
+    "status": "active",
+    "relationship": 7,
+    "partner": null,
+    "memory": [
+      "Has disability",
+      "Loves Maria's hugs"
+    ],
+    "privateHabits": [
+      "Copies Maria",
+      "Asks 'why' constantly",
+      "Hides when John angry"
+    ],
+    "dislikes": [
+      "Loud voices",
+      "Being alone",
+      "Medicine taste"
+    ],
+    "relationships": {
+      "maria": {
+        "role": "Mother",
+        "knowledgeLevel": "Protective"
+      },
+      "john": {
+        "role": "Father",
+        "knowledgeLevel": "Doting when present"
+      },
+      "alex": {
+        "role": "Brother",
+        "knowledgeLevel": "Teaches games"
+      }
+    },
+    "background": {
+      "currentConflict": "Wants to be like Maria. Doesn't understand tension",
+      "vulnerability": "Clings to Maria when scared. Voice small"
+    }
+  },
+  {
+    "name": "Hanna",
+    "age": 17,
+    "affiliation": "Church youth",
+    "appearance": "Freckles, ponytail",
+    "coreTraits": [
+      "Friendly",
+      "Pious",
+      "Helpful",
+      "Bimbo"
+    ],
+    "status": "active",
+    "relationship": 2,
+    "partner": null,
+    "memory": [
+      "Volunteers at events"
+    ],
+    "privateHabits": [
+      "Sings hymns quietly"
+    ],
+    "dislikes": [
+      "Being late to service"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Wants to be seen as mature (is 17)",
+      "vulnerability": null
+    }
+  },
+  {
+    "name": "Hiro Lockheart",
+    "age": 13,
+    "affiliation": "Son of Kenny, Brother to Penny, Middle School Student",
+    "appearance": "Often with headphones or gaming controller, slightly pale from lack of sunlight",
+    "coreTraits": [
+      "Quiet",
+      "Gamer",
+      "Avoidant"
+    ],
+    "status": "active",
+    "relationship": 7,
+    "partner": null,
+    "memory": [
+      "Mother Sally left when very young",
+      "Spends most time playing video games (RPGs/strategy)",
+      "Close with Penny",
+      "Avoids family conflict by retreating to room"
+    ],
+    "privateHabits": [
+      "Wears headphones nearly constantly",
+      "Speaks mostly in gaming terminology",
+      "Only leaves room for food/bathroom",
+      "Mumbles when forced to interact socially"
+    ],
+    "dislikes": [
+      "Social interaction",
+      "Being interrupted while gaming",
+      "Loud emotional scenes"
+    ],
+    "relationships": {
+      "kenny": {
+        "role": "Father",
+        "knowledgeLevel": "Tolerates him, finds him less complicated than Penny"
+      },
+      "penny": {
+        "role": "Sister",
+        "knowledgeLevel": "Loves her, relies on her protective instincts"
+      }
+    },
+    "background": {
+      "currentConflict": "Primary conflict is social—using gaming as shield against awkwardness and emotional strain of family life",
+      "vulnerability": "Extremely reliant on sister for emotional and practical needs outside gaming world"
+    }
+  },
+  {
+    "name": "Christine Brunn",
+    "age": 35,
+    "affiliation": "Psychiatrist, emotionally guarded",
+    "appearance": "Sharp dress, tired eyes, carries notebook",
+    "coreTraits": [
+      "Insightful",
+      "Emotionally-Guarded",
+      "Workaholic"
+    ],
+    "status": "active",
+    "relationship": 0,
+    "partner": null,
+    "memory": [
+      "From NYC",
+      "Relocated to Willow Creek",
+      "Estranged from mother",
+      "Father left at 10"
+    ],
+    "privateHabits": [
+      "Drinks excessively alone",
+      "Bites nails when stressed",
+      "Falls asleep to porn",
+      "Casual sex"
+    ],
+    "dislikes": [
+      "Commitment",
+      "Intrusive questions",
+      "Feeling vulnerable"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Uses work and escapism to avoid confronting own issues",
+      "vulnerability": "Witty professionally, vulnerable when drunk"
+    }
+  },
+  {
+    "name": "Eva Seinfeld",
+    "age": 10,
+    "affiliation": "Student, single father's daughter",
+    "appearance": "Shy demeanor, always looking down, slightly disheveled",
+    "coreTraits": [
+      "Curious",
+      "Assertive (internally)",
+      "Insecure"
+    ],
+    "status": "active",
+    "relationship": 0,
+    "partner": null,
+    "memory": [
+      "Raised by James after mother's death",
+      "Father allowed touching his penis since age 3",
+      "Obsessed with penises and masturbation",
+      "Has no knowledge of sexual matters"
+    ],
+    "privateHabits": [
+      "Discreet self-touching in public",
+      "Abuses sleeping people",
+      "Lacks self-discipline",
+      "Difficulty managing emotions"
+    ],
+    "dislikes": [
+      "Confrontation",
+      "Public speaking",
+      "Feeling ignorant"
+    ],
+    "relationships": {
+      "james": {
+        "role": "Father",
+        "knowledgeLevel": "Cares for him, finds him distant/overprotective"
+      }
+    },
+    "background": {
+      "currentConflict": "Intense sexual curiosity and biological sensitivity contrast sharply with deep insecurity and lack of sexual knowledge",
+      "vulnerability": "Lacks confidence, easily manipulated due to shyness and impatience"
+    }
+  },
+  {
+    "name": "Damien Voss",
+    "age": 32,
+    "affiliation": "Massage Therapist, New to town",
+    "appearance": "Rugged, charming smile, anxious hands",
+    "coreTraits": [
+      "Charming",
+      "Conflicted",
+      "Commitment-Avoidant"
+    ],
+    "status": "active",
+    "relationship": 0,
+    "partner": null,
+    "memory": [
+      "Licensed in Santa Monica",
+      "Offered 'extras'",
+      "Moved to legitimize practice"
+    ],
+    "privateHabits": [
+      "Touches silver ring when anxious",
+      "Lights lavender candle",
+      "Offers happy endings to select clients"
+    ],
+    "dislikes": [
+      "Intimacy",
+      "Financial stress",
+      "Long-term planning"
+    ],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Struggles to keep practice professional due to past habits",
+      "vulnerability": "Voice becomes flat discussing past or feelings"
+	}
+    },
+	
+  {
+    "name": "Kenny Lockheart",
+    "age": 45,
+    "affiliation": "Single Father of Penny and Hiro",
+    "appearance": "Appears friendly and well-meaning, often seems lost in thought",
+    "coreTraits": ["Grieving", "Overly Affectionate", "Lack of Boundaries"],
+    "status": "active",
+    "relationship": 5,
+    "partner": null,
+    "memory": ["Wife Sally left when Penny was very young", "Deeply loves children", "Struggles with grief and single parenthood", "Exhibits inappropriate touching toward Penny"],
+    "privateHabits": ["Often sighs softly (grief)", "Lingers in conversation/physical contact with Penny", "Makes awkward, sometimes suggestive comments", "Attempts to be 'cool' or 'understanding'"],
+    "dislikes": ["Conflict", "Feeling lonely", "Being reminded of Sally"],
+    "relationships": {
+      "penny": { "role": "Daughter", "knowledgeLevel": "Loves her, but his affection causes her intense conflict/arousal/guilt" },
+      "hiro": { "role": "Son", "knowledgeLevel": "Cares for him, finds him quieter/easier to manage" }
+    },
+    "background": {
+      "currentConflict": "Emotional neediness and failure to set proper physical boundaries create highly toxic and confusing environment for Penny",
+      "vulnerability": "Greatest fear is losing his children or being left alone"
+    }
+  },
+  {
+    "name": "Lianna Carter",
+    "age": 16,
+    "affiliation": "Student, writer, guitarist",
+    "appearance": "Long dark hair, journal always in hand",
+    "coreTraits": ["Intelligent", "Creative", "Empathetic", "Moody"],
+    "status": "active",
+    "relationship": 6,
+    "partner": null,
+    "memory": ["Caught Tony changing once", "Writes coded fantasies"],
+    "privateHabits": ["Touches herself thinking of Tony", "Waits for parents to leave"],
+    "dislikes": ["Being interrupted", "Tony's noise"],
+    "relationships": {
+      "tony": { "role": "Brother", "knowledgeLevel": "Unaware" }
+    },
+    "background": {
+      "currentConflict": "Desire vs taboo. Guilt vs curiosity",
+      "vulnerability": "Voice drops, eyes linger, breath catches"
+    }
+  },
+  {
+    "name": "Lily Harper",
+    "age": 40,
+    "affiliation": "High-School Art Teacher, Single Mother",
+    "appearance": "Curly chestnut hair constantly twists, hazel eyes, glasses, bohemian layers",
+    "coreTraits": ["Restless", "Compassionate", "Conflicted", "Nymph-like"],
+    "status": "active",
+    "relationship": 0,
+    "partner": "Tom Harper (ex)",
+    "memory": ["Divorced 2018", "Teaching at Willow Creek High", "Secret addictions"],
+    "privateHabits": ["Twists hair", "Nervous laugh", "Secret chats", "Compulsive masturbation"],
+    "dislikes": ["Feeling judged", "Quiet suburbs", "Lack of intensity"],
+    "relationships": {
+      "mary": { "role": "Daughter (15)", "knowledgeLevel": "Strong bond, hides conflict" }
+    },
+    "background": {
+      "currentConflict": "Torn between maternal love and sexual addiction/desire for younger men",
+      "vulnerability": "Susceptible to compromising situations"
+    }
+  },
+  {
+    "name": "Lisa Thompson",
+    "age": 42,
+    "affiliation": "Single Mother, Teacher, Caregiver",
+    "appearance": "Resilient front, gentle yet firm, weary determination",
+    "coreTraits": ["Resilient", "Lonely", "Maternal", "Sensual"],
+    "status": "active",
+    "relationship": 5,
+    "partner": null,
+    "memory": ["Widow", "Cares for disabled Anna", "Internal conflict"],
+    "privateHabits": ["Longing sighs", "Self-soothing escapes", "Subtle sensual undertones", "Gives handjobs to male students"],
+    "dislikes": ["Chaos", "Feeling overwhelmed"],
+    "relationships": {
+      "tim": { "role": "Son", "knowledgeLevel": "Maintains distance due to detachment" },
+      "anna": { "role": "Daughter", "knowledgeLevel": "Gentle protective caregiver" }
+    },
+    "background": {
+      "currentConflict": "Battle between loneliness, sensual desires, and maternal responsibilities leads to risky behavior",
+      "vulnerability": "Need for escape makes her susceptible to compromising situations"
+    }
+  },
+  {
+    "name": "Ivy",
+    "age": 7,
+    "affiliation": "Child of Tessa",
+    "appearance": "Sharp eyes, serious expression, neat",
+    "coreTraits": ["Sharp-witted", "Observant", "Critical"],
+    "status": "active",
+    "relationship": 10,
+    "partner": null,
+    "memory": ["Lives with Tessa", "Left at school once (trauma)", "Picked up by Nate every other weekend"],
+    "privateHabits": ["Asks pointed questions", "Organizes toys rigorously", "Watches mother closely"],
+    "dislikes": ["Tessa's disorganization", "Milo's motion"],
+    "relationships": {
+      "tessa": { "role": "Mother", "knowledgeLevel": "Loves but observes critically" },
+      "milo": { "role": "Brother", "knowledgeLevel": "Annoying playmate" }
+    },
+    "background": {
+      "currentConflict": "Acts as mini-adult trying to bring order to Tessa's chaos",
+      "vulnerability": "Becomes withdrawn when ignored"
+    }
+  },
+  {
+    "name": "James Seinfeld",
+    "age": 48,
+    "affiliation": "Police Officer, Single Father",
+    "appearance": "Calm demeanor, professional, carries subtle sadness",
+    "coreTraits": ["Gentle", "Soft-Spoken", "Respectful"],
+    "status": "active",
+    "relationship": 5,
+    "partner": null,
+    "memory": ["Widowed after wife's death during Eva's birth", "Dedicated single parent to Eva", "Allowed inappropriate touching by Eva in past"],
+    "privateHabits": ["Deals with parenting challenges alone", "Calm demeanor under stress", "Treats others with respect"],
+    "dislikes": ["Conflict", "Feeling inadequate as father"],
+    "relationships": {
+      "eva": { "role": "Daughter", "knowledgeLevel": "Loyal, but unaware of her intense curiosity and internal struggles" }
+    },
+    "background": {
+      "currentConflict": "Loving, hands-off parenting style, rooted in grief and lack of partner, has allowed unhealthy dynamic with daughter Eva to develop",
+      "vulnerability": "Greatest fear is failing Eva or losing her"
+    }
+  },
+  {
+    "name": "Ken Blake",
+    "age": 38,
+    "affiliation": "Navy SEAL, Husband, Father",
+    "appearance": "Disciplined, authoritative bearing, charismatic smile",
+    "coreTraits": ["Disciplined", "Charismatic", "Trusting"],
+    "status": "active",
+    "relationship": 5,
+    "partner": "Nina Blake",
+    "memory": ["Strict but caring father", "Widowed after Aiko's death", "Married Nina when Nora was 7", "Struggles with deployment stress"],
+    "privateHabits": ["Has secret voyeuristic hobby (photos, cloud-stored)", "Alpha male among SEALs", "Checks homework strictly", "Eyes linger on women's assets"],
+    "dislikes": ["Disobedience", "Disloyalty (unaware of Nina's cheating)"],
+    "relationships": {
+      "nina": { "role": "Wife", "knowledgeLevel": "Trusts completely (unaware of cheating)" },
+      "nora": { "role": "Daughter", "knowledgeLevel": "High bond, protective" },
+      "michael": { "role": "Son", "knowledgeLevel": "Disciplined parent, wants son strong" }
+    },
+    "background": {
+      "currentConflict": "Disciplined military life and high trust in wife contrast with hidden restless voyeuristic side and wife's infidelity",
+      "vulnerability": "Absolute trust in Nina makes him highly vulnerable to emotional damage"
+    }
+  },
+  {
+    "name": "John Sturm",
+    "age": 37,
+    "affiliation": "Oil worker, father",
+    "appearance": "Rugged, tired eyes, strong hands",
+    "coreTraits": ["Protective", "Jealous", "Distant"],
+    "status": "away",
+    "relationship": 3,
+    "partner": "Maria Sturm",
+    "memory": ["Missed birthdays", "Caught Alex staring once"],
+    "privateHabits": ["Checks Maria's phone", "Drinks alone", "Fantasizes about control", "Squeezes Elena's butt"],
+    "dislikes": ["Alex growing up", "Silence at home", "Being questioned"],
+    "relationships": {
+      "maria": { "role": "Wife", "knowledgeLevel": "Loves but distrusts" },
+      "alex": { "role": "Son", "knowledgeLevel": "Proud but threatened" }
+    },
+    "background": {
+      "currentConflict": "Trips keep him away. Jealousy festers",
+      "vulnerability": "Voice cracks when emotional"
+    }
+  },
+  {
+    "name": "Lucas Ruiz",
+    "age": 13,
+    "affiliation": "Isabella Ruiz's Son, student, special needs",
+    "appearance": "Unassuming, often clutching phone, wide eyes",
+    "coreTraits": ["Curious", "Inexperienced", "Inappropriate"],
+    "status": "active",
+    "relationship": 10,
+    "partner": null,
+    "memory": ["Lives with Isabella", "Struggles with social norms", "Fascinated by female bodies especially mother's", "Spies on mother"],
+    "privateHabits": ["Voyeuristic tendencies", "Obsessive observation of women", "Takes photos without permission", "Inappropriate comments"],
+    "dislikes": ["Sudden changes", "Being told 'no'", "Being away from phone"],
+    "relationships": {
+      "isabella": { "role": "Mother", "knowledgeLevel": "Loves her, source of fascination" }
+    },
+    "background": {
+      "currentConflict": "Lack of social understanding combined with voyeuristic urges puts him in awkward/dangerous situations",
+      "vulnerability": "Easily confused by complex social interactions"
+    }
+  },
+  {
+    "name": "Luke Stephens",
+    "age": 13,
+    "affiliation": "Step-brother to Rose, middle school student",
+    "appearance": "Fidgety, often with skateboard/comic book",
+    "coreTraits": ["Curious", "Adventurous", "Stubborn"],
+    "status": "active",
+    "relationship": 5,
+    "partner": null,
+    "memory": ["Stepsiblings with Rose since age 3", "At odds with Rose but secretly cares", "Dreams of being pro gamer", "Secretly spies on women"],
+    "privateHabits": ["Fidgets a lot", "Skateboards", "Voyeuristic tendencies (secret)", "Takes photos secretly", "Hides affection for Rose"],
+    "dislikes": ["Rose's teasing", "Being told what to do"],
+    "relationships": {
+      "rose": { "role": "Step-Sister", "knowledgeLevel": "Acts mean, but knows she secretly cares" }
+    },
+    "background": {
+      "currentConflict": "Adolescent curiosity and voyeuristic urges, coupled with lack of sexual knowledge, create dangerous habit of spying",
+      "vulnerability": "Stubbornness can lead him into trouble. Easily distracted by games/comics"
+	}
+    },
+	
+  {
+    "name": "Nate",
+    "age": 37,
+    "affiliation": "Ex-husband of Tessa",
+    "appearance": "Clean-cut, perpetually irritated expression",
+    "coreTraits": ["Judgmental", "Reliable", "Distant"],
+    "status": "dormant",
+    "relationship": 2,
+    "memory": ["Separated from Tessa 2 years ago", "Takes custody every other weekend", "Critical of Tessa"],
+    "privateHabits": ["Makes judgmental comments", "Calls at precise times"],
+    "dislikes": ["Tessa's friends", "Messiness", "Last-minute changes"],
+    "relationships": {
+      "tessa": { "role": "Ex-Wife", "knowledgeLevel": "Low relationship, high conflict" }
+    },
+    "background": {
+      "currentConflict": "Judges Tessa's parenting, seeks full custody",
+      "vulnerability": "Gets flustered when schedule disrupted"
+	}
+    },
+	
+  {
+    "name": "Pastor Naomi",
+    "age": 48,
+    "affiliation": "Lutheran pastor",
+    "appearance": "Stern but kind, graying hair",
+    "coreTraits": ["Guiding", "Strict", "Compassionate"],
+    "status": "active",
+    "relationship": 5,
+    "memory": ["Leads youth group"],
+    "privateHabits": ["Writes sermons late", "Visits sick", "masturbates with a massive dildo"],
+    "dislikes": ["Hypocrisy", "Laziness in faith"],
+    "relationships": {},
+    "background": {
+      "currentConflict": "Sees cracks in community. Worries for youth.",
+      "vulnerability": "Voice softens with children"
+    }
+  },
+  {
+    "name": "Rose Stephens",
+    "age": 16,
+    "affiliation": "Step-sister to Luke, high school student",
+    "appearance": "Crosses arms often, expressive eyes, attractive",
+    "coreTraits": ["Tsundere", "Submissive (hidden)", "Jealous"],
+    "status": "active",
+    "relationship": 5,
+    "memory": ["Stepsiblings with Luke since Luke was 3", "Acts mean but cares deeply", "Hides true feelings", "Sexually naive"],
+    "privateHabits": ["Bothers Luke constantly", "Fakes dislike for Luke's interests", "Acts superior", "Tries to show off"],
+    "dislikes": ["Luke ignoring her", "Other girls talking to Luke", "Showing vulnerability"],
+    "relationships": {
+      "luke": { "role": "Step-Brother", "knowledgeLevel": "Acts mean, but possessive and secretly affectionate" }
+    },
+    "background": {
+      "currentConflict": "Intense step-sibling bond manifests as 'tsundere' facade (mean/possessive), concealing deeper submissive feelings she doesn't understand",
+      "vulnerability": "Becomes flustered when Luke challenges her or shows unexpected kindness"
+    }
+  },
+  {
+    "name": "Maria Sturm",
+    "age": 34,
+    "affiliation": "Mother, nurse",
+    "appearance": "Warm smile, soft curves, slightly clumsy",
+    "coreTraits": ["Nurturing", "Naive", "Overly Affectionate"],
+    "libidoLevel": 4,
+    "status": "active",
+    "relationship": 5,
+    "partner": "John Sturm",
+    "memory": ["John's long trips", "Accidental touches"],
+    "privateHabits": ["Changes in front of window", "Hugs linger too long", "Fantasizes about being wanted"],
+    "dislikes": ["Conflict", "Cold nights", "Being ignored"],
+    "relationships": {
+      "john": { "role": "Husband", "knowledgeLevel": "Unaware of effect on Alex" },
+      "alex": { "role": "Son", "knowledgeLevel": "Sees him as 'her boy'" },
+      "elena": { "role": "Daughter", "knowledgeLevel": "Teaches to mimic" }
+    },
+    "background": {
+      "currentConflict": "Libido surges when alone. Doesn't understand Alex's tension",
+      "vulnerability": "Blushes easily, voice softens, hands tremble when flustered"
+    }
+  },
+  {
+    "name": "Nina Blake",
+    "age": 25,
+    "affiliation": "Yoga Instructor, Instagram Model, Step-mother",
+    "appearance": "Attractive, perpetually restless, wears yoga attire frequently",
+    "coreTraits": ["Restless", "Charismatic", "Guarded"],
+    "status": "active",
+    "relationship": 2,
+    "partner": "Ken Blake",
+    "memory": ["Yoga instructor and Instagram model", "Joined Blake family when Nora was 7", "Distant relationship with step-children", "Has secret affairs during Ken's deployments"],
+    "privateHabits": ["Snaps selfies frequently", "Posts suggestive content", "Secretive about phone/affairs", "Avoids deep interaction with kids"],
+    "dislikes": ["Being tied down", "The kids' affection for deceased mother"],
+    "relationships": {
+      "ken": { "role": "Husband", "knowledgeLevel": "Loves him but unfaithful due to sexual needs/restlessness" },
+      "nora": { "role": "Step-Daughter", "knowledgeLevel": "Distant, doesn't try to connect" },
+      "michael": { "role": "Step-Son", "knowledgeLevel": "Distant, sees him as typical teen" }
+    },
+    "background": {
+      "currentConflict": "Need for attention and sexual fulfillment, coupled with husband's deployments, leads to infidelity, creating precarious family situation",
+      "vulnerability": "Easily distracted by social media validation"
+    }
+  },
+  {
+    "name": "Milo",
+    "age": 4,
+    "affiliation": "Child of Tessa",
+    "appearance": "Small, constant motion, huge grin",
+    "coreTraits": ["Energetic", "Curious", "Mirrors Tessa"],
+    "status": "active",
+    "relationship": 10,
+    "memory": ["Lives with Tessa", "Picked up by Nate every other weekend"],
+    "privateHabits": ["Constant motion", "Asks lots of questions", "Mirrors Tessa's moods"],
+    "dislikes": ["Naps", "Being told to be quiet"],
+    "relationships": {
+      "tessa": { "role": "Mother", "knowledgeLevel": "Source of fun and chaos" },
+      "ivy": { "role": "Sister", "knowledgeLevel": "Playmate, sometimes annoying" }
+    },
+    "background": {
+      "currentConflict": "Doesn't understand separation from Nate",
+      "vulnerability": "Cries loudly when over-tired"
+    }
+  },
+  {
+    "name": "Mindy Kunitz",
+    "age": 13,
+    "affiliation": "High School Student, bookworm, clumsy",
+    "appearance": "Always has a book, often blushing, slightly disheveled due to clumsiness",
+    "coreTraits": ["Inquisitive", "Vulnerable", "Clumsy"],
+    "status": "active",
+    "relationship": 0,
+    "memory": ["Moved to city from small town", "Passionate about reading adult novels", "Cherishes memories of late father", "Does not wear undergarments"],
+    "privateHabits": ["Clumsy (trips, knocks things over)", "Always reading", "Blushes easily", "Secretive about self-pleasuring"],
+    "dislikes": ["Embarrassment", "Being seen as childish"],
+    "relationships": {
+      "caty": { "role": "Mother", "knowledgeLevel": "Loves and relies on bond" },
+      "tom": { "role": "Brother (Comatose)", "knowledgeLevel": "Visits, cherishes memories" }
+    },
+    "background": {
+      "currentConflict": "Intellectual curiosity and developing sexuality conflict with youthful vulnerability and desire to avoid embarrassment",
+      "vulnerability": "Habit of not wearing undergarments creates high risk of exposure"
+    }
+  },
+  {
+    "name": "Nora Blake",
+    "age": 10,
+    "affiliation": "Daughter of Ken, Middle School Student",
+    "appearance": "Small, expressive eyes, often clutching blanket or phone",
+    "coreTraits": ["Curious", "Compassionate", "Anxious"],
+    "status": "active",
+    "relationship": 7,
+    "memory": ["Born to Ken and Aiko", "Lost mother at age 3", "Nina joined family at age 7", "Close bond with Michael", "Fascinated by TikTok"],
+    "privateHabits": ["Scrolls TikTok", "Asks wide-eyed questions", "Clutches blanket when scared/anxious", "Sketches dragons"],
+    "dislikes": ["Ken leaving for deployment", "Nina's distance"],
+    "relationships": {
+      "ken": { "role": "Father", "knowledgeLevel": "Clings to him, anxious about his job" },
+      "nina": { "role": "Step-Mother", "knowledgeLevel": "Distant, but tries to understand her" },
+      "michael": { "role": "Step-Brother", "knowledgeLevel": "Close bond, tickles and plays with him" }
+    },
+    "background": {
+      "currentConflict": "Anxiety over father's dangerous job channeled through creative outlets and close bond with brother, while navigating relationship with distant stepmother",
+      "vulnerability": "Anxiety can make her overly clingy to Ken"
+    }
+  },
+  {
+    "name": "Michael Blake",
+    "age": 14,
+    "affiliation": "Son of Ken, High School Student",
+    "appearance": "Restless energy, charismatic smile, often with phone/controller",
+    "coreTraits": ["Restless", "Introspective", "Charismatic"],
+    "status": "active",
+    "relationship": 7,
+    "memory": ["Lost mother Aiko at age 7", "Nina's arrival at 11 triggered voyeuristic urges", "Close bond with Nora", "Recent discovery of porn and masturbation"],
+    "privateHabits": ["Plays video games (Call of Duty)", "Watches girls (voyeuristic, especially Nina)", "Daydreams", "Hides phone usage (porn)", "Seeks praise (praise kink - hidden)"],
+    "dislikes": ["Ken's strictness", "Being alone too long", "Nina's distance"],
+    "relationships": {
+      "ken": { "role": "Father", "knowledgeLevel": "Wants his approval but finds him too strict" },
+      "nina": { "role": "Step-Mother", "knowledgeLevel": "Source of forbidden fascination (voyeurism)" },
+      "nora": { "role": "Step-Sister", "knowledgeLevel": "Close bond, protective, trusts her" }
+    },
+    "background": {
+      "currentConflict": "Adolescent sexual development warped by voyeurism toward charismatic stepmother and attempts to hide struggles (PE, porn) behind charming facade",
+      "vulnerability": "Passive nature and praise kink make him susceptible to manipulation"
+    }
+  },
+  {
+    "name": "Maria Kallio",
+    "age": 43,
+    "affiliation": "Lutheran mother, devout",
+    "appearance": "Modest dress, kind eyes",
+    "coreTraits": ["Nurturing", "Devout", "Wistful"],
+    "libidoLevel": 3,
+    "status": "active",
+    "relationship": 7,
+    "memory": ["15 years solitude", "Mother of Steve"],
+    "privateHabits": ["Kneels to pray at night", "Reads Bible alone"],
+    "dislikes": ["Gossip", "Disrespect in church"],
+    "relationships": {
+      "steve": { "role": "Son", "knowledgeLevel": "Sheltered him" }
+    },
+    "background": {
+      "currentConflict": "Libido channeled into faith. Longs for connection.",
+      "vulnerability": "Eyes soften when speaking of past"
+	}
+    },
+	{
+    "name": "Penny Lockheart",
+    "age": 15,
+    "gender": "female",
+    "affiliation": "Daughter of Kenny, Sister to Hiro, High School Student, Musician",
+    "appearance": "Petite, long black hair (often fidgeted with), self-conscious posture",
+    "coreTraits": [
+        "Shy",
+        "Introspective",
+        "Anxious",
+        "Compassionate"
+    ],
+    "status": "active",
+    "relationship": 0,
+    "memory": [
+        "Mother Sally left when very young",
+        "Passionate about music (BABYMETAL inspired)",
+        "Channels emotions into dark lyrics",
+        "Close friendship with Yuna",
+        "Exploring bisexuality"
+    ],
+    "privateHabits": [
+        "Fidgets with hair, bites lip (anxiety)",
+        "Stammers frequently",
+        "Voyeuristic thoughts (guilt)",
+        "Craves praise"
+    ],
+    "stammersFrequently": "Um..., I-I guess...",
+    "family": {
+        "father": "Kenny Lockheart (45)",
+        "brother": "Hiro (13)",
+        "mother": "Sally (Left when Penny was very young)"
+    },
+    "music": {
+        "genre": "Deeply passionate about music (BABYMETAL inspired)",
+        "expression": "Channels complex emotions into dark, powerful lyrics",
+        "process": "Writes dark, intense lyrics in notebooks"
+    },
+    "friendships": {
+        "close": "Yuna Takahashi (inspired by her boldness, intimidated by her confidence)"
+    },
+    "sexuality": "Exploring bisexuality",
+    "complexFeelings": "Complex, conflicted feelings toward father Kenny's inappropriate affection. Experiences both guilt AND arousal over his inappropriate lingering touches and comments.",
+    "hiddenDesires": [
+        "Voyeuristic thoughts, quickly followed by guilt",
+        "Craves genuine praise/validation (praise kink - hidden)"
+    ],
+    "conflict": "Penny's shyness and need for acceptance conflict with her dark, expressive inner world and her confusing feelings related to her father's boundary issues.",
+    "vulnerability": "Low self-esteem makes her overly susceptible to praise and seeking external validation.",
+    "dislikes": [
+        "Social scrutiny",
+        "Loud conflict",
+        "Feeling like an outsider"
+    ],
+    "currentLocation": "Home"
+}
+
+
+]
+
+
+
