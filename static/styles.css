@@ -173,3 +173,75 @@ button {
     letter-spacing: 1px;
 }
 #init-btn:hover { background: #43a047; }
+
+/* 7. IMAGE GALLERY STYLES */
+#image-gallery {
+    flex-shrink: 0;
+    padding: 15px 20px;
+    background: #252525;
+    border-top: 1px solid #333;
+    max-height: 400px;
+    overflow-y: auto;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.scene-image-container {
+    position: relative;
+    background: #1e1e1e;
+    border: 2px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 300px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.scene-image-container:hover {
+    transform: scale(1.02);
+    border-color: #00bcd4;
+}
+
+.scene-image {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+}
+
+.scene-image-caption {
+    margin-top: 8px;
+    font-size: 13px;
+    color: #bbb;
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.4;
+}
+
+.scene-type-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+/* Badge colors by scene type */
+.scene-type-badge.sexual { background: rgba(233, 30, 99, 0.8); }
+.scene-type-badge.quirk { background: rgba(156, 39, 176, 0.8); }
+.scene-type-badge.drama { background: rgba(255, 152, 0, 0.8); }
+.scene-type-badge.crime { background: rgba(244, 67, 54, 0.8); }
+.scene-type-badge.tension { background: rgba(63, 81, 181, 0.8); }
+
+/* Empty gallery state */
+#image-gallery:empty {
+    display: none;
+}

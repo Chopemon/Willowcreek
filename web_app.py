@@ -11,16 +11,31 @@ from typing import Optional
 # Custom Imports
 from narrative_chat import NarrativeChat
 from world_snapshot_builder import build_frontend_snapshot
+from services.comfyui_client import ComfyUIClient
+from services.scene_image_generator import SceneAnalyzer, ImagePromptGenerator
+import os
 
 app = FastAPI()
 BASE_DIR = Path(__file__).resolve().parent
 
 # Global State
 chat: Optional[NarrativeChat] = None
-current_mode: str = "" 
+current_mode: str = ""
+
+# Image Generation Services
+COMFYUI_ENABLED = os.getenv("COMFYUI_ENABLED", "false").lower() == "true"
+COMFYUI_URL = os.getenv("COMFYUI_URL", "http://127.0.0.1:8188")
+comfyui_client = ComfyUIClient(base_url=COMFYUI_URL) if COMFYUI_ENABLED else None
+scene_analyzer = SceneAnalyzer()
+prompt_generator = ImagePromptGenerator()
 
 # Serve Static Files (CSS/JS)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
+
+# Serve Generated Images
+generated_images_dir = BASE_DIR / "static" / "generated_images"
+generated_images_dir.mkdir(exist_ok=True)
+app.mount("/generated_images", StaticFiles(directory=generated_images_dir), name="generated_images")
 
 @app.get("/", response_class=HTMLResponse)
 async def serve_ui():
@@ -49,7 +64,7 @@ async def init_sim(request: Request):
         narration = f"**[System: Reset {mode.upper()} Mode]**\n\n{chat.last_narrated}"
             
     snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
-    return JSONResponse({"narration": narration, "snapshot": snapshot})
+    return JSONResponse({"narration": narration, "snapshot": snapshot, "images": []})
 
 # --- ACTION HANDLER ---
 @app.post("/api/act", response_class=JSONResponse)
@@ -62,26 +77,58 @@ async def process_action(request: Request):
     text = data.get("text", "").strip()
     
     reply = ""
-    
+    generated_images = []  # Initialize for all code paths
+
     if text.lower() == "debug":
         chat.sim.debug_enabled = not chat.sim.debug_enabled
         reply = f"[Debug: {chat.sim.debug_enabled}]"
-        
+
     elif text.lower().startswith("wait"):
-        try: 
+        try:
             hours = float(text.split()[1])
-        except: 
+        except:
             hours = 1
-        
+
         # Advance time. The tick will populate scenario_buffer with any time-based events.
         chat.advance_time(hours)
         reply = f". {hours} hours pass ."
-        
-        # --- FIXED: Event Reporting for WAIT ---
+
+        # --- Event Reporting for WAIT ---
         if hasattr(chat.sim, 'scenario_buffer'):
             for e in chat.sim.scenario_buffer:
                 reply += f"\n\n[SYSTEM EVENT]: {e}"
-            chat.sim.scenario_buffer.clear() # Clear after reporting
+
+        # Generate images for wait events too
+        if COMFYUI_ENABLED and comfyui_client and hasattr(chat.sim, 'scenario_buffer'):
+            for event_text in chat.sim.scenario_buffer:
+                scene_context = scene_analyzer.analyze_scene(event_text, chat.sim, chat.malcolm)
+
+                if scene_context and scene_context.priority >= 7:
+                    print(f"[ImageGen] Generating image for wait event: {scene_context.activity}")
+                    positive_prompt, negative_prompt = prompt_generator.generate_prompt(scene_context)
+
+                    try:
+                        image_url = await comfyui_client.generate_image(
+                            prompt=positive_prompt,
+                            negative_prompt=negative_prompt,
+                            width=832,
+                            height=1216,
+                            steps=20,
+                            cfg_scale=7.0
+                        )
+
+                        if image_url:
+                            generated_images.append({
+                                "url": image_url,
+                                "caption": scene_context.activity,
+                                "scene_type": scene_context.scene_type
+                            })
+                    except Exception as e:
+                        print(f"[ImageGen] Error: {e}")
+
+        # Clear after processing
+        if hasattr(chat.sim, 'scenario_buffer'):
+            chat.sim.scenario_buffer.clear()
 
     else:
         # 1. Clear buffer before starting (to prevent carrying over events from a previous WAIT)
@@ -109,10 +156,50 @@ async def process_action(request: Request):
         if hasattr(chat.sim, 'scenario_buffer'):
             for e in chat.sim.scenario_buffer:
                 reply += f"\n\n[SYSTEM EVENT]: {e}"
-            chat.sim.scenario_buffer.clear() # Clear after reporting
+
+        # 6. GENERATE IMAGES for interesting scenes
+        if COMFYUI_ENABLED and comfyui_client and hasattr(chat.sim, 'scenario_buffer'):
+            for event_text in chat.sim.scenario_buffer:
+                # Analyze if this event deserves an image
+                scene_context = scene_analyzer.analyze_scene(event_text, chat.sim, chat.malcolm)
+
+                if scene_context and scene_context.priority >= 7:  # High priority scenes only
+                    print(f"[ImageGen] Generating image for: {scene_context.activity}")
+
+                    # Generate image prompt
+                    positive_prompt, negative_prompt = prompt_generator.generate_prompt(scene_context)
+
+                    # Generate image via ComfyUI
+                    try:
+                        image_url = await comfyui_client.generate_image(
+                            prompt=positive_prompt,
+                            negative_prompt=negative_prompt,
+                            width=832,
+                            height=1216,
+                            steps=20,
+                            cfg_scale=7.0
+                        )
+
+                        if image_url:
+                            generated_images.append({
+                                "url": image_url,
+                                "caption": scene_context.activity,
+                                "scene_type": scene_context.scene_type
+                            })
+                            print(f"[ImageGen] ✓ Image generated: {image_url}")
+                    except Exception as e:
+                        print(f"[ImageGen] Error generating image: {e}")
+
+        # Clear scenario buffer after processing
+        if hasattr(chat.sim, 'scenario_buffer'):
+            chat.sim.scenario_buffer.clear()
 
     snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
-    return JSONResponse({"narration": reply, "snapshot": snapshot})
+    return JSONResponse({
+        "narration": reply,
+        "snapshot": snapshot,
+        "images": generated_images  # NEW: Include generated images
+    })
 
 if __name__ == "__main__":
     print("Starting server at http://127.0.0.1:8000")

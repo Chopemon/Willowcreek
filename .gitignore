@@ -45,3 +45,11 @@ htmlcov/
 
 # Logs
 *.log
+
+# Generated images
+static/generated_images/*.png
+static/generated_images/*.jpg
+static/generated_images/*.jpeg
+
+# Environment files
+.env
