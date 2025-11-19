@@ -36,6 +36,10 @@ env/
 checkpoints/
 test_checkpoints/
 
+# Test outputs
+test_*.json
+test_*.js
+
 # Logs
 *.log
 
