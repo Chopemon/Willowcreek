@@ -3,35 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willow Creek Simulator</title>
-    <link rel="stylesheet" href="/static/styles.css"> 
+    <title>Willow Creek - RPG Simulator</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="container">
-        <header><h1>Willow Creek Simulator v2</h1></header>
+        <!-- Header -->
+        <header>
+            <h1>⚔ Willow Creek Simulator ⚔</h1>
+            <div class="header-controls">
+                <button id="wait-btn" class="control-btn">⏳ Wait 1h</button>
+                <button id="init-btn" class="control-btn primary">▶ Start Simulation</button>
+            </div>
+        </header>
+
         <main>
-            <div id="left-panel" class="panel">
-                <div id="output"></div>
+            <!-- LEFT PANEL: Narrative & Actions -->
+            <div id="left-panel" class="panel rpg-panel">
+                <div class="panel-header">
+                    <h2>📜 Chronicle</h2>
+                </div>
+                <div id="output" class="narrative-text"></div>
                 <div id="input-area">
-                    <input type="text" id="user-input" placeholder="Type action...">
-                    <button id="wait-btn">Wait 1h</button>
-                    <button id="send-btn">Send</button>
+                    <input type="text" id="user-input" placeholder="What do you do...">
+                    <button id="send-btn" class="send-btn">➤ Act</button>
                 </div>
             </div>
-            <div id="right-panel" class="panel">
-                <div id="mode-selection-area">
-                    <label>Simulation Mode:</label>
-                    <div class="mode-buttons">
-                        <button id="local-btn">Local (LM Studio)</button> 
-                        <button id="openrouter-btn">OpenRouter</button>
+
+            <!-- RIGHT PANEL: Character Stats & World Info -->
+            <div id="right-panel">
+                <!-- Character Card -->
+                <div class="stat-panel rpg-panel character-card">
+                    <div class="panel-header character-header">
+                        <h2 id="character-name">Malcolm Newt</h2>
+                        <div class="character-info">
+                            <span id="character-age">Age: 30</span>
+                            <span id="character-occupation">Occupation: ???</span>
+                        </div>
                     </div>
-                    <button id="init-btn">Start Simulation</button>
+
+                    <!-- Physical Needs -->
+                    <div class="stat-section">
+                        <h3>⚔ Physical Condition</h3>
+                        <div class="stat-group">
+                            <div class="stat-item">
+                                <div class="stat-label">
+                                    <span>🍖 Hunger</span>
+                                    <span class="stat-value" id="hunger-value">80</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill hunger" id="hunger-bar" style="width: 80%"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-item">
+                                <div class="stat-label">
+                                    <span>⚡ Energy</span>
+                                    <span class="stat-value" id="energy-value">90</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill energy" id="energy-bar" style="width: 90%"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-item">
+                                <div class="stat-label">
+                                    <span>💧 Hygiene</span>
+                                    <span class="stat-value" id="hygiene-value">85</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill hygiene" id="hygiene-bar" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-item">
+                                <div class="stat-label">
+                                    <span>🚽 Bladder</span>
+                                    <span class="stat-value" id="bladder-value">20</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill bladder" id="bladder-bar" style="width: 20%"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-item">
+                                <div class="stat-label">
+                                    <span>💗 Arousal</span>
+                                    <span class="stat-value" id="horny-value">30</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill horny" id="horny-bar" style="width: 30%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Psychological State -->
+                    <div class="stat-section">
+                        <h3>🧠 Mental State</h3>
+                        <div class="stat-group">
+                            <div class="stat-item">
+                                <div class="stat-label">
+                                    <span>😔 Loneliness</span>
+                                    <span class="stat-value" id="lonely-value">20</span>
+                                </div>
+                                <div class="stat-bar">
+                                    <div class="stat-fill lonely" id="lonely-bar" style="width: 20%"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-item mood-display">
+                                <div class="stat-label">
+                                    <span>😊 Mood</span>
+                                    <span class="stat-value" id="mood-value">NEUTRAL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Activity -->
+                    <div class="stat-section">
+                        <h3>📍 Current Status</h3>
+                        <div class="status-info">
+                            <div class="status-item">
+                                <span class="status-label">Location:</span>
+                                <span class="status-value" id="location-value">Home</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Activity:</span>
+                                <span class="status-value" id="activity-value">Idle</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div id="malcolm-stats" class="info-panel">Status...</div>
-                <div id="debug-box" class="info-panel">Debug info...</div>
+
+                <!-- World Info Panel -->
+                <div class="stat-panel rpg-panel world-info">
+                    <div class="panel-header">
+                        <h2>🌍 World Status</h2>
+                    </div>
+                    <div class="world-stats">
+                        <div class="world-item">
+                            <span class="world-label">📅 Date:</span>
+                            <span class="world-value" id="date-value">Loading...</span>
+                        </div>
+                        <div class="world-item">
+                            <span class="world-label">🕐 Time:</span>
+                            <span class="world-value" id="time-value">--:--</span>
+                        </div>
+                        <div class="world-item">
+                            <span class="world-label">🍂 Season:</span>
+                            <span class="world-value" id="season-value">Autumn</span>
+                        </div>
+                        <div class="world-item">
+                            <span class="world-label">🌤 Weather:</span>
+                            <span class="world-value" id="weather-value">Clear</span>
+                        </div>
+                        <div class="world-item">
+                            <span class="world-label">🌡 Temperature:</span>
+                            <span class="world-value" id="temp-value">55°F</span>
+                        </div>
+                        <div class="world-item">
+                            <span class="world-label">👥 Population:</span>
+                            <span class="world-value" id="population-value">69 residents</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Debug Panel (Collapsible) -->
+                <div class="stat-panel rpg-panel debug-panel">
+                    <div class="panel-header" id="debug-header">
+                        <h2>🔧 Debug Console</h2>
+                        <button id="toggle-debug">▼</button>
+                    </div>
+                    <div id="debug-box" class="debug-content">Awaiting data...</div>
+                </div>
             </div>
         </main>
     </div>
+
     <script src="/static/script.js"></script>
 </body>
 </html>

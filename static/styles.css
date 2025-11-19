@@ -1,175 +1,561 @@
-/* --- styles.css (Layout Fix) --- */
+/* ============================================
+   WILLOW CREEK RPG SIMULATOR - STYLES
+   Dark Fantasy Theme with Modern RPG Elements
+   ============================================ */
 
-/* 1. GLOBAL RESET & BASE */
+/* --- GLOBAL RESET & BASE --- */
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* RPG Color Palette */
+    --bg-dark: #0a0a0a;
+    --bg-panel: #1a1410;
+    --border-gold: #d4af37;
+    --border-bronze: #8b6914;
+    --text-primary: #f5e6d3;
+    --text-secondary: #c9b8a0;
+    --text-accent: #ffd700;
+
+    /* Stat Colors */
+    --hunger-color: #ff4444;
+    --energy-color: #4488ff;
+    --hygiene-color: #44aaff;
+    --bladder-color: #ffaa44;
+    --horny-color: #ff44aa;
+    --lonely-color: #aa44ff;
+
+    /* Status Colors */
+    --critical: #ff0000;
+    --warning: #ff8800;
+    --normal: #44ff44;
 }
 
 body {
-    background: #121212;
-    color: #e0e0e0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1410 100%);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    font-family: 'Cormorant Garamond', Georgia, serif;
     margin: 0;
     padding: 0;
-    height: 100vh; /* Force full screen height */
-    overflow: hidden; /* Prevent outer page scroll */
+    height: 100vh;
+    overflow: hidden;
 }
 
+/* --- CONTAINER --- */
 #container {
-    max-width: 1800px;
+    max-width: 1920px;
     margin: 0 auto;
-    padding: 15px;
-    height: 100%; /* Fill body height */
+    padding: 20px;
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
-/* 2. HEADER */
+/* --- HEADER --- */
 header {
-    flex-shrink: 0; /* Don't let header shrink */
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #333;
-    margin-bottom: 15px;
+    padding: 15px 25px;
+    background: linear-gradient(135deg, #1a1410 0%, #0f0c09 100%);
+    border: 2px solid var(--border-gold);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
 }
 
 h1 {
     margin: 0;
-    font-size: 22px;
-    color: #00bcd4;
-    font-family: Consolas, monospace;
+    font-size: 32px;
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    color: var(--border-gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8),
+                 0 0 20px rgba(212, 175, 55, 0.4);
+    letter-spacing: 2px;
 }
 
-/* 3. MAIN LAYOUT (Splits screen Left/Right) */
+.header-controls {
+    display: flex;
+    gap: 15px;
+}
+
+/* --- MAIN LAYOUT --- */
 main {
-    flex: 1; /* Takes all remaining vertical space */
+    flex: 1;
     display: flex;
     gap: 20px;
-    min-height: 0; /* CRITICAL: Allows children to scroll internally */
+    min-height: 0;
 }
 
-/* 4. LEFT PANEL (Narrative + Input Deck) */
+/* --- RPG PANEL BASE STYLE --- */
+.rpg-panel {
+    background: linear-gradient(135deg, rgba(26, 20, 16, 0.95) 0%, rgba(15, 12, 9, 0.95) 100%);
+    border: 3px solid var(--border-bronze);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.8),
+                inset 0 1px 2px rgba(212, 175, 55, 0.1);
+    position: relative;
+}
+
+.rpg-panel::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, transparent 30%, rgba(212, 175, 55, 0.1) 50%, transparent 70%);
+    border-radius: 12px;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.panel-header {
+    background: linear-gradient(135deg, #2a2010 0%, #1a1410 100%);
+    border-bottom: 2px solid var(--border-gold);
+    padding: 15px 20px;
+    border-radius: 10px 10px 0 0;
+}
+
+.panel-header h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-accent);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    margin: 0;
+}
+
+/* --- LEFT PANEL (Narrative) --- */
 #left-panel {
-    flex: 3; /* Takes 75% width */
-    background: #1e1e1e;
-    border: 1px solid #333;
-    border-radius: 8px;
+    flex: 3;
     display: flex;
-    flex-direction: column; /* Stack Text on top of Input */
-    overflow: hidden; /* Clip content to corners */
+    flex-direction: column;
+    overflow: hidden;
 }
 
-#output {
-    flex: 1; /* Takes all available space ABOVE the input box */
-    padding: 20px;
-    overflow-y: auto; /* Enable scrollbar inside this box only */
-    font-family: 'Georgia', serif; /* Nicer reading font */
-    font-size: 16px;
-    line-height: 1.6;
-    color: #ddd;
-    background-color: #1e1e1e;
+.narrative-text {
+    flex: 1;
+    padding: 25px;
+    overflow-y: auto;
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--text-primary);
+    font-family: 'Cormorant Garamond', Georgia, serif;
 }
 
-/* The "Control Deck" at the bottom */
+.narrative-text::-webkit-scrollbar {
+    width: 10px;
+}
+
+.narrative-text::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+
+.narrative-text::-webkit-scrollbar-thumb {
+    background: var(--border-bronze);
+    border-radius: 10px;
+}
+
+.narrative-text::-webkit-scrollbar-thumb:hover {
+    background: var(--border-gold);
+}
+
+/* --- INPUT AREA --- */
 #input-area {
-    flex-shrink: 0; /* Never shrink this box */
-    background: #252525;
-    border-top: 1px solid #444;
-    padding: 15px;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #2a2010 0%, #1a1410 100%);
+    border-top: 2px solid var(--border-gold);
+    padding: 20px;
     display: flex;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
 }
 
 #user-input {
-    flex: 1; /* Input takes all width available */
-    padding: 12px;
-    background: #333;
-    color: white;
-    border: 1px solid #555;
-    border-radius: 4px;
-    font-size: 15px;
-    font-family: inherit;
+    flex: 1;
+    padding: 14px 18px;
+    background: rgba(0, 0, 0, 0.5);
+    color: var(--text-primary);
+    border: 2px solid var(--border-bronze);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    transition: all 0.3s ease;
 }
 
 #user-input:focus {
-    outline: 2px solid #00bcd4;
-    border-color: transparent;
+    outline: none;
+    border-color: var(--border-gold);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
-/* 5. RIGHT PANEL (Stats + Debug) */
+#user-input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.6;
+}
+
+/* --- RIGHT PANEL (Stats) --- */
 #right-panel {
-    flex: 1; /* Takes 25% width */
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    min-width: 300px; /* Prevent it from getting too skinny */
-}
-
-/* Generic style for right-side boxes */
-.info-panel {
-    background: #1e1e1e;
-    border: 1px solid #333;
-    border-radius: 8px;
-    padding: 15px;
+    gap: 20px;
+    min-width: 380px;
+    max-width: 450px;
     overflow-y: auto;
-    font-family: Consolas, monospace;
-    font-size: 12px;
 }
 
-/* Specific heights for right panels */
-#mode-selection-area {
-    flex-shrink: 0; /* Fixed height based on content */
-    background: #1e1e1e;
-    border: 1px solid #00bcd4; /* Cyan border to highlight controls */
-    border-radius: 8px;
-    padding: 15px;
+#right-panel::-webkit-scrollbar {
+    width: 8px;
 }
 
-#malcolm-stats {
-    flex: 1; /* Takes roughly 1/3 of remaining space */
-    color: #ff9800;
-    white-space: pre-wrap;
+#right-panel::-webkit-scrollbar-track {
+    background: transparent;
 }
 
-#debug-box {
-    flex: 2; /* Takes roughly 2/3 of remaining space (bigger) */
-    color: #6aff6a;
-    white-space: pre-wrap;
-    border-top: 4px solid #333; /* Visual separation */
+#right-panel::-webkit-scrollbar-thumb {
+    background: var(--border-bronze);
+    border-radius: 10px;
 }
 
-/* 6. BUTTON STYLES */
-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-weight: bold;
-    font-family: inherit;
-    transition: background 0.2s;
+/* --- CHARACTER CARD --- */
+.character-card {
+    flex-shrink: 0;
 }
 
-/* Input Area Buttons */
-#send-btn { background: #00bcd4; color: #121212; }
-#send-btn:hover { background: #00acc1; }
+.character-header {
+    text-align: center;
+    padding: 20px;
+}
 
-#wait-btn { background: #455a64; color: white; width: 100px; }
-#wait-btn:hover { background: #37474f; }
+.character-header h2 {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
 
-/* Mode Buttons */
-.mode-buttons { display: flex; gap: 5px; margin: 10px 0; }
-.mode-buttons button { flex: 1; background: #333; color: #888; }
-.mode-buttons button.active { background: #00bcd4; color: #121212; }
-
-#init-btn {
-    width: 100%;
-    background: #4caf50;
-    color: white;
+.character-info {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+}
+
+/* --- STAT SECTIONS --- */
+.stat-section {
+    padding: 20px;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.stat-section:first-child {
+    border-top: none;
+}
+
+.stat-section h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-accent);
+    margin-bottom: 15px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-#init-btn:hover { background: #43a047; }
+
+.stat-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.stat-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.stat-label span:first-child {
+    font-weight: 500;
+}
+
+.stat-value {
+    font-weight: 700;
+    color: var(--text-accent);
+    font-family: 'Cinzel', serif;
+}
+
+/* --- STAT BARS --- */
+.stat-bar {
+    height: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.stat-fill {
+    height: 100%;
+    transition: width 0.5s ease;
+    position: relative;
+    border-radius: 10px;
+}
+
+.stat-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 0%, transparent 50%, rgba(0, 0, 0, 0.3) 100%);
+}
+
+/* Stat-specific colors */
+.stat-fill.hunger {
+    background: linear-gradient(90deg, #ff0000, #ff6644);
+    box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+}
+
+.stat-fill.energy {
+    background: linear-gradient(90deg, #0044ff, #4488ff);
+    box-shadow: 0 0 10px rgba(68, 136, 255, 0.5);
+}
+
+.stat-fill.hygiene {
+    background: linear-gradient(90deg, #0088ff, #44aaff);
+    box-shadow: 0 0 10px rgba(68, 170, 255, 0.5);
+}
+
+.stat-fill.bladder {
+    background: linear-gradient(90deg, #ff8800, #ffaa44);
+    box-shadow: 0 0 10px rgba(255, 170, 68, 0.5);
+}
+
+.stat-fill.horny {
+    background: linear-gradient(90deg, #ff0088, #ff44aa);
+    box-shadow: 0 0 10px rgba(255, 68, 170, 0.5);
+}
+
+.stat-fill.lonely {
+    background: linear-gradient(90deg, #8800ff, #aa44ff);
+    box-shadow: 0 0 10px rgba(170, 68, 255, 0.5);
+}
+
+/* --- MOOD DISPLAY --- */
+.mood-display .stat-label {
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+}
+
+/* --- STATUS INFO --- */
+.status-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+}
+
+.status-label {
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.status-value {
+    font-weight: 700;
+    color: var(--text-accent);
+    font-family: 'Cinzel', serif;
+}
+
+/* --- WORLD INFO PANEL --- */
+.world-info {
+    flex-shrink: 0;
+}
+
+.world-stats {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.world-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 6px;
+}
+
+.world-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.world-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-accent);
+    font-family: 'Cinzel', serif;
+}
+
+/* --- DEBUG PANEL --- */
+.debug-panel {
+    flex-shrink: 0;
+    max-height: 300px;
+}
+
+.debug-panel .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+#toggle-debug {
+    background: none;
+    border: none;
+    color: var(--text-accent);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.debug-content {
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #44ff44;
+    background: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    max-height: 200px;
+    white-space: pre-wrap;
+}
+
+.debug-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.debug-content::-webkit-scrollbar-thumb {
+    background: var(--border-bronze);
+    border-radius: 5px;
+}
+
+/* --- BUTTONS --- */
+button {
+    padding: 12px 24px;
+    border: 2px solid var(--border-bronze);
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #2a2010 0%, #1a1410 100%);
+    color: var(--text-accent);
+    font-size: 13px;
+}
+
+button:hover {
+    border-color: var(--border-gold);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.control-btn.primary {
+    background: linear-gradient(135deg, #3a5010 0%, #2a4010 100%);
+    border-color: #6a8020;
+    color: #aaffaa;
+}
+
+.control-btn.primary:hover {
+    border-color: #8aaa40;
+    box-shadow: 0 0 20px rgba(138, 170, 64, 0.4);
+}
+
+.send-btn {
+    background: linear-gradient(135deg, #5a3010 0%, #4a2010 100%);
+    border-color: #aa6020;
+    color: #ffaa66;
+}
+
+.send-btn:hover {
+    border-color: #cc8040;
+    box-shadow: 0 0 20px rgba(204, 128, 64, 0.4);
+}
+
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1200px) {
+    main {
+        flex-direction: column;
+    }
+
+    #right-panel {
+        max-width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow-y: visible;
+    }
+
+    .stat-panel {
+        flex: 1 1 calc(50% - 10px);
+    }
+
+    .character-card {
+        flex: 1 1 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    .header-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #right-panel {
+        flex-direction: column;
+    }
+
+    .stat-panel {
+        flex: 1 1 auto;
+    }
+}
