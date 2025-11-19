@@ -26,12 +26,17 @@ class WorldSnapshotBuilder:
         This is what the AI narrator sees.
         """
         sections = []
-        
+
         try:
             sections.append(self._build_time_and_environment())
         except Exception as e:
             sections.append(f"## TIME & ENVIRONMENT\n[Error: {e}]")
-        
+
+        try:
+            sections.append(self._build_pending_events())
+        except Exception as e:
+            sections.append(f"## PENDING EVENTS\n[Error: {e}]")
+
         try:
             sections.append(self._build_malcolm_state(malcolm))
         except Exception as e:
@@ -72,12 +77,29 @@ class WorldSnapshotBuilder:
         season = getattr(self.sim.time, 'season', 'autumn').title()
         weather = getattr(self.sim.world, 'weather', 'Clear')
         temp = getattr(self.sim.world, 'temperature', 55)
-        
+
         return f"""## TIME & ENVIRONMENT
 {time_str} ({day_of_week})
 Season: {season} | Weather: {weather} | Temperature: {temp}°F
 Day #{self.sim.time.total_days} of simulation"""
-    
+
+    def _build_pending_events(self) -> str:
+        """Pending events that need to be incorporated into the narrative"""
+        if not hasattr(self.sim, 'scenario_buffer'):
+            return ""
+
+        events = self.sim.scenario_buffer
+        if not events:
+            return ""
+
+        lines = ["## PENDING EVENTS - INCORPORATE INTO NARRATIVE"]
+        lines.append("The following events have just occurred and MUST be included in your response:\n")
+
+        for i, event in enumerate(events, 1):
+            lines.append(f"{i}. {event}")
+
+        return "\n".join(lines)
+
     def _build_malcolm_state(self, malcolm: 'NPC') -> str:
         """Malcolm's complete physical and psychological state"""
         n = malcolm.needs

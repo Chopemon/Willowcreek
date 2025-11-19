@@ -86,17 +86,18 @@ async def process_action(request: Request):
     else:
         # 1. Clear buffer before starting (to prevent carrying over events from a previous WAIT)
         chat.sim.scenario_buffer.clear()
-        
-        # 2. Generate narrative
-        reply = chat.narrate(text)
-        
-        # 3. Advance time (tick runs and generates internal events into scenario_buffer)
+
+        # 2. FIXED: Advance time FIRST (tick runs and generates internal events into scenario_buffer)
+        # This ensures events are triggered BEFORE the AI generates narrative
         chat.advance_time(5.0 / 60.0)
 
-        # 4. Run text-based event detection (appends to buffer)
+        # 3. Generate narrative (AI now sees events in the world snapshot)
+        reply = chat.narrate(text)
+
+        # 4. Run text-based event detection on AI output (appends to buffer)
         # FIXED: Use both LLM output (reply) and User Input (text) for better detection
         detection_text = reply + " " + text
-        
+
         try: chat.sim.quirks.process_quirks(detection_text)
         except Exception as e: print(f"Quirks detection failed: {e}")
         try:
@@ -105,7 +106,7 @@ async def process_action(request: Request):
                 chat.sim.scenario_buffer.append(hint)
         except Exception as e: print(f"Sexual detection failed: {e}")
 
-        # 5. Report events
+        # 5. Report any new events from text-based detection
         if hasattr(chat.sim, 'scenario_buffer'):
             for e in chat.sim.scenario_buffer:
                 reply += f"\n\n[SYSTEM EVENT]: {e}"
