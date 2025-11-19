@@ -45,6 +45,9 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
         if (tabName === 'stats') updateStats();
         else if (tabName === 'locations') updateLocations();
         else if (tabName === 'relationships') updateRelationships();
+        else if (tabName === 'analysis') updateAnalysis();
+        else if (tabName === 'timeline') updateTimeline();
+        else if (tabName === 'personality') updatePersonality();
         else if (tabName === 'checkpoints') loadCheckpointsList();
     });
 });
@@ -395,5 +398,253 @@ async function loadCheckpoint(name) {
         }
     } catch (e) {
         updateNarration("❌ Failed to load checkpoint");
+    }
+}
+
+// ============================================================================
+// ANALYSIS TAB
+// ============================================================================
+
+async function updateAnalysis() {
+    try {
+        const res = await fetch("/api/analysis/summary");
+        const data = await res.json();
+
+        if (data.error) return;
+
+        // Relationship metrics
+        const relMetrics = document.getElementById("relationship-metrics");
+        const rel = data.relationships;
+        relMetrics.innerHTML = `
+            <p><strong>Total Relationships:</strong> ${rel.total_relationships}</p>
+            <p><strong>Average Affinity:</strong> ${rel.avg_affinity}</p>
+            <p><strong>Network Density:</strong> ${rel.network_density}</p>
+            <p><strong>Most Connected:</strong> ${rel.most_connected} (${rel.most_connections_count} connections)</p>
+            <p><strong>Least Connected:</strong> ${rel.least_connected} (${rel.least_connections_count} connections)</p>
+            <div style="margin-top: 10px;">
+                <strong>Top Bonds:</strong>
+                <ul>
+                    ${rel.strongest_bonds.slice(0, 5).map(bond =>
+                        `<li>${bond.from} ↔ ${bond.to} (${bond.affinity})</li>`
+                    ).join('')}
+                </ul>
+            </div>
+        `;
+
+        // Behavior patterns
+        const behaviorEl = document.getElementById("behavior-patterns");
+        const beh = data.behaviors;
+        const topLocs = Object.entries(beh.location_distribution).slice(0, 5);
+        behaviorEl.innerHTML = `
+            <p><strong>Top Locations:</strong></p>
+            <ul>
+                ${topLocs.map(([loc, count]) => `<li>${loc}: ${count} NPCs</li>`).join('')}
+            </ul>
+            <p style="margin-top: 10px;"><strong>Needs Summary:</strong></p>
+            <ul>
+                <li>Avg Hunger: ${beh.needs_summary.hunger?.avg || 'N/A'}</li>
+                <li>Avg Energy: ${beh.needs_summary.energy?.avg || 'N/A'}</li>
+                <li>Avg Social: ${beh.needs_summary.social?.avg || 'N/A'}</li>
+                <li>Avg Lonely: ${beh.needs_summary.lonely?.avg || 'N/A'}</li>
+            </ul>
+        `;
+
+        // Social clusters
+        const clustersEl = document.getElementById("social-clusters");
+        clustersEl.innerHTML = `
+            ${data.social_clusters.map((cluster, i) =>
+                `<p><strong>Group ${i + 1}:</strong> ${cluster.join(', ')}</p>`
+            ).join('')}
+            ${data.social_clusters.length === 0 ? '<p>No clusters detected</p>' : ''}
+        `;
+
+        // Critical NPCs
+        const criticalEl = document.getElementById("critical-npcs");
+        const critical = beh.npcs_in_critical_state;
+        if (critical && critical.length > 0) {
+            criticalEl.innerHTML = `
+                <ul>
+                    ${critical.map(npc =>
+                        `<li><strong>${npc.name}</strong>: ${npc.issues.join(', ')} (at ${npc.location})</li>`
+                    ).join('')}
+                </ul>
+            `;
+        } else {
+            criticalEl.innerHTML = '<p>✓ No NPCs in critical state</p>';
+        }
+    } catch (e) {
+        console.error("Failed to update analysis:", e);
+    }
+}
+
+// ============================================================================
+// TIMELINE TAB
+// ============================================================================
+
+let allMilestones = [];
+
+async function updateTimeline() {
+    try {
+        // Load milestones
+        const res = await fetch("/api/milestones/recent");
+        const data = await res.json();
+
+        if (data.error) return;
+
+        allMilestones = data.milestones;
+
+        // Load stats
+        const statsRes = await fetch("/api/milestones/stats");
+        const statsData = await statsRes.json();
+
+        // Display stats
+        const statsEl = document.getElementById("milestone-stats");
+        statsEl.innerHTML = `
+            <div class="stat-row">
+                <strong>Total Milestones:</strong> ${statsData.total_milestones || 0}
+                &nbsp;&nbsp;|&nbsp;&nbsp;
+                <strong>Recent (7 days):</strong> ${statsData.recent_7_days || 0}
+            </div>
+        `;
+
+        // Render timeline
+        renderTimeline();
+
+        // Set up filters
+        document.getElementById("milestone-type-filter").onchange = renderTimeline;
+        document.getElementById("milestone-importance-filter").onchange = renderTimeline;
+    } catch (e) {
+        console.error("Failed to update timeline:", e);
+    }
+}
+
+function renderTimeline() {
+    const typeFilter = document.getElementById("milestone-type-filter").value;
+    const importanceFilter = document.getElementById("milestone-importance-filter").value;
+
+    // Filter milestones
+    let filtered = allMilestones;
+
+    if (typeFilter !== 'all') {
+        filtered = filtered.filter(m => m.type === typeFilter);
+    }
+
+    if (importanceFilter !== 'all') {
+        filtered = filtered.filter(m => m.importance === parseInt(importanceFilter));
+    }
+
+    // Render
+    const listEl = document.getElementById("timeline-list");
+    if (filtered.length === 0) {
+        listEl.innerHTML = '<p>No milestones found</p>';
+        return;
+    }
+
+    listEl.innerHTML = filtered.map(m => {
+        const icon = getMilestoneIcon(m.type);
+        const impLabel = getImportanceLabel(m.importance);
+        const impClass = getImportanceClass(m.importance);
+
+        return `
+            <div class="timeline-item ${impClass}">
+                <div class="timeline-icon">${icon}</div>
+                <div class="timeline-content">
+                    <div class="timeline-header">
+                        <strong>${m.description}</strong>
+                        <span class="importance-badge ${impClass}">${impLabel}</span>
+                    </div>
+                    <div class="timeline-meta">
+                        Day ${m.day} • ${m.time}
+                        ${m.location ? `• ${m.location}` : ''}
+                    </div>
+                    ${m.secondary_npcs && m.secondary_npcs.length > 0 ?
+                        `<div class="timeline-npcs">Involved: ${m.secondary_npcs.join(', ')}</div>` : ''}
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+function getMilestoneIcon(type) {
+    const icons = {
+        'birthday': '🎂',
+        'romance_started': '💕',
+        'romance_ended': '💔',
+        'relationship_formed': '🤝',
+        'relationship_broken': '💔',
+        'marriage': '💒',
+        'scandal': '📰',
+        'achievement': '🏆',
+        'conflict': '⚔️',
+        'move': '🏠',
+        'crime': '🚔',
+        'secret_revealed': '🔓'
+    };
+    return icons[type] || '📌';
+}
+
+function getImportanceLabel(importance) {
+    const labels = {
+        1: 'Minor',
+        2: 'Moderate',
+        3: 'Major',
+        4: 'Life-Changing'
+    };
+    return labels[importance] || 'Unknown';
+}
+
+function getImportanceClass(importance) {
+    const classes = {
+        1: 'imp-minor',
+        2: 'imp-moderate',
+        3: 'imp-major',
+        4: 'imp-life-changing'
+    };
+    return classes[importance] || '';
+}
+
+// ============================================================================
+// PERSONALITY TAB
+// ============================================================================
+
+async function updatePersonality() {
+    try {
+        const res = await fetch("/api/personality/all");
+        const data = await res.json();
+
+        if (data.error) return;
+
+        const listEl = document.getElementById("personality-list");
+        const profiles = data.personalities;
+
+        listEl.innerHTML = profiles.map(profile => {
+            return `
+                <div class="personality-card">
+                    <h4>${profile.name}</h4>
+                    <div class="trait-list">
+                        ${profile.traits.map(trait =>
+                            `<span class="trait-badge">${trait}</span>`
+                        ).join('')}
+                    </div>
+                    <div class="tendencies">
+                        <strong>Behavioral Tendencies:</strong>
+                        <ul>
+                            ${profile.behavioral_tendencies.map(t => `<li>${t}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        // Set up search
+        document.getElementById("personality-search").oninput = (e) => {
+            const query = e.target.value.toLowerCase();
+            document.querySelectorAll('.personality-card').forEach(card => {
+                const name = card.querySelector('h4').textContent.toLowerCase();
+                card.style.display = name.includes(query) ? 'block' : 'none';
+            });
+        };
+    } catch (e) {
+        console.error("Failed to update personality:", e);
     }
 }

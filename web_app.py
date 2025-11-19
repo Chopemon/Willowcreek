@@ -217,6 +217,164 @@ async def get_locations():
 
     return JSONResponse({"locations": locations})
 
+# --- NEW ENDPOINTS FOR FEATURES 3, 5, 6 ---
+
+@app.get("/api/analysis/summary", response_class=JSONResponse)
+async def get_analysis_summary():
+    """Get comprehensive analysis summary"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    try:
+        # Get relationship analysis
+        rel_analysis = chat.sim.analyzer.analyze_relationships()
+
+        # Get behavior patterns
+        behavior = chat.sim.analyzer.analyze_behavior_patterns()
+
+        # Get social clusters
+        clusters = chat.sim.analyzer.find_social_clusters()
+
+        return JSONResponse({
+            "relationships": rel_analysis,
+            "behaviors": behavior,
+            "social_clusters": clusters[:5]  # Top 5 clusters
+        })
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.get("/api/analysis/full", response_class=JSONResponse)
+async def get_full_analysis():
+    """Get full comprehensive report"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    try:
+        report = chat.sim.analyzer.generate_comprehensive_report()
+        return JSONResponse(report)
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.get("/api/milestones/recent", response_class=JSONResponse)
+async def get_recent_milestones():
+    """Get recent milestones"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    days = 7  # Last 7 days by default
+    try:
+        milestones = chat.sim.milestones.get_recent_milestones(days=days, limit=50)
+
+        # Convert to JSON-serializable format
+        milestone_list = []
+        for m in milestones:
+            milestone_list.append({
+                'type': m.milestone_type.value,
+                'importance': m.importance.value,
+                'day': m.day,
+                'time': m.simulation_time,
+                'primary_npc': m.primary_npc,
+                'secondary_npcs': m.secondary_npcs,
+                'description': m.description,
+                'location': m.location,
+                'emotional_impact': m.emotional_impact,
+                'tags': m.tags
+            })
+
+        return JSONResponse({"milestones": milestone_list})
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.get("/api/milestones/stats", response_class=JSONResponse)
+async def get_milestone_stats():
+    """Get milestone statistics"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    try:
+        stats = chat.sim.milestones.get_statistics()
+        return JSONResponse(stats)
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.get("/api/milestones/npc/{npc_name}", response_class=JSONResponse)
+async def get_npc_milestones(npc_name: str):
+    """Get milestones for specific NPC"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    try:
+        history = chat.sim.milestones.get_npc_history(npc_name, limit=20)
+
+        milestone_list = []
+        for m in history:
+            milestone_list.append({
+                'type': m.milestone_type.value,
+                'importance': m.importance.value,
+                'day': m.day,
+                'time': m.simulation_time,
+                'description': m.description,
+                'location': m.location,
+                'emotional_impact': m.emotional_impact
+            })
+
+        return JSONResponse({"npc": npc_name, "milestones": milestone_list})
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.get("/api/milestones/timeline", response_class=JSONResponse)
+async def get_timeline():
+    """Get full timeline of events"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    try:
+        timeline = chat.sim.milestones.generate_timeline()
+        # Limit to recent events for performance
+        return JSONResponse({"timeline": timeline[-100:]})
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.get("/api/personality/all", response_class=JSONResponse)
+async def get_all_personalities():
+    """Get personality profiles for all NPCs"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    try:
+        profiles = []
+        for npc in chat.sim.npcs[:20]:  # Limit to first 20 for performance
+            profile = chat.sim.personality.get_personality_summary(npc)
+            profiles.append(profile)
+
+        return JSONResponse({"personalities": profiles})
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
+@app.get("/api/personality/{npc_name}", response_class=JSONResponse)
+async def get_npc_personality(npc_name: str):
+    """Get personality profile for specific NPC"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    try:
+        npc = chat.sim.npc_dict.get(npc_name)
+        if not npc:
+            return JSONResponse({"error": f"NPC '{npc_name}' not found"}, status_code=404)
+
+        profile = chat.sim.personality.get_personality_summary(npc)
+        return JSONResponse(profile)
+    except Exception as e:
+        return JSONResponse({"error": str(e)}, status_code=500)
+
 if __name__ == "__main__":
     print("Starting server at http://127.0.0.1:8000")
     uvicorn.run(app, host="127.0.0.1", port=8000)

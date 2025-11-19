@@ -358,6 +358,240 @@ body {
 }
 
 /* ============================================================================
+   ANALYSIS TAB
+   ============================================================================ */
+
+.analysis-summary {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.analysis-section {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.analysis-section h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.analysis-section p {
+    margin: 5px 0;
+    font-size: 13px;
+}
+
+.analysis-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 5px 0;
+}
+
+.analysis-section li {
+    padding: 3px 0;
+    font-size: 13px;
+}
+
+/* ============================================================================
+   TIMELINE TAB
+   ============================================================================ */
+
+.milestone-stats {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.stat-row {
+    font-size: 14px;
+}
+
+.milestone-filters {
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.milestone-filters label {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.milestone-filters select {
+    padding: 8px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 13px;
+}
+
+.timeline-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.timeline-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid #ccc;
+}
+
+.timeline-item.imp-life-changing {
+    border-left-color: #e74c3c;
+    background: #fef5f5;
+}
+
+.timeline-item.imp-major {
+    border-left-color: #f39c12;
+    background: #fef9f5;
+}
+
+.timeline-item.imp-moderate {
+    border-left-color: #3498db;
+    background: #f5f9fe;
+}
+
+.timeline-item.imp-minor {
+    border-left-color: #95a5a6;
+}
+
+.timeline-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.timeline-content {
+    flex: 1;
+}
+
+.timeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.importance-badge {
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+}
+
+.importance-badge.imp-life-changing {
+    background: #e74c3c;
+}
+
+.importance-badge.imp-major {
+    background: #f39c12;
+}
+
+.importance-badge.imp-moderate {
+    background: #3498db;
+}
+
+.importance-badge.imp-minor {
+    background: #95a5a6;
+}
+
+.timeline-meta {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.timeline-npcs {
+    font-size: 12px;
+    color: #555;
+    font-style: italic;
+}
+
+/* ============================================================================
+   PERSONALITY TAB
+   ============================================================================ */
+
+.personality-search {
+    margin-bottom: 15px;
+}
+
+.personality-search input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.personality-search input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.personality-list {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.personality-card {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.personality-card h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.trait-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.trait-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.tendencies {
+    font-size: 13px;
+}
+
+.tendencies strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.tendencies ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.tendencies li {
+    padding: 3px 0;
+    color: #555;
+}
+
+/* ============================================================================
    SCROLLBAR STYLING
    ============================================================================ */
 
