@@ -154,10 +154,8 @@ class ScheduleSystem:
 
         for key, place in self.workplaces.items():
             if key in text:
-                print(f"[DEBUG] {npc.full_name} matched job: {place}")
                 return place
 
-        print(f"[DEBUG] {npc.full_name} has no job match.")
         return None
 
     # ---------------------------------------------------------
@@ -169,38 +167,30 @@ class ScheduleSystem:
         for npc in self.npcs:
             home = getattr(npc, "home_location", "Home")
 
-            print(f"\n[DEBUG] Checking location for {npc.full_name}, Age: {npc.age}")
-
             # Toddlers
             if npc.age < 3:
                 npc.current_location = home
-                print(f"[DEBUG] {npc.full_name} (0–2) stays home.")
                 continue
 
             # Daycare (3–5)
             if 3 <= npc.age <= 5:
                 if self.is_daycare_time():
                     npc.current_location = "Willow Creek Daycare Center"
-                    print(f"[DEBUG] {npc.full_name} (3–5) goes to daycare.")
                 else:
                     npc.current_location = home
-                    print(f"[DEBUG] {npc.full_name} (3–5) daycare closed → home.")
                 continue
 
             # Preschool (6)
             if npc.age == 6:
                 if self.is_preschool_time():
                     npc.current_location = "Willow Creek Pre-School"
-                    print(f"[DEBUG] {npc.full_name} (6) goes to preschool.")
                 else:
                     npc.current_location = home
-                    print(f"[DEBUG] {npc.full_name} (6) preschool closed → home.")
                 continue
 
             # School (7–18)
             if self.is_school_time(npc):
                 npc.current_location = "Willow Creek High School"
-                print(f"[DEBUG] {npc.full_name} (7–18) goes to school.")
                 continue
 
             # Work
@@ -208,42 +198,35 @@ class ScheduleSystem:
 
             if workplace and self.is_work_time(npc):
                 npc.current_location = workplace
-                print(f"[DEBUG] {npc.full_name} works at {workplace}.")
                 continue
 
             # Lunch break
             if workplace and self.is_lunch_time() and npc.age >= 19:
                 npc.current_location = "Main Street Diner"
-                print(f"[DEBUG] {npc.full_name} lunch break → Main Street Diner.")
                 continue
 
             # Weekend → free roam
             if t.is_weekend:
                 loc = self.choose_default_location(npc)
                 npc.current_location = loc
-                print(f"[DEBUG] {npc.full_name} weekend free time → {loc}.")
                 continue
 
             # Evening free time
             if 17 <= t.hour < 21:
                 loc = self.choose_default_location(npc)
                 npc.current_location = loc
-                print(f"[DEBUG] {npc.full_name} evening free time → {loc}.")
                 continue
 
             # Night → home
             if t.hour >= 21 or t.hour < 6:
                 npc.current_location = home
-                print(f"[DEBUG] {npc.full_name} night → home.")
                 continue
 
             # Weekday day with no job
             if 8 <= t.hour < 17:
                 npc.current_location = home
-                print(f"[DEBUG] {npc.full_name} no work/school → home.")
                 continue
 
             # Fallback
             loc = self.choose_default_location(npc)
             npc.current_location = loc
-            print(f"[DEBUG] {npc.full_name} fallback → {loc}.")

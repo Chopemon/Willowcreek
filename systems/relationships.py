@@ -42,28 +42,29 @@ class RelationshipManager:
         """Placeholder for processing relationship changes based on time or actions."""
         pass
     
-    def update_all_relationships(self, npcs: List['NPC'], time_delta: float):
+    def update_all_relationships(self, npc_dict: Dict[str, 'NPC'], time_delta: float):
         """
         Update all relationships based on current states and proximity.
         Called every simulation step to keep relationships dynamic.
+        OPTIMIZED: Uses npc_dict for O(1) lookups instead of O(n) linear search.
         """
         # Natural relationship decay over time if not maintained
         for key, rel in list(self.relationships.items()):
             # Relationships naturally decay slowly if not maintained
             if rel['level'] > 0:
                 rel['level'] = max(0, rel['level'] - 0.01 * time_delta)
-            
-            # Attraction can shift based on needs
-            npc1_obj = next((n for n in npcs if n.full_name == rel['npc1']), None)
-            npc2_obj = next((n for n in npcs if n.full_name == rel['npc2']), None)
-            
+
+            # Attraction can shift based on needs - use dict lookup for O(1) performance
+            npc1_obj = npc_dict.get(rel['npc1'])
+            npc2_obj = npc_dict.get(rel['npc2'])
+
             if npc1_obj and npc2_obj:
                 # If both are horny and lonely, attraction increases
                 if npc1_obj.needs.horny > 70 and npc1_obj.psyche.lonely > 70:
                     rel['attraction'] = min(100, rel['attraction'] + 0.1)
                 if npc2_obj.needs.horny > 70 and npc2_obj.psyche.lonely > 70:
                     rel['attraction'] = min(100, rel['attraction'] + 0.1)
-                
+
                 # Update graph weight
                 if self.graph.has_edge(rel['npc1'], rel['npc2']):
                     self.graph[rel['npc1']][rel['npc2']]['weight'] = rel['level']

@@ -61,6 +61,7 @@ class WillowCreekSimulation:
         self.scenario_buffer: List[str] = []  # For quirks & sexual events
         self.debug_enabled = True
         self.debug = DebugOverlay(self)
+        self._location_map_cache: Optional[Dict[str, List[NPC]]] = None  # Performance optimization
 
         # Load NPC roster
         base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -154,6 +155,7 @@ class WillowCreekSimulation:
 
         # Update schedules and locations
         self.schedule.update_locations()
+        self._invalidate_location_cache()  # Cache invalidation after location changes
         loc_map = self._build_location_map()
 
         # Core simulation systems
@@ -161,7 +163,7 @@ class WillowCreekSimulation:
         self.seasonal.update(self.time)
         self.environmental.check_triggers(self.npcs, self.time)
         self.autonomous.process_all(time_step_hours)
-        self.emotional.spread_emotions(self.npcs)
+        self.emotional.spread_emotions(self.npcs, loc_map)  # Pass cached location map
         self.memory.consolidate_memories(self.time.total_days)
         self.goals.update_all(self.time.total_days)
         self.reputation.spread_gossip(self.npcs)
@@ -207,7 +209,11 @@ class WillowCreekSimulation:
         """
         Build a mapping from location name -> list of NPC objects
         based on their current_location field.
+        Uses caching for performance - cache is invalidated when locations change.
         """
+        if self._location_map_cache is not None:
+            return self._location_map_cache
+
         loc_groups: Dict[str, List[NPC]] = {}
 
         for npc in self.npcs:
@@ -217,7 +223,12 @@ class WillowCreekSimulation:
 
             loc_groups.setdefault(loc, []).append(npc)
 
+        self._location_map_cache = loc_groups
         return loc_groups
+
+    def _invalidate_location_cache(self):
+        """Invalidate the location map cache after locations change."""
+        self._location_map_cache = None
 
     def run(self, num_steps: int = 24, time_step_hours: float = 1.0):
         """
@@ -231,13 +242,14 @@ class WillowCreekSimulation:
             self.time.advance(time_step_hours)
 
             self.schedule.update_locations()
+            self._invalidate_location_cache()  # Cache invalidation after location changes
             loc_map = self._build_location_map()
 
             self.needs.process_needs(self.npcs, time_step_hours)
             self.seasonal.update(self.time)
             self.environmental.check_triggers(self.npcs, self.time)
             self.autonomous.process_all(time_step_hours)
-            self.emotional.spread_emotions(self.npcs)
+            self.emotional.spread_emotions(self.npcs, loc_map)  # Pass cached location map
             self.memory.consolidate_memories(self.time.total_days)
             self.goals.update_all(self.time.total_days)
             self.reputation.spread_gossip(self.npcs)

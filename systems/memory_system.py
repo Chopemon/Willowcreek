@@ -115,16 +115,21 @@ class MemorySystem:
         - clustering
         - short → long-term moves
         - pruning forgotten memories
+        OPTIMIZED: Lazy processing - skips NPCs with empty memory banks.
         """
 
         if self.last_day == current_day:
             return
         self.last_day = current_day
 
-        # Process NPC by NPC
+        # Process NPC by NPC - OPTIMIZATION: Only process NPCs with actual memories
         for npc_name in list(self.short_term.keys()):
             st = self.short_term[npc_name]
-            lt = self.long_term[npc_name]
+            lt = self.long_term.get(npc_name, [])
+
+            # OPTIMIZATION: Skip NPCs with no memories at all
+            if not st and not lt:
+                continue
 
             # Step 1: Decay existing memories
             for m in st:
@@ -141,15 +146,16 @@ class MemorySystem:
             # Clear short-term
             self.short_term[npc_name] = []
 
-            # Step 3: Cluster-based reinforcement
-            cluster_groups = {}
-            for m in lt:
-                cluster_groups.setdefault(m.cluster_key, []).append(m)
+            # Step 3: Cluster-based reinforcement - OPTIMIZATION: Skip if too few memories
+            if len(lt) >= 4:
+                cluster_groups = {}
+                for m in lt:
+                    cluster_groups.setdefault(m.cluster_key, []).append(m)
 
-            for cluster, group in cluster_groups.items():
-                if len(group) >= 4:  # recurring theme
-                    for m in group:
-                        m.reinforce()
+                for cluster, group in cluster_groups.items():
+                    if len(group) >= 4:  # recurring theme
+                        for m in group:
+                            m.reinforce()
 
             # Step 4: Forgetting weak memories
             lt[:] = [m for m in lt if not m.is_forgotten()]
@@ -160,6 +166,9 @@ class MemorySystem:
                 lt.sort(key=lambda x: (x.strength, x.day_formed))
                 overflow = len(lt) - self.MAX_LONG
                 del lt[:overflow]
+
+            # Update long-term reference
+            self.long_term[npc_name] = lt
 
     # ------------------------------------------------------
     # Retrieval

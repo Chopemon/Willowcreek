@@ -269,21 +269,25 @@ class EmotionalContagionSystem:
 
                 emotion.spread_to(target, reduction)
 
-    def spread_emotions(self, npcs: List["NPC"]):
+    def spread_emotions(self, npcs: List["NPC"], loc_map: Optional[Dict[str, List["NPC"]]] = None):
         """
         New entrypoint: spread emotions each tick across all NPCs.
         Uses location AND neighborhood (if sim.neighbor_map exists).
+        OPTIMIZED: Accepts pre-built location map to avoid redundant grouping.
         """
         if not npcs:
             return
 
         self.initialize_emotional_landscape()
 
-        # Group NPCs by current location
-        by_location: Dict[str, List["NPC"]] = {}
-        for npc in npcs:
-            loc = npc.current_location or "Nowhere"
-            by_location.setdefault(loc, []).append(npc)
+        # OPTIMIZATION: Use cached location map if provided, otherwise build it
+        if loc_map is None:
+            by_location: Dict[str, List["NPC"]] = {}
+            for npc in npcs:
+                loc = npc.current_location or "Nowhere"
+                by_location.setdefault(loc, []).append(npc)
+        else:
+            by_location = loc_map
 
         # Within each location, spread emotions between NPCs present
         for loc, group in by_location.items():
