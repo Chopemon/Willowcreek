@@ -222,6 +222,28 @@ function updateElement(id, value) {
 }
 
 // ============================================
+// MODE SELECTION
+// ============================================
+const btnLocal = document.getElementById("local-btn");
+const btnRouter = document.getElementById("openrouter-btn");
+
+if (btnLocal && btnRouter) {
+    btnLocal.onclick = () => {
+        simulationMode = "local";
+        btnLocal.classList.add("active");
+        btnRouter.classList.remove("active");
+        updateNarration("🔧 <em>Mode set to: Local (LM Studio)</em>");
+    };
+
+    btnRouter.onclick = () => {
+        simulationMode = "openrouter";
+        btnRouter.classList.add("active");
+        btnLocal.classList.remove("active");
+        updateNarration("🌐 <em>Mode set to: OpenRouter</em>");
+    };
+}
+
+// ============================================
 // INITIALIZE SIMULATION
 // ============================================
 const initBtn = document.getElementById("init-btn");
