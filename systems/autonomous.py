@@ -92,7 +92,7 @@ class AutonomousSystem:
         """
         Turn a goal description into a concrete location using canonical names.
         """
-        g = goal.goal.lower()
+        g = goal.description.lower()
         t = self.sim.time
 
         # School / study related
