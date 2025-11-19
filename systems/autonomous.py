@@ -59,7 +59,10 @@ class AutonomousSystem:
                 continue
 
             # 3. Default schedule
-            self._default_schedule(npc)
+            # NOTE: ScheduleSystem already handles default scheduling comprehensively,
+            # so we don't need to override it here. Only critical needs and goals
+            # should override the schedule system's placement.
+            # self._default_schedule(npc)
 
     def _resolve_location(self, suggested: str, npc: "NPC") -> str:
         """

@@ -22,6 +22,12 @@ AUTO_HOUSEHOLDS: Dict[str, str] = {
     "Kunitz": "Kunitz House",
     "Ruiz": "Ruiz House",
     "Thompson": "Thompson House",
+    "Montgomery": "Montgomery House",
+    "Brunn": "Brunn House",
+    "Voss": "Voss House",
+    "Pearson": "Pearson House",
+    "Harper": "Harper House",
+    "Stephens": "Stephens House",
     # Add more last names here if you introduce new families
 }
 
@@ -37,6 +43,10 @@ MANUAL_OVERRIDES: Dict[str, str] = {
 
     # Nate lives in the next town, separate household
     "Nate": "Nate's House",
+
+    # Single-name NPCs
+    "Hanna": "Hanna's House",
+    "Pastor Naomi": "Naomi's House",
 }
 
 

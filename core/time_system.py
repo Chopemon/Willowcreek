@@ -67,6 +67,16 @@ class TimeSystem:
         """Alias for current_time (for compatibility)"""
         return self.current_time
 
+    @property
+    def is_school_hours(self) -> bool:
+        """School hours: 8 AM - 3 PM on weekdays"""
+        return 8 <= self.hour < 15 and not self.is_weekend
+
+    @property
+    def is_business_hours(self) -> bool:
+        """Business hours: 9 AM - 5 PM on weekdays"""
+        return 9 <= self.hour < 17 and not self.is_weekend
+
     # -----------------------------------------------------------
     # ADVANCE TIME
     # -----------------------------------------------------------
