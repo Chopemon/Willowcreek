@@ -53,6 +53,11 @@ async def _init_sim_handler(mode: str):
     """Shared handler for init simulation"""
     global chat, current_mode
 
+    print(f"\n[WebApp] ===== INIT REQUEST =====")
+    print(f"[WebApp] Requested mode: {mode}")
+    print(f"[WebApp] Current mode: {current_mode}")
+    print(f"[WebApp] ==========================\n")
+
     if mode != current_mode or chat is None:
         print(f"Initializing Simulation in {mode} mode...")
         try:
