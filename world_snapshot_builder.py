@@ -314,38 +314,69 @@ def create_narrative_context(sim: 'WillowCreekSimulation', malcolm: 'NPC') -> st
 def build_frontend_snapshot(sim: 'WillowCreekSimulation', malcolm: 'NPC') -> Dict[str, Any]:
     """
     Bridge function used by web_app.py to populate the UI.
+    Returns structured data for the enhanced dashboard.
     """
-    # 1. Get the full text from your builder
+    # Get the full text snapshot for backward compatibility
     full_text = create_narrative_context(sim, malcolm)
-    
-    # 2. Extract Malcolm's section for the side panel
+
+    # Extract Malcolm's section for the side panel
     malcolm_stats = "Check main output for details."
-    
+
     # Search for Malcolm's section header
     lower_text = full_text.lower()
     start_markers = ["## malcolm", "### malcolm", "malcolm's status", "malcolm state"]
-    
+
     start_idx = -1
     for marker in start_markers:
         idx = lower_text.find(marker)
         if idx != -1:
             start_idx = idx
             break
-            
+
     if start_idx != -1:
         # We found the start of Malcolm's section
         rest_of_text = full_text[start_idx:]
-        
+
         # Find the NEXT section (denoted by ##) to know where to stop
         # Skip the first couple of chars so we don't find the header we just found
-        next_section_idx = rest_of_text.find("##", 5) 
-        
+        next_section_idx = rest_of_text.find("##", 5)
+
         if next_section_idx != -1:
             malcolm_stats = rest_of_text[:next_section_idx].strip()
         else:
             malcolm_stats = rest_of_text.strip()
 
+    # Build structured data for enhanced dashboard
+    needs_data = {
+        "hunger": getattr(malcolm.needs, 'hunger', 50),
+        "energy": getattr(malcolm.needs, 'energy', 80),
+        "hygiene": getattr(malcolm.needs, 'hygiene', 60),
+        "bladder": getattr(malcolm.needs, 'bladder', 60),
+        "fun": getattr(malcolm.needs, 'fun', 50),
+        "social": getattr(malcolm.needs, 'social', 50),
+        "horny": getattr(malcolm.needs, 'horny', 30)
+    }
+
+    psychological_data = {
+        "lonely": getattr(malcolm.psyche, 'lonely', 20),
+        "mood": getattr(malcolm, 'mood', 'Neutral'),
+        "stress": 0  # Add if you have stress tracking
+    }
+
+    # Time and location data
+    time_str = f"{sim.time.hour:02d}:{sim.time.minute:02d}"
+    date_str = sim.time.get_datetime_string().split()[0:3]  # Get "Monday, September 01"
+    date_str = " ".join(date_str)
+
     return {
         "full_context": full_text,
-        "malcolm_stats": malcolm_stats
+        "malcolm_stats": malcolm_stats,
+        # Structured data for enhanced dashboard
+        "needs": needs_data,
+        "psychological": psychological_data,
+        "location": getattr(malcolm, 'current_location', 'Unknown'),
+        "time": time_str,
+        "date": date_str,
+        "age": getattr(malcolm, 'age', 30),
+        "occupation": getattr(malcolm, 'occupation', '')
     }

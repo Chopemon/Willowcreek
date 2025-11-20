@@ -6,6 +6,7 @@ class WillowCreekDashboard {
         this.timelineFilters = new Set(['all']);
         this.npcSearchTerm = '';
         this.debugExpanded = false;
+        this.latestSnapshot = null;
 
         this.init();
     }
@@ -283,6 +284,9 @@ class WillowCreekDashboard {
     updateSnapshot(snapshot) {
         if (!snapshot) return;
 
+        // Store snapshot for use by tabs
+        this.latestSnapshot = snapshot;
+
         // Update time display
         this.updateTimeDisplay(snapshot);
 
@@ -409,19 +413,25 @@ class WillowCreekDashboard {
     }
 
     async updateStatsPanel() {
-        try {
-            const response = await fetch('/api/snapshot');
-            const data = await response.json();
+        // Use cached snapshot if available, otherwise fetch
+        let data = this.latestSnapshot;
 
-            if (data.needs) {
-                this.renderNeedsStats(data.needs);
+        if (!data) {
+            try {
+                const response = await fetch('/api/snapshot');
+                data = await response.json();
+            } catch (error) {
+                console.error('Failed to update stats:', error);
+                return;
             }
+        }
 
-            if (data.psychological) {
-                this.renderPsychologicalStats(data.psychological);
-            }
-        } catch (error) {
-            console.error('Failed to update stats:', error);
+        if (data.needs) {
+            this.renderNeedsStats(data.needs);
+        }
+
+        if (data.psychological) {
+            this.renderPsychologicalStats(data.psychological);
         }
     }
 
