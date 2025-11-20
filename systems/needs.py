@@ -127,17 +127,29 @@ class NeedsSystem:
 
         return {"action": "free_time", "location": None}
 
-    def satisfy_need_from_activity(self, npc, activity: str):
+    def satisfy_need_from_activity(self, npc, activity):
         """
         Satisfy needs based on the current activity.
         Called by autonomous system when NPC performs an action.
         BACKWARD COMPATIBILITY: Added to support older autonomous.py versions.
+
+        Args:
+            activity: Either a string or an ActivityState object with a 'type' attribute
         """
         if not activity:
             return
 
         n = npc.needs
-        activity_lower = activity.lower()
+
+        # Handle both string and ActivityState object
+        if isinstance(activity, str):
+            activity_lower = activity.lower()
+        elif hasattr(activity, 'type'):
+            activity_lower = str(activity.type).lower()
+        elif hasattr(activity, '__str__'):
+            activity_lower = str(activity).lower()
+        else:
+            return  # Can't process this activity type
 
         # Map activities to need satisfaction
         if "eat" in activity_lower or "kitchen" in activity_lower:
