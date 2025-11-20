@@ -29,12 +29,39 @@ class ComfyUIClient:
         self.client_id = str(uuid.uuid4())
         self.workflow_template = None
 
+        # Default node mappings (can be overridden by config)
+        self.node_mapping = {
+            "positive_prompt": "1",
+            "negative_prompt": "2",
+            "seed": "30",
+            "samplers": ["50", "61", "3"]
+        }
+
         # Ensure output directory exists
         os.makedirs(output_dir, exist_ok=True)
+
+        # Load configuration
+        self._load_config()
 
         # Load custom workflow if provided
         if workflow_path:
             self._load_custom_workflow(workflow_path)
+
+    def _load_config(self):
+        """Load workflow configuration from config.json"""
+        from pathlib import Path
+        base_dir = Path(__file__).parent.parent
+        config_path = base_dir / "workflows" / "config.json"
+
+        if config_path.exists():
+            try:
+                with open(config_path, 'r', encoding='utf-8') as f:
+                    config = json.load(f)
+                    if "node_mapping" in config:
+                        self.node_mapping.update(config["node_mapping"])
+                        print(f"[ComfyUI] Loaded node mapping from config: {self.node_mapping}")
+            except Exception as e:
+                print(f"[ComfyUI] Error loading config: {e}, using defaults")
 
     def _load_custom_workflow(self, workflow_path: str):
         """Load a custom workflow JSON file"""
@@ -74,24 +101,30 @@ class ComfyUIClient:
         import copy
         workflow = copy.deepcopy(workflow)
 
-        # Update node 1 (positive prompt - CLIPTextEncode)
-        if "1" in workflow and "inputs" in workflow["1"]:
-            workflow["1"]["inputs"]["text"] = positive
-            print(f"[ComfyUI] Injected positive prompt into node 1")
+        # Get node IDs from config
+        pos_node = self.node_mapping.get("positive_prompt", "1")
+        neg_node = self.node_mapping.get("negative_prompt", "2")
+        seed_node = self.node_mapping.get("seed", "30")
+        sampler_nodes = self.node_mapping.get("samplers", ["50", "61", "3"])
 
-        # Update node 2 (negative prompt - CLIPTextEncode)
-        if "2" in workflow and "inputs" in workflow["2"]:
-            workflow["2"]["inputs"]["text"] = negative
-            print(f"[ComfyUI] Injected negative prompt into node 2")
+        # Update positive prompt node (CLIPTextEncode)
+        if pos_node in workflow and "inputs" in workflow[pos_node]:
+            workflow[pos_node]["inputs"]["text"] = positive
+            print(f"[ComfyUI] Injected positive prompt into node {pos_node}")
 
-        # Update node 30 (seed generator)
-        if "30" in workflow and "inputs" in workflow["30"]:
-            workflow["30"]["inputs"]["seed"] = seed
-            print(f"[ComfyUI] Set seed {seed} in node 30")
+        # Update negative prompt node (CLIPTextEncode)
+        if neg_node in workflow and "inputs" in workflow[neg_node]:
+            workflow[neg_node]["inputs"]["text"] = negative
+            print(f"[ComfyUI] Injected negative prompt into node {neg_node}")
 
-        # Update KSampler nodes with seed (common node IDs: 50, 61, 3)
+        # Update seed generator node
+        if seed_node in workflow and "inputs" in workflow[seed_node]:
+            workflow[seed_node]["inputs"]["seed"] = seed
+            print(f"[ComfyUI] Set seed {seed} in node {seed_node}")
+
+        # Update KSampler nodes with seed
         # These might have 'seed' or 'noise_seed' inputs
-        for node_id in ["50", "61", "3"]:
+        for node_id in sampler_nodes:
             if node_id in workflow and "inputs" in workflow[node_id]:
                 inputs = workflow[node_id]["inputs"]
                 if "seed" in inputs:

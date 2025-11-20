@@ -1,0 +1,10 @@
+{
+  "workflow_file": "sdxl_upscale.json",
+  "node_mapping": {
+    "positive_prompt": "1",
+    "negative_prompt": "2",
+    "seed": "30",
+    "samplers": ["50", "61", "3"]
+  },
+  "comment": "Change these node IDs to match your workflow. To find node IDs, open your workflow JSON and look for 'CLIPTextEncode' nodes for prompts and seed-related nodes."
+}
