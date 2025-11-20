@@ -48,12 +48,11 @@ async def serve_ui():
             return HTMLResponse("<h1>ERROR: index.html not found</h1>", status_code=500)
     return index_path.read_text(encoding="utf-8")
 
-# --- INIT SIMULATION ---
-@app.get("/api/init", response_class=JSONResponse)
-async def init_sim(request: Request):
+# --- INIT SIMULATION (supports both GET and POST) ---
+async def _init_sim_handler(mode: str):
+    """Shared handler for init simulation"""
     global chat, current_mode
-    mode = request.query_params.get("mode", "openrouter")
-    
+
     if mode != current_mode or chat is None:
         print(f"Initializing Simulation in {mode} mode...")
         try:
@@ -66,9 +65,23 @@ async def init_sim(request: Request):
     else:
         chat.initialize()
         narration = f"**[System: Reset {mode.upper()} Mode]**\n\n{chat.last_narrated}"
-            
+
     snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
     return JSONResponse({"narration": narration, "snapshot": snapshot, "images": []})
+
+@app.get("/api/init", response_class=JSONResponse)
+async def init_sim_get(request: Request):
+    mode = request.query_params.get("mode", "openrouter")
+    return await _init_sim_handler(mode)
+
+@app.post("/api/init", response_class=JSONResponse)
+async def init_sim_post(request: Request):
+    try:
+        data = await request.json()
+        mode = data.get("mode", "openrouter")
+    except:
+        mode = request.query_params.get("mode", "openrouter")
+    return await _init_sim_handler(mode)
 
 # --- ACTION HANDLER ---
 @app.post("/api/act", response_class=JSONResponse)
@@ -76,9 +89,11 @@ async def process_action(request: Request):
     global chat
     if chat is None:
         return JSONResponse({"error": "Sim not started. Click 'Start'."}, status_code=400)
-        
+
     data = await request.json()
-    text = data.get("text", "").strip()
+    # Support both 'text' (old) and 'action' (new enhanced dashboard)
+    text = data.get("action") or data.get("text", "")
+    text = text.strip()
     
     reply = ""
     generated_images = []  # Initialize for all code paths
