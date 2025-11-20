@@ -43,7 +43,7 @@ class ComfyUIClient:
         full_path = base_dir / workflow_path
 
         if full_path.exists():
-            with open(full_path, 'r') as f:
+            with open(full_path, 'r', encoding='utf-8') as f:
                 self.workflow_template = json.load(f)
             print(f"[ComfyUI] Loaded custom workflow from {workflow_path}")
         else:
