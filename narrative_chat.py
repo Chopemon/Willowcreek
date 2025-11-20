@@ -24,17 +24,28 @@ CONFIG = {
 class NarrativeChat:
     def __init__(self, mode: str = "openrouter"):
         if mode not in CONFIG: raise ValueError(f"Invalid mode: {mode}")
-        
+
         self.mode = mode
         self.api_url = CONFIG[mode]["api_url"]
         self.model_name = CONFIG[mode]["model_name"]
-        
+
+        # Debug logging for mode initialization
+        print(f"\n[NarrativeChat] ===== INITIALIZING =====")
+        print(f"[NarrativeChat] Mode: {mode}")
+        print(f"[NarrativeChat] API URL: {self.api_url}")
+        print(f"[NarrativeChat] Model: {self.model_name}")
+
         if CONFIG[mode]["key_env"]:
             self.api_key = os.getenv(CONFIG[mode]["key_env"])
-            if not self.api_key: 
+            if not self.api_key:
                 print(f"WARNING: {CONFIG[mode]['key_env']} not set.")
+            else:
+                print(f"[NarrativeChat] API Key: {'*' * 10} (found)")
         else:
             self.api_key = "NOT_REQUIRED"
+            print(f"[NarrativeChat] API Key: Not required for local mode")
+
+        print(f"[NarrativeChat] ========================\n")
 
         self.sim: Optional[WillowCreekSimulation] = None
         self.malcolm: Optional[NPC] = None
@@ -124,10 +135,20 @@ class NarrativeChat:
         }
 
         try:
-            res = requests.post(self.api_url, headers=headers, json=payload)
-            if res.status_code != 200: return f"[API Error: {res.text}]"
-            
+            print(f"[NarrativeChat] Making API call to: {self.api_url}")
+            print(f"[NarrativeChat] Using model: {self.model_name}")
+            print(f"[NarrativeChat] Temperature: {payload['temperature']}, Max tokens: {payload['max_tokens']}")
+
+            res = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
+
+            print(f"[NarrativeChat] Response status: {res.status_code}")
+
+            if res.status_code != 200:
+                print(f"[NarrativeChat] API Error: {res.text}")
+                return f"[API Error: {res.text}]"
+
             content = res.json()["choices"][0]["message"]["content"]
+            print(f"[NarrativeChat] Response received, length: {len(content)} characters")
             
             # Update History
             # We store the simplified version in history to avoid exploding context size with repetitive World States
