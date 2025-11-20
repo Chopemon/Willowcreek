@@ -59,9 +59,10 @@ class AutonomousSystem:
                 continue
 
             # 2. Goals (process but don't change location)
-            goal = self.sim.goals.get_highest_priority_goal(npc.full_name)
-            if goal and random.random() < 0.8:
-                # Process goal satisfaction at current location
+            active_goals = self.sim.goals.get_active_goals(npc.full_name)
+            if active_goals and random.random() < 0.8:
+                # Process goal satisfaction at current location (highest priority goal is first)
+                goal = active_goals[0]
                 continue
 
             # 3. Default schedule - DISABLED: schedule_system.py handles all location assignments
