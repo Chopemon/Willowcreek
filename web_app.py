@@ -316,13 +316,16 @@ async def generate_image_manual():
             # Force a basic scene if analyzer returns None
             from services.scene_image_generator import SceneContext
             scene_context = SceneContext(
-                location=snapshot.get('location', 'Unknown'),
-                characters=[chat.malcolm.full_name],
-                activity="current scene",
-                mood="neutral",
-                time_of_day=chat.sim.time.time_of_day if hasattr(chat.sim, 'time') else "day",
                 scene_type="general",
-                priority=5
+                priority=5,
+                characters=[chat.malcolm.full_name],
+                location=snapshot.get('location', 'Unknown'),
+                time_of_day=chat.sim.time.time_of_day if hasattr(chat.sim, 'time') else "day",
+                weather=chat.sim.time.season if hasattr(chat.sim.time, 'season') else "clear",
+                mood="neutral",
+                explicit_level=0,
+                activity="current scene",
+                raw_event=scene_text
             )
 
         print(f"[ImageGen] Manual generation: {scene_context.activity} at {scene_context.location}")
