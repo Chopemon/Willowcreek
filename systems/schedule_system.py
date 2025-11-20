@@ -19,69 +19,139 @@ class ScheduleSystem:
         self.npcs = simulation.npcs
         self.time = simulation.time
 
-        # Keywords → location
+        # Work schedule profiles: (start_hour, end_hour, days_pattern)
+        # days_pattern: "weekdays", "everyday", "rotating", "2-weeks-on-off"
+        self.work_schedules = {
+            "standard": (9, 17, "weekdays"),           # 9 AM - 5 PM, Mon-Fri
+            "school": (8, 15, "weekdays"),             # 8 AM - 3 PM, Mon-Fri
+            "retail": (10, 18, "weekdays"),            # 10 AM - 6 PM, Mon-Fri
+            "restaurant_day": (7, 15, "everyday"),     # 7 AM - 3 PM, Every day
+            "restaurant_evening": (16, 22, "everyday"), # 4 PM - 10 PM, Every day
+            "bar": (16, 1, "everyday"),                # 4 PM - 1 AM, Every day (closes after midnight)
+            "healthcare_day": (7, 15, "everyday"),     # Day shift
+            "healthcare_evening": (15, 23, "everyday"), # Evening shift
+            "healthcare_night": (23, 7, "everyday"),   # Night shift (wraps around)
+            "police_day": (7, 15, "everyday"),         # Day shift
+            "police_evening": (15, 23, "everyday"),    # Evening shift
+            "police_night": (23, 7, "everyday"),       # Night shift
+            "oil_rig": (0, 24, "2-weeks-on-off"),      # 24/7 for 2 weeks, then 2 weeks off
+            "military": (6, 18, "weekdays"),           # Variable, using standard for now
+            "flexible": (10, 16, "weekdays"),          # Part-time/flexible
+        }
+
+        # Keywords → (location, schedule_type)
         self.workplaces = {
-            "teacher": "Willow Creek High School",
-            "pastor": "Willow Creek Lutheran Church",
-            "priest": "Willow Creek Lutheran Church",
-            "nurse": "Willow Creek Clinic",
-            "doctor": "Willow Creek Clinic",
-            "psychiatrist": "Magnolia Mental Health Center",
-            "therapist": "Voss Massage Studio",
-            "massage": "Voss Massage Studio",
-            "police": "Willow Creek Police Station",
-            "officer": "Willow Creek Police Station",
-            "security": "Willow Creek Police Station",
-            "librarian": "Willow Creek Public Library",
-            "library": "Willow Creek Public Library",
-            "barista": "Willow Creek Mall - Food Court",
-            "waiter": "Main Street Diner",
-            "waitress": "Main Street Diner",
-            "server": "Main Street Diner",
-            "chef": "Main Street Diner",
-            "cook": "Main Street Diner",
-            "retail": "Willow Creek Mall - Retail Wing",
-            "sales": "Willow Creek Mall - Retail Wing",
-            "clerk": "Willow Creek Mall - Retail Wing",
-            "cashier": "Willow Creek Mall - Retail Wing",
-            "yoga": "Namaste Yoga Studio",
-            "instructor": "Namaste Yoga Studio",
-            "grocery": "Willow Creek Grocery",
-            "post": "Sycamore Post Office",
-            "mail": "Sycamore Post Office",
-            "mechanic": "Hanson Auto Shop",
-            "carpenter": "Thompson Carpentry",
-            "janitor": "Willow Creek High School",
-            "custodian": "Willow Creek High School",
-            "salon": "Maple Salon",
-            "hairdresser": "Maple Salon",
-            "bartender": "Willow Creek Bar & Grill",
-            "road crew": "County Roads Depot",
-            "road worker": "County Roads Depot",
-            "bubble bloom": "Willow Creek Mall - Food Court",
-            "food court": "Willow Creek Mall - Food Court",
-            "artist": "Art Cooperative",
-            "model": "Art Cooperative",
-            "engineer": "Engineering Firm",
-            "mother": "Home",
-            "student": "Willow Creek High School",
-            "administrator": "Lutheran Church",
-            "driver": "Local Transportation",
-            "nightclub": "Willow Creek Nightlife District",
-            "the circuit": "Willow Creek Nightlife District",
+            "teacher": ("Willow Creek High School", "school"),
+            "pastor": ("Willow Creek Lutheran Church", "standard"),
+            "priest": ("Willow Creek Lutheran Church", "standard"),
+            "nurse": ("Willow Creek Clinic", "healthcare_day"),
+            "doctor": ("Willow Creek Clinic", "healthcare_day"),
+            "psychiatrist": ("Magnolia Mental Health Center", "standard"),
+            "therapist": ("Voss Massage Studio", "flexible"),
+            "massage": ("Voss Massage Studio", "flexible"),
+            "police": ("Willow Creek Police Station", "police_day"),
+            "officer": ("Willow Creek Police Station", "police_day"),
+            "security": ("Willow Creek Police Station", "police_evening"),
+            "librarian": ("Willow Creek Public Library", "standard"),
+            "library": ("Willow Creek Public Library", "standard"),
+            "barista": ("Willow Creek Mall - Food Court", "retail"),
+            "waiter": ("Main Street Diner", "restaurant_day"),
+            "waitress": ("Main Street Diner", "restaurant_day"),
+            "server": ("Main Street Diner", "restaurant_day"),
+            "chef": ("Main Street Diner", "restaurant_evening"),
+            "cook": ("Main Street Diner", "restaurant_evening"),
+            "retail": ("Willow Creek Mall - Retail Wing", "retail"),
+            "sales": ("Willow Creek Mall - Retail Wing", "retail"),
+            "clerk": ("Willow Creek Mall - Retail Wing", "retail"),
+            "cashier": ("Willow Creek Mall - Retail Wing", "retail"),
+            "yoga": ("Namaste Yoga Studio", "flexible"),
+            "instructor": ("Namaste Yoga Studio", "flexible"),
+            "grocery": ("Willow Creek Grocery", "retail"),
+            "post": ("Sycamore Post Office", "standard"),
+            "mail": ("Sycamore Post Office", "standard"),
+            "mechanic": ("Hanson Auto Shop", "standard"),
+            "carpenter": ("Thompson Carpentry", "standard"),
+            "janitor": ("Willow Creek High School", "school"),
+            "custodian": ("Willow Creek High School", "school"),
+            "salon": ("Maple Salon", "retail"),
+            "hairdresser": ("Maple Salon", "retail"),
+            "bartender": ("Willow Creek Bar & Grill", "bar"),
+            "road crew": ("County Roads Depot", "standard"),
+            "road worker": ("County Roads Depot", "standard"),
+            "bubble bloom": ("Willow Creek Mall - Food Court", "retail"),
+            "food court": ("Willow Creek Mall - Food Court", "retail"),
+            "artist": ("Art Cooperative", "flexible"),
+            "model": ("Art Cooperative", "flexible"),
+            "engineer": ("Engineering Firm", "standard"),
+            "mother": ("Home", "standard"),
+            "student": ("Willow Creek High School", "school"),
+            "administrator": ("Lutheran Church", "standard"),
+            "driver": ("Local Transportation", "standard"),
+            "nightclub": ("Willow Creek Nightlife District", "bar"),
+            "the circuit": ("Willow Creek Nightlife District", "bar"),
             # Military and industrial workers
-            "navy": "Lakeside Research & Seal Station",
-            "seal": "Lakeside Research & Seal Station",
-            "military": "Willow Creek Military Outpost",
-            "soldier": "Willow Creek Military Outpost",
-            "oil": "Offshore Oil Rig #7",
-            "rig": "Offshore Oil Rig #7",
+            "navy": ("Lakeside Research & Seal Station", "military"),
+            "seal": ("Lakeside Research & Seal Station", "military"),
+            "military": ("Willow Creek Military Outpost", "military"),
+            "soldier": ("Willow Creek Military Outpost", "military"),
+            "oil": ("Offshore Oil Rig #7", "oil_rig"),
+            "rig": ("Offshore Oil Rig #7", "oil_rig"),
         }
 
     # ---------------------------------------------------------
     # TIME WINDOWS
     # ---------------------------------------------------------
+    def is_in_shift(self, start_hour, end_hour, current_hour):
+        """Check if current hour is within shift, handling overnight shifts"""
+        if end_hour > start_hour:
+            # Normal shift (e.g., 9-17)
+            return start_hour <= current_hour < end_hour
+        else:
+            # Overnight shift (e.g., 23-7)
+            return current_hour >= start_hour or current_hour < end_hour
+
+    def is_oil_rig_week(self, npc):
+        """
+        Oil rig workers: 2 weeks on, 2 weeks off
+        Use simulation day to determine if worker is on-shift
+        """
+        if not hasattr(self.sim.time, 'total_days'):
+            return False
+
+        # Use NPC age as seed for staggered rotations (different workers have different schedules)
+        offset = (npc.age * 7) % 14
+        cycle_day = (self.sim.time.total_days + offset) % 28
+
+        # First 14 days of cycle = on rig, next 14 days = off
+        return cycle_day < 14
+
+    def is_work_time_custom(self, npc, schedule_type):
+        """
+        Check if NPC should be at work based on their custom schedule
+        """
+        if npc.age < 19:
+            return False
+
+        if schedule_type not in self.work_schedules:
+            schedule_type = "standard"
+
+        start_hour, end_hour, days_pattern = self.work_schedules[schedule_type]
+
+        # Check day pattern
+        if days_pattern == "weekdays" and self.time.is_weekend:
+            return False
+        elif days_pattern == "2-weeks-on-off":
+            if not self.is_oil_rig_week(npc):
+                return False
+            # If on oil rig week, they're there 24/7
+            return True
+        # "everyday" pattern works all days
+
+        # Check time
+        return self.is_in_shift(start_hour, end_hour, self.time.hour)
+
     def is_work_time(self, npc):
+        """Legacy method for backward compatibility"""
         if self.time.is_weekend:
             return False
         if npc.age < 19:
@@ -155,15 +225,18 @@ class ScheduleSystem:
     # DETECT WORKPLACE
     # ---------------------------------------------------------
     def _detect_workplace(self, npc):
+        """
+        Returns (location, schedule_type) tuple or (None, None) if no workplace found
+        """
         aff = (npc.affiliation or "").lower()
         occ = (npc.occupation or "").lower()
         text = aff + " " + occ
 
-        for key, place in self.workplaces.items():
+        for key, (place, schedule) in self.workplaces.items():
             if key in text:
-                return place
+                return place, schedule
 
-        return None
+        return None, None
 
     # ---------------------------------------------------------
     # MAIN LOCATION ASSIGNMENT
@@ -200,17 +273,18 @@ class ScheduleSystem:
                 npc.current_location = "Willow Creek High School"
                 continue
 
-            # Work
-            workplace = self._detect_workplace(npc)
+            # Work (with custom schedules)
+            workplace, schedule_type = self._detect_workplace(npc)
 
-            if workplace and self.is_work_time(npc):
-                npc.current_location = workplace
-                continue
+            if workplace and schedule_type:
+                if self.is_work_time_custom(npc, schedule_type):
+                    npc.current_location = workplace
+                    continue
 
-            # Lunch break
-            if workplace and self.is_lunch_time() and npc.age >= 19:
-                npc.current_location = "Main Street Diner"
-                continue
+                # Lunch break (only for standard day shifts, not night/oil rig workers)
+                if schedule_type in ["standard", "school", "retail"] and self.is_lunch_time() and npc.age >= 19:
+                    npc.current_location = "Main Street Diner"
+                    continue
 
             # Weekend → free roam
             if t.is_weekend:
