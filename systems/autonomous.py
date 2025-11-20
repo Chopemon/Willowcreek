@@ -41,25 +41,31 @@ class AutonomousSystem:
         self.sim = sim
 
     def process_all(self, hours: float):
+        """
+        Process autonomous NPC behaviors.
+        NOTE: Location management is now handled by schedule_system.py.
+        This system only processes needs satisfaction and goal pursuit WITHOUT changing locations.
+        """
         for npc in self.sim.npcs:
             # Malcolm is player-driven; don't auto-move him
             if npc.full_name == "Malcolm Newt":
                 continue
 
-            # 1. Critical needs override everything
+            # 1. Process critical needs (but don't change location - satisfy needs at current location)
             action = self.sim.needs.suggest_action(npc)
             if action["action"] != "free_time":
-                npc.current_location = self._resolve_location(action["location"], npc)
+                # Satisfy the need without changing location
+                self.sim.needs.satisfy_need_from_activity(npc, action["action"])
                 continue
 
-            # 2. Goals
+            # 2. Goals (process but don't change location)
             goal = self.sim.goals.get_highest_priority_goal(npc.full_name)
             if goal and random.random() < 0.8:
-                npc.current_location = self._goal_to_location(goal, npc)
+                # Process goal satisfaction at current location
                 continue
 
-            # 3. Default schedule
-            self._default_schedule(npc)
+            # 3. Default schedule - DISABLED: schedule_system.py handles all location assignments
+            pass
 
     def _resolve_location(self, suggested: str, npc: "NPC") -> str:
         """
