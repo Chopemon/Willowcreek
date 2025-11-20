@@ -36,13 +36,19 @@ class WorldSnapshotBuilder:
             sections.append(self._build_malcolm_state(malcolm))
         except Exception as e:
             sections.append(f"## MALCOLM STATE\n[Error: {e}]")
-        
+
+        # Include recent events from scenario_buffer for the AI narrator
+        try:
+            sections.append(self._build_recent_events())
+        except Exception as e:
+            sections.append(f"## RECENT EVENTS\n[Error: {e}]")
+
         # --- NEARBY NPCS REMOVED DUE TO INACCURATE LOCATION DATA ---
         # try:
         #     sections.append(self._build_nearby_npcs(malcolm))
         # except Exception as e:
         #     sections.append(f"## NEARBY NPCs\n[Error: {e}]")
-        
+
         try:
             sections.append(self._build_all_npc_states())
         except Exception as e:
@@ -127,7 +133,20 @@ PHYSICAL NEEDS:
 PSYCHOLOGICAL STATE:
 - Lonely: {p.lonely:.1f}/100 {"[CRUSHING LONELINESS]" if p.lonely > 80 else ""}
 - Mood: {mood_display.upper()}{bio_state}"""
-    
+
+    def _build_recent_events(self) -> str:
+        """Recent dramatic events that the AI narrator should incorporate"""
+        if not hasattr(self.sim, 'scenario_buffer') or not self.sim.scenario_buffer:
+            return ""  # No events to report
+
+        lines = ["## RECENT EVENTS"]
+        lines.append("**IMPORTANT: The following events just occurred and MUST be woven into the narrative:**\n")
+
+        for event in self.sim.scenario_buffer:
+            lines.append(f"  • {event}")
+
+        return "\n".join(lines)
+
     def _build_nearby_npcs(self, malcolm: 'NPC') -> str:
         """NPCs in Malcolm's current location"""
         nearby = [

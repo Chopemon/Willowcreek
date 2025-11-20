@@ -171,10 +171,13 @@ async def process_action(request: Request):
                 chat.sim.scenario_buffer.append(hint)
         except Exception as e: print(f"Sexual detection failed: {e}")
 
-        # 5. Report events
-        if hasattr(chat.sim, 'scenario_buffer'):
-            for e in chat.sim.scenario_buffer:
-                reply += f"\n\n[SYSTEM EVENT]: {e}"
+        # 5. Events are now in scenario_buffer and will be passed to narrator via world snapshot
+        # If there are events, generate a follow-up narrative incorporating them
+        if hasattr(chat.sim, 'scenario_buffer') and chat.sim.scenario_buffer:
+            # Generate additional narrative to incorporate the events
+            follow_up_prompt = "Continue the scene, incorporating the recent dramatic events."
+            follow_up_narrative = chat.narrate(follow_up_prompt)
+            reply += "\n\n" + follow_up_narrative
 
         # 6. GENERATE IMAGES for interesting scenes
         if COMFYUI_ENABLED and comfyui_client and hasattr(chat.sim, 'scenario_buffer'):
@@ -236,10 +239,12 @@ async def wait_time(request: Request):
     chat.advance_time(hours)
     reply = f". {hours} hours pass ."
 
-    # Event reporting
-    if hasattr(chat.sim, 'scenario_buffer'):
-        for e in chat.sim.scenario_buffer:
-            reply += f"\n\n[SYSTEM EVENT]: {e}"
+    # If events occurred during wait, generate narrative for them
+    if hasattr(chat.sim, 'scenario_buffer') and chat.sim.scenario_buffer:
+        # Generate narrative incorporating the events
+        event_prompt = f"Narrate what happened during the {hours} hour wait, incorporating the recent events."
+        event_narrative = chat.narrate(event_prompt)
+        reply += "\n\n" + event_narrative
 
     # Generate images for wait events
     if COMFYUI_ENABLED and comfyui_client and hasattr(chat.sim, 'scenario_buffer'):
