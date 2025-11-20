@@ -282,6 +282,87 @@ async def wait_time(request: Request):
         "images": generated_images
     })
 
+# --- MANUAL IMAGE GENERATION ENDPOINT ---
+@app.post("/api/generate-image", response_class=JSONResponse)
+async def generate_image_manual():
+    """Manually trigger image generation for the current scene"""
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started. Click 'Start'."}, status_code=400)
+
+    if not COMFYUI_ENABLED or not comfyui_client:
+        return JSONResponse({
+            "success": False,
+            "error": "ComfyUI is not enabled. Set COMFYUI_ENABLED=true environment variable."
+        })
+
+    generated_images = []
+
+    try:
+        # Get current scene context
+        snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
+        current_context = f"Malcolm is at {snapshot.get('location', 'Unknown')} at {snapshot.get('time', 'unknown time')}. "
+
+        # Use the last narrative if available, or build a basic scene description
+        if hasattr(chat, 'last_narrative') and chat.last_narrative:
+            scene_text = chat.last_narrative
+        else:
+            scene_text = current_context + f"Malcolm ({chat.malcolm.age} years old) is here."
+
+        # Analyze the scene
+        scene_context = scene_analyzer.analyze_scene(scene_text, chat.sim, chat.malcolm)
+
+        if not scene_context:
+            # Force a basic scene if analyzer returns None
+            from services.scene_image_generator import SceneContext
+            scene_context = SceneContext(
+                location=snapshot.get('location', 'Unknown'),
+                characters=[chat.malcolm.full_name],
+                activity="current scene",
+                mood="neutral",
+                time_of_day=chat.sim.time.time_of_day if hasattr(chat.sim, 'time') else "day",
+                scene_type="general",
+                priority=5
+            )
+
+        print(f"[ImageGen] Manual generation: {scene_context.activity} at {scene_context.location}")
+
+        # Generate prompts
+        positive_prompt, negative_prompt = prompt_generator.generate_prompt(scene_context)
+
+        # Generate image
+        image_url = await comfyui_client.generate_image(
+            prompt=positive_prompt,
+            negative_prompt=negative_prompt,
+            width=832, height=1216, steps=20, cfg_scale=7.0
+        )
+
+        if image_url:
+            generated_images.append({
+                "url": image_url,
+                "caption": scene_context.activity,
+                "scene_type": scene_context.scene_type
+            })
+            print(f"[ImageGen] Successfully generated image: {image_url}")
+            return JSONResponse({
+                "success": True,
+                "images": generated_images
+            })
+        else:
+            return JSONResponse({
+                "success": False,
+                "error": "Image generation returned no URL"
+            })
+
+    except Exception as e:
+        print(f"[ImageGen] Manual generation error: {e}")
+        import traceback
+        traceback.print_exc()
+        return JSONResponse({
+            "success": False,
+            "error": str(e)
+        })
+
 # --- SNAPSHOT ENDPOINT ---
 @app.get("/api/snapshot", response_class=JSONResponse)
 async def get_snapshot():

@@ -28,6 +28,7 @@ class WillowCreekDashboard {
         document.getElementById('init-sim-btn')?.addEventListener('click', () => this.initSimulation());
         document.getElementById('send-action-btn')?.addEventListener('click', () => this.sendAction());
         document.getElementById('wait-1h-btn')?.addEventListener('click', () => this.wait1Hour());
+        document.getElementById('generate-image-btn')?.addEventListener('click', () => this.generateImage());
 
         // Quick actions
         document.getElementById('save-btn')?.addEventListener('click', () => this.saveCheckpoint());
@@ -196,6 +197,33 @@ class WillowCreekDashboard {
         } finally {
             btn.disabled = false;
             btn.textContent = 'Wait 1 Hour';
+        }
+    }
+
+    async generateImage() {
+        const btn = document.getElementById('generate-image-btn');
+        btn.disabled = true;
+        btn.textContent = '🎨 Generating...';
+
+        try {
+            const response = await fetch('/api/generate-image', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' }
+            });
+            const data = await response.json();
+
+            if (data.success) {
+                this.showNotification('Image generation started! Check the gallery in a moment.', 'success');
+                this.displayImages(data.images);
+            } else {
+                this.showNotification('Image generation failed: ' + (data.error || 'Unknown error'), 'error');
+            }
+        } catch (error) {
+            console.error('Image generation failed:', error);
+            this.showNotification('Image generation failed: ' + error.message, 'error');
+        } finally {
+            btn.disabled = false;
+            btn.textContent = '🎨 Generate Image';
         }
     }
 
@@ -433,6 +461,9 @@ class WillowCreekDashboard {
         if (data.psychological) {
             this.renderPsychologicalStats(data.psychological);
         }
+
+        // Render quick info (location, time, age, etc)
+        this.renderQuickInfo(data);
     }
 
     renderNeedsStats(needs) {
@@ -481,6 +512,16 @@ class WillowCreekDashboard {
             </div>
             <div class="stat-bar">
                 <div class="stat-label">
+                    <span>Lonely</span>
+                    <span class="stat-value">${Math.round(psych.lonely || 0)}</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill ${psych.lonely >= 60 ? 'low' : psych.lonely >= 30 ? 'medium' : 'high'}"
+                         style="width: ${psych.lonely || 0}%"></div>
+                </div>
+            </div>
+            <div class="stat-bar">
+                <div class="stat-label">
                     <span>Stress</span>
                     <span class="stat-value">${Math.round(psych.stress || 0)}</span>
                 </div>
@@ -488,6 +529,34 @@ class WillowCreekDashboard {
                     <div class="progress-fill ${psych.stress >= 60 ? 'low' : psych.stress >= 30 ? 'medium' : 'high'}"
                          style="width: ${psych.stress || 0}%"></div>
                 </div>
+            </div>
+        `;
+    }
+
+    renderQuickInfo(data) {
+        const container = document.getElementById('quick-info');
+        if (!container) return;
+
+        container.innerHTML = `
+            <div class="info-row">
+                <span class="info-label">Location:</span>
+                <span class="info-value">${data.location || 'Unknown'}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Time:</span>
+                <span class="info-value">${data.time || 'N/A'}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Date:</span>
+                <span class="info-value">${data.date || 'N/A'}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Age:</span>
+                <span class="info-value">${data.age || 'N/A'}</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Occupation:</span>
+                <span class="info-value">${data.occupation || 'N/A'}</span>
             </div>
         `;
     }
