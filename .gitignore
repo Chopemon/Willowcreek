@@ -53,3 +53,7 @@ static/generated_images/*.jpeg
 
 # Environment files
 .env
+
+# Checkpoints
+checkpoint.pkl
+*.pkl

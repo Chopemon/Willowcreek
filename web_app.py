@@ -39,9 +39,13 @@ app.mount("/generated_images", StaticFiles(directory=generated_images_dir), name
 
 @app.get("/", response_class=HTMLResponse)
 async def serve_ui():
-    index_path = BASE_DIR / "index.html"
+    # Serve enhanced dashboard
+    index_path = BASE_DIR / "index_enhanced.html"
     if not index_path.exists():
-        return HTMLResponse("<h1>ERROR: index.html not found</h1>", status_code=500)
+        # Fallback to old version
+        index_path = BASE_DIR / "index.html"
+        if not index_path.exists():
+            return HTMLResponse("<h1>ERROR: index.html not found</h1>", status_code=500)
     return index_path.read_text(encoding="utf-8")
 
 # --- INIT SIMULATION ---
@@ -200,6 +204,230 @@ async def process_action(request: Request):
         "snapshot": snapshot,
         "images": generated_images  # NEW: Include generated images
     })
+
+# --- WAIT ENDPOINT ---
+@app.post("/api/wait", response_class=JSONResponse)
+async def wait_time(request: Request):
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started. Click 'Start'."}, status_code=400)
+
+    data = await request.json()
+    hours = data.get("hours", 1)
+
+    generated_images = []
+
+    # Advance time
+    chat.advance_time(hours)
+    reply = f". {hours} hours pass ."
+
+    # Event reporting
+    if hasattr(chat.sim, 'scenario_buffer'):
+        for e in chat.sim.scenario_buffer:
+            reply += f"\n\n[SYSTEM EVENT]: {e}"
+
+    # Generate images for wait events
+    if COMFYUI_ENABLED and comfyui_client and hasattr(chat.sim, 'scenario_buffer'):
+        for event_text in chat.sim.scenario_buffer:
+            scene_context = scene_analyzer.analyze_scene(event_text, chat.sim, chat.malcolm)
+
+            if scene_context and scene_context.priority >= 7:
+                print(f"[ImageGen] Generating image for wait event: {scene_context.activity}")
+                positive_prompt, negative_prompt = prompt_generator.generate_prompt(scene_context)
+
+                try:
+                    image_url = await comfyui_client.generate_image(
+                        prompt=positive_prompt,
+                        negative_prompt=negative_prompt,
+                        width=832, height=1216, steps=20, cfg_scale=7.0
+                    )
+
+                    if image_url:
+                        generated_images.append({
+                            "url": image_url,
+                            "caption": scene_context.activity,
+                            "scene_type": scene_context.scene_type
+                        })
+                except Exception as e:
+                    print(f"[ImageGen] Error: {e}")
+
+    # Clear buffer
+    if hasattr(chat.sim, 'scenario_buffer'):
+        chat.sim.scenario_buffer.clear()
+
+    snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
+    return JSONResponse({
+        "narration": reply,
+        "snapshot": snapshot,
+        "images": generated_images
+    })
+
+# --- SNAPSHOT ENDPOINT ---
+@app.get("/api/snapshot", response_class=JSONResponse)
+async def get_snapshot():
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
+    return JSONResponse(snapshot)
+
+# --- LOCATIONS ENDPOINT ---
+@app.get("/api/locations", response_class=JSONResponse)
+async def get_locations():
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    # Build location map
+    locations = {}
+    for npc in chat.sim.npcs:
+        loc = getattr(npc, "current_location", "Unknown")
+        if loc not in locations:
+            locations[loc] = []
+        locations[loc].append(npc.full_name)
+
+    malcolm_location = getattr(chat.malcolm, "current_location", "Unknown")
+
+    return JSONResponse({
+        "locations": locations,
+        "malcolm_location": malcolm_location
+    })
+
+# --- NPCS ENDPOINT ---
+@app.get("/api/npcs", response_class=JSONResponse)
+async def get_npcs():
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    npcs_data = []
+    for npc in chat.sim.npcs:
+        npcs_data.append({
+            "name": npc.full_name,
+            "age": getattr(npc, "age", None),
+            "occupation": getattr(npc, "occupation", "Unknown"),
+            "location": getattr(npc, "current_location", "Unknown")
+        })
+
+    return JSONResponse({"npcs": npcs_data})
+
+# --- TIMELINE ENDPOINT ---
+@app.get("/api/timeline", response_class=JSONResponse)
+async def get_timeline():
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    # Check if timeline exists
+    events = []
+    if hasattr(chat.sim, 'event_log'):
+        events = chat.sim.event_log
+
+    return JSONResponse({"events": events})
+
+# --- ANALYSIS ENDPOINT ---
+@app.get("/api/analysis", response_class=JSONResponse)
+async def get_analysis():
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    # Calculate relationship metrics
+    relationships = chat.sim.relationships.get_all_relationships()
+    total_relationships = len(relationships)
+
+    avg_affinity = 0
+    if relationships:
+        affinities = [rel.get('affinity', 0) for rel in relationships]
+        avg_affinity = sum(affinities) / len(affinities)
+
+    # Time elapsed
+    time_elapsed = f"{chat.sim.current_hour:02d}:{chat.sim.current_minute:02d}"
+
+    # Activity tracking (simplified)
+    total_actions = 0
+    top_activity = "N/A"
+
+    return JSONResponse({
+        "total_relationships": total_relationships,
+        "avg_affinity": avg_affinity,
+        "total_actions": total_actions,
+        "top_activity": top_activity,
+        "time_elapsed": time_elapsed,
+        "total_npcs": len(chat.sim.npcs)
+    })
+
+# --- SAVE CHECKPOINT ---
+@app.post("/api/save", response_class=JSONResponse)
+async def save_checkpoint():
+    global chat
+    if chat is None:
+        return JSONResponse({"error": "Sim not started"}, status_code=400)
+
+    try:
+        import pickle
+        checkpoint_path = BASE_DIR / "checkpoint.pkl"
+
+        with open(checkpoint_path, 'wb') as f:
+            pickle.dump({
+                "sim": chat.sim,
+                "malcolm": chat.malcolm,
+                "mode": current_mode
+            }, f)
+
+        print(f"[Save] Checkpoint saved to {checkpoint_path}")
+        return JSONResponse({"success": True, "message": "Checkpoint saved successfully"})
+
+    except Exception as e:
+        print(f"[Save] Error: {e}")
+        return JSONResponse({"success": False, "error": str(e)}, status_code=500)
+
+# --- LOAD CHECKPOINT ---
+@app.post("/api/load", response_class=JSONResponse)
+async def load_checkpoint():
+    global chat, current_mode
+
+    try:
+        import pickle
+        checkpoint_path = BASE_DIR / "checkpoint.pkl"
+
+        if not checkpoint_path.exists():
+            return JSONResponse({"success": False, "error": "No checkpoint found"}, status_code=404)
+
+        with open(checkpoint_path, 'rb') as f:
+            data = pickle.load(f)
+
+        # Restore state
+        if chat is None:
+            chat = NarrativeChat(mode=data["mode"])
+
+        chat.sim = data["sim"]
+        chat.malcolm = data["malcolm"]
+        current_mode = data["mode"]
+
+        snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
+
+        print(f"[Load] Checkpoint loaded from {checkpoint_path}")
+        return JSONResponse({
+            "success": True,
+            "message": "Checkpoint loaded successfully",
+            "snapshot": snapshot
+        })
+
+    except Exception as e:
+        print(f"[Load] Error: {e}")
+        return JSONResponse({"success": False, "error": str(e)}, status_code=500)
+
+# --- RESET SIMULATION ---
+@app.post("/api/reset", response_class=JSONResponse)
+async def reset_simulation():
+    global chat, current_mode
+
+    chat = None
+    current_mode = ""
+
+    return JSONResponse({"success": True, "message": "Simulation reset"})
 
 if __name__ == "__main__":
     print("Starting server at http://127.0.0.1:8000")

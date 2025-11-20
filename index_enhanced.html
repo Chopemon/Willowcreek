@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willow Creek Enhanced Dashboard</title>
+    <link rel="stylesheet" href="/static/styles_enhanced.css?v=3">
+</head>
+<body>
+    <!-- Top Status Bar -->
+    <div id="status-bar">
+        <div id="time-display">
+            <span id="current-time">Loading...</span>
+            <span id="current-date">Loading...</span>
+        </div>
+        <div id="malcolm-location">
+            <span class="location-icon">📍</span>
+            <span id="malcolm-current-loc">Unknown</span>
+        </div>
+        <div id="quick-actions">
+            <button id="save-btn" title="Save checkpoint">💾 Save</button>
+            <button id="load-btn" title="Load checkpoint">📁 Load</button>
+            <button id="reset-btn" title="Reset simulation">🔄 Reset</button>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div id="app-container">
+        <!-- Left Panel: Narrative & Input -->
+        <div id="left-panel">
+            <div id="mode-selection">
+                <button id="local-mode-btn" class="mode-btn">Local (LM Studio)</button>
+                <button id="openrouter-mode-btn" class="mode-btn active">OpenRouter</button>
+                <button id="init-sim-btn" class="primary-btn">Start Simulation</button>
+            </div>
+
+            <div id="narrative-output"></div>
+            <div id="image-gallery"></div>
+
+            <div id="input-controls">
+                <input type="text" id="action-input" placeholder="What does Malcolm do...">
+                <button id="send-action-btn">Send</button>
+                <button id="wait-1h-btn">Wait 1h</button>
+            </div>
+        </div>
+
+        <!-- Right Panel: Dashboard Tabs -->
+        <div id="right-panel">
+            <!-- Tab Navigation -->
+            <div id="tab-nav">
+                <button class="tab-btn active" data-tab="stats">📊 Stats</button>
+                <button class="tab-btn" data-tab="map">🗺️ Map</button>
+                <button class="tab-btn" data-tab="profiles">👥 NPCs</button>
+                <button class="tab-btn" data-tab="timeline">📅 Timeline</button>
+                <button class="tab-btn" data-tab="analysis">📈 Analysis</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="tab-content">
+                <!-- Stats Tab -->
+                <div class="tab-panel active" id="stats-tab">
+                    <h3>Malcolm's Status</h3>
+                    <div id="malcolm-stats-detailed">
+                        <div class="stat-section">
+                            <h4>Physical Needs</h4>
+                            <div id="physical-needs"></div>
+                        </div>
+                        <div class="stat-section">
+                            <h4>Psychological State</h4>
+                            <div id="psychological-state"></div>
+                        </div>
+                        <div class="stat-section">
+                            <h4>Quick Info</h4>
+                            <div id="quick-info"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map Tab -->
+                <div class="tab-panel" id="map-tab">
+                    <h3>Town Map</h3>
+                    <div id="location-map">
+                        <div class="map-legend">
+                            <span><span class="legend-marker malcolm">●</span> Malcolm</span>
+                            <span><span class="legend-marker npc">●</span> NPCs</span>
+                        </div>
+                        <div id="location-list"></div>
+                    </div>
+                </div>
+
+                <!-- NPCs Tab -->
+                <div class="tab-panel" id="profiles-tab">
+                    <h3>NPC Profiles</h3>
+                    <input type="text" id="npc-search" placeholder="Search NPCs...">
+                    <div id="npc-profiles-list"></div>
+                </div>
+
+                <!-- Timeline Tab -->
+                <div class="tab-panel" id="timeline-tab">
+                    <h3>Event Timeline</h3>
+                    <div id="timeline-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="sexual">Sexual</button>
+                        <button class="filter-btn" data-filter="social">Social</button>
+                        <button class="filter-btn" data-filter="drama">Drama</button>
+                    </div>
+                    <div id="timeline-events"></div>
+                </div>
+
+                <!-- Analysis Tab -->
+                <div class="tab-panel" id="analysis-tab">
+                    <h3>Simulation Analysis</h3>
+                    <div id="analysis-content">
+                        <div class="analysis-section">
+                            <h4>Relationship Network</h4>
+                            <div id="relationship-stats"></div>
+                        </div>
+                        <div class="analysis-section">
+                            <h4>Activity Patterns</h4>
+                            <div id="activity-patterns"></div>
+                        </div>
+                        <div class="analysis-section">
+                            <h4>Key Metrics</h4>
+                            <div id="key-metrics"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Debug Overlay (Collapsible) -->
+    <div id="debug-overlay">
+        <button id="debug-toggle">🐛 Debug</button>
+        <div id="debug-content" style="display: none;">
+            <pre id="debug-text"></pre>
+        </div>
+    </div>
+
+    <script src="/static/script_enhanced.js?v=3"></script>
+</body>
+</html>
