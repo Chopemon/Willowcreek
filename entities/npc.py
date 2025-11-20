@@ -162,7 +162,17 @@ def create_npc_from_dict(data: dict) -> NPC:
         ),
     )
 
-    # Home location: derived or default
-    npc.home_location = data.get("home_location", npc.home_location)
+    # Home location: derived from last name or explicitly set
+    if "home_location" in data:
+        npc.home_location = data["home_location"]
+    else:
+        # Derive from last name (e.g., "Sarah Madison" -> "Madison House")
+        parts = name.strip().split()
+        if len(parts) >= 2:
+            last_name = parts[-1]
+            npc.home_location = f"{last_name} House"
+        else:
+            # Single name NPCs (like "Nate", "Tessa", "Hanna")
+            npc.home_location = f"{name}'s House"
 
     return npc
