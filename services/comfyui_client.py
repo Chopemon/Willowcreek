@@ -125,11 +125,13 @@ class ComfyUIClient:
         if pos_node in workflow and "inputs" in workflow[pos_node]:
             workflow[pos_node]["inputs"]["text"] = positive
             print(f"[ComfyUI] Injected positive prompt into node {pos_node}")
+            print(f"[ComfyUI]   Preview: {positive[:150]}{'...' if len(positive) > 150 else ''}")
 
         # Update negative prompt node (CLIPTextEncode)
         if neg_node in workflow and "inputs" in workflow[neg_node]:
             workflow[neg_node]["inputs"]["text"] = negative
             print(f"[ComfyUI] Injected negative prompt into node {neg_node}")
+            print(f"[ComfyUI]   Preview: {negative[:150]}{'...' if len(negative) > 150 else ''}")
 
         # Update seed generator node
         if seed_node in workflow and "inputs" in workflow[seed_node]:

@@ -249,6 +249,12 @@ class ImagePromptGenerator:
         # Build negative prompt
         negative_prompt = self._build_negative_prompt(context.explicit_level)
 
+        # Log the generated prompts
+        print(f"\n[ImageGen] === Generated Prompts ===")
+        print(f"[ImageGen] Positive: {positive_prompt}")
+        print(f"[ImageGen] Negative: {negative_prompt}")
+        print(f"[ImageGen] ========================\n")
+
         return positive_prompt, negative_prompt
 
     def _build_character_description(self, characters: List[str]) -> str:
