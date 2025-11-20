@@ -155,7 +155,9 @@ class ComfyUIClient:
                     json={"prompt": prompt_data, "client_id": self.client_id}
                 ) as response:
                     if response.status != 200:
+                        error_text = await response.text()
                         print(f"[ComfyUI] Error queuing prompt: {response.status}")
+                        print(f"[ComfyUI] Error details: {error_text}")
                         return None
 
                     result = await response.json()
