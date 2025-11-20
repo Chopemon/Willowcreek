@@ -126,3 +126,38 @@ class NeedsSystem:
             return {"action": "privacy", "location": "Bedroom"}
 
         return {"action": "free_time", "location": None}
+
+    def satisfy_need_from_activity(self, npc, activity: str):
+        """
+        Satisfy needs based on the current activity.
+        Called by autonomous system when NPC performs an action.
+        BACKWARD COMPATIBILITY: Added to support older autonomous.py versions.
+        """
+        if not activity:
+            return
+
+        n = npc.needs
+        activity_lower = activity.lower()
+
+        # Map activities to need satisfaction
+        if "eat" in activity_lower or "kitchen" in activity_lower:
+            n.hunger = max(0, n.hunger - 30)
+
+        if "sleep" in activity_lower or "bed" in activity_lower or "rest" in activity_lower:
+            n.energy = min(100, n.energy + 40)
+
+        if "shower" in activity_lower or "bath" in activity_lower or "wash" in activity_lower:
+            n.hygiene = min(100, n.hygiene + 40)
+
+        if "bathroom" in activity_lower or "toilet" in activity_lower:
+            n.bladder = max(0, n.bladder - 40)
+
+        if "social" in activity_lower or "talk" in activity_lower or "chat" in activity_lower:
+            n.social = min(100, n.social + 20)
+
+        if "fun" in activity_lower or "play" in activity_lower or "game" in activity_lower:
+            n.fun = min(100, n.fun + 20)
+
+        if "sex" in activity_lower or "intimate" in activity_lower:
+            n.horny = max(0, n.horny - 40)
+            n.fun = min(100, n.fun + 15)
