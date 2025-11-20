@@ -218,6 +218,14 @@ WILLOW_CREEK_LOCATIONS = {
         "hours": "Restricted / Appointment Only",
         "services": ["Marine Research"],
         "description": "Research facility near the lake, mostly off-limits to the public."
+    },
+    "oilRig": {
+        "name": "Offshore Oil Rig #7",
+        "address": "25 miles offshore",
+        "type": "Industrial",
+        "hours": "24/7 (2 weeks on, 2 weeks off shifts)",
+        "services": ["Oil Extraction", "Rig Operations"],
+        "description": "Deep-water oil drilling platform where workers spend weeks at a time away from home."
     }
 }
 

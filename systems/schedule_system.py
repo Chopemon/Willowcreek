@@ -69,6 +69,13 @@ class ScheduleSystem:
             "driver": "Local Transportation",
             "nightclub": "Willow Creek Nightlife District",
             "the circuit": "Willow Creek Nightlife District",
+            # Military and industrial workers
+            "navy": "Lakeside Research & Seal Station",
+            "seal": "Lakeside Research & Seal Station",
+            "military": "Willow Creek Military Outpost",
+            "soldier": "Willow Creek Military Outpost",
+            "oil": "Offshore Oil Rig #7",
+            "rig": "Offshore Oil Rig #7",
         }
 
     # ---------------------------------------------------------
