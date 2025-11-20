@@ -6,5 +6,14 @@
     "seed": "30",
     "samplers": ["50", "61", "3"]
   },
-  "comment": "Change these node IDs to match your workflow. To find node IDs, open your workflow JSON and look for 'CLIPTextEncode' nodes for prompts and seed-related nodes."
+  "_comment": "Configuration for ComfyUI workflow integration",
+  "_instructions": {
+    "workflow_file": "Name of the workflow JSON file in this directory (e.g., 'my_workflow.json')",
+    "node_mapping": {
+      "positive_prompt": "Node ID for positive prompt (CLIPTextEncode)",
+      "negative_prompt": "Node ID for negative prompt (CLIPTextEncode)",
+      "seed": "Node ID for seed generator",
+      "samplers": "Array of sampler node IDs (KSampler, etc.)"
+    }
+  }
 }

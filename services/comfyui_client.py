@@ -23,7 +23,7 @@ class ComfyUIClient:
     def __init__(self,
                  base_url: str = "http://127.0.0.1:8188",
                  output_dir: str = "static/generated_images",
-                 workflow_path: Optional[str] = "workflows/sdxl_upscale.json"):
+                 workflow_path: Optional[str] = None):
         self.base_url = base_url
         self.output_dir = output_dir
         self.client_id = str(uuid.uuid4())
@@ -37,15 +37,22 @@ class ComfyUIClient:
             "samplers": ["50", "61", "3"]
         }
 
+        # Default workflow path (can be overridden by config)
+        self.workflow_path = "workflows/sdxl_upscale.json"
+
         # Ensure output directory exists
         os.makedirs(output_dir, exist_ok=True)
 
-        # Load configuration
+        # Load configuration (may override workflow_path)
         self._load_config()
 
-        # Load custom workflow if provided
+        # Use provided workflow_path if given, otherwise use config or default
         if workflow_path:
-            self._load_custom_workflow(workflow_path)
+            self.workflow_path = workflow_path
+
+        # Load custom workflow
+        if self.workflow_path:
+            self._load_custom_workflow(self.workflow_path)
 
     def _load_config(self):
         """Load workflow configuration from config.json"""
@@ -57,6 +64,13 @@ class ComfyUIClient:
             try:
                 with open(config_path, 'r', encoding='utf-8') as f:
                     config = json.load(f)
+
+                    # Load workflow file path from config
+                    if "workflow_file" in config:
+                        self.workflow_path = f"workflows/{config['workflow_file']}"
+                        print(f"[ComfyUI] Using workflow from config: {config['workflow_file']}")
+
+                    # Load node mapping from config
                     if "node_mapping" in config:
                         self.node_mapping.update(config["node_mapping"])
                         print(f"[ComfyUI] Loaded node mapping from config: {self.node_mapping}")
