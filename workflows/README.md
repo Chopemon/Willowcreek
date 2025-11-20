@@ -12,12 +12,33 @@ The Willow Creek game can automatically generate images using your custom ComfyU
    - Click "Save (API Format)" button
    - Save the JSON file as `sdxl_upscale.json` in this directory
 
-2. **Required Node IDs:**
-   Your workflow must have these nodes for automatic prompt injection:
-   - **Node 1**: CLIPTextEncode for positive prompt (will be auto-filled)
-   - **Node 2**: CLIPTextEncode for negative prompt (will be auto-filled)
-   - **Node 30**: Seed generator (will be auto-filled)
-   - **Node 7 or 57**: SaveImage node (for output)
+2. **Configure Node IDs (IMPORTANT!):**
+
+   Edit `config.json` to match your workflow's node IDs:
+
+   ```json
+   {
+     "node_mapping": {
+       "positive_prompt": "1",
+       "negative_prompt": "2",
+       "seed": "30",
+       "samplers": ["50", "61", "3"]
+     }
+   }
+   ```
+
+   **How to find your node IDs:**
+   - Open your workflow JSON file
+   - Search for `"class_type": "CLIPTextEncode"` - note the node numbers
+   - The first one is usually positive prompt, second is negative
+   - Search for seed-related nodes (KSampler, SeedGenerator)
+   - Update `config.json` with your node numbers
+
+   **Example:** If your workflow has:
+   - Node 5: Positive prompt → `"positive_prompt": "5"`
+   - Node 6: Negative prompt → `"negative_prompt": "6"`
+   - Node 15: Seed → `"seed": "15"`
+   - Nodes 20, 25: Samplers → `"samplers": ["20", "25"]`
 
 3. **Restart the game** and enable ComfyUI:
    ```bash
