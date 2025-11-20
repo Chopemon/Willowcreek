@@ -461,6 +461,10 @@ class WillowCreekDashboard {
         if (!data) {
             try {
                 const response = await fetch('/api/snapshot');
+                if (!response.ok) {
+                    // Simulation not started yet, ignore silently
+                    return;
+                }
                 data = await response.json();
             } catch (error) {
                 console.error('Failed to update stats:', error);
