@@ -22,13 +22,84 @@ class ComfyUIClient:
 
     def __init__(self,
                  base_url: str = "http://127.0.0.1:8188",
-                 output_dir: str = "static/generated_images"):
+                 output_dir: str = "static/generated_images",
+                 workflow_path: Optional[str] = "workflows/sdxl_upscale.json"):
         self.base_url = base_url
         self.output_dir = output_dir
         self.client_id = str(uuid.uuid4())
+        self.workflow_template = None
 
         # Ensure output directory exists
         os.makedirs(output_dir, exist_ok=True)
+
+        # Load custom workflow if provided
+        if workflow_path:
+            self._load_custom_workflow(workflow_path)
+
+    def _load_custom_workflow(self, workflow_path: str):
+        """Load a custom workflow JSON file"""
+        from pathlib import Path
+        base_dir = Path(__file__).parent.parent
+        full_path = base_dir / workflow_path
+
+        if full_path.exists():
+            with open(full_path, 'r') as f:
+                self.workflow_template = json.load(f)
+            print(f"[ComfyUI] Loaded custom workflow from {workflow_path}")
+        else:
+            print(f"[ComfyUI] Workflow not found at {full_path}, using default")
+
+    def _inject_prompts(self,
+                       workflow: Dict,
+                       positive: str,
+                       negative: str,
+                       seed: int) -> Dict:
+        """
+        Inject prompts and seed into workflow nodes.
+
+        This method finds CLIPTextEncode nodes for prompts and updates seed values
+        across various sampler nodes. It's designed to work with the custom SDXL
+        workflow but will gracefully skip missing nodes.
+
+        Args:
+            workflow: The workflow dictionary to modify
+            positive: Positive prompt text
+            negative: Negative prompt text
+            seed: Random seed for generation
+
+        Returns:
+            Modified workflow dictionary (deep copy to avoid mutation)
+        """
+        # Deep copy to avoid mutating the template
+        import copy
+        workflow = copy.deepcopy(workflow)
+
+        # Update node 1 (positive prompt - CLIPTextEncode)
+        if "1" in workflow and "inputs" in workflow["1"]:
+            workflow["1"]["inputs"]["text"] = positive
+            print(f"[ComfyUI] Injected positive prompt into node 1")
+
+        # Update node 2 (negative prompt - CLIPTextEncode)
+        if "2" in workflow and "inputs" in workflow["2"]:
+            workflow["2"]["inputs"]["text"] = negative
+            print(f"[ComfyUI] Injected negative prompt into node 2")
+
+        # Update node 30 (seed generator)
+        if "30" in workflow and "inputs" in workflow["30"]:
+            workflow["30"]["inputs"]["seed"] = seed
+            print(f"[ComfyUI] Set seed {seed} in node 30")
+
+        # Update KSampler nodes with seed (common node IDs: 50, 61, 3)
+        # These might have 'seed' or 'noise_seed' inputs
+        for node_id in ["50", "61", "3"]:
+            if node_id in workflow and "inputs" in workflow[node_id]:
+                inputs = workflow[node_id]["inputs"]
+                if "seed" in inputs:
+                    inputs["seed"] = seed
+                if "noise_seed" in inputs:
+                    inputs["noise_seed"] = seed
+
+        return workflow
 
     async def generate_image(self,
                             prompt: str,
@@ -60,8 +131,17 @@ class ComfyUIClient:
 
         try:
             if workflow:
-                # Use custom workflow if provided
+                # Use custom workflow if provided directly
                 prompt_data = workflow
+            elif self.workflow_template:
+                # Use loaded workflow template with prompt injection
+                print(f"[ComfyUI] Using custom workflow template with injected prompts")
+                prompt_data = self._inject_prompts(
+                    self.workflow_template,
+                    prompt,
+                    negative_prompt,
+                    seed
+                )
             else:
                 # Use default workflow
                 prompt_data = self._build_default_workflow(

@@ -1,0 +1,90 @@
+{
+  "1": {
+    "inputs": {
+      "text": "PLACEHOLDER - This will be replaced with generated prompt",
+      "clip": ["14", 1]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Positive Prompt"
+    }
+  },
+  "2": {
+    "inputs": {
+      "text": "PLACEHOLDER - This will be replaced with negative prompt",
+      "clip": ["14", 1]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "Negative Prompt"
+    }
+  },
+  "14": {
+    "inputs": {
+      "ckpt_name": "sd_xl_base_1.0.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Load Checkpoint"
+    }
+  },
+  "30": {
+    "inputs": {
+      "seed": 0
+    },
+    "class_type": "SeedGenerator",
+    "_meta": {
+      "title": "Seed"
+    }
+  },
+  "5": {
+    "inputs": {
+      "width": 832,
+      "height": 1216,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "Empty Latent"
+    }
+  },
+  "3": {
+    "inputs": {
+      "seed": ["30", 0],
+      "steps": 20,
+      "cfg": 7.0,
+      "sampler_name": "euler_ancestral",
+      "scheduler": "normal",
+      "denoise": 1.0,
+      "model": ["14", 0],
+      "positive": ["1", 0],
+      "negative": ["2", 0],
+      "latent_image": ["5", 0]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "Sampler"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": ["3", 0],
+      "vae": ["14", 2]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "7": {
+    "inputs": {
+      "filename_prefix": "WillowCreek",
+      "images": ["8", 0]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "_comment": "This is a TEMPLATE workflow. Replace this file with your own ComfyUI workflow exported in API format. Make sure your workflow has nodes 1 (positive prompt), 2 (negative prompt), 30 (seed), and 7 (save image) for automatic integration."
+}
