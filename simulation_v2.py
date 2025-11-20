@@ -127,15 +127,17 @@ class WillowCreekSimulation:
             self.development.ensure_npc(npc)
 
         self.birthdays.register_npcs(self.npcs)
-        self.schedule.update_locations()
 
-        # Find or create Malcolm
+        # Find or create Malcolm BEFORE schedule update
         self.malcolm = self.npc_dict.get("Malcolm Newt")
         if not self.malcolm:
             # Fallback for Malcolm if not found in roster
             self.malcolm = NPC(full_name="Malcolm Newt", age=30, gender=Gender.MALE)
             self.npcs.append(self.malcolm)
             self.npc_dict["Malcolm Newt"] = self.malcolm
+
+        # Update locations AFTER Malcolm is added to the NPC list
+        self.schedule.update_locations()
 
         print(f"Start time: {self.time.get_datetime_string()}\n")
 
