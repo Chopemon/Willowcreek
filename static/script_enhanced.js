@@ -7,6 +7,7 @@ class WillowCreekDashboard {
         this.npcSearchTerm = '';
         this.debugExpanded = false;
         this.latestSnapshot = null;
+        this.simulationMode = 'openrouter'; // Default mode
 
         this.init();
     }
@@ -90,6 +91,13 @@ class WillowCreekDashboard {
     handleModeSwitch(e) {
         document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
         e.target.classList.add('active');
+
+        // Store the selected mode
+        this.simulationMode = e.target.dataset.mode || 'openrouter';
+        console.log(`[Dashboard] Mode switched to: ${this.simulationMode}`);
+
+        // Update narrative with mode selection
+        this.updateNarrative(`Mode set to: ${this.simulationMode === 'local' ? 'Local (LM Studio)' : 'OpenRouter'}. Click 'Initialize Simulation'.`);
     }
 
     handleTimelineFilter(e) {
@@ -127,8 +135,14 @@ class WillowCreekDashboard {
         btn.disabled = true;
         btn.textContent = 'Initializing...';
 
+        console.log(`[Dashboard] Initializing with mode: ${this.simulationMode}`);
+
         try {
-            const response = await fetch('/api/init', { method: 'POST' });
+            const response = await fetch('/api/init', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ mode: this.simulationMode })
+            });
             const data = await response.json();
 
             this.updateNarrative(data.narration);
