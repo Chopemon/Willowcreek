@@ -165,7 +165,10 @@ class ComfyUIClient:
 
                     if not prompt_id:
                         print("[ComfyUI] No prompt_id received")
+                        print(f"[ComfyUI] Response: {result}")
                         return None
+
+                    print(f"[ComfyUI] Prompt queued successfully with ID: {prompt_id}")
 
                 # Wait for generation to complete
                 image_path = await self._wait_for_generation(prompt_id, session)
@@ -202,6 +205,9 @@ class ComfyUIClient:
                         if prompt_id in history:
                             outputs = history[prompt_id].get("outputs", {})
 
+                            if not outputs:
+                                print(f"[ComfyUI] No outputs yet for prompt {prompt_id}")
+
                             # Find the SaveImage node output
                             for node_id, node_output in outputs.items():
                                 if "images" in node_output:
@@ -212,6 +218,7 @@ class ComfyUIClient:
                                         filename = image_info.get("filename")
                                         subfolder = image_info.get("subfolder", "")
 
+                                        print(f"[ComfyUI] Found image: {filename} in subfolder: {subfolder}")
                                         if filename:
                                             return await self._download_image(
                                                 filename, subfolder, session
@@ -249,8 +256,11 @@ class ComfyUIClient:
                 params["subfolder"] = subfolder
             params["type"] = "output"
 
+            download_url = f"{self.base_url}/view"
+            print(f"[ComfyUI] Downloading from: {download_url} with params: {params}")
+
             async with session.get(
-                f"{self.base_url}/view",
+                download_url,
                 params=params
             ) as response:
                 if response.status == 200:
