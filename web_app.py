@@ -12,7 +12,7 @@ from typing import Optional
 from narrative_chat import NarrativeChat
 from world_snapshot_builder import build_frontend_snapshot
 from services.comfyui_client import ComfyUIClient
-from services.scene_image_generator import SceneAnalyzer, ImagePromptGenerator
+from services.scene_image_generator import SceneAnalyzer, ImagePromptGenerator, AIPromptGenerator
 import os
 
 app = FastAPI()
@@ -25,9 +25,16 @@ current_mode: str = ""
 # Image Generation Services
 COMFYUI_ENABLED = os.getenv("COMFYUI_ENABLED", "false").lower() == "true"
 COMFYUI_URL = os.getenv("COMFYUI_URL", "http://127.0.0.1:8188")
+AI_PROMPTS_ENABLED = os.getenv("AI_PROMPTS_ENABLED", "true").lower() == "true"  # AI-based prompt generation
+
 comfyui_client = ComfyUIClient(base_url=COMFYUI_URL) if COMFYUI_ENABLED else None
 scene_analyzer = SceneAnalyzer()
-prompt_generator = ImagePromptGenerator()
+
+# Initialize both prompt generators (will use one based on config)
+template_prompt_generator = ImagePromptGenerator()
+ai_prompt_generator = None  # Will be initialized based on LLM mode
+
+print(f"[ImageGen] AI-based prompt generation: {'ENABLED' if AI_PROMPTS_ENABLED else 'DISABLED'}")
 
 # Serve Static Files (CSS/JS)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
@@ -51,7 +58,7 @@ async def serve_ui():
 # --- INIT SIMULATION (supports both GET and POST) ---
 async def _init_sim_handler(mode: str):
     """Shared handler for init simulation"""
-    global chat, current_mode
+    global chat, current_mode, ai_prompt_generator
 
     print(f"\n[WebApp] ===== INIT REQUEST =====")
     print(f"[WebApp] Requested mode: {mode}")
@@ -64,6 +71,12 @@ async def _init_sim_handler(mode: str):
             chat = NarrativeChat(mode=mode)
             chat.initialize()
             current_mode = mode
+
+            # Initialize AI prompt generator with matching mode
+            if AI_PROMPTS_ENABLED:
+                ai_prompt_generator = AIPromptGenerator(mode=mode)
+                print(f"[ImageGen] Initialized AI prompt generator in {mode} mode")
+
             narration = f"**[System: Initialized {mode.upper()} Mode]**\n\n{chat.last_narrated}"
         except Exception as e:
             return JSONResponse({"error": str(e)}, status_code=500)
@@ -73,6 +86,25 @@ async def _init_sim_handler(mode: str):
 
     snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
     return JSONResponse({"narration": narration, "snapshot": snapshot, "images": []})
+
+def generate_image_prompts(scene_context, narrative_text: Optional[str] = None):
+    """
+    Generate image prompts using either AI or template-based method.
+
+    Args:
+        scene_context: SceneContext object
+        narrative_text: Optional narrative text for AI-based generation
+
+    Returns:
+        Tuple of (positive_prompt, negative_prompt)
+    """
+    if AI_PROMPTS_ENABLED and ai_prompt_generator and narrative_text:
+        # Use AI to generate prompts from narrative
+        return ai_prompt_generator.generate_prompt_from_narrative(narrative_text, scene_context)
+    else:
+        # Use template-based generation
+        return template_prompt_generator.generate_prompt(scene_context)
+
 
 @app.get("/api/init", response_class=JSONResponse)
 async def init_sim_get(request: Request):
@@ -129,7 +161,8 @@ async def process_action(request: Request):
 
                 if scene_context and scene_context.priority >= 7:
                     print(f"[ImageGen] Generating image for wait event: {scene_context.activity}")
-                    positive_prompt, negative_prompt = prompt_generator.generate_prompt(scene_context)
+                    # Wait events don't have narrative, use template-based prompts
+                    positive_prompt, negative_prompt = generate_image_prompts(scene_context)
 
                     try:
                         image_url = await comfyui_client.generate_image(
@@ -193,8 +226,8 @@ async def process_action(request: Request):
                 if scene_context and scene_context.priority >= 7:  # High priority scenes only
                     print(f"[ImageGen] Generating image for: {scene_context.activity}")
 
-                    # Generate image prompt
-                    positive_prompt, negative_prompt = prompt_generator.generate_prompt(scene_context)
+                    # Generate image prompt (with AI using narrative text if enabled)
+                    positive_prompt, negative_prompt = generate_image_prompts(scene_context, narrative_text=reply)
 
                     # Generate image via ComfyUI
                     try:
@@ -258,7 +291,8 @@ async def wait_time(request: Request):
 
             if scene_context and scene_context.priority >= 7:
                 print(f"[ImageGen] Generating image for wait event: {scene_context.activity}")
-                positive_prompt, negative_prompt = prompt_generator.generate_prompt(scene_context)
+                # Wait events don't have narrative, use template-based prompts
+                positive_prompt, negative_prompt = generate_image_prompts(scene_context)
 
                 try:
                     image_url = await comfyui_client.generate_image(
@@ -335,8 +369,8 @@ async def generate_image_manual():
 
         print(f"[ImageGen] Manual generation: {scene_context.activity} at {scene_context.location}")
 
-        # Generate prompts
-        positive_prompt, negative_prompt = prompt_generator.generate_prompt(scene_context)
+        # Generate prompts (could use last narrative, but safer to use templates for manual generation)
+        positive_prompt, negative_prompt = generate_image_prompts(scene_context, narrative_text=chat.last_narrated if chat else None)
 
         # Generate image
         image_url = await comfyui_client.generate_image(
