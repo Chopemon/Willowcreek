@@ -254,7 +254,12 @@ class ComfyUIClient:
             params = {"filename": filename}
             if subfolder:
                 params["subfolder"] = subfolder
-            params["type"] = "output"
+
+            # Detect if this is a temp file (ComfyUI uses different type for temp files)
+            if "_temp_" in filename or filename.startswith("temp_"):
+                params["type"] = "temp"
+            else:
+                params["type"] = "output"
 
             download_url = f"{self.base_url}/view"
             print(f"[ComfyUI] Downloading from: {download_url} with params: {params}")
