@@ -66,18 +66,25 @@ class WorldSnapshotBuilder:
         except Exception as e:
             sections.append(f"## ALL NPCs\n[Error: {e}]")
 
+        # OPTIMIZED: Only include non-empty sections
         try:
-            sections.append(self._build_relationships())
+            rel_section = self._build_relationships()
+            if rel_section:
+                sections.append(rel_section)
         except Exception as e:
             sections.append(f"## RELATIONSHIPS\n[Error: {e}]")
 
         try:
-            sections.append(self._build_goals())
+            goals_section = self._build_goals()
+            if goals_section:
+                sections.append(goals_section)
         except Exception as e:
             sections.append(f"## GOALS\n[Error: {e}]")
 
         try:
-            sections.append(self._build_biology_health())
+            bio_section = self._build_biology_health()
+            if bio_section:
+                sections.append(bio_section)
         except Exception as e:
             sections.append(f"## BIOLOGY\n[Error: {e}]")
 
@@ -215,109 +222,140 @@ PSYCHOLOGICAL STATE:
         return "\n".join(lines)
     
     def _build_all_npc_states(self) -> str:
-        """Critical states for ALL NPCs"""
-        lines = [f"## ALL TOWN RESIDENTS ({len(self.sim.npcs)} total)"]
-        
-        # Group by location
-        loc_map = {}
+        """
+        OPTIMIZED: Context-aware NPC filtering to reduce token usage.
+        Only includes NPCs that are narratively relevant.
+        """
+        # Filter to only include narratively relevant NPCs
+        relevant_npcs = []
+
         for npc in self.sim.npcs:
+            # Skip Malcolm himself
+            if npc.full_name == "Malcolm Newt":
+                continue
+
+            # Include if: High horny (>70), High lonely (>70), Low energy (<30)
+            # OR recently interacted (would need interaction tracking)
+            is_relevant = (
+                npc.needs.horny > 70 or
+                npc.psyche.lonely > 70 or
+                npc.needs.energy < 30
+            )
+
+            if is_relevant:
+                relevant_npcs.append(npc)
+
+        # If too few relevant NPCs, include a few random ones for context
+        if len(relevant_npcs) < 5:
+            for npc in self.sim.npcs:
+                if npc not in relevant_npcs and npc.full_name != "Malcolm Newt":
+                    relevant_npcs.append(npc)
+                    if len(relevant_npcs) >= 8:
+                        break
+
+        # Limit to max 15 NPCs to save tokens
+        relevant_npcs = relevant_npcs[:15]
+
+        if not relevant_npcs:
+            return "## NOTABLE RESIDENTS\n[No NPCs currently in notable states]"
+
+        lines = [f"## NOTABLE RESIDENTS ({len(relevant_npcs)} shown, {len(self.sim.npcs)} total)"]
+
+        # Group by location for context
+        loc_map = {}
+        for npc in relevant_npcs:
             loc = getattr(npc, 'current_location', 'Unknown')
             loc_map.setdefault(loc, []).append(npc)
-        
+
         for location, npcs in sorted(loc_map.items()):
-            lines.append(f"\n### {location} ({len(npcs)} present)")
-            for npc in npcs[:15]:
+            lines.append(f"\n### {location}")
+            for npc in npcs:
+                # Use abbreviated format to save tokens
                 flags = []
                 if npc.needs.horny > 85:
                     flags.append("HORNY")
+                elif npc.needs.horny > 70:
+                    flags.append("horny")
+
                 if npc.psyche.lonely > 80:
                     flags.append("LONELY")
+                elif npc.psyche.lonely > 70:
+                    flags.append("lonely")
+
                 if npc.needs.energy < 20:
                     flags.append("EXHAUSTED")
-                
-                flag_str = f" [{', '.join(flags)}]" if flags else ""
-                
-                # Mood
-                mood_display = "?"
+
+                # Check for ovulation (important for narrative)
                 try:
-                    if isinstance(npc.mood, str):
-                        mood_display = npc.mood
-                    elif hasattr(npc.mood, 'value'):
-                        mood_display = npc.mood.value
+                    if hasattr(self.sim, 'female_biology') and hasattr(self.sim.female_biology, 'cycles'):
+                        if npc.full_name in self.sim.female_biology.cycles:
+                            fb = self.sim.female_biology.cycles[npc.full_name]
+                            if fb.phase == "ovulation":
+                                flags.append("OVULATING")
                 except:
                     pass
-                
+
+                flag_str = f" [{','.join(flags)}]" if flags else ""
+
+                # Abbreviated format: Name (age): H:## L:## E:## [FLAGS]
                 lines.append(
-                    f"  • {npc.full_name} ({npc.age}): H:{npc.needs.horny:.0f} L:{npc.psyche.lonely:.0f} {mood_display}{flag_str}"
+                    f"  • {npc.full_name} ({npc.age}): "
+                    f"H:{npc.needs.horny:.0f} L:{npc.psyche.lonely:.0f} E:{npc.needs.energy:.0f}"
+                    f"{flag_str}"
                 )
-        
+
         return "\n".join(lines)
     
     def _build_relationships(self) -> str:
-        """Relationship information"""
-        lines = ["## RELATIONSHIPS"]
-        
+        """
+        OPTIMIZED: Relationship information (compact).
+        Only shows count to save tokens.
+        """
         # Check if relationships system exists
         if not hasattr(self.sim, 'relationships'):
-            lines.append("\n[Relationship system not available]")
-            return "\n".join(lines)
-        
+            return ""  # Skip section if not available
+
         # Count relationships
         try:
             rel_count = len(getattr(self.sim.relationships, 'relationships', {}))
-            lines.append(f"\n### Total Relationships: {rel_count}")
+            if rel_count > 0:
+                return f"## RELATIONSHIPS\nTotal active relationships: {rel_count}"
+            else:
+                return ""  # Skip if no relationships
         except:
-            lines.append("\n### Relationships: Unknown")
-        
-        return "\n".join(lines)
+            return ""  # Skip on error
     
     def _build_goals(self) -> str:
-        """Goals and motivations"""
-        lines = ["## GOALS & MOTIVATIONS"]
-        
+        """
+        OPTIMIZED: Goals and motivations (compact).
+        Only shows active goals if they exist.
+        """
         if not hasattr(self.sim, 'goals'):
-            lines.append("\n[Goals system not available]")
-            return "\n".join(lines)
-        
+            return ""  # Skip if no goals system
+
         # Try to get Malcolm's goals
         try:
             if hasattr(self.sim.goals, 'get_active_goals') and hasattr(self.sim, 'malcolm'):
                 malcolm_goals = self.sim.goals.get_active_goals(self.sim.malcolm.full_name)
                 if malcolm_goals:
-                    lines.append("\n### Malcolm's Goals:")
-                    for goal in malcolm_goals[:5]:
+                    lines = ["## MALCOLM'S GOALS"]
+                    for goal in malcolm_goals[:3]:  # Limit to 3 most important goals
                         lines.append(f"  • {goal.description}")
-        except Exception as e:
-            lines.append(f"\n[Could not load goals: {e}]")
-        
-        return "\n".join(lines)
+                    return "\n".join(lines)
+        except:
+            pass
+
+        return ""  # Skip section if no goals or error
     
     def _build_biology_health(self) -> str:
-        """Biology and health states"""
-        lines = ["## BIOLOGY & HEALTH"]
-        
-        # Menstrual cycles
-        try:
-            if hasattr(self.sim, 'female_biology') and hasattr(self.sim.female_biology, 'cycles'):
-                ovulating = []
-                menstruating = []
-                
-                for npc in self.sim.npcs:
-                    if npc.full_name in self.sim.female_biology.cycles:
-                        fb = self.sim.female_biology.cycles[npc.full_name]
-                        if fb.phase == "ovulation":
-                            ovulating.append(npc.full_name)
-                        elif fb.phase == "menstruation":
-                            menstruating.append(npc.full_name)
-                
-                if ovulating:
-                    lines.append(f"\n### Ovulating: {', '.join(ovulating[:10])}")
-                if menstruating:
-                    lines.append(f"### Menstruating: {', '.join(menstruating[:10])}")
-        except Exception as e:
-            lines.append(f"\n[Biology data error: {e}]")
-        
-        # Pregnancies
+        """
+        OPTIMIZED: Biology and health states.
+        Only shows if there are actual notable states to report.
+        """
+        lines = []
+        has_content = False
+
+        # Pregnancies (always important)
         try:
             if hasattr(self.sim, 'pregnancy') and hasattr(self.sim.pregnancy, 'states'):
                 pregnant = []
@@ -327,12 +365,41 @@ PSYCHOLOGICAL STATE:
                         if pd.is_pregnant:
                             weeks = pd.pregnancy_day // 7
                             pregnant.append(f"{npc.full_name} ({weeks}w)")
-                
+
                 if pregnant:
-                    lines.append(f"\n### Pregnant: {', '.join(pregnant)}")
-        except Exception as e:
-            lines.append(f"\n[Pregnancy data error: {e}]")
-        
+                    if not has_content:
+                        lines.append("## BIOLOGY & HEALTH")
+                        has_content = True
+                    lines.append(f"Pregnant: {', '.join(pregnant)}")
+        except:
+            pass
+
+        # Menstruating (only if critical/notable)
+        try:
+            if hasattr(self.sim, 'female_biology') and hasattr(self.sim.female_biology, 'cycles'):
+                menstruating = []
+
+                # Only list menstruating NPCs if they're in notable states (high horny/lonely)
+                for npc in self.sim.npcs:
+                    if npc.full_name in self.sim.female_biology.cycles:
+                        fb = self.sim.female_biology.cycles[npc.full_name]
+                        if fb.phase == "menstruation":
+                            # Only include if in extreme state
+                            if npc.needs.horny > 70 or npc.psyche.lonely > 70:
+                                menstruating.append(npc.full_name)
+
+                if menstruating:
+                    if not has_content:
+                        lines.append("## BIOLOGY & HEALTH")
+                        has_content = True
+                    lines.append(f"Menstruating: {', '.join(menstruating[:5])}")
+        except:
+            pass
+
+        # If no content, skip entire section
+        if not has_content:
+            return ""
+
         return "\n".join(lines)
 
 

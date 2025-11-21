@@ -112,12 +112,12 @@ class NarrativeChat:
         """
 
         # Build Messages for API
-        # We include the system prompt, relevant history (last 6 turns to keep context window managed), and the new rich user prompt
+        # OPTIMIZED: Reduced from 6 to 4 turns to save tokens (250-500 tokens per call)
         messages = [{"role": "system", "content": system_prompt}]
-        
+
         # Add simple history (exclude system/rich prompts to save tokens, just raw conversation)
-        # We take the last few interactions from history to maintain continuity logic
-        messages.extend(self.narrative_history[-6:]) 
+        # We take the last 4 interactions (2 user + 2 assistant) from history to maintain continuity
+        messages.extend(self.narrative_history[-4:]) 
         
         # Append the current detailed prompt
         messages.append({"role": "user", "content": user_prompt})
