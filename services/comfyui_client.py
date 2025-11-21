@@ -369,7 +369,7 @@ class ComfyUIClient:
             },
             "4": {
                 "inputs": {
-                    "ckpt_name": "sd_xl_base_1.0.safetensors"  # Default SDXL model
+                    "ckpt_name": "cyberrealisticXL_desireV10.safetensors"  # Updated to existing model
                 },
                 "class_type": "CheckpointLoaderSimple"
             },

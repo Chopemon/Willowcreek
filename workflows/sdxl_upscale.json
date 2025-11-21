@@ -21,7 +21,7 @@
   },
   "14": {
     "inputs": {
-      "ckpt_name": "sd_xl_base_1.0.safetensors"
+      "ckpt_name": "cyberrealisticXL_desireV10.safetensors"
     },
     "class_type": "CheckpointLoaderSimple",
     "_meta": {
