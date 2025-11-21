@@ -154,7 +154,8 @@ async def generate_npc_portraits(narrative_text: str):
                 'gender': npc.gender if hasattr(npc, 'gender') else 'person',
                 'age': npc.age if hasattr(npc, 'age') else 25,
                 'traits': npc.traits if hasattr(npc, 'traits') else [],
-                'quirk': npc.quirk if hasattr(npc, 'quirk') else ''
+                'quirk': npc.quirk if hasattr(npc, 'quirk') else '',
+                'appearance': npc.appearance if hasattr(npc, 'appearance') else ''
             }
 
             portrait_url = await portrait_generator.generate_portrait(npc_name, npc_data)

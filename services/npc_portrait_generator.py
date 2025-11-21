@@ -127,6 +127,7 @@ class NPCPortraitGenerator:
         age = npc_data.get('age', 25)
         traits = npc_data.get('traits', [])
         quirk = npc_data.get('quirk', '')
+        appearance = npc_data.get('appearance', '')
 
         # Convert Gender enum to string if needed
         if hasattr(gender, 'value'):
@@ -149,6 +150,9 @@ class NPCPortraitGenerator:
         # Build character description
         gender_desc = "man" if gender == 'male' else "woman" if gender == 'female' else "person"
 
+        # Parse appearance description for visual features
+        appearance_features = self._extract_visual_features(appearance)
+
         # Extract personality hints for visual style
         mood = "neutral, calm expression"
         if quirk:
@@ -167,13 +171,20 @@ class NPCPortraitGenerator:
             "masterpiece, best quality, highly detailed, 4k",
             "professional portrait photograph",
             f"{age_desc} {gender_desc}",
+        ]
+
+        # Add appearance features if available
+        if appearance_features:
+            positive_parts.append(appearance_features)
+
+        positive_parts.extend([
             "head and shoulders portrait",
             mood,
             "soft studio lighting, neutral background",
             "photorealistic, natural skin texture",
             "sharp focus on eyes",
             "cinematic lighting, professional photography"
-        ]
+        ])
 
         positive_prompt = ", ".join(positive_parts)
 
@@ -215,3 +226,58 @@ class NPCPortraitGenerator:
                 mentioned_npcs.append(npc_name)
 
         return mentioned_npcs
+
+    def _extract_visual_features(self, appearance: str) -> str:
+        """
+        Extract visual features from appearance description for image prompts.
+
+        Args:
+            appearance: Text description of character appearance
+
+        Returns:
+            Comma-separated string of visual features suitable for image generation
+        """
+        if not appearance:
+            return ""
+
+        appearance_lower = appearance.lower()
+        features = []
+
+        # Extract hair features
+        hair_keywords = ['blonde', 'black hair', 'brown hair', 'red hair', 'dark hair',
+                        'curly', 'straight', 'long hair', 'short hair', 'ponytail',
+                        'pigtails', 'braid', 'messy hair', 'beard', 'buzzcut']
+        for keyword in hair_keywords:
+            if keyword in appearance_lower:
+                features.append(keyword)
+
+        # Extract eye features
+        eye_keywords = ['blue eyes', 'green eyes', 'brown eyes', 'hazel eyes',
+                       'tired eyes', 'sharp eyes', 'kind eyes', 'intense eyes',
+                       'rugged eyes', 'gentle eyes', 'expressive eyes']
+        for keyword in eye_keywords:
+            if keyword in appearance_lower:
+                features.append(keyword)
+
+        # Extract body features
+        body_keywords = ['athletic build', 'muscular', 'tall', 'petite', 'slim',
+                        'lean', 'strong arms', 'strong hands', 'broad-shouldered']
+        for keyword in body_keywords:
+            if keyword in appearance_lower:
+                features.append(keyword)
+
+        # Extract facial features
+        face_keywords = ['glasses', 'freckles', 'charming smile', 'warm smile',
+                        'stern expression', 'tired face', 'kind smile', 'rugged']
+        for keyword in face_keywords:
+            if keyword in appearance_lower:
+                features.append(keyword)
+
+        # Extract style/clothing hints (useful for portrait framing)
+        style_keywords = ['professional attire', 'casual', 'neat', 'flannel',
+                         'tattoos', 'tattooed']
+        for keyword in style_keywords:
+            if keyword in appearance_lower:
+                features.append(keyword)
+
+        return ", ".join(features) if features else ""
