@@ -60,6 +60,8 @@ class ComfyUIClient:
         base_dir = Path(__file__).parent.parent
         config_path = base_dir / "workflows" / "config.json"
 
+        print(f"[ComfyUI] Loading configuration from {config_path}")
+
         if config_path.exists():
             try:
                 with open(config_path, 'r', encoding='utf-8') as f:
@@ -68,14 +70,16 @@ class ComfyUIClient:
                     # Load workflow file path from config
                     if "workflow_file" in config:
                         self.workflow_path = f"workflows/{config['workflow_file']}"
-                        print(f"[ComfyUI] Using workflow from config: {config['workflow_file']}")
+                        print(f"[ComfyUI] ✓ Config specifies workflow: {config['workflow_file']}")
 
                     # Load node mapping from config
                     if "node_mapping" in config:
                         self.node_mapping.update(config["node_mapping"])
-                        print(f"[ComfyUI] Loaded node mapping from config: {self.node_mapping}")
+                        print(f"[ComfyUI] ✓ Loaded node mapping: {self.node_mapping}")
             except Exception as e:
-                print(f"[ComfyUI] Error loading config: {e}, using defaults")
+                print(f"[ComfyUI] ✗ Error loading config: {e}, using defaults")
+        else:
+            print(f"[ComfyUI] No config.json found, using default workflow path")
 
     def _load_custom_workflow(self, workflow_path: str):
         """Load a custom workflow JSON file"""
@@ -83,30 +87,42 @@ class ComfyUIClient:
         base_dir = Path(__file__).parent.parent
         full_path = base_dir / workflow_path
 
+        print(f"[ComfyUI] Attempting to load workflow from: {full_path}")
+
         if full_path.exists():
             with open(full_path, 'r', encoding='utf-8') as f:
                 self.workflow_template = json.load(f)
-            print(f"[ComfyUI] Loaded custom workflow from {workflow_path}")
+            node_count = len(self.workflow_template) if self.workflow_template else 0
+            print(f"[ComfyUI] ✓ Successfully loaded workflow '{workflow_path}' with {node_count} nodes")
         else:
-            print(f"[ComfyUI] Workflow not found at {full_path}, using default")
+            print(f"[ComfyUI] ✗ Workflow not found at {full_path}")
+            print(f"[ComfyUI] ✗ Will use default workflow instead")
 
     def _inject_prompts(self,
                        workflow: Dict,
                        positive: str,
                        negative: str,
-                       seed: int) -> Dict:
+                       seed: int,
+                       width: Optional[int] = None,
+                       height: Optional[int] = None,
+                       steps: Optional[int] = None,
+                       cfg_scale: Optional[float] = None) -> Dict:
         """
-        Inject prompts and seed into workflow nodes.
+        Inject prompts, seed, and generation parameters into workflow nodes.
 
         This method finds CLIPTextEncode nodes for prompts and updates seed values
-        across various sampler nodes. It's designed to work with the custom SDXL
-        workflow but will gracefully skip missing nodes.
+        across various sampler nodes, as well as image dimensions and sampling parameters.
+        It's designed to work with the custom SDXL workflow but will gracefully skip missing nodes.
 
         Args:
             workflow: The workflow dictionary to modify
             positive: Positive prompt text
             negative: Negative prompt text
             seed: Random seed for generation
+            width: Image width (optional)
+            height: Image height (optional)
+            steps: Sampling steps (optional)
+            cfg_scale: CFG scale (optional)
 
         Returns:
             Modified workflow dictionary (deep copy to avoid mutation)
@@ -148,6 +164,26 @@ class ComfyUIClient:
                 if "noise_seed" in inputs:
                     inputs["noise_seed"] = seed
 
+        # Update dimensions in EmptyLatentImage nodes (if provided)
+        if width is not None and height is not None:
+            for node_id, node_data in workflow.items():
+                if isinstance(node_data, dict) and node_data.get("class_type") == "EmptyLatentImage":
+                    if "inputs" in node_data:
+                        node_data["inputs"]["width"] = width
+                        node_data["inputs"]["height"] = height
+                        print(f"[ComfyUI] Set dimensions {width}x{height} in EmptyLatentImage node {node_id}")
+
+        # Update steps and cfg in KSampler nodes (if provided)
+        if steps is not None or cfg_scale is not None:
+            for node_id, node_data in workflow.items():
+                if isinstance(node_data, dict) and node_data.get("class_type") == "KSampler":
+                    if "inputs" in node_data:
+                        if steps is not None and "steps" in node_data["inputs"]:
+                            node_data["inputs"]["steps"] = steps
+                        if cfg_scale is not None and "cfg" in node_data["inputs"]:
+                            node_data["inputs"]["cfg"] = cfg_scale
+                        print(f"[ComfyUI] Updated KSampler node {node_id}: steps={steps}, cfg={cfg_scale}")
+
         return workflow
 
     async def generate_image(self,
@@ -184,12 +220,16 @@ class ComfyUIClient:
                 prompt_data = workflow
             elif self.workflow_template:
                 # Use loaded workflow template with prompt injection
-                print(f"[ComfyUI] Using custom workflow template with injected prompts")
+                print(f"[ComfyUI] Using custom workflow template with injected prompts and parameters")
                 prompt_data = self._inject_prompts(
                     self.workflow_template,
                     prompt,
                     negative_prompt,
-                    seed
+                    seed,
+                    width,
+                    height,
+                    steps,
+                    cfg_scale
                 )
             else:
                 # Use default workflow
