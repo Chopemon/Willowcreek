@@ -147,6 +147,8 @@ class NPCPortraitGenerator:
 
         gender = str(gender).lower()
 
+        print(f"[PortraitGen] DEBUG: NPC={npc_name}, raw gender={npc_data.get('gender')}, processed gender='{gender}'")
+
         # Build character description with explicit age and gender
         # Determine gender-specific terms
         if gender == 'male':
