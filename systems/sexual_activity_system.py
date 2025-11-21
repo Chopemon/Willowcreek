@@ -5,8 +5,10 @@
 from __future__ import annotations
 from typing import Dict, List, Any, Optional
 import random
+import re
 from dataclasses import dataclass, field
 from entities.npc import NPC
+from utils.cache_manager import sexual_detection_cache
 
 
 @dataclass
@@ -99,41 +101,87 @@ class SexualActivitySystem:
             "Woods": {"risk": 6, "type": "public"},
         }
 
+        # Compile regex patterns for fast pre-filtering (OPTIMIZATION)
+        all_keywords = set()
+        for act_data in self.activity_types.values():
+            all_keywords.update(act_data["keywords"])
+
+        # Create regex pattern that matches any sexual keyword
+        pattern = r'\b(' + '|'.join(re.escape(kw) for kw in all_keywords) + r')\b'
+        self.sexual_keywords_regex = re.compile(pattern, re.IGNORECASE)
+
+        # Pre-compile NPC name patterns for faster matching
+        self.npc_name_patterns = []
+        for npc in self.npcs:
+            if npc.full_name != "Malcolm Newt":
+                first_name = npc.full_name.split()[0]
+                # Create regex for first name (word boundary)
+                pattern = re.compile(r'\b' + re.escape(first_name.lower()) + r'\b')
+                self.npc_name_patterns.append((pattern, npc.full_name))
+
     def detect_from_text(self, text: str) -> Optional[Dict[str, Any]]:
+        """
+        OPTIMIZED: Detect sexual activity from narrative text with caching and regex pre-filtering.
+
+        Performance improvements:
+        - Cache results for identical text (5 min TTL)
+        - Regex pre-filter to quickly reject non-sexual content
+        - Pre-compiled name patterns for faster NPC matching
+        """
+
+        # Check cache first (OPTIMIZATION 1: Caching)
+        cached_result = sexual_detection_cache.get(text)
+        if cached_result is not None:
+            return cached_result
+
         text_lower = text.lower()
+
+        # OPTIMIZATION 2: Fast regex pre-filter
+        # If text has no sexual keywords at all, bail immediately
+        if not self.sexual_keywords_regex.search(text_lower):
+            sexual_detection_cache.set(None, text)  # Cache negative result
+            return None
+
         detected_type = None
         partner_name = None
 
+        # Detect activity type
         for act_type, data in self.activity_types.items():
             if any(kw in text_lower for kw in data["keywords"]):
                 detected_type = act_type
                 break
+
         if not detected_type:
+            sexual_detection_cache.set(None, text)
             return None
 
-        for npc in self.npcs:
-            if npc.full_name == "Malcolm Newt":
-                continue
-            first_name = npc.full_name.split()[0].lower()
-            if first_name in text_lower:
-                partner_name = npc.full_name
+        # OPTIMIZATION 3: Use pre-compiled regex patterns for NPC names
+        for pattern, full_name in self.npc_name_patterns:
+            if pattern.search(text_lower):
+                partner_name = full_name
                 break
 
         if not partner_name:
+            sexual_detection_cache.set(None, text)
             return None
 
         # FIXED: Check if malcolm exists and has current_location before accessing
         if not self.malcolm or not hasattr(self.malcolm, 'current_location') or not self.malcolm.current_location:
             print(f"[Sexual Detection] Malcolm not ready or no location set, skipping detection")
+            sexual_detection_cache.set(None, text)
             return None
 
-        return {
+        result = {
             "type": detected_type,
             "partner": partner_name,
             "location": self.malcolm.current_location,
             "day": self.time.total_days,
             "hour": self.time.hour
         }
+
+        # Cache the positive result
+        sexual_detection_cache.set(result, text)
+        return result
 
     def calculate_risk(self, activity: Dict[str, Any]) -> int:
         base = 5

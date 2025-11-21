@@ -2,9 +2,11 @@
 # DEFENSIVE VERSION - checks all attributes before use
 # FIXED: Bridge functions moved to global scope, indentation corrected.
 # MODIFIED: Removed the call to _build_nearby_npcs() in build_complete_snapshot.
+# OPTIMIZED: Added smart caching for world snapshots and NPC states
 
 from typing import TYPE_CHECKING, List, Dict, Any, Optional
 from datetime import datetime
+from utils.cache_manager import world_snapshot_cache, npc_state_cache
 
 if TYPE_CHECKING:
     from simulation_v2 import WillowCreekSimulation
@@ -24,14 +26,24 @@ class WorldSnapshotBuilder:
         """
         Generate full world state including ALL systems.
         This is what the AI narrator sees.
+
+        OPTIMIZED: Caches result for 60 seconds based on simulation time.
         """
+        # Create cache key based on simulation time (changes every game hour/day)
+        cache_key = f"snapshot_{self.sim.time.total_days}_{self.sim.time.hour}"
+
+        # Check cache first
+        cached = world_snapshot_cache.get(cache_key)
+        if cached is not None:
+            return cached
+
         sections = []
-        
+
         try:
             sections.append(self._build_time_and_environment())
         except Exception as e:
             sections.append(f"## TIME & ENVIRONMENT\n[Error: {e}]")
-        
+
         try:
             sections.append(self._build_malcolm_state(malcolm))
         except Exception as e:
@@ -53,23 +65,28 @@ class WorldSnapshotBuilder:
             sections.append(self._build_all_npc_states())
         except Exception as e:
             sections.append(f"## ALL NPCs\n[Error: {e}]")
-        
+
         try:
             sections.append(self._build_relationships())
         except Exception as e:
             sections.append(f"## RELATIONSHIPS\n[Error: {e}]")
-        
+
         try:
             sections.append(self._build_goals())
         except Exception as e:
             sections.append(f"## GOALS\n[Error: {e}]")
-        
+
         try:
             sections.append(self._build_biology_health())
         except Exception as e:
             sections.append(f"## BIOLOGY\n[Error: {e}]")
-        
-        return "\n\n".join(sections)
+
+        result = "\n\n".join(sections)
+
+        # Cache the result
+        world_snapshot_cache.set(result, cache_key)
+
+        return result
     
     def _build_time_and_environment(self) -> str:
         """Current time, weather, season"""
