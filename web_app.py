@@ -13,6 +13,7 @@ from narrative_chat import NarrativeChat
 from world_snapshot_builder import build_frontend_snapshot
 from services.comfyui_client import ComfyUIClient
 from services.scene_image_generator import SceneAnalyzer, ImagePromptGenerator, AIPromptGenerator
+from services.npc_portrait_generator import NPCPortraitGenerator
 import os
 
 app = FastAPI()
@@ -26,6 +27,7 @@ current_mode: str = ""
 COMFYUI_ENABLED = os.getenv("COMFYUI_ENABLED", "false").lower() == "true"
 COMFYUI_URL = os.getenv("COMFYUI_URL", "http://127.0.0.1:8188")
 AI_PROMPTS_ENABLED = os.getenv("AI_PROMPTS_ENABLED", "true").lower() == "true"  # AI-based prompt generation
+PORTRAITS_ENABLED = os.getenv("PORTRAITS_ENABLED", "true").lower() == "true"  # NPC portrait generation
 
 comfyui_client = ComfyUIClient(base_url=COMFYUI_URL) if COMFYUI_ENABLED else None
 scene_analyzer = SceneAnalyzer()
@@ -34,7 +36,11 @@ scene_analyzer = SceneAnalyzer()
 template_prompt_generator = ImagePromptGenerator()
 ai_prompt_generator = None  # Will be initialized based on LLM mode
 
+# Initialize portrait generator
+portrait_generator = NPCPortraitGenerator(comfyui_client) if (COMFYUI_ENABLED and PORTRAITS_ENABLED) else None
+
 print(f"[ImageGen] AI-based prompt generation: {'ENABLED' if AI_PROMPTS_ENABLED else 'DISABLED'}")
+print(f"[PortraitGen] NPC portraits: {'ENABLED' if PORTRAITS_ENABLED and COMFYUI_ENABLED else 'DISABLED'}")
 
 # Serve Static Files (CSS/JS)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
@@ -43,6 +49,11 @@ app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 generated_images_dir = BASE_DIR / "static" / "generated_images"
 generated_images_dir.mkdir(exist_ok=True)
 app.mount("/generated_images", StaticFiles(directory=generated_images_dir), name="generated_images")
+
+# Serve NPC Portraits
+npc_portraits_dir = BASE_DIR / "static" / "npc_portraits"
+npc_portraits_dir.mkdir(exist_ok=True)
+app.mount("/npc_portraits", StaticFiles(directory=npc_portraits_dir), name="npc_portraits")
 
 @app.get("/", response_class=HTMLResponse)
 async def serve_ui():
@@ -85,7 +96,7 @@ async def _init_sim_handler(mode: str):
         narration = f"**[System: Reset {mode.upper()} Mode]**\n\n{chat.last_narrated}"
 
     snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
-    return JSONResponse({"narration": narration, "snapshot": snapshot, "images": []})
+    return JSONResponse({"narration": narration, "snapshot": snapshot, "images": [], "portraits": []})
 
 def generate_image_prompts(scene_context, narrative_text: Optional[str] = None):
     """
@@ -104,6 +115,57 @@ def generate_image_prompts(scene_context, narrative_text: Optional[str] = None):
     else:
         # Use template-based generation
         return template_prompt_generator.generate_prompt(scene_context)
+
+
+async def generate_npc_portraits(narrative_text: str):
+    """
+    Detect NPCs in narrative and generate portraits for them.
+
+    Args:
+        narrative_text: The narrative text to analyze
+
+    Returns:
+        List of portrait dictionaries with {name, url}
+    """
+    if not portrait_generator or not chat:
+        return []
+
+    # Detect which NPCs are mentioned
+    mentioned_npcs = portrait_generator.detect_npcs_in_text(narrative_text, chat.sim.npc_dict)
+
+    if not mentioned_npcs:
+        return []
+
+    print(f"[PortraitGen] Detected NPCs in narrative: {', '.join(mentioned_npcs)}")
+
+    portraits = []
+    for npc_name in mentioned_npcs:
+        # Get NPC data
+        npc = chat.sim.npc_dict.get(npc_name)
+        if not npc:
+            continue
+
+        # Get or generate portrait
+        portrait_url = portrait_generator.get_portrait_url(npc_name)
+
+        if not portrait_url:
+            # Need to generate portrait
+            npc_data = {
+                'gender': npc.gender if hasattr(npc, 'gender') else 'person',
+                'age': npc.age if hasattr(npc, 'age') else 25,
+                'traits': npc.traits if hasattr(npc, 'traits') else [],
+                'quirk': npc.quirk if hasattr(npc, 'quirk') else ''
+            }
+
+            portrait_url = await portrait_generator.generate_portrait(npc_name, npc_data)
+
+        if portrait_url:
+            portraits.append({
+                "name": npc_name,
+                "url": portrait_url
+            })
+
+    return portraits
 
 
 @app.get("/api/init", response_class=JSONResponse)
@@ -254,11 +316,15 @@ async def process_action(request: Request):
         if hasattr(chat.sim, 'scenario_buffer'):
             chat.sim.scenario_buffer.clear()
 
+    # Generate NPC portraits for mentioned characters
+    npc_portraits = await generate_npc_portraits(reply) if portrait_generator else []
+
     snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
     return JSONResponse({
         "narration": reply,
         "snapshot": snapshot,
-        "images": generated_images  # NEW: Include generated images
+        "images": generated_images,  # Scene images
+        "portraits": npc_portraits  # NPC portraits
     })
 
 # --- WAIT ENDPOINT ---

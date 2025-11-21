@@ -148,6 +148,7 @@ class WillowCreekDashboard {
             this.updateNarrative(data.narration);
             this.updateSnapshot(data.snapshot);
             this.displayImages(data.images);
+            this.displayPortraits(data.portraits || []);
 
             btn.textContent = 'Initialize Simulation';
         } catch (error) {
@@ -178,6 +179,7 @@ class WillowCreekDashboard {
             this.updateNarrative(data.narration);
             this.updateSnapshot(data.snapshot);
             this.displayImages(data.images);
+            this.displayPortraits(data.portraits || []);
 
             input.value = '';
         } catch (error) {
@@ -406,6 +408,51 @@ class WillowCreekDashboard {
         });
 
         gallery.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    displayPortraits(portraits) {
+        const container = document.getElementById('npc-portraits');
+        if (!container) {
+            // Create portrait container if it doesn't exist
+            const narrativeOutput = document.getElementById('narrative-output');
+            if (!narrativeOutput) return;
+
+            const portraitsDiv = document.createElement('div');
+            portraitsDiv.id = 'npc-portraits';
+            portraitsDiv.className = 'npc-portraits-container';
+            narrativeOutput.parentNode.insertBefore(portraitsDiv, narrativeOutput);
+        }
+
+        const portraitContainer = document.getElementById('npc-portraits');
+
+        if (!portraits || portraits.length === 0) {
+            portraitContainer.style.display = 'none';
+            return;
+        }
+
+        portraitContainer.style.display = 'flex';
+        portraitContainer.innerHTML = '';
+
+        portraits.forEach(portrait => {
+            const card = document.createElement('div');
+            card.className = 'npc-portrait-card';
+
+            const img = document.createElement('img');
+            img.src = portrait.url;
+            img.alt = portrait.name;
+            img.className = 'npc-portrait-image';
+            img.onclick = () => window.open(portrait.url, '_blank');
+
+            const name = document.createElement('div');
+            name.className = 'npc-portrait-name';
+            name.textContent = portrait.name;
+
+            card.appendChild(img);
+            card.appendChild(name);
+            portraitContainer.appendChild(card);
+        });
+
+        console.log(`[Dashboard] Displayed ${portraits.length} NPC portrait(s)`);
     }
 
     showNotification(message, type = 'info') {
