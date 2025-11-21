@@ -180,8 +180,8 @@ class NPCPortraitGenerator:
         else:
             age_desc = f"{age} year old mature {gender_term}"
 
-        # Parse appearance description for visual features
-        appearance_features = self._extract_visual_features(appearance)
+        # Use full appearance description directly
+        appearance_features = appearance if appearance else ""
 
         # Extract personality hints for visual style
         mood = "neutral, calm expression"
