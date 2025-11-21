@@ -226,6 +226,14 @@ WILLOW_CREEK_LOCATIONS = {
         "hours": "24/7 (2 weeks on, 2 weeks off shifts)",
         "services": ["Oil Extraction", "Rig Operations"],
         "description": "Deep-water oil drilling platform where workers spend weeks at a time away from home."
+    },
+    "blackEmber": {
+        "name": "Black Ember",
+        "address": "17 Underground Alley",
+        "type": "Tattoo Studio",
+        "hours": "Tue–Sat 2 PM – 11 PM, by appointment after hours",
+        "services": ["Custom Tattoos", "Cover-ups", "Piercings", "Tattoo Consultations"],
+        "description": "Small underground tattoo studio with dark atmosphere and intimate vibe. Co-owned by Selene Arvidsson and Markus. Known for raven and geometric designs, attracts musicians, artists, and those seeking edgy body art. Late-night sessions blur lines between professional and personal."
     }
 }
 

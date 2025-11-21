@@ -1338,6 +1338,72 @@
         "Feeling like an outsider"
     ],
     "currentLocation": "Home"
+},
+{
+    "name": "Selene Arvidsson",
+    "age": 29,
+    "gender": "Female",
+    "affiliation": "Tattoo artist and co-owner of Black Ember",
+    "appearance": "5'6\" with pale skin contrasted by full-sleeve tattoos of ravens and abstract geometric designs, silver hair with dark roots tied up messily, sharp gray eyes that see right through people, black ripped jeans, heavy boots, tank tops revealing inked arms, septum piercing that glints when she smirks",
+    "coreTraits": [
+        "Bold",
+        "Witty",
+        "Confident",
+        "Independent",
+        "Flirtatious",
+        "Emotionally guarded"
+    ],
+    "status": "active",
+    "relationship": 0,
+    "memory": [
+        "Grew up in Turku in a fractured family",
+        "Father disappeared when she was 10",
+        "Mother fell into depression after father left",
+        "Left home at 18 and drifted between jobs",
+        "Apprenticed under a tattoo artist",
+        "Co-founded Black Ember at 24 with Markus",
+        "Breakup with girlfriend Elina at 27 left her emotionally raw"
+    ],
+    "privateHabits": [
+        "Smokes clove cigarettes after late sessions",
+        "Draws tattoo ideas in margins of bar napkins",
+        "Flirts with clients in playful, teasing way, testing boundaries",
+        "Rubs the scar on her wrist when anxious",
+        "Navigates Helsinki's bars and underground clubs"
+    ],
+    "dislikes": [
+        "Vulnerability",
+        "Being emotionally dependent",
+        "People who don't respect boundaries"
+    ],
+    "relationships": {
+        "Markus": {
+            "role": "Co-owner and best friend",
+            "knowledgeLevel": "Pragmatic, handles business side, keeps Selene grounded",
+            "age": 32
+        },
+        "Elina": {
+            "role": "Ex-girlfriend",
+            "knowledgeLevel": "Photographer who occasionally comes back, complicating Selene's feelings",
+            "age": 31
+        }
+    },
+    "background": {
+        "currentConflict": "Struggles to reconcile independence with desire for genuine connection",
+        "vulnerability": "Uses sarcasm as defense, prone to reckless behavior when stressed, secretly longs for intimacy despite guarded exterior"
+    },
+    "speechPatterns": {
+        "style": "Sharp confidence with dry humor",
+        "slang": "Finnish slang - 'perkele' when frustrated, 'nähdään' when casual",
+        "mannerism": "Leans in close when speaking, tone shifts from playful to intense"
+    },
+    "goals": {
+        "primary": "Establish herself as Helsinki's most respected tattoo artist",
+        "secondary": "Confront her fear of intimacy and find a relationship that feels real"
+    },
+    "sexuality": "Bisexual, comfortable with sexuality, attracted to both men and women",
+    "quirk": "Mixes work with seduction - late-night clients may push the line between tattoo session and something more intimate",
+    "currentLocation": "Black Ember"
 }
 
 
