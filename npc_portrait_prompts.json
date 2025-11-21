@@ -1,0 +1,903 @@
+{
+  "roster": [
+    {
+      "name": "Sarah Madison",
+      "age": 26,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 26 year old woman. Colorful, gentle demeanor, paint-stained jeans, youthful complexion, energetic presence, feminine features, graceful presence, creative bohemian style, artistic flair in clothing, kind smile, gentle eyes, welcoming demeanor. warm gentle smile. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 26 year old woman. Colorful, gentle demeanor, paint-stained jeans, youthful complexion, energetic presence, feminine features, graceful presence, creative bohemian style, artistic flair in clothing, kind smile, gentle eyes, welcoming demeanor. warm gentle smile. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Scarlet Carter",
+      "age": 38,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 38 year old woman. Casual yet professional, wears glasses, brown hair, green eyes, mature features, confident bearing, feminine features, graceful presence, professional yet approachable attire, organized appearance, kind smile, gentle eyes, welcoming demeanor. warm gentle smile. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 38 year old woman. Casual yet professional, wears glasses, brown hair, green eyes, mature features, confident bearing, feminine features, graceful presence, professional yet approachable attire, organized appearance, kind smile, gentle eyes, welcoming demeanor. warm gentle smile. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Steve Kallio",
+      "age": 15,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 15 year old teenage boy. Clean-cut, athletic, nervous smile, huge penis, adolescent features, developing build, boyish features. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 15 year old teenage boy. Clean-cut, athletic, nervous smile, huge penis, adolescent features, developing build, boyish features. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Tessa",
+      "age": 35,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 35 year old woman. Athletic, toned build, shoulder-length blonde hair (tousled), bright blue eyes, bold and slightly disheveled style, mature features, confident bearing, feminine features, graceful presence, kind smile, gentle eyes, welcoming demeanor, engaging smile, confident presence. warm gentle smile. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 35 year old woman. Athletic, toned build, shoulder-length blonde hair (tousled), bright blue eyes, bold and slightly disheveled style, mature features, confident bearing, feminine features, graceful presence, kind smile, gentle eyes, welcoming demeanor, engaging smile, confident presence. warm gentle smile. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Tim Thompson",
+      "age": 17,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 17 year old teenage boy. Messy dark brown hair, intense observant gray eyes, pale skin, lean lanky build, dark circles from lack of sleep, nervous energy, wears hoodies and jeans, hunched posture, always has camera or phone, analytical gaze, fidgets with objects when thinking, introverted body language. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 17 year old teenage boy. Messy dark brown hair, intense observant gray eyes, pale skin, lean lanky build, dark circles from lack of sleep, nervous energy, wears hoodies and jeans, hunched posture, always has camera or phone, analytical gaze, fidgets with objects when thinking, introverted body language. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Tom Kunitz",
+      "age": 15,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 15 year old teenage boy. Pale unconscious face, closed eyes with dark circles, breathing tube inserted, various IV lines and medical monitors attached, light brown hair grown longer from hospital stay, thin weakened body under hospital gown, still peaceful expression, motionless in hospital bed, medical tubes and wires. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 15 year old teenage boy. Pale unconscious face, closed eyes with dark circles, breathing tube inserted, various IV lines and medical monitors attached, light brown hair grown longer from hospital stay, thin weakened body under hospital gown, still peaceful expression, motionless in hospital bed, medical tubes and wires. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Agnes Montgomery",
+      "age": 29,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 29 year old woman. Innocent face with soft features, warm brown eyes, light blonde hair in loose waves, fair porcelain skin, slender graceful build, kind disarming smile, professional attire that's subtly revealing (fitted blouses, pencil skirts), delicate hands, gentle voice, unassuming appearance that puts people at ease. warm gentle smile. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 29 year old woman. Innocent face with soft features, warm brown eyes, light blonde hair in loose waves, fair porcelain skin, slender graceful build, kind disarming smile, professional attire that's subtly revealing (fitted blouses, pencil skirts), delicate hands, gentle voice, unassuming appearance that puts people at ease. warm gentle smile. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Alex Sturm",
+      "age": 13,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 13 year old teenage boy. Tall, athletic build, dark hair, conflicted eyes. Tenses up when nervous.adolescent features, developing build, boyish features. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 13 year old teenage boy. Tall, athletic build, dark hair, conflicted eyes. Tenses up when nervous.adolescent features, developing build, boyish features. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Anna Thompson",
+      "age": 7,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 7 year old girl. Fragile small body, soft brown hair gently brushed by Lisa, large expressive brown eyes that communicate everything she feels, pale delicate skin, thin limbs, wheelchair-bound, wears comfortable adaptive clothing, gentle smile, trusting gaze toward family, vulnerable presence, communicates through eyes and slight facial movements. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 7 year old girl. Fragile small body, soft brown hair gently brushed by Lisa, large expressive brown eyes that communicate everything she feels, pale delicate skin, thin limbs, wheelchair-bound, wears comfortable adaptive clothing, gentle smile, trusting gaze toward family, vulnerable presence, communicates through eyes and slight facial movements. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Caty Kunitz",
+      "age": 38,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 38 year old woman. Tired but caring brown eyes with signs of grief, shoulder-length dark blonde hair pulled back practically, fair skin showing stress lines, medium build, dresses modestly in cardigans and comfortable pants, devoted demeanor, gentle exhausted smile, wedding ring still worn, weathered hands from hospital visits, quiet strength in posture. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 38 year old woman. Tired but caring brown eyes with signs of grief, shoulder-length dark blonde hair pulled back practically, fair skin showing stress lines, medium build, dresses modestly in cardigans and comfortable pants, devoted demeanor, gentle exhausted smile, wedding ring still worn, weathered hands from hospital visits, quiet strength in posture. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Isabella Ruiz",
+      "age": 31,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 31 year old woman. Blonde hair, blue eyes, alluring fit figure, large D-cup breasts, round posterior, cute and innocent face, mature features, confident bearing, feminine features, graceful presence, athletic wear, camera-ready appearance. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 31 year old woman. Blonde hair, blue eyes, alluring fit figure, large D-cup breasts, round posterior, cute and innocent face, mature features, confident bearing, feminine features, graceful presence, athletic wear, camera-ready appearance. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Eve Madison",
+      "age": 7,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 7 year old girl. Curly auburn hair like her mother, bright curious hazel eyes, fair skin, small for her age, constantly has paint on fingers and sometimes on face, big enthusiastic smile, wears colorful mismatched clothes, energetic movements, innocent childlike charm, always carrying crayons or art supplies. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 7 year old girl. Curly auburn hair like her mother, bright curious hazel eyes, fair skin, small for her age, constantly has paint on fingers and sometimes on face, big enthusiastic smile, wears colorful mismatched clothes, energetic movements, innocent childlike charm, always carrying crayons or art supplies. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Emma Pearson",
+      "age": 18,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 18 year old woman. Slim, petite, blonde hair, blue eyes, youthful complexion, energetic presence, feminine features, graceful presence. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 18 year old woman. Slim, petite, blonde hair, blue eyes, youthful complexion, energetic presence, feminine features, graceful presence. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Daniel Carter",
+      "age": 40,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 40 year old man. Short dark brown hair with some gray at temples, stern brown eyes showing exhaustion, strong jaw, fair skin, tall athletic build, professional business attire (button-down shirts, slacks), tired eyes from long work hours, serious expression, clean-shaven, broad shoulders, authoritative posture, wedding ring worn. serious stern expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 40 year old man. Short dark brown hair with some gray at temples, stern brown eyes showing exhaustion, strong jaw, fair skin, tall athletic build, professional business attire (button-down shirts, slacks), tired eyes from long work hours, serious expression, clean-shaven, broad shoulders, authoritative posture, wedding ring worn. serious stern expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Elena Sturm",
+      "age": 8,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 8 year old girl. Small for her age, big wide innocent brown eyes, messy dark brown pigtails that Maria ties, latina features like her mother, cute round face, often wears colorful dresses, energetic movements, curious expression, mimics Maria's gestures, sweet voice, always carrying a stuffed animal or toy. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 8 year old girl. Small for her age, big wide innocent brown eyes, messy dark brown pigtails that Maria ties, latina features like her mother, cute round face, often wears colorful dresses, energetic movements, curious expression, mimics Maria's gestures, sweet voice, always carrying a stuffed animal or toy. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Hanna",
+      "age": 17,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 17 year old teenage girl. Light brown hair in a high ponytail, sprinkling of freckles across nose and cheeks, bright blue eyes, fair skin, friendly smile, wholesome girl-next-door look, modest church-appropriate clothing (sundresses, cardigans), cheerful demeanor, always well-groomed, petite athletic build. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 17 year old teenage girl. Light brown hair in a high ponytail, sprinkling of freckles across nose and cheeks, bright blue eyes, fair skin, friendly smile, wholesome girl-next-door look, modest church-appropriate clothing (sundresses, cardigans), cheerful demeanor, always well-groomed, petite athletic build. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Hiro Lockheart",
+      "age": 13,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 13 year old teenage boy. Messy black hair, dark brown eyes usually focused on screens, pale skin from staying indoors, thin lanky build, always wearing headphones around neck or on head, gaming controller often in hands, oversized graphic t-shirts and sweatpants, slouched posture, mumbles when speaking, avoidant eye contact, dark circles under eyes from late-night gaming. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 13 year old teenage boy. Messy black hair, dark brown eyes usually focused on screens, pale skin from staying indoors, thin lanky build, always wearing headphones around neck or on head, gaming controller often in hands, oversized graphic t-shirts and sweatpants, slouched posture, mumbles when speaking, avoidant eye contact, dark circles under eyes from late-night gaming. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Christine Brunn",
+      "age": 35,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 35 year old woman. Sharp dress, tired eyes, carries notebook, mature features, confident bearing, feminine features, graceful presence. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 35 year old woman. Sharp dress, tired eyes, carries notebook, mature features, confident bearing, feminine features, graceful presence. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Eva Seinfeld",
+      "age": 10,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 10 year old girl. Long mousy brown hair often slightly disheveled, downcast gray eyes that avoid eye contact, fair skin, petite thin build, shy demeanor with hunched shoulders, always looking down at feet, modest clothing that's sometimes wrinkled, quiet movements, nervous fidgeting, insecure posture, speaks in whispers. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 10 year old girl. Long mousy brown hair often slightly disheveled, downcast gray eyes that avoid eye contact, fair skin, petite thin build, shy demeanor with hunched shoulders, always looking down at feet, modest clothing that's sometimes wrinkled, quiet movements, nervous fidgeting, insecure posture, speaks in whispers. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Damien Voss",
+      "age": 32,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 32 year old man. Rugged, charming smile, anxious hands, mature features, confident bearing, masculine build, strong features. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 32 year old man. Rugged, charming smile, anxious hands, mature features, confident bearing, masculine build, strong features. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Kenny Lockheart",
+      "age": 45,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 45 year old man. Thinning dark brown hair, tired blue eyes that seem lost in thought, weathered face from grief, mechanic's build with grease-stained hands, wears work clothes (flannel shirts, jeans), appears friendly and well-meaning, soft awkward smile, lingering gaze, gentle but inappropriate touches, lonely demeanor, slightly hunched posture from carrying emotional weight. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 45 year old man. Thinning dark brown hair, tired blue eyes that seem lost in thought, weathered face from grief, mechanic's build with grease-stained hands, wears work clothes (flannel shirts, jeans), appears friendly and well-meaning, soft awkward smile, lingering gaze, gentle but inappropriate touches, lonely demeanor, slightly hunched posture from carrying emotional weight. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Lianna Carter",
+      "age": 16,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 16 year old teenage girl. Long flowing dark brown hair (takes after Daniel), deep brown eyes behind rectangular reading glasses, fair skin, slender artistic build, intelligent moody expression, vintage band t-shirts and ripped jeans, journal and pen always in hand or nearby, creative energy, slight dark circles from late-night writing, acoustic guitar often slung over shoulder, thoughtful brooding gaze. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 16 year old teenage girl. Long flowing dark brown hair (takes after Daniel), deep brown eyes behind rectangular reading glasses, fair skin, slender artistic build, intelligent moody expression, vintage band t-shirts and ripped jeans, journal and pen always in hand or nearby, creative energy, slight dark circles from late-night writing, acoustic guitar often slung over shoulder, thoughtful brooding gaze. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Lily Harper",
+      "age": 40,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 40 year old woman. Chubby, large belly, long wavy brown hair, warm smile, huge breasts, mature features, confident bearing, feminine features, graceful presence, professional yet approachable attire, organized appearance. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 40 year old woman. Chubby, large belly, long wavy brown hair, warm smile, huge breasts, mature features, confident bearing, feminine features, graceful presence, professional yet approachable attire, organized appearance. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Lisa Thompson",
+      "age": 42,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 42 year old woman. Resilient front, gentle yet firm, weary determination, mature features, confident bearing, feminine features, graceful presence, professional yet approachable attire, organized appearance. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 42 year old woman. Resilient front, gentle yet firm, weary determination, mature features, confident bearing, feminine features, graceful presence, professional yet approachable attire, organized appearance. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Ivy",
+      "age": 7,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 7 year old girl. Long blonde hair like her mother but neatly brushed, sharp intelligent blue eyes, fair skin, slender build, serious expression beyond her years, always neat and organized appearance, practical clothing choices, stands with crossed arms, observant gaze, mature posture for her age, critical eyebrow raise. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 7 year old girl. Long blonde hair like her mother but neatly brushed, sharp intelligent blue eyes, fair skin, slender build, serious expression beyond her years, always neat and organized appearance, practical clothing choices, stands with crossed arms, observant gaze, mature posture for her age, critical eyebrow raise. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "James Seinfeld",
+      "age": 48,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 48 year old man. Short graying brown hair in neat cut, gentle gray-blue eyes that carry subtle sadness, fair weathered skin, tall sturdy build, standard police uniform worn professionally, calm composed demeanor, kind but tired smile, strong hands, wedding ring still worn despite being widowed, lines of grief around eyes, respectful posture, protective presence. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 48 year old man. Short graying brown hair in neat cut, gentle gray-blue eyes that carry subtle sadness, fair weathered skin, tall sturdy build, standard police uniform worn professionally, calm composed demeanor, kind but tired smile, strong hands, wedding ring still worn despite being widowed, lines of grief around eyes, respectful posture, protective presence. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "David Madison",
+      "age": 34,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 34 year old man. Tall, neatly trimmed beard, glasses, always in flannel shirts and jeans, tired eyes but kind smile, mature features, confident bearing, masculine build, strong features, business casual attire, neat professional appearance. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 34 year old man. Tall, neatly trimmed beard, glasses, always in flannel shirts and jeans, tired eyes but kind smile, mature features, confident bearing, masculine build, strong features, business casual attire, neat professional appearance. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Ken Blake",
+      "age": 38,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 38 year old man. Military buzzcut dark brown hair, striking intense blue eyes, strong chiseled jaw, tan weathered skin, extremely muscular athletic build, Navy SEAL physique, tactical gear or casual military-style clothing, charismatic confident smile, alpha male presence, authoritative bearing, battle scars on arms, disciplined posture, commanding presence, broad shoulders. confident engaging smile. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 38 year old man. Military buzzcut dark brown hair, striking intense blue eyes, strong chiseled jaw, tan weathered skin, extremely muscular athletic build, Navy SEAL physique, tactical gear or casual military-style clothing, charismatic confident smile, alpha male presence, authoritative bearing, battle scars on arms, disciplined posture, commanding presence, broad shoulders. confident engaging smile. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "John Sturm",
+      "age": 37,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 37 year old man. Large imposing muscular build (6'3\"/190cm), rugged weathered face, short dark brown hair, tired distant brown eyes, tan skin from outdoor work, strong calloused hands from oil rig labor, thick stubble or short beard, work boots and worn jeans, oil-stained work clothes, protective yet jealous gaze, broad intimidating shoulders, hardened expression. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 37 year old man. Large imposing muscular build (6'3\"/190cm), rugged weathered face, short dark brown hair, tired distant brown eyes, tan skin from outdoor work, strong calloused hands from oil rig labor, thick stubble or short beard, work boots and worn jeans, oil-stained work clothes, protective yet jealous gaze, broad intimidating shoulders, hardened expression. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Lucas Ruiz",
+      "age": 13,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 13 year old teenage boy. Unassuming thin build, messy dark brown hair, wide curious brown eyes, latino features like Isabella, fair-tan skin, often clutching smartphone or tablet, awkward posture, simple casual clothes (t-shirts, shorts), innocent face that masks inappropriate curiosity, fidgets constantly, stares without realizing, nervous energy, observant gaze. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 13 year old teenage boy. Unassuming thin build, messy dark brown hair, wide curious brown eyes, latino features like Isabella, fair-tan skin, often clutching smartphone or tablet, awkward posture, simple casual clothes (t-shirts, shorts), innocent face that masks inappropriate curiosity, fidgets constantly, stares without realizing, nervous energy, observant gaze. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Luke Stephens",
+      "age": 13,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 13 year old teenage boy. Shaggy sandy blonde hair, bright blue eyes, fair skin with some freckles, lanky adolescent build, fidgety restless energy, skateboard always nearby or under arm, comic books stuffed in backpack, graphic t-shirts and cargo shorts, worn sneakers, stubborn expression, adventurous grin, curious gaze, constantly in motion. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 13 year old teenage boy. Shaggy sandy blonde hair, bright blue eyes, fair skin with some freckles, lanky adolescent build, fidgety restless energy, skateboard always nearby or under arm, comic books stuffed in backpack, graphic t-shirts and cargo shorts, worn sneakers, stubborn expression, adventurous grin, curious gaze, constantly in motion. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Nate",
+      "age": 37,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 37 year old man. Clean-cut short brown hair neatly styled, sharp critical blue eyes, fair skin, handsome angular face, perpetually irritated or judgmental expression, well-groomed appearance, business casual attire (polo shirts, khakis), athletic build from regular gym routine, tight jaw when annoyed, precise movements, condescending posture, wedding ring removed. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 37 year old man. Clean-cut short brown hair neatly styled, sharp critical blue eyes, fair skin, handsome angular face, perpetually irritated or judgmental expression, well-groomed appearance, business casual attire (polo shirts, khakis), athletic build from regular gym routine, tight jaw when annoyed, precise movements, condescending posture, wedding ring removed. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Pastor Naomi",
+      "age": 48,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 48 year old woman. Salt-and-pepper graying hair in a professional bob, warm brown eyes behind reading glasses, fair skin with gentle laugh lines, medium build, stern but kind expression, wears modest pastor's attire (clerical collar, dark blazers), compassionate smile, commanding yet gentle presence, weathered hands from years of service. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 48 year old woman. Salt-and-pepper graying hair in a professional bob, warm brown eyes behind reading glasses, fair skin with gentle laugh lines, medium build, stern but kind expression, wears modest pastor's attire (clerical collar, dark blazers), compassionate smile, commanding yet gentle presence, weathered hands from years of service. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Rose Stephens",
+      "age": 16,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 16 year old teenage girl. Long dark brown hair in ponytail or loose waves, expressive hazel eyes that show every emotion, fair complexion, attractive face with delicate features, slender build, crosses arms defensively often, trendy teen fashion (skinny jeans, cute tops), tsundere body language (acts tough but vulnerable), pink lips in pout or smirk, jealous glances, superior posture that hides insecurity. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 16 year old teenage girl. Long dark brown hair in ponytail or loose waves, expressive hazel eyes that show every emotion, fair complexion, attractive face with delicate features, slender build, crosses arms defensively often, trendy teen fashion (skinny jeans, cute tops), tsundere body language (acts tough but vulnerable), pink lips in pout or smirk, jealous glances, superior posture that hides insecurity. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Maria Sturm",
+      "age": 34,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 34 year old woman. Warm smile, curvy, sexy, latina, brown hair, medium breasts. revealing clothing, mature features, confident bearing, feminine features, graceful presence, caring demeanor, medical scrubs or professional attire, kind smile, gentle eyes, welcoming demeanor. warm gentle smile. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 34 year old woman. Warm smile, curvy, sexy, latina, brown hair, medium breasts. revealing clothing, mature features, confident bearing, feminine features, graceful presence, caring demeanor, medical scrubs or professional attire, kind smile, gentle eyes, welcoming demeanor. warm gentle smile. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Nina Blake",
+      "age": 25,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 25 year old woman. Attractive, Athletic build, long auburn hair, striking green eyes, tight yoga outfits or trendy clothes, youthful complexion, energetic presence, feminine features, graceful presence, athletic wear, camera-ready appearance, engaging smile, confident presence. confident engaging smile. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 25 year old woman. Attractive, Athletic build, long auburn hair, striking green eyes, tight yoga outfits or trendy clothes, youthful complexion, energetic presence, feminine features, graceful presence, athletic wear, camera-ready appearance, engaging smile, confident presence. confident engaging smile. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Milo",
+      "age": 4,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 4 year old boy. Small energetic body, tousled blonde hair like Tessa, bright blue eyes full of curiosity, fair skin, huge infectious grin, constant motion and boundless energy, wears mismatched clothes that get dirty quickly, scraped knees, animated expressions, loud giggles, never sits still, always asking questions. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 4 year old boy. Small energetic body, tousled blonde hair like Tessa, bright blue eyes full of curiosity, fair skin, huge infectious grin, constant motion and boundless energy, wears mismatched clothes that get dirty quickly, scraped knees, animated expressions, loud giggles, never sits still, always asking questions. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Mindy Kunitz",
+      "age": 13,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 13 year old teenage girl. Soft brown hair often slightly disheveled, warm brown eyes usually focused on reading, fair skin that blushes easily, petite developing build, always carrying a book or two, slightly messy clothing from clumsiness (untucked shirt, mismatched socks), innocent curious face, reading glasses perched on nose, trips over own feet, notebook sticking out of backpack, embarrassed smile. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 13 year old teenage girl. Soft brown hair often slightly disheveled, warm brown eyes usually focused on reading, fair skin that blushes easily, petite developing build, always carrying a book or two, slightly messy clothing from clumsiness (untucked shirt, mismatched socks), innocent curious face, reading glasses perched on nose, trips over own feet, notebook sticking out of backpack, embarrassed smile. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Nora Blake",
+      "age": 10,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 10 year old girl. Small petite frame, long dark hair like her late mother Aiko, striking blue eyes like Ken (Irish-Japanese features), delicate mixed-race features, fair skin with slight tan, expressive wide eyes full of curiosity and anxiety, often clutching security blanket or scrolling phone, casual comfortable clothes, dragon sketches on notebooks, innocent sweet face, worried expression when Ken deploys. shy nervous expression, avoiding eye contact. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 10 year old girl. Small petite frame, long dark hair like her late mother Aiko, striking blue eyes like Ken (Irish-Japanese features), delicate mixed-race features, fair skin with slight tan, expressive wide eyes full of curiosity and anxiety, often clutching security blanket or scrolling phone, casual comfortable clothes, dragon sketches on notebooks, innocent sweet face, worried expression when Ken deploys. shy nervous expression, avoiding eye contact. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Michael Blake",
+      "age": 14,
+      "gender": "male",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 14 year old teenage boy. Lanky adolescent build starting to show Ken's athletic genes, short dark hair like his father, striking blue eyes, mixed Irish-Japanese features from late mother Aiko, fair skin, charismatic charming smile, restless fidgety energy, casual gamer attire (hoodies, jeans), gaming controller or phone always in hand, introspective gaze that shifts to daydreaming, teenage awkwardness mixed with natural charm. confident engaging smile. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 14 year old teenage boy. Lanky adolescent build starting to show Ken's athletic genes, short dark hair like his father, striking blue eyes, mixed Irish-Japanese features from late mother Aiko, fair skin, charismatic charming smile, restless fidgety energy, casual gamer attire (hoodies, jeans), gaming controller or phone always in hand, introspective gaze that shifts to daydreaming, teenage awkwardness mixed with natural charm. confident engaging smile. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Maria Kallio",
+      "age": 43,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 43 year old woman. Soft blonde hair in modest style often in bun, kind warm blue eyes, fair Finnish complexion, gentle nurturing face, modest church-appropriate dresses and cardigans, simple cross necklace, medium build, soft smile, wistful longing expression, weathered hands from years of devotion, graceful movements, maternal presence, lines of solitude around eyes. warm gentle smile. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 43 year old woman. Soft blonde hair in modest style often in bun, kind warm blue eyes, fair Finnish complexion, gentle nurturing face, modest church-appropriate dresses and cardigans, simple cross necklace, medium build, soft smile, wistful longing expression, weathered hands from years of devotion, graceful movements, maternal presence, lines of solitude around eyes. warm gentle smile. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Penny Lockheart",
+      "age": 15,
+      "gender": "female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 15 year old teenage girl. Petite, long black hair, blue eyes, shy posture, usually wearing band tees/dark clothes, adolescent features, developing build, girlish features, nervous fidgeting, avoidant eye contact, hunched posture. shy nervous expression, avoiding eye contact. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 15 year old teenage girl. Petite, long black hair, blue eyes, shy posture, usually wearing band tees/dark clothes, adolescent features, developing build, girlish features, nervous fidgeting, avoidant eye contact, hunched posture. shy nervous expression, avoiding eye contact. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Selene Arvidsson",
+      "age": 29,
+      "gender": "Female",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 29 year old person. 5'6\" with pale skin contrasted by full-sleeve tattoos of ravens and abstract geometric designs, silver hair with dark roots tied up messily, sharp gray eyes that see right through people, black ripped jeans, heavy boots, tank tops revealing inked arms, septum piercing that glints when she smirks. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 29 year old person. 5'6\" with pale skin contrasted by full-sleeve tattoos of ravens and abstract geometric designs, silver hair with dark roots tied up messily, sharp gray eyes that see right through people, black ripped jeans, heavy boots, tank tops revealing inked arms, septum piercing that glints when she smirks. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    }
+  ],
+  "generic": [
+    {
+      "name": "Marjorie Hales",
+      "age": 78,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 78 year old person. Stooped posture with age, sharp piercing blue eyes, pale wrinkled skin, silver-white hair in a neat bun, thin lips, always in a knitted cardigan, wire-frame glasses. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 78 year old person. Stooped posture with age, sharp piercing blue eyes, pale wrinkled skin, silver-white hair in a neat bun, thin lips, always in a knitted cardigan, wire-frame glasses. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Earl Peterson",
+      "age": 81,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 81 year old person. Tall but shrunken with age, weathered sun-tanned skin, deep wrinkles, gray eyes that have seen decades, thinning white hair, strong weathered hands, faded flannel shirts, worn blue jeans, weatherbeaten face. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 81 year old person. Tall but shrunken with age, weathered sun-tanned skin, deep wrinkles, gray eyes that have seen decades, thinning white hair, strong weathered hands, faded flannel shirts, worn blue jeans, weatherbeaten face. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Aaliyah Flores",
+      "age": 26,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 26 year old person. Curly dark brown hair in a messy bun, warm brown skin, expressive dark brown eyes, delicate silver nose ring, ink-stained fingers, artistic tattoo on forearm, slender build, casual artistic style. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 26 year old person. Curly dark brown hair in a messy bun, warm brown skin, expressive dark brown eyes, delicate silver nose ring, ink-stained fingers, artistic tattoo on forearm, slender build, casual artistic style. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Hassan Karim",
+      "age": 34,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 34 year old person. Well-groomed black beard, warm genuine smile, kind dark brown eyes, olive skin, neat button-up shirts, medium build, welcoming demeanor, short black hair neatly styled. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 34 year old person. Well-groomed black beard, warm genuine smile, kind dark brown eyes, olive skin, neat button-up shirts, medium build, welcoming demeanor, short black hair neatly styled. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Chloe Hart",
+      "age": 50,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 50 year old person. Dyed vibrant red hair in styled waves, bold red lipstick, bright green eyes with heavy mascara, fair skin with some freckles, curvy figure, low-cut tops, confident posture, big infectious laugh, age lines around eyes and mouth. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 50 year old person. Dyed vibrant red hair in styled waves, bold red lipstick, bright green eyes with heavy mascara, fair skin with some freckles, curvy figure, low-cut tops, confident posture, big infectious laugh, age lines around eyes and mouth. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Derek Cole",
+      "age": 29,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 29 year old person. Tattooed forearms with sleeve designs, easy charming smile, hazel eyes, light stubble, short brown hair, athletic build, casual flannel or t-shirt, always wiping down the counter, warm approachable demeanor. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 29 year old person. Tattooed forearms with sleeve designs, easy charming smile, hazel eyes, light stubble, short brown hair, athletic build, casual flannel or t-shirt, always wiping down the counter, warm approachable demeanor. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Linda Cho",
+      "age": 42,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 42 year old person. Short black hair in a practical bob, tired but kind dark brown eyes, East Asian features, petite build, practical medical scrubs, gentle warm smile, smooth skin with some stress lines, caring expression. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 42 year old person. Short black hair in a practical bob, tired but kind dark brown eyes, East Asian features, petite build, practical medical scrubs, gentle warm smile, smooth skin with some stress lines, caring expression. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Omar Reed",
+      "age": 37,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 37 year old person. Grease-stained strong hands, faded baseball cap, muscular build, dark brown skin, short black hair, deep brown eyes, weathered face, permanent oil stains on work clothes, broad shoulders, rugged appearance. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 37 year old person. Grease-stained strong hands, faded baseball cap, muscular build, dark brown skin, short black hair, deep brown eyes, weathered face, permanent oil stains on work clothes, broad shoulders, rugged appearance. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Rita Alvarez",
+      "age": 31,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 31 year old person. Athletic toned build, long dark brown hair in a braid, calm soothing voice, smooth brown skin, warm brown eyes, serene expression, flexible graceful movements, yoga attire, natural beauty, peaceful demeanor. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 31 year old person. Athletic toned build, long dark brown hair in a braid, calm soothing voice, smooth brown skin, warm brown eyes, serene expression, flexible graceful movements, yoga attire, natural beauty, peaceful demeanor. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Caleb Morris",
+      "age": 23,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 23 year old person. Messy brown hair uncombed, oversized hoodie, dark circles under tired blue eyes, pale skin from staying indoors, thin lanky build, slouched posture, stubble on chin, gamer aesthetic, perpetually sleepy look. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 23 year old person. Messy brown hair uncombed, oversized hoodie, dark circles under tired blue eyes, pale skin from staying indoors, thin lanky build, slouched posture, stubble on chin, gamer aesthetic, perpetually sleepy look. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Gladys Monroe",
+      "age": 84,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 84 year old person. Snow white hair in a neat bun, floral print dresses, steady wooden cane, pale wrinkled skin, soft blue eyes behind bifocals, gentle smile lines, frail elderly build, always wearing a small golden cross necklace, kind grandmother appearance. warm gentle smile. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 84 year old person. Snow white hair in a neat bun, floral print dresses, steady wooden cane, pale wrinkled skin, soft blue eyes behind bifocals, gentle smile lines, frail elderly build, always wearing a small golden cross necklace, kind grandmother appearance. warm gentle smile. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Toby Finch",
+      "age": 40,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 40 year old person. Lean wiry build, windburned ruddy cheeks, postal cap slightly crooked, gray-blue eyes, thinning brown hair, sun-weathered skin, official postal uniform, comfortable walking shoes, weatherbeaten but friendly face. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 40 year old person. Lean wiry build, windburned ruddy cheeks, postal cap slightly crooked, gray-blue eyes, thinning brown hair, sun-weathered skin, official postal uniform, comfortable walking shoes, weatherbeaten but friendly face. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Ralph Dugan",
+      "age": 52,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 52 year old person. Big belly, large build, worn vintage bowling shirt, booming laugh, ruddy complexion, thinning brown hair combed over, blue eyes, thick mustache, friendly smile, jolly demeanor, always smells faintly of beer and french fries. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 52 year old person. Big belly, large build, worn vintage bowling shirt, booming laugh, ruddy complexion, thinning brown hair combed over, blue eyes, thick mustache, friendly smile, jolly demeanor, always smells faintly of beer and french fries. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Yelena Kovacs",
+      "age": 45,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 45 year old person. Sharp bob haircut in dark brown, stylish rectangular glasses, crisp professional blouses, pale Eastern European features, gray-green eyes, thin lips, precise makeup, slender build, always impeccably neat, stern but elegant appearance. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 45 year old person. Sharp bob haircut in dark brown, stylish rectangular glasses, crisp professional blouses, pale Eastern European features, gray-green eyes, thin lips, precise makeup, slender build, always impeccably neat, stern but elegant appearance. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Logan Pierce",
+      "age": 33,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 33 year old person. Short well-trimmed beard, standard police uniform, tired but alert blue eyes, short brown hair in regulation cut, fair skin, athletic build, serious expression, square jaw, professional demeanor, hand often near his belt. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 33 year old person. Short well-trimmed beard, standard police uniform, tired but alert blue eyes, short brown hair in regulation cut, fair skin, athletic build, serious expression, square jaw, professional demeanor, hand often near his belt. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Angela Browning",
+      "age": 41,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 41 year old person. Broad-shouldered muscular build, military-style buzzcut, dark circles under sharp hazel eyes, strong jaw, tan skin, security guard uniform, intimidating presence, athletic stance, watchful expression, no-nonsense demeanor. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 41 year old person. Broad-shouldered muscular build, military-style buzzcut, dark circles under sharp hazel eyes, strong jaw, tan skin, security guard uniform, intimidating presence, athletic stance, watchful expression, no-nonsense demeanor. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Tyler Voss",
+      "age": 24,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 24 year old person. Lanky thin build, messy dark brown hair, faded band tee shirt, lanyard with too many keys around neck, pale skin, tired green eyes, slight stubble, skinny jeans, worn sneakers, slouched posture, nerdy casual style. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 24 year old person. Lanky thin build, messy dark brown hair, faded band tee shirt, lanyard with too many keys around neck, pale skin, tired green eyes, slight stubble, skinny jeans, worn sneakers, slouched posture, nerdy casual style. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Mina Patel",
+      "age": 29,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 29 year old person. Petite slender build, precise winged eyeliner, pretzel flour dusting on dark apron, smooth brown skin, long black hair in a tight ponytail, dark brown eyes, South Asian features, neat professional appearance, efficient movements, confident expression. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 29 year old person. Petite slender build, precise winged eyeliner, pretzel flour dusting on dark apron, smooth brown skin, long black hair in a tight ponytail, dark brown eyes, South Asian features, neat professional appearance, efficient movements, confident expression. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Ryan Goldstein",
+      "age": 26,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 26 year old person. Neatly trimmed brown beard, polo shirt with store logo, constantly checking smartwatch, light brown hair styled with product, brown eyes, fair skin, medium athletic build, modern glasses, clean-cut tech professional style, always has phone in hand. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 26 year old person. Neatly trimmed brown beard, polo shirt with store logo, constantly checking smartwatch, light brown hair styled with product, brown eyes, fair skin, medium athletic build, modern glasses, clean-cut tech professional style, always has phone in hand. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Clara Sorensen",
+      "age": 21,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 21 year old person. Dyed pastel pink and blue hair in a messy bun, enamel pins covering apron, chipped black nail polish, fair skin, bright blue eyes, nose piercing, subtle freckles, alternative style, multiple earrings, gentle smile, artistic bohemian aesthetic. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 21 year old person. Dyed pastel pink and blue hair in a messy bun, enamel pins covering apron, chipped black nail polish, fair skin, bright blue eyes, nose piercing, subtle freckles, alternative style, multiple earrings, gentle smile, artistic bohemian aesthetic. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Nina Carver",
+      "age": 34,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 34 year old person. Broad-shouldered strong build, dark brown hair tied back in a bandana, faded bowling-themed t-shirt, tan skin, green eyes, strong arms from cooking work, practical jeans, apron with grease stains, no-nonsense expression, tough but caring face. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 34 year old person. Broad-shouldered strong build, dark brown hair tied back in a bandana, faded bowling-themed t-shirt, tan skin, green eyes, strong arms from cooking work, practical jeans, apron with grease stains, no-nonsense expression, tough but caring face. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Eddie \"Pins\" Logan",
+      "age": 47,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 47 year old person. Grease-stained blue coveralls, receding brown hairline, kind gentle brown eyes behind thick glasses, pale skin, slightly overweight build, soft features, permanent oil stains on hands, gentle smile, unassuming quiet presence, comfortable worn work boots. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 47 year old person. Grease-stained blue coveralls, receding brown hairline, kind gentle brown eyes behind thick glasses, pale skin, slightly overweight build, soft features, permanent oil stains on hands, gentle smile, unassuming quiet presence, comfortable worn work boots. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Marshall Gibb",
+      "age": 39,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 39 year old person. Tall frame, slightly soft around the middle, immaculate well-groomed dark beard, rolled-up sleeves showing forearm tattoos, warm hazel eyes, charming smile, dark brown hair with some gray, casual bar attire, magnetic presence, welcoming demeanor. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 39 year old person. Tall frame, slightly soft around the middle, immaculate well-groomed dark beard, rolled-up sleeves showing forearm tattoos, warm hazel eyes, charming smile, dark brown hair with some gray, casual bar attire, magnetic presence, welcoming demeanor. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Marta Delgado",
+      "age": 47,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 47 year old person. Always in practical cleaning clothes, strong broad shoulders, tired dark brown eyes, brown skin, black hair pulled back, weathered hands, sturdy build, simple functional attire, worn sneakers, hardworking appearance, quiet dignity. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 47 year old person. Always in practical cleaning clothes, strong broad shoulders, tired dark brown eyes, brown skin, black hair pulled back, weathered hands, sturdy build, simple functional attire, worn sneakers, hardworking appearance, quiet dignity. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Grant Miller",
+      "age": 39,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 39 year old person. High-visibility yellow vest, dusty work boots, sunburnt neck and face, tan weathered skin, blue eyes, dirty blonde hair under hard hat, muscular build from outdoor work, gruff expression, permanent tan lines, rugged working-class appearance. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 39 year old person. High-visibility yellow vest, dusty work boots, sunburnt neck and face, tan weathered skin, blue eyes, dirty blonde hair under hard hat, muscular build from outdoor work, gruff expression, permanent tan lines, rugged working-class appearance. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    },
+    {
+      "name": "Zoey Barnes",
+      "age": 19,
+      "gender": "person",
+      "headshot": {
+        "positive": "Professional portrait photograph of a 19 year old person. Bleached blonde hair in a high ponytail with dark roots showing, chipped black nail polish, notebook full of doodles, fair skin, bright green eyes with too much eyeliner, small tattoo on wrist, slender build, waitress uniform, alternative style jewelry, restless energy. neutral expression. Head and shoulders composition, soft studio lighting, neutral background, photorealistic, natural skin texture, sharp focus on eyes and face, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      },
+      "fullbody": {
+        "positive": "Professional full body portrait photograph of a 19 year old person. Bleached blonde hair in a high ponytail with dark roots showing, chipped black nail polish, notebook full of doodles, fair skin, bright green eyes with too much eyeliner, small tattoo on wrist, slender build, waitress uniform, alternative style jewelry, restless energy. neutral expression. Standing pose, full body visible from head to feet, showing complete outfit and clothing details, soft studio lighting, neutral background, photorealistic, natural skin texture, well proportioned anatomy, cinematic lighting, high detail, 4k quality.",
+        "negative": "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, multiple heads, bad hands, bad feet, text, watermark, logo, cropped, mutations, extra limbs, disfigured, poorly drawn face"
+      }
+    }
+  ]
+}
