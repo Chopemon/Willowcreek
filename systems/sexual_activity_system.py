@@ -122,6 +122,11 @@ class SexualActivitySystem:
         if not partner_name:
             return None
 
+        # FIXED: Check if malcolm exists and has current_location before accessing
+        if not self.malcolm or not hasattr(self.malcolm, 'current_location') or not self.malcolm.current_location:
+            print(f"[Sexual Detection] Malcolm not ready or no location set, skipping detection")
+            return None
+
         return {
             "type": detected_type,
             "partner": partner_name,
