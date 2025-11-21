@@ -7,6 +7,7 @@ Generates portraits for all NPCs in npc_roster.json and caches them.
 import asyncio
 import json
 import sys
+import argparse
 from pathlib import Path
 
 # Add parent directory to path to import project modules
@@ -16,7 +17,7 @@ from services.comfyui_client import ComfyUIClient
 from services.npc_portrait_generator import NPCPortraitGenerator
 
 
-async def generate_all_portraits():
+async def generate_all_portraits(portrait_type: str = "headshot"):
     """Generate portraits for all NPCs in npc_roster.json"""
 
     # Setup
@@ -25,6 +26,7 @@ async def generate_all_portraits():
 
     print("=" * 60)
     print("Willow Creek NPC Portrait Batch Generator")
+    print(f"Portrait Type: {portrait_type.upper()}")
     print("=" * 60)
 
     # Check if ComfyUI is available
@@ -78,9 +80,9 @@ async def generate_all_portraits():
         print("-" * 40)
 
         # Check if already cached
-        if portrait_gen.has_portrait(npc_name):
-            existing_url = portrait_gen.get_portrait_url(npc_name)
-            print(f"  ℹ Already cached: {existing_url}")
+        if portrait_gen.has_portrait(npc_name, portrait_type):
+            existing_url = portrait_gen.get_portrait_url(npc_name, portrait_type)
+            print(f"  ℹ Already cached ({portrait_type}): {existing_url}")
             skipped += 1
             continue
 
@@ -99,7 +101,7 @@ async def generate_all_portraits():
 
         # Generate portrait
         try:
-            portrait_url = await portrait_gen.generate_portrait(npc_name, npc_data)
+            portrait_url = await portrait_gen.generate_portrait(npc_name, npc_data, portrait_type)
 
             if portrait_url:
                 print(f"  ✓ SUCCESS: {portrait_url}")
@@ -130,11 +132,21 @@ async def generate_all_portraits():
 
 
 if __name__ == "__main__":
+    # Parse command line arguments
+    parser = argparse.ArgumentParser(description="Generate portraits for all NPCs in npc_roster.json")
+    parser.add_argument(
+        "--type",
+        choices=["headshot", "full_body"],
+        default="headshot",
+        help="Type of portrait to generate: 'headshot' (768x768, circular) or 'full_body' (512x896, standing)"
+    )
+    args = parser.parse_args()
+
     print("\nStarting batch portrait generation...")
     print("This may take a while depending on the number of NPCs.\n")
 
     try:
-        asyncio.run(generate_all_portraits())
+        asyncio.run(generate_all_portraits(portrait_type=args.type))
     except KeyboardInterrupt:
         print("\n\n[Interrupted] Portrait generation cancelled by user.")
     except Exception as e:

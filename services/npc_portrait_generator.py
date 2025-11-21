@@ -53,21 +53,24 @@ class NPCPortraitGenerator:
         except Exception as e:
             print(f"[PortraitGen] Error saving cache: {e}")
 
-    def has_portrait(self, npc_name: str) -> bool:
-        """Check if NPC already has a portrait."""
-        return npc_name in self.portrait_cache
+    def has_portrait(self, npc_name: str, portrait_type: str = "headshot") -> bool:
+        """Check if NPC already has a portrait of specified type."""
+        cache_key = f"{npc_name}_{portrait_type}"
+        return cache_key in self.portrait_cache
 
-    def get_portrait_url(self, npc_name: str) -> Optional[str]:
+    def get_portrait_url(self, npc_name: str, portrait_type: str = "headshot") -> Optional[str]:
         """Get portrait URL for an NPC if it exists."""
-        return self.portrait_cache.get(npc_name)
+        cache_key = f"{npc_name}_{portrait_type}"
+        return self.portrait_cache.get(cache_key)
 
-    async def generate_portrait(self, npc_name: str, npc_data: Dict) -> Optional[str]:
+    async def generate_portrait(self, npc_name: str, npc_data: Dict, portrait_type: str = "headshot") -> Optional[str]:
         """
         Generate a portrait for an NPC.
 
         Args:
             npc_name: Name of the NPC
             npc_data: NPC data dictionary with appearance info
+            portrait_type: Type of portrait - "headshot" (768x768) or "full_body" (512x896)
 
         Returns:
             URL to the generated portrait image, or None if generation failed
@@ -77,41 +80,48 @@ class NPCPortraitGenerator:
             return None
 
         # Check cache first
-        if self.has_portrait(npc_name):
-            print(f"[PortraitGen] Using cached portrait for {npc_name}")
-            return self.get_portrait_url(npc_name)
+        if self.has_portrait(npc_name, portrait_type):
+            print(f"[PortraitGen] Using cached {portrait_type} portrait for {npc_name}")
+            return self.get_portrait_url(npc_name, portrait_type)
 
-        print(f"[PortraitGen] Generating new portrait for {npc_name}")
+        print(f"[PortraitGen] Generating new {portrait_type} portrait for {npc_name}")
 
         # Build portrait prompt from NPC data
-        positive_prompt, negative_prompt = self._build_portrait_prompt(npc_name, npc_data)
+        positive_prompt, negative_prompt = self._build_portrait_prompt(npc_name, npc_data, portrait_type)
+
+        # Set dimensions based on portrait type
+        if portrait_type == "full_body":
+            width, height = 512, 896  # Taller aspect ratio for full body
+        else:  # headshot
+            width, height = 768, 768  # Square for circular headshot
 
         try:
-            # Generate portrait image (square format for portraits)
+            # Generate portrait image
             image_url = await self.comfyui_client.generate_image(
                 prompt=positive_prompt,
                 negative_prompt=negative_prompt,
-                width=768,
-                height=768,
+                width=width,
+                height=height,
                 steps=25,  # More steps for better quality portraits
                 cfg_scale=7.5
             )
 
             if image_url:
-                # Update cache
-                self.portrait_cache[npc_name] = image_url
+                # Update cache with type-specific key
+                cache_key = f"{npc_name}_{portrait_type}"
+                self.portrait_cache[cache_key] = image_url
                 self._save_cache()
-                print(f"[PortraitGen] ✓ Portrait generated for {npc_name}: {image_url}")
+                print(f"[PortraitGen] ✓ {portrait_type} portrait generated for {npc_name}: {image_url}")
                 return image_url
             else:
-                print(f"[PortraitGen] Failed to generate portrait for {npc_name}")
+                print(f"[PortraitGen] Failed to generate {portrait_type} portrait for {npc_name}")
                 return None
 
         except Exception as e:
-            print(f"[PortraitGen] Error generating portrait for {npc_name}: {e}")
+            print(f"[PortraitGen] Error generating {portrait_type} portrait for {npc_name}: {e}")
             return None
 
-    def _build_portrait_prompt(self, npc_name: str, npc_data: Dict) -> Tuple[str, str]:
+    def _build_portrait_prompt(self, npc_name: str, npc_data: Dict, portrait_type: str = "headshot") -> Tuple[str, str]:
         """
         Build ComfyUI prompt for NPC portrait.
 
@@ -177,25 +187,45 @@ class NPCPortraitGenerator:
         if appearance_features:
             positive_parts.append(appearance_features)
 
-        positive_parts.extend([
-            "head and shoulders portrait",
-            mood,
-            "soft studio lighting, neutral background",
-            "photorealistic, natural skin texture",
-            "sharp focus on eyes",
-            "cinematic lighting, professional photography"
-        ])
+        # Adjust composition based on portrait type
+        if portrait_type == "full_body":
+            positive_parts.extend([
+                "full body portrait, standing pose",
+                mood,
+                "showing complete outfit and clothing details",
+                "full body visible from head to feet",
+                "soft studio lighting, neutral background",
+                "photorealistic, natural skin texture",
+                "professional photography, well proportioned",
+                "cinematic lighting"
+            ])
+
+            # Negative prompt for full body (no "full body" in exclusions)
+            negative_prompt = (
+                "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, "
+                "multiple heads, bad hands, bad feet, text, watermark, logo, cropped, "
+                "close-up only, headshot, extreme close-up, wide angle, fish eye, sitting, kneeling"
+            )
+        else:  # headshot
+            positive_parts.extend([
+                "head and shoulders portrait",
+                mood,
+                "soft studio lighting, neutral background",
+                "photorealistic, natural skin texture",
+                "sharp focus on eyes",
+                "cinematic lighting, professional photography"
+            ])
+
+            # Negative prompt for headshot
+            negative_prompt = (
+                "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, "
+                "multiple heads, bad hands, text, watermark, logo, full body, cropped face, "
+                "sunglasses, extreme close-up, wide angle, fish eye"
+            )
 
         positive_prompt = ", ".join(positive_parts)
 
-        # Build negative prompt
-        negative_prompt = (
-            "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, "
-            "multiple heads, bad hands, text, watermark, logo, full body, cropped face, "
-            "sunglasses, extreme close-up, wide angle, fish eye"
-        )
-
-        print(f"[PortraitGen] Prompt for {npc_name}:")
+        print(f"[PortraitGen] {portrait_type} prompt for {npc_name}:")
         print(f"[PortraitGen]   Positive: {positive_prompt}")
         print(f"[PortraitGen]   Negative: {negative_prompt}")
 
