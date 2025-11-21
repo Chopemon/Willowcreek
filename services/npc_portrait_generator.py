@@ -128,6 +128,14 @@ class NPCPortraitGenerator:
         traits = npc_data.get('traits', [])
         quirk = npc_data.get('quirk', '')
 
+        # Convert Gender enum to string if needed
+        if hasattr(gender, 'value'):
+            gender = gender.value
+        elif hasattr(gender, 'name'):
+            gender = gender.name
+
+        gender = str(gender).lower()
+
         # Determine age description
         if age < 18:
             age_desc = "teenage"
@@ -139,7 +147,7 @@ class NPCPortraitGenerator:
             age_desc = "mature adult"
 
         # Build character description
-        gender_desc = "man" if gender.lower() == 'male' else "woman" if gender.lower() == 'female' else "person"
+        gender_desc = "man" if gender == 'male' else "woman" if gender == 'female' else "person"
 
         # Extract personality hints for visual style
         mood = "neutral, calm expression"
