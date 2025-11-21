@@ -91,9 +91,9 @@ class NPCPortraitGenerator:
 
         # Set dimensions based on portrait type
         if portrait_type == "full_body":
-            width, height = 512, 896  # Taller aspect ratio for full body
+            width, height = 832, 1216  # Taller aspect ratio for full body
         else:  # headshot
-            width, height = 768, 768  # Square for circular headshot
+            width, height = 1024, 1024  # Square for circular headshot
 
         try:
             # Generate portrait image
@@ -147,18 +147,38 @@ class NPCPortraitGenerator:
 
         gender = str(gender).lower()
 
-        # Determine age description
-        if age < 18:
-            age_desc = "teenage"
-        elif age < 30:
-            age_desc = "young adult"
-        elif age < 50:
-            age_desc = "adult"
+        # Build character description with explicit age and gender
+        # Determine gender-specific terms
+        if gender == 'male':
+            if age < 13:
+                gender_term = "boy"
+            elif age < 18:
+                gender_term = "teenage boy"
+            else:
+                gender_term = "man"
+        elif gender == 'female':
+            if age < 13:
+                gender_term = "girl"
+            elif age < 18:
+                gender_term = "teenage girl"
+            else:
+                gender_term = "woman"
         else:
-            age_desc = "mature adult"
+            # Fallback for non-binary or unknown gender - default to adult terms
+            if age < 18:
+                gender_term = "young person"
+            else:
+                gender_term = "person"
 
-        # Build character description
-        gender_desc = "man" if gender == 'male' else "woman" if gender == 'female' else "person"
+        # Build age descriptor with actual age
+        if age < 18:
+            age_desc = f"{age} year old {gender_term}"
+        elif age < 30:
+            age_desc = f"{age} year old young {gender_term}"
+        elif age < 50:
+            age_desc = f"{age} year old {gender_term}"
+        else:
+            age_desc = f"{age} year old mature {gender_term}"
 
         # Parse appearance description for visual features
         appearance_features = self._extract_visual_features(appearance)
@@ -180,7 +200,7 @@ class NPCPortraitGenerator:
         positive_parts = [
             "masterpiece, best quality, highly detailed, 4k",
             "professional portrait photograph",
-            f"{age_desc} {gender_desc}",
+            age_desc,
         ]
 
         # Add appearance features if available

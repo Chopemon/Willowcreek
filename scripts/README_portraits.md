@@ -25,13 +25,13 @@ python3 scripts/generate_all_portraits.py --type headshot
 ## Portrait Types
 
 ### Headshot (default)
-- **Dimensions:** 768x768 pixels (square)
+- **Dimensions:** 1024x1024 pixels (square)
 - **Composition:** Head and shoulders portrait, circular crop
 - **Focus:** Face details, eyes, expression
 - **Best for:** Character avatars, profile pictures, UI displays
 
 ### Full Body
-- **Dimensions:** 512x896 pixels (portrait orientation)
+- **Dimensions:** 832x1216 pixels (portrait orientation)
 - **Composition:** Standing pose, full body from head to feet
 - **Focus:** Complete outfit, body language, full appearance
 - **Best for:** Character reference sheets, detailed character views
@@ -41,7 +41,7 @@ python3 scripts/generate_all_portraits.py --type headshot
 1. Reads all NPCs from `npc_data/npc_roster.json`
 2. For each NPC:
    - Checks if portrait already exists (skips if cached)
-   - Generates a 768x768 portrait using their appearance data
+   - Generates a portrait using their appearance data (1024x1024 for headshot, 832x1216 for full body)
    - Saves image to `static/generated_images/`
    - Updates cache in `static/npc_portraits/portrait_cache.json`
 3. Shows progress and summary

@@ -138,7 +138,7 @@ if __name__ == "__main__":
         "--type",
         choices=["headshot", "full_body"],
         default="headshot",
-        help="Type of portrait to generate: 'headshot' (768x768, circular) or 'full_body' (512x896, standing)"
+        help="Type of portrait to generate: 'headshot' (1024x1024, circular) or 'full_body' (832x1216, standing)"
     )
     args = parser.parse_args()
 
