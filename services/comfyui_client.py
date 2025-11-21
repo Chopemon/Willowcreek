@@ -102,27 +102,19 @@ class ComfyUIClient:
                        workflow: Dict,
                        positive: str,
                        negative: str,
-                       seed: int,
-                       width: Optional[int] = None,
-                       height: Optional[int] = None,
-                       steps: Optional[int] = None,
-                       cfg_scale: Optional[float] = None) -> Dict:
+                       seed: int) -> Dict:
         """
-        Inject prompts, seed, and generation parameters into workflow nodes.
+        Inject prompts and seed into workflow nodes.
 
         This method finds CLIPTextEncode nodes for prompts and updates seed values
-        across various sampler nodes, as well as image dimensions and sampling parameters.
-        It's designed to work with the custom SDXL workflow but will gracefully skip missing nodes.
+        across various sampler nodes. All other parameters (dimensions, steps, cfg)
+        are controlled by the workflow itself.
 
         Args:
             workflow: The workflow dictionary to modify
             positive: Positive prompt text
             negative: Negative prompt text
             seed: Random seed for generation
-            width: Image width (optional)
-            height: Image height (optional)
-            steps: Sampling steps (optional)
-            cfg_scale: CFG scale (optional)
 
         Returns:
             Modified workflow dictionary (deep copy to avoid mutation)
@@ -164,26 +156,6 @@ class ComfyUIClient:
                 if "noise_seed" in inputs:
                     inputs["noise_seed"] = seed
 
-        # Update dimensions in EmptyLatentImage nodes (if provided)
-        if width is not None and height is not None:
-            for node_id, node_data in workflow.items():
-                if isinstance(node_data, dict) and node_data.get("class_type") == "EmptyLatentImage":
-                    if "inputs" in node_data:
-                        node_data["inputs"]["width"] = width
-                        node_data["inputs"]["height"] = height
-                        print(f"[ComfyUI] Set dimensions {width}x{height} in EmptyLatentImage node {node_id}")
-
-        # Update steps and cfg in KSampler nodes (if provided)
-        if steps is not None or cfg_scale is not None:
-            for node_id, node_data in workflow.items():
-                if isinstance(node_data, dict) and node_data.get("class_type") == "KSampler":
-                    if "inputs" in node_data:
-                        if steps is not None and "steps" in node_data["inputs"]:
-                            node_data["inputs"]["steps"] = steps
-                        if cfg_scale is not None and "cfg" in node_data["inputs"]:
-                            node_data["inputs"]["cfg"] = cfg_scale
-                        print(f"[ComfyUI] Updated KSampler node {node_id}: steps={steps}, cfg={cfg_scale}")
-
         return workflow
 
     async def generate_image(self,
@@ -219,17 +191,13 @@ class ComfyUIClient:
                 # Use custom workflow if provided directly
                 prompt_data = workflow
             elif self.workflow_template:
-                # Use loaded workflow template with prompt injection
-                print(f"[ComfyUI] Using custom workflow template with injected prompts and parameters")
+                # Use loaded workflow template with prompt injection only
+                print(f"[ComfyUI] Using custom workflow template (prompts and seed only, workflow controls other parameters)")
                 prompt_data = self._inject_prompts(
                     self.workflow_template,
                     prompt,
                     negative_prompt,
-                    seed,
-                    width,
-                    height,
-                    steps,
-                    cfg_scale
+                    seed
                 )
             else:
                 # Use default workflow
