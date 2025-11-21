@@ -69,8 +69,12 @@ class ComfyUIClient:
 
                     # Load workflow file path from config
                     if "workflow_file" in config:
-                        self.workflow_path = f"workflows/{config['workflow_file']}"
-                        print(f"[ComfyUI] ✓ Config specifies workflow: {config['workflow_file']}")
+                        workflow_file = config['workflow_file']
+                        # Add .json extension if not present
+                        if not workflow_file.endswith('.json'):
+                            workflow_file = f"{workflow_file}.json"
+                        self.workflow_path = f"workflows/{workflow_file}"
+                        print(f"[ComfyUI] ✓ Config specifies workflow: {workflow_file}")
 
                     # Load node mapping from config
                     if "node_mapping" in config:
