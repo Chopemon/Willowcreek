@@ -98,8 +98,11 @@ def create_enhanced_narrative_context(sim: 'WillowCreekSimulation', malcolm: 'NP
 
 def _build_malcolm_skills() -> str:
     """Malcolm's top skills (compressed format)"""
-    game = get_game_manager()
-    if not game or "Malcolm Newt" not in game.skills.character_skills:
+    try:
+        game = get_game_manager()
+        if not game or not game.sim or "Malcolm Newt" not in game.skills.character_skills:
+            return ""
+    except:
         return ""
 
     top_skills = game.skills.get_top_skills("Malcolm Newt", count=3)
@@ -116,8 +119,11 @@ def _build_malcolm_skills() -> str:
 
 def _build_malcolm_inventory() -> str:
     """Malcolm's inventory (important items only)"""
-    game = get_game_manager()
-    if not game:
+    try:
+        game = get_game_manager()
+        if not game or not game.sim:
+            return ""
+    except:
         return ""
 
     inventory = game.inventory.get_inventory("Malcolm Newt")
@@ -142,8 +148,11 @@ def _build_malcolm_inventory() -> str:
 
 def _build_malcolm_reputation() -> str:
     """Malcolm's reputation in town"""
-    game = get_game_manager()
-    if not game:
+    try:
+        game = get_game_manager()
+        if not game or not game.sim:
+            return ""
+    except:
         return ""
 
     rep = game.reputation.get_reputation("Malcolm Newt")
@@ -169,8 +178,14 @@ def _build_malcolm_reputation() -> str:
 
 def _build_enhanced_npc_states(malcolm: 'NPC') -> str:
     """Enhanced NPC states with relationship details"""
-    game = get_game_manager()
-    if not game or not hasattr(game, 'sim') or not game.sim:
+    try:
+        game = get_game_manager()
+        if not game or not hasattr(game, 'sim') or not game.sim:
+            # Fallback to standard
+            from world_snapshot_builder import WorldSnapshotBuilder
+            builder = WorldSnapshotBuilder(None)
+            return builder._build_all_npc_states() if game else "## NOTABLE RESIDENTS\n[No data]"
+    except:
         # Fallback to standard
         from world_snapshot_builder import WorldSnapshotBuilder
         builder = WorldSnapshotBuilder(game.sim if game else None)
@@ -279,8 +294,11 @@ def _build_enhanced_npc_states(malcolm: 'NPC') -> str:
 
 def _build_recent_memories() -> str:
     """Malcolm's recent memories (last 3 for context)"""
-    game = get_game_manager()
-    if not game:
+    try:
+        game = get_game_manager()
+        if not game or not game.sim:
+            return ""
+    except:
         return ""
 
     memories = game.memory.get_memories("Malcolm Newt", limit=3)
@@ -297,8 +315,11 @@ def _build_recent_memories() -> str:
 
 def _build_active_events(sim) -> str:
     """Active social events happening now"""
-    game = get_game_manager()
-    if not game or not sim:
+    try:
+        game = get_game_manager()
+        if not game or not game.sim or not sim:
+            return ""
+    except:
         return ""
 
     current_day = sim.time.total_days
@@ -332,8 +353,11 @@ def _build_active_events(sim) -> str:
 
 def _build_recent_gossip() -> str:
     """Recent town gossip (last 3 juicy rumors)"""
-    game = get_game_manager()
-    if not game:
+    try:
+        game = get_game_manager()
+        if not game or not game.sim:
+            return ""
+    except:
         return ""
 
     # Get recent gossip sorted by juiciness
@@ -352,8 +376,11 @@ def _build_recent_gossip() -> str:
 
 def _build_npc_autonomy_updates() -> str:
     """What NPCs did today (autonomous interactions)"""
-    game = get_game_manager()
-    if not game:
+    try:
+        game = get_game_manager()
+        if not game or not game.sim:
+            return ""
+    except:
         return ""
 
     interactions = game.npc_autonomy.npc_interactions_today
