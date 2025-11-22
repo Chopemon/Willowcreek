@@ -120,8 +120,9 @@ class WillowCreekSimulation:
         # Initialize NPC metadata
         for npc in self.npcs:
             self.goals.initialize_npc_goals(npc, self.time.total_days)
-            self.memory.initialize_npc_memory(npc.full_name)
-            self.reputation.init_reputation(npc.full_name)
+            # Note: New memory and reputation systems use lazy initialization
+            # self.memory.initialize_npc_memory(npc.full_name)  # Not needed anymore
+            # self.reputation.init_reputation(npc.full_name)    # Not needed anymore
             self.female_biology.ensure_npc(npc)
             self.pregnancy.ensure_npc(npc)
             self.development.ensure_npc(npc)
