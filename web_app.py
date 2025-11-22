@@ -276,7 +276,33 @@ async def process_action(request: Request):
     else:
         # 1. Clear buffer before starting (to prevent carrying over events from a previous WAIT)
         chat.sim.scenario_buffer.clear()
-        
+
+        # 1.5. DETECT LOCATION CHANGES from user action
+        text_lower = text.lower()
+        location_keywords = {
+            'diner': 'Diner',
+            'coffee shop': 'Coffee Shop',
+            'park': 'Park',
+            'bar': 'Bar',
+            'gym': 'Gym',
+            'library': 'Library',
+            'town square': 'Town Square',
+            'general store': 'General Store',
+            'high school': 'Willow Creek High School',
+            'school': 'Willow Creek High School',
+            'home': 'Home',
+            'house': 'Home',
+            'apartment': 'Home'
+        }
+
+        # Check if user is going somewhere
+        if any(phrase in text_lower for phrase in ['go to', 'head to', 'walk to', 'drive to', 'at the', 'enter', 'arrive at']):
+            for keyword, location in location_keywords.items():
+                if keyword in text_lower:
+                    chat.malcolm.current_location = location
+                    print(f"[Location] Malcolm moved to: {location}")
+                    break
+
         # 2. Generate narrative
         reply = chat.narrate(text)
         
