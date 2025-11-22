@@ -6,7 +6,7 @@ import os
 from typing import Optional, List, Dict
 from simulation_v2 import WillowCreekSimulation
 from entities.npc import NPC
-from world_snapshot_builder import create_narrative_context
+from enhanced_snapshot_builder import create_narrative_context
 
 CONFIG = {
     "openrouter": {
