@@ -59,7 +59,11 @@ def create_enhanced_narrative_context(sim: 'WillowCreekSimulation', malcolm: 'NP
     try:
         sections.append(_build_enhanced_npc_states(malcolm))
     except:
-        sections.append(builder._build_all_npc_states())
+        try:
+            if builder.sim:
+                sections.append(builder._build_all_npc_states())
+        except:
+            pass
 
     # 6. NEW: Recent Memories (last 3 to provide context)
     try:
@@ -181,15 +185,10 @@ def _build_enhanced_npc_states(malcolm: 'NPC') -> str:
     try:
         game = get_game_manager()
         if not game or not hasattr(game, 'sim') or not game.sim:
-            # Fallback to standard
-            from world_snapshot_builder import WorldSnapshotBuilder
-            builder = WorldSnapshotBuilder(None)
-            return builder._build_all_npc_states() if game else "## NOTABLE RESIDENTS\n[No data]"
+            # Can't build NPC states without simulation
+            return ""
     except:
-        # Fallback to standard
-        from world_snapshot_builder import WorldSnapshotBuilder
-        builder = WorldSnapshotBuilder(game.sim if game else None)
-        return builder._build_all_npc_states() if game else "## NOTABLE RESIDENTS\n[No data]"
+        return ""
 
     # Get notable NPCs (same filter as token optimization)
     relevant_npcs = []
@@ -416,6 +415,12 @@ def create_narrative_context(sim: 'WillowCreekSimulation', malcolm: 'NPC') -> st
         return create_enhanced_narrative_context(sim, malcolm)
     except:
         # Fallback to standard
-        from world_snapshot_builder import WorldSnapshotBuilder
-        builder = WorldSnapshotBuilder(sim)
-        return builder.build_complete_snapshot(malcolm)
+        try:
+            if sim:
+                from world_snapshot_builder import WorldSnapshotBuilder
+                builder = WorldSnapshotBuilder(sim)
+                return builder.build_complete_snapshot(malcolm)
+        except:
+            pass
+        # If all else fails, return minimal context
+        return "## WORLD STATE\nSimulation initializing..."
