@@ -167,9 +167,9 @@ class WillowCreekSimulation:
         self.environmental.check_triggers(self.npcs, self.time)
         self.autonomous.process_all(time_step_hours)
         self.emotional.spread_emotions(self.npcs, loc_map)  # Pass cached location map
-        self.memory.consolidate_memories(self.time.total_days)
+        # self.memory.consolidate_memories(self.time.total_days)  # Not needed - new memory system doesn't consolidate
         self.goals.update_all(self.time.total_days)
-        self.reputation.spread_gossip(self.npcs)
+        self.reputation.simulate_gossip_spread(self.npcs, self.time.total_days)  # Use correct method name
 
         # Drama/Interaction stacks
         self.micro.update_step(self.npcs, loc_map)
@@ -253,9 +253,9 @@ class WillowCreekSimulation:
             self.environmental.check_triggers(self.npcs, self.time)
             self.autonomous.process_all(time_step_hours)
             self.emotional.spread_emotions(self.npcs, loc_map)  # Pass cached location map
-            self.memory.consolidate_memories(self.time.total_days)
+            # self.memory.consolidate_memories(self.time.total_days)  # Not needed - new memory system doesn't consolidate
             self.goals.update_all(self.time.total_days)
-            self.reputation.spread_gossip(self.npcs)
+            self.reputation.simulate_gossip_spread(self.npcs, self.time.total_days)  # Use correct method name
 
             self.micro.update_step(self.npcs, loc_map)
             self.school_drama.update_step(self.npcs, loc_map)
