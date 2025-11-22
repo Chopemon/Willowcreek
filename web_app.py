@@ -14,14 +14,20 @@ from world_snapshot_builder import build_frontend_snapshot
 from services.comfyui_client import ComfyUIClient
 from services.scene_image_generator import SceneAnalyzer, ImagePromptGenerator, AIPromptGenerator
 from services.npc_portrait_generator import NPCPortraitGenerator
+from api_endpoints import router as api_router
+from game_manager import get_game_manager
 import os
 
 app = FastAPI()
 BASE_DIR = Path(__file__).resolve().parent
 
+# Include API router for game systems
+app.include_router(api_router)
+
 # Global State
 chat: Optional[NarrativeChat] = None
 current_mode: str = ""
+game_manager_instance = None
 
 # Image Generation Services
 COMFYUI_ENABLED = os.getenv("COMFYUI_ENABLED", "false").lower() == "true"
@@ -66,10 +72,18 @@ async def serve_ui():
             return HTMLResponse("<h1>ERROR: index.html not found</h1>", status_code=500)
     return index_path.read_text(encoding="utf-8")
 
+@app.get("/ui", response_class=HTMLResponse)
+async def serve_game_systems_ui():
+    """Serve the game systems UI (portraits, map, stats, relationships)"""
+    ui_path = BASE_DIR / "ui_components.html"
+    if not ui_path.exists():
+        return HTMLResponse("<h1>ERROR: ui_components.html not found</h1>", status_code=404)
+    return ui_path.read_text(encoding="utf-8")
+
 # --- INIT SIMULATION (supports both GET and POST) ---
 async def _init_sim_handler(mode: str):
     """Shared handler for init simulation"""
-    global chat, current_mode, ai_prompt_generator
+    global chat, current_mode, ai_prompt_generator, game_manager_instance
 
     print(f"\n[WebApp] ===== INIT REQUEST =====")
     print(f"[WebApp] Requested mode: {mode}")
@@ -92,6 +106,12 @@ async def _init_sim_handler(mode: str):
         else:
             chat.initialize()
             narration = f"**[System: Reset {mode.upper()} Mode]**\n\n{getattr(chat, 'last_narrated', 'Resetting simulation...')}"
+
+        # Initialize game manager with all 17 systems
+        if chat and chat.sim and game_manager_instance is None:
+            game_manager_instance = get_game_manager(chat.sim)
+            game_manager_instance.initialize_character("Malcolm Newt", is_player=True)
+            print(f"[WebApp] Game manager initialized with {len(chat.sim.npcs)} NPCs")
 
         snapshot = build_frontend_snapshot(chat.sim if chat else None, chat.malcolm if chat else None)
         return JSONResponse({"narration": narration, "snapshot": snapshot, "images": [], "portraits": []})
