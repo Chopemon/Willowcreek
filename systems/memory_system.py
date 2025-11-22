@@ -1,226 +1,142 @@
 # systems/memory_system.py
-import math
-import random
+# Memory system for tracking important events and interactions
+
+from typing import Dict, List, Optional
+from dataclasses import dataclass, field
+from datetime import datetime
+from enum import Enum
 
 
-class MemoryEntry:
-    """
-    Represents a single remembered event.
+class MemoryType(Enum):
+    """Types of memories"""
+    FIRST_MEETING = "first_meeting"
+    CONVERSATION = "conversation"
+    GIFT_GIVEN = "gift_given"
+    GIFT_RECEIVED = "gift_received"
+    FIRST_KISS = "first_kiss"
+    INTIMATE_MOMENT = "intimate_moment"
+    CONFLICT = "conflict"
+    DATE = "date"
+    BREAKUP = "breakup"
+    PREGNANCY_DISCOVERED = "pregnancy_discovered"
+    BIRTH = "birth"
+    ACHIEVEMENT = "achievement"
+    EMBARRASSMENT = "embarrassment"
+    BETRAYAL = "betrayal"
+    CAUGHT_CHEATING = "caught_cheating"
+    SPECIAL_EVENT = "special_event"
 
-    Each memory carries:
-    - text (description)
-    - emotion tag (fear, shame, desire, joy, anger, neutral)
-    - intensity (0–1)
-    - strength (0–1 decayable)
-    - day_formed
-    - cluster_key (auto-generated category)
-    """
 
-    def __init__(self, text: str, emotion: str, intensity: float, day_formed: int):
-        self.text = text
-        self.emotion = emotion or "neutral"
-        self.intensity = max(0.0, min(1.0, intensity))
-        self.day_formed = day_formed
+class MemoryImportance(Enum):
+    """How important/memorable an event is"""
+    TRIVIAL = 1
+    MINOR = 2
+    MODERATE = 3
+    SIGNIFICANT = 4
+    MAJOR = 5
+    LIFE_CHANGING = 10
 
-        # Strength starts based on emotional peak
-        self.strength = 0.6 + (self.intensity * 0.4)
 
-        # Auto clustering by simple keyword detection
-        lowered = text.lower()
-        if "mother" in lowered or "family" in lowered:
-            self.cluster_key = "family"
-        elif "fight" in lowered or "argu" in lowered:
-            self.cluster_key = "conflict"
-        elif "secret" in lowered or "shame" in lowered:
-            self.cluster_key = "shame"
-        elif "kiss" in lowered or "touch" in lowered or "flirt" in lowered:
-            self.cluster_key = "desire"
-        elif "school" in lowered or "class" in lowered:
-            self.cluster_key = "school"
-        else:
-            self.cluster_key = "general"
+@dataclass
+class Memory:
+    """A single memory"""
+    memory_type: MemoryType
+    description: str
+    sim_day: int
+    sim_hour: int
+    importance: MemoryImportance
+    participants: List[str] = field(default_factory=list)
+    location: str = ""
+    metadata: Dict = field(default_factory=dict)
+    real_timestamp: datetime = field(default_factory=datetime.now)
 
-    def decay(self):
-        """Decay natural memory strength over time."""
-        # Emotional memories decay slower
-        if self.emotion in ("trauma", "fear", "shame"):
-            decay_rate = 0.01
-        else:
-            decay_rate = 0.03
+    def get_age_days(self, current_sim_day: int) -> int:
+        """How many sim days ago this memory was created"""
+        return current_sim_day - self.sim_day
 
-        self.strength = max(0.0, self.strength - decay_rate)
-
-    def reinforce(self):
-        """Strengthen memory when referenced or emotionally triggered."""
-        self.strength = min(1.0, self.strength + 0.25)
-
-    def is_forgotten(self):
-        """A memory is forgotten once strength falls below a threshold."""
-        return self.strength <= 0.05
+    def get_summary(self) -> str:
+        """Get a readable summary of the memory"""
+        participants_str = ", ".join(self.participants) if self.participants else "someone"
+        return f"Day {self.sim_day}, {self.sim_hour:02d}:00 - {self.description} (with {participants_str})"
 
 
 class MemorySystem:
-    """
-    Advanced cognitive memory model for Willow Creek NPCs.
-    - Short-term → long-term conversion
-    - Clustering
-    - Emotional tagging
-    - Retrieval bias
-    - Personality-aware decay
-    """
-
-    MAX_SHORT = 15
-    MAX_LONG = 120
+    """Manages memories for all characters"""
 
     def __init__(self):
-        # npc_name -> List[MemoryEntry]
-        self.short_term = {}
-        self.long_term = {}
+        self.character_memories: Dict[str, List[Memory]] = {}
+        self.firsts_tracker: Dict[str, bool] = {}
 
-        # Last consolidation day
-        self.last_day = -1
+    def add_memory(
+        self,
+        character_name: str,
+        memory_type: MemoryType,
+        description: str,
+        sim_day: int,
+        sim_hour: int,
+        importance: MemoryImportance,
+        participants: List[str] = None,
+        location: str = "",
+        metadata: Dict = None
+    ) -> Memory:
+        """Add a memory to a character"""
+        if character_name not in self.character_memories:
+            self.character_memories[character_name] = []
 
-    # ------------------------------------------------------
-    # Initialization
-    # ------------------------------------------------------
-    def initialize_npc_memory(self, npc_name: str):
-        if npc_name not in self.short_term:
-            self.short_term[npc_name] = []
-        if npc_name not in self.long_term:
-            self.long_term[npc_name] = []
+        memory = Memory(
+            memory_type=memory_type,
+            description=description,
+            sim_day=sim_day,
+            sim_hour=sim_hour,
+            importance=importance,
+            participants=participants or [],
+            location=location,
+            metadata=metadata or {}
+        )
 
-    # ------------------------------------------------------
-    # Recording Memory
-    # ------------------------------------------------------
-    def remember(self, npc_name: str, text: str, emotion: str = "neutral", intensity: float = 0.4, day: int = 0):
-        """Create a new short-term memory with emotional tagging."""
-        self.initialize_npc_memory(npc_name)
+        self.character_memories[character_name].append(memory)
+        return memory
 
-        entry = MemoryEntry(text, emotion, intensity, day)
-        self.short_term[npc_name].append(entry)
+    def get_memories(
+        self,
+        character_name: str,
+        memory_type: Optional[MemoryType] = None,
+        min_importance: Optional[MemoryImportance] = None,
+        participant: Optional[str] = None,
+        limit: Optional[int] = None
+    ) -> List[Memory]:
+        """Get character's memories with optional filters"""
+        if character_name not in self.character_memories:
+            return []
 
-        # Enforce short-term cap
-        if len(self.short_term[npc_name]) > self.MAX_SHORT:
-            self.short_term[npc_name] = self.short_term[npc_name][-self.MAX_SHORT:]
+        memories = self.character_memories[character_name]
 
-    # ------------------------------------------------------
-    # Consolidation Pipeline
-    # ------------------------------------------------------
-    def consolidate_memories(self, current_day: int):
-        """
-        Called once per simulation day.
-        Handles:
-        - decay
-        - traumatic persistence
-        - clustering
-        - short → long-term moves
-        - pruning forgotten memories
-        OPTIMIZED: Lazy processing - skips NPCs with empty memory banks.
-        """
+        if memory_type:
+            memories = [m for m in memories if m.memory_type == memory_type]
 
-        if self.last_day == current_day:
-            return
-        self.last_day = current_day
+        if min_importance:
+            memories = [m for m in memories if m.importance.value >= min_importance.value]
 
-        # Process NPC by NPC - OPTIMIZATION: Only process NPCs with actual memories
-        for npc_name in list(self.short_term.keys()):
-            st = self.short_term[npc_name]
-            lt = self.long_term.get(npc_name, [])
+        if participant:
+            memories = [m for m in memories if participant in m.participants]
 
-            # OPTIMIZATION: Skip NPCs with no memories at all
-            if not st and not lt:
-                continue
+        memories = sorted(memories, key=lambda m: (m.sim_day, m.sim_hour), reverse=True)
 
-            # Step 1: Decay existing memories
-            for m in st:
-                m.decay()
-            for m in lt:
-                m.decay()
+        if limit:
+            memories = memories[:limit]
 
-            # Step 2: Short-term → Long-term transfer
-            # Strongest memories always become long-term
-            for m in st:
-                if m.strength >= 0.25 or m.intensity >= 0.7:
-                    lt.append(m)
+        return memories
 
-            # Clear short-term
-            self.short_term[npc_name] = []
+    def get_relationship_timeline(self, character_name: str, other_character: str) -> str:
+        """Get timeline of relationship with another character"""
+        memories = self.get_memories(character_name, participant=other_character, limit=50)
 
-            # Step 3: Cluster-based reinforcement - OPTIMIZATION: Skip if too few memories
-            if len(lt) >= 4:
-                cluster_groups = {}
-                for m in lt:
-                    cluster_groups.setdefault(m.cluster_key, []).append(m)
+        if not memories:
+            return f"{character_name} has no memories with {other_character}."
 
-                for cluster, group in cluster_groups.items():
-                    if len(group) >= 4:  # recurring theme
-                        for m in group:
-                            m.reinforce()
+        memories = list(reversed(memories))
+        lines = [f"\n{character_name}'s History with {other_character}:"]
+        for memory in memories:
+            lines.append(f"  Day {memory.sim_day}: {memory.description}")
 
-            # Step 4: Forgetting weak memories
-            lt[:] = [m for m in lt if not m.is_forgotten()]
-
-            # Step 5: Cap long-term memory
-            if len(lt) > self.MAX_LONG:
-                # Remove oldest weakest memories
-                lt.sort(key=lambda x: (x.strength, x.day_formed))
-                overflow = len(lt) - self.MAX_LONG
-                del lt[:overflow]
-
-            # Update long-term reference
-            self.long_term[npc_name] = lt
-
-    # ------------------------------------------------------
-    # Retrieval
-    # ------------------------------------------------------
-    def get_relevant_memories(self, npc_name: str, topic: str):
-        """
-        Returns memories biased by:
-        - emotional relevance
-        - cluster similarity
-        - recency
-        """
-
-        st = self.short_term.get(npc_name, [])
-        lt = self.long_term.get(npc_name, [])
-
-        all_mems = st + lt
-        topic = topic.lower()
-
-        scored = []
-        for m in all_mems:
-            score = 0
-
-            # Topic match
-            if topic in m.text.lower():
-                score += 2
-
-            # Cluster match
-            if topic in m.cluster_key:
-                score += 1.5
-
-            # Emotional weight
-            score += m.intensity * 2
-
-            # Strength effects
-            score += m.strength
-
-            if score > 1.5:
-                scored.append((score, m))
-
-        # Sort by score (descending)
-        scored.sort(key=lambda x: -x[0])
-        return [m for _, m in scored[:5]]
-
-    # ------------------------------------------------------
-    # Debug Access
-    # ------------------------------------------------------
-    def debug_summary(self, npc_name: str):
-        """Returns a text summary for debugging overlays."""
-        st = self.short_term.get(npc_name, [])
-        lt = self.long_term.get(npc_name, [])
-        return {
-            "short_term_count": len(st),
-            "long_term_count": len(lt),
-            "clusters": list({m.cluster_key for m in lt})
-        }
+        return "\n".join(lines)
