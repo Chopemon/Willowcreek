@@ -537,8 +537,31 @@
             }
         }
 
+        // Auto-refresh data every 5 seconds
+        function startAutoRefresh() {
+            setInterval(() => {
+                const activeTab = document.querySelector('.tab-content.active').id;
+
+                switch(activeTab) {
+                    case 'portraits':
+                        loadPortraits();
+                        break;
+                    case 'map':
+                        loadTownMap();
+                        break;
+                    case 'stats':
+                        loadStatistics();
+                        break;
+                    case 'relationships':
+                        loadRelationships();
+                        break;
+                }
+            }, 5000); // Refresh every 5 seconds
+        }
+
         // Load initial data
         loadPortraits();
+        startAutoRefresh();
     </script>
 </body>
 </html>
