@@ -76,9 +76,9 @@ async def _init_sim_handler(mode: str):
     print(f"[WebApp] Current mode: {current_mode}")
     print(f"[WebApp] ==========================\n")
 
-    if mode != current_mode or chat is None:
-        print(f"Initializing Simulation in {mode} mode...")
-        try:
+    try:
+        if mode != current_mode or chat is None:
+            print(f"Initializing Simulation in {mode} mode...")
             chat = NarrativeChat(mode=mode)
             chat.initialize()
             current_mode = mode
@@ -88,15 +88,18 @@ async def _init_sim_handler(mode: str):
                 ai_prompt_generator = AIPromptGenerator(mode=mode)
                 print(f"[ImageGen] Initialized AI prompt generator in {mode} mode")
 
-            narration = f"**[System: Initialized {mode.upper()} Mode]**\n\n{chat.last_narrated}"
-        except Exception as e:
-            return JSONResponse({"error": str(e)}, status_code=500)
-    else:
-        chat.initialize()
-        narration = f"**[System: Reset {mode.upper()} Mode]**\n\n{chat.last_narrated}"
+            narration = f"**[System: Initialized {mode.upper()} Mode]**\n\n{getattr(chat, 'last_narrated', 'Starting simulation...')}"
+        else:
+            chat.initialize()
+            narration = f"**[System: Reset {mode.upper()} Mode]**\n\n{getattr(chat, 'last_narrated', 'Resetting simulation...')}"
 
-    snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
-    return JSONResponse({"narration": narration, "snapshot": snapshot, "images": [], "portraits": []})
+        snapshot = build_frontend_snapshot(chat.sim if chat else None, chat.malcolm if chat else None)
+        return JSONResponse({"narration": narration, "snapshot": snapshot, "images": [], "portraits": []})
+    except Exception as e:
+        import traceback
+        print(f"[WebApp] ERROR during initialization:")
+        print(traceback.format_exc())
+        return JSONResponse({"error": f"Initialization failed: {str(e)}"}, status_code=500)
 
 def generate_image_prompts(scene_context, narrative_text: Optional[str] = None):
     """
