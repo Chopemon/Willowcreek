@@ -409,21 +409,42 @@
                 const data = await response.json();
 
                 const map = document.getElementById('townMap');
-                map.innerHTML = '';
+
+                // Add header with total count
+                map.innerHTML = `<div style="padding: 10px; background: #0f3460; border-radius: 8px; margin-bottom: 10px;">
+                    <strong>Total Locations: ${data.total || data.locations.length}</strong> |
+                    Public Buildings in top rows, Residential below
+                </div>`;
+
+                const mapContainer = document.createElement('div');
+                mapContainer.style.position = 'relative';
+                mapContainer.style.minHeight = '800px';
+                map.appendChild(mapContainer);
 
                 data.locations.forEach(loc => {
                     const marker = document.createElement('div');
                     marker.className = `location-marker ${loc.occupants > 0 ? 'has-npcs' : ''}`;
                     marker.style.left = loc.x + 'px';
                     marker.style.top = loc.y + 'px';
+
+                    // Different colors by type
+                    if (loc.type === 'public') marker.style.background = '#e94560';
+                    else if (loc.type === 'work') marker.style.background = '#f39c12';
+                    else if (loc.type === 'residential') marker.style.background = '#16213e';
+
+                    // Build NPC list
+                    const npcList = loc.npc_names ? loc.npc_names.join(', ') : '';
+                    const npcDisplay = npcList.length > 50 ? npcList.substring(0, 50) + '...' : npcList;
+
                     marker.innerHTML = `
                         <div><strong>${loc.name}</strong></div>
                         <div class="location-info">
-                            <div>${loc.occupants} people here</div>
-                            <div>${loc.activities.join(', ')}</div>
+                            <div>${loc.occupants} ${loc.occupants === 1 ? 'person' : 'people'}</div>
+                            ${npcDisplay ? `<div style="font-size: 11px; opacity: 0.8;">${npcDisplay}</div>` : ''}
                         </div>
                     `;
-                    map.appendChild(marker);
+                    marker.title = `${loc.name}\n${loc.occupants} ${loc.occupants === 1 ? 'person' : 'people'}\n${npcList}`;
+                    mapContainer.appendChild(marker);
                 });
             } catch (error) {
                 document.getElementById('townMap').innerHTML = `<div class="error">Error loading map: ${error.message}</div>`;

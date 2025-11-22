@@ -64,51 +64,112 @@ async def get_portraits():
 
 @router.get("/town-map")
 async def get_town_map():
-    """Get town map with location data"""
+    """Get town map with location data - dynamically discovers all locations"""
     try:
         game = get_game_manager()
 
-        # Define location positions (you can customize these)
-        location_positions = {
-            "Park": {"x": 100, "y": 150},
-            "Coffee Shop": {"x": 300, "y": 100},
-            "Bar": {"x": 500, "y": 200},
-            "Gym": {"x": 700, "y": 150},
-            "Malcolm's House": {"x": 200, "y": 350},
-            "Town Square": {"x": 400, "y": 300},
-            "General Store": {"x": 600, "y": 350},
-            "Library": {"x": 800, "y": 250}
-        }
+        # Collect all locations with NPCs
+        location_data = {}
+        if game.sim:
+            for npc in game.sim.npcs:
+                loc = getattr(npc, 'current_location', 'Unknown')
+                if loc not in location_data:
+                    location_data[loc] = {
+                        'npcs': [],
+                        'count': 0
+                    }
+                location_data[loc]['npcs'].append(npc.full_name)
+                location_data[loc]['count'] += 1
 
+        # Categorize locations for better positioning
+        def categorize_location(name):
+            name_lower = name.lower()
+            if 'house' in name_lower or 'home' in name_lower:
+                return 'residential'
+            elif any(word in name_lower for word in ['school', 'daycare', 'clinic', 'station', 'diner', 'store', 'library', 'bar', 'gym', 'coffee']):
+                return 'public'
+            elif 'rig' in name_lower or 'research' in name_lower:
+                return 'work'
+            return 'other'
+
+        # Auto-generate positions in a grid layout by category
         locations = []
-        for loc_name, pos in location_positions.items():
-            location = game.locations.get_location(loc_name)
+        residential = []
+        public = []
+        work = []
+        other = []
 
-            if location:
-                locations.append({
-                    "name": loc_name,
-                    "x": pos["x"],
-                    "y": pos["y"],
-                    "occupants": len(location.current_occupants),
-                    "activities": location.activities,
-                    "is_open": location.is_open(12),  # Check if open at noon
-                    "type": location.location_type.value
-                })
+        for loc_name, data in sorted(location_data.items()):
+            category = categorize_location(loc_name)
+            loc_obj = {
+                "name": loc_name,
+                "occupants": data['count'],
+                "npc_names": data['npcs'][:10],  # Show up to 10 names
+                "activities": [],
+                "is_open": True,
+                "type": category
+            }
+
+            if category == 'residential':
+                residential.append(loc_obj)
+            elif category == 'public':
+                public.append(loc_obj)
+            elif category == 'work':
+                work.append(loc_obj)
             else:
-                # Default location data if not in system
-                locations.append({
-                    "name": loc_name,
-                    "x": pos["x"],
-                    "y": pos["y"],
-                    "occupants": 0,
-                    "activities": [],
-                    "is_open": True,
-                    "type": "unknown"
-                })
+                other.append(loc_obj)
 
-        return JSONResponse({"locations": locations})
+        # Position public buildings first (top rows)
+        x, y = 50, 50
+        for i, loc in enumerate(public):
+            loc['x'] = x
+            loc['y'] = y
+            x += 180
+            if x > 900:
+                x = 50
+                y += 120
+            locations.append(loc)
+
+        # Position work locations (middle)
+        y += 120
+        x = 50
+        for loc in work:
+            loc['x'] = x
+            loc['y'] = y
+            x += 180
+            if x > 900:
+                x = 50
+                y += 120
+            locations.append(loc)
+
+        # Position residential (bottom rows, compact grid)
+        y += 120
+        x = 50
+        for i, loc in enumerate(residential):
+            loc['x'] = x
+            loc['y'] = y
+            x += 120
+            if x > 900:
+                x = 50
+                y += 80
+            locations.append(loc)
+
+        # Position other
+        for loc in other:
+            loc['x'] = x
+            loc['y'] = y
+            x += 180
+            if x > 900:
+                x = 50
+                y += 120
+            locations.append(loc)
+
+        return JSONResponse({"locations": locations, "total": len(locations)})
 
     except Exception as e:
+        import traceback
+        print(f"[TownMap] Error: {e}")
+        traceback.print_exc()
         return JSONResponse({"error": str(e), "locations": []}, status_code=500)
 
 
