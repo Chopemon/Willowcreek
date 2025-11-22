@@ -419,8 +419,9 @@ def build_frontend_snapshot(sim: 'WillowCreekSimulation', malcolm: 'NPC') -> Dic
     Bridge function used by web_app.py to populate the UI.
     Returns structured data for the enhanced dashboard.
     """
-    # Get the full text snapshot for backward compatibility
-    full_text = create_narrative_context(sim, malcolm)
+    # Get the full text snapshot using enhanced version
+    from enhanced_snapshot_builder import create_narrative_context as enhanced_context
+    full_text = enhanced_context(sim, malcolm)
 
     # Extract Malcolm's section for the side panel
     malcolm_stats = "Check main output for details."
