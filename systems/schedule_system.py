@@ -245,6 +245,10 @@ class ScheduleSystem:
         t = self.time
 
         for npc in self.npcs:
+            # Skip Malcolm (player character) - player controls their own location
+            if npc.full_name == "Malcolm Newt":
+                continue
+
             home = getattr(npc, "home_location", "Home")
 
             # Toddlers

@@ -277,26 +277,34 @@ async def process_action(request: Request):
         # 1. Clear buffer before starting (to prevent carrying over events from a previous WAIT)
         chat.sim.scenario_buffer.clear()
 
-        # 1.5. DETECT LOCATION CHANGES from user action
+        # 1.5. DETECT LOCATION CHANGES from user action (pre-narrative)
         text_lower = text.lower()
         location_keywords = {
             'diner': 'Diner',
             'coffee shop': 'Coffee Shop',
+            'cafe': 'Coffee Shop',
             'park': 'Park',
             'bar': 'Bar',
+            'pub': 'Bar',
             'gym': 'Gym',
             'library': 'Library',
             'town square': 'Town Square',
+            'square': 'Town Square',
             'general store': 'General Store',
+            'store': 'General Store',
+            'shop': 'General Store',
             'high school': 'Willow Creek High School',
             'school': 'Willow Creek High School',
             'home': 'Home',
             'house': 'Home',
-            'apartment': 'Home'
+            'apartment': 'Home',
+            'my place': 'Home'
         }
 
-        # Check if user is going somewhere
-        if any(phrase in text_lower for phrase in ['go to', 'head to', 'walk to', 'drive to', 'at the', 'enter', 'arrive at']):
+        # Check if user is going somewhere (expanded detection)
+        movement_phrases = ['go to', 'head to', 'walk to', 'drive to', 'at the',
+                           'enter', 'arrive at', 'visit', 'stop by', 'i walk']
+        if any(phrase in text_lower for phrase in movement_phrases):
             for keyword, location in location_keywords.items():
                 if keyword in text_lower:
                     chat.malcolm.current_location = location
@@ -305,6 +313,25 @@ async def process_action(request: Request):
 
         # 2. Generate narrative
         reply = chat.narrate(text)
+
+        # 2.5 DETECT LOCATION from AI response (post-narrative)
+        reply_lower = reply.lower()
+        for keyword, location in location_keywords.items():
+            # Look for contextual clues in the narrative
+            if any(phrase in reply_lower for phrase in [
+                f'walked into the {keyword}',
+                f'entered the {keyword}',
+                f'inside the {keyword}',
+                f'at the {keyword}',
+                f'in the {keyword}',
+                f"the {keyword}'s",
+                f'{keyword} door',
+                f'{keyword} window'
+            ]):
+                if chat.malcolm.current_location != location:
+                    chat.malcolm.current_location = location
+                    print(f"[Location] Detected from narrative: Malcolm is at {location}")
+                break
         
         # 3. Advance time (tick runs and generates internal events into scenario_buffer)
         chat.advance_time(5.0 / 60.0)
