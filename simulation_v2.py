@@ -82,7 +82,7 @@ class WillowCreekSimulation:
         self.needs = NeedsSystem()
         self.autonomous = AutonomousSystem(self)
         self.goals = GoalsSystem()
-        self.reputation = ReputationSystem(self)
+        self.reputation = ReputationSystem()  # New reputation system doesn't need sim reference
         self.environmental = EnvironmentalSystem()
         self.emotional = EmotionalContagionSystem(self)
         self.seasonal = SeasonalDynamicsSystem()
