@@ -290,8 +290,8 @@ class GameManager:
         # Get top skills
         top_skills = self.skills.get_top_skills(player_name, 5)
 
-        # Get recent memories
-        recent_memories = self.memory.get_recent_memories(player_name, 10)
+        # Get recent memories (use get_memories with limit parameter)
+        recent_memories = self.memory.get_memories(player_name, limit=10)
 
         # Get active relationships
         active_relationships = []
@@ -322,7 +322,7 @@ class GameManager:
         """Get detailed NPC information for UI"""
         rel = self.relationships.get_relationship(player_name, npc_name)
         rep = self.reputation.get_reputation(npc_name)
-        memories = self.memory.get_memories_with(player_name, npc_name, limit=5)
+        memories = self.memory.get_memories(player_name, participant=npc_name, limit=5)
 
         return {
             'name': npc_name,
