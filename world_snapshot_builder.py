@@ -419,6 +419,16 @@ def build_frontend_snapshot(sim: 'WillowCreekSimulation', malcolm: 'NPC') -> Dic
     Bridge function used by web_app.py to populate the UI.
     Returns structured data for the enhanced dashboard.
     """
+    # Handle None cases
+    if not sim or not malcolm:
+        return {
+            "text": "## WORLD STATE\nSimulation initializing...",
+            "malcolm_state": "Initializing...",
+            "needs": {},
+            "psychological": {},
+            "world_time": "Day 0, 00:00"
+        }
+
     # Get the full text snapshot using enhanced version
     from enhanced_snapshot_builder import create_narrative_context as enhanced_context
     full_text = enhanced_context(sim, malcolm)

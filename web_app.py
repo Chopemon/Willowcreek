@@ -187,7 +187,7 @@ async def init_sim_post(request: Request):
 @app.post("/api/act", response_class=JSONResponse)
 async def process_action(request: Request):
     global chat
-    if chat is None:
+    if chat is None or chat.sim is None:
         return JSONResponse({"error": "Sim not started. Click 'Start'."}, status_code=400)
 
     data = await request.json()
@@ -332,7 +332,7 @@ async def process_action(request: Request):
 @app.post("/api/wait", response_class=JSONResponse)
 async def wait_time(request: Request):
     global chat
-    if chat is None:
+    if chat is None or chat.sim is None:
         return JSONResponse({"error": "Sim not started. Click 'Start'."}, status_code=400)
 
     data = await request.json()
@@ -393,7 +393,7 @@ async def wait_time(request: Request):
 async def generate_image_manual():
     """Manually trigger image generation for the current scene"""
     global chat
-    if chat is None:
+    if chat is None or chat.sim is None or chat.malcolm is None:
         return JSONResponse({"error": "Sim not started. Click 'Start'."}, status_code=400)
 
     if not COMFYUI_ENABLED or not comfyui_client:
@@ -479,14 +479,15 @@ async def get_snapshot():
     if chat is None:
         return JSONResponse({"error": "Sim not started"}, status_code=400)
 
-    snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
+    # build_frontend_snapshot handles None gracefully, but check anyway
+    snapshot = build_frontend_snapshot(chat.sim if chat else None, chat.malcolm if chat else None)
     return JSONResponse(snapshot)
 
 # --- LOCATIONS ENDPOINT ---
 @app.get("/api/locations", response_class=JSONResponse)
 async def get_locations():
     global chat
-    if chat is None:
+    if chat is None or chat.sim is None:
         return JSONResponse({"error": "Sim not started"}, status_code=400)
 
     # Build location map
@@ -508,7 +509,7 @@ async def get_locations():
 @app.get("/api/npcs", response_class=JSONResponse)
 async def get_npcs():
     global chat
-    if chat is None:
+    if chat is None or chat.sim is None:
         return JSONResponse({"error": "Sim not started"}, status_code=400)
 
     npcs_data = []
@@ -526,7 +527,7 @@ async def get_npcs():
 @app.get("/api/timeline", response_class=JSONResponse)
 async def get_timeline():
     global chat
-    if chat is None:
+    if chat is None or chat.sim is None:
         return JSONResponse({"error": "Sim not started"}, status_code=400)
 
     # Check if timeline exists
@@ -540,7 +541,7 @@ async def get_timeline():
 @app.get("/api/analysis", response_class=JSONResponse)
 async def get_analysis():
     global chat
-    if chat is None:
+    if chat is None or chat.sim is None:
         return JSONResponse({"error": "Sim not started"}, status_code=400)
 
     # Calculate relationship metrics
@@ -572,7 +573,7 @@ async def get_analysis():
 @app.post("/api/save", response_class=JSONResponse)
 async def save_checkpoint():
     global chat
-    if chat is None:
+    if chat is None or chat.sim is None:
         return JSONResponse({"error": "Sim not started"}, status_code=400)
 
     try:
