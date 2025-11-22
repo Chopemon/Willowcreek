@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willow Creek - Game Systems UI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #16213e;
+        }
+
+        .tab {
+            padding: 12px 24px;
+            background: #0f3460;
+            border: none;
+            color: #eee;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .tab:hover {
+            background: #16213e;
+        }
+
+        .tab.active {
+            background: #e94560;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Portrait Gallery Styles */
+        .portrait-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .portrait-card {
+            background: #0f3460;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .portrait-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(233, 69, 96, 0.3);
+        }
+
+        .portrait-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: #16213e;
+        }
+
+        .portrait-info {
+            padding: 15px;
+        }
+
+        .portrait-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e94560;
+            margin-bottom: 5px;
+        }
+
+        .portrait-details {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+
+        .relationship-bar {
+            height: 8px;
+            background: #16213e;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        .relationship-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #e94560, #ff6b9d);
+            transition: width 0.5s;
+        }
+
+        .relationship-label {
+            font-size: 12px;
+            color: #888;
+        }
+
+        /* Town Map Styles */
+        .town-map {
+            background: #0f3460;
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            min-height: 600px;
+        }
+
+        .location-marker {
+            position: absolute;
+            background: #e94560;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .location-marker:hover {
+            transform: scale(1.1);
+            background: #ff6b9d;
+        }
+
+        .location-marker.has-npcs::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 12px;
+            height: 12px;
+            background: #4ecca3;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .location-info {
+            margin-top: 10px;
+            font-size: 12px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .location-marker:hover .location-info {
+            opacity: 1;
+        }
+
+        /* Stats Dashboard Styles */
+        .stats-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: #0f3460;
+            border-radius: 12px;
+            padding: 20px;
+        }
+
+        .stat-header {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e94560;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #16213e;
+            padding-bottom: 10px;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #16213e;
+        }
+
+        .stat-label {
+            color: #aaa;
+        }
+
+        .stat-value {
+            font-weight: bold;
+            color: #4ecca3;
+        }
+
+        .skill-bar {
+            margin: 10px 0;
+        }
+
+        .skill-name {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .skill-progress {
+            height: 20px;
+            background: #16213e;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4ecca3, #6ef9d5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            transition: width 0.5s;
+        }
+
+        .memory-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .memory-item {
+            padding: 10px;
+            margin: 5px 0;
+            background: #16213e;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .memory-stars {
+            color: #ffd700;
+            margin-right: 5px;
+        }
+
+        /* Scrollbar Styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #16213e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #e94560;
+            border-radius: 4px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 18px;
+            color: #888;
+        }
+
+        .error {
+            background: #d32f2f;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="margin-bottom: 20px; color: #e94560;">Willow Creek - Game Systems</h1>
+
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('portraits')">Portrait Gallery</button>
+            <button class="tab" onclick="showTab('map')">Town Map</button>
+            <button class="tab" onclick="showTab('stats')">Statistics</button>
+            <button class="tab" onclick="showTab('relationships')">Relationships</button>
+        </div>
+
+        <!-- Portrait Gallery Tab -->
+        <div id="portraits" class="tab-content active">
+            <h2 style="margin-bottom: 20px;">NPC Portrait Gallery</h2>
+            <div class="portrait-grid" id="portraitGrid">
+                <div class="loading">Loading portraits...</div>
+            </div>
+        </div>
+
+        <!-- Town Map Tab -->
+        <div id="map" class="tab-content">
+            <h2 style="margin-bottom: 20px;">Town Map</h2>
+            <div class="town-map" id="townMap">
+                <div class="loading">Loading map...</div>
+            </div>
+        </div>
+
+        <!-- Statistics Tab -->
+        <div id="stats" class="tab-content">
+            <h2 style="margin-bottom: 20px;">Player Statistics</h2>
+            <div class="stats-dashboard" id="statsDashboard">
+                <div class="loading">Loading statistics...</div>
+            </div>
+        </div>
+
+        <!-- Relationships Tab -->
+        <div id="relationships" class="tab-content">
+            <h2 style="margin-bottom: 20px;">Relationship Overview</h2>
+            <div class="stats-dashboard" id="relationshipsList">
+                <div class="loading">Loading relationships...</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tab switching
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+
+            // Load data for the tab
+            loadTabData(tabName);
+        }
+
+        function loadTabData(tabName) {
+            switch(tabName) {
+                case 'portraits':
+                    loadPortraits();
+                    break;
+                case 'map':
+                    loadTownMap();
+                    break;
+                case 'stats':
+                    loadStatistics();
+                    break;
+                case 'relationships':
+                    loadRelationships();
+                    break;
+            }
+        }
+
+        // Load portraits
+        async function loadPortraits() {
+            try {
+                const response = await fetch('/api/portraits');
+                const data = await response.json();
+
+                const grid = document.getElementById('portraitGrid');
+                grid.innerHTML = '';
+
+                data.npcs.forEach(npc => {
+                    const card = document.createElement('div');
+                    card.className = 'portrait-card';
+                    card.innerHTML = `
+                        <img src="${npc.portrait_url}" alt="${npc.name}" class="portrait-img" onerror="this.src='/static/placeholder.png'">
+                        <div class="portrait-info">
+                            <div class="portrait-name">${npc.name}</div>
+                            <div class="portrait-details">${npc.age} • ${npc.occupation}</div>
+                            <div class="relationship-bar">
+                                <div class="relationship-fill" style="width: ${npc.friendship || 0}%"></div>
+                            </div>
+                            <div class="relationship-label">${npc.relationship_status || 'Stranger'}</div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            } catch (error) {
+                document.getElementById('portraitGrid').innerHTML = `<div class="error">Error loading portraits: ${error.message}</div>`;
+            }
+        }
+
+        // Load town map
+        async function loadTownMap() {
+            try {
+                const response = await fetch('/api/town-map');
+                const data = await response.json();
+
+                const map = document.getElementById('townMap');
+                map.innerHTML = '';
+
+                data.locations.forEach(loc => {
+                    const marker = document.createElement('div');
+                    marker.className = `location-marker ${loc.occupants > 0 ? 'has-npcs' : ''}`;
+                    marker.style.left = loc.x + 'px';
+                    marker.style.top = loc.y + 'px';
+                    marker.innerHTML = `
+                        <div><strong>${loc.name}</strong></div>
+                        <div class="location-info">
+                            <div>${loc.occupants} people here</div>
+                            <div>${loc.activities.join(', ')}</div>
+                        </div>
+                    `;
+                    map.appendChild(marker);
+                });
+            } catch (error) {
+                document.getElementById('townMap').innerHTML = `<div class="error">Error loading map: ${error.message}</div>`;
+            }
+        }
+
+        // Load statistics
+        async function loadStatistics() {
+            try {
+                const response = await fetch('/api/statistics');
+                const data = await response.json();
+
+                const dashboard = document.getElementById('statsDashboard');
+                dashboard.innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-header">💰 Economy</div>
+                        <div class="stat-item">
+                            <span class="stat-label">Money</span>
+                            <span class="stat-value">$${data.money}</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Money Earned</span>
+                            <span class="stat-value">$${data.money_earned || 0}</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Money Spent</span>
+                            <span class="stat-value">$${data.money_spent || 0}</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">👥 Social</div>
+                        <div class="stat-item">
+                            <span class="stat-label">NPCs Met</span>
+                            <span class="stat-value">${data.npcs_met}</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Conversations</span>
+                            <span class="stat-value">${data.conversations}</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Friends Made</span>
+                            <span class="stat-value">${data.friends}</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Dates Been On</span>
+                            <span class="stat-value">${data.dates}</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">⭐ Skills</div>
+                        ${data.top_skills.map(skill => `
+                            <div class="skill-bar">
+                                <div class="skill-name">${skill.name} - Level ${skill.level}</div>
+                                <div class="skill-progress">
+                                    <div class="skill-progress-fill" style="width: ${skill.level * 10}%">
+                                        ${skill.level}/10
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">📝 Recent Memories</div>
+                        <div class="memory-list">
+                            ${data.recent_memories.map(memory => `
+                                <div class="memory-item">
+                                    <span class="memory-stars">★★★</span>
+                                    ${memory}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } catch (error) {
+                document.getElementById('statsDashboard').innerHTML = `<div class="error">Error loading statistics: ${error.message}</div>`;
+            }
+        }
+
+        // Load relationships
+        async function loadRelationships() {
+            try {
+                const response = await fetch('/api/relationships');
+                const data = await response.json();
+
+                const list = document.getElementById('relationshipsList');
+                list.innerHTML = data.relationships.map(rel => `
+                    <div class="stat-card">
+                        <div class="stat-header">${rel.name}</div>
+                        <div class="stat-item">
+                            <span class="stat-label">Status</span>
+                            <span class="stat-value">${rel.status}</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Friendship</span>
+                            <span class="stat-value">${rel.friendship.toFixed(0)}/100</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Romance</span>
+                            <span class="stat-value">${rel.romance.toFixed(0)}/100</span>
+                        </div>
+                        <div class="relationship-bar">
+                            <div class="relationship-fill" style="width: ${rel.friendship}%"></div>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                document.getElementById('relationshipsList').innerHTML = `<div class="error">Error loading relationships: ${error.message}</div>`;
+            }
+        }
+
+        // Load initial data
+        loadPortraits();
+    </script>
+</body>
+</html>
