@@ -143,12 +143,13 @@ def generate_image_prompts(scene_context, narrative_text: Optional[str] = None):
 async def generate_npc_portraits(narrative_text: str):
     """
     Detect NPCs in narrative and generate portraits for them.
+    Generates both headshot (close-up) and full_body portraits.
 
     Args:
         narrative_text: The narrative text to analyze
 
     Returns:
-        List of portrait dictionaries with {name, url}
+        List of portrait dictionaries with {name, headshot_url, full_body_url}
     """
     if not portrait_generator or not chat:
         return []
@@ -163,30 +164,40 @@ async def generate_npc_portraits(narrative_text: str):
 
     portraits = []
     for npc_name in mentioned_npcs:
-        # Get NPC data
+        # Get NPC data - check both main NPC dict and generic NPCs
         npc = chat.sim.npc_dict.get(npc_name)
         if not npc:
+            print(f"[PortraitGen] NPC {npc_name} not found in roster, skipping")
             continue
 
-        # Get or generate portrait
-        portrait_url = portrait_generator.get_portrait_url(npc_name)
+        # Prepare NPC data for generation
+        npc_data = {
+            'gender': npc.gender if hasattr(npc, 'gender') else 'person',
+            'age': npc.age if hasattr(npc, 'age') else 25,
+            'traits': npc.traits if hasattr(npc, 'traits') else [],
+            'quirk': npc.quirk if hasattr(npc, 'quirk') else '',
+            'appearance': npc.appearance if hasattr(npc, 'appearance') else ''
+        }
 
-        if not portrait_url:
-            # Need to generate portrait
-            npc_data = {
-                'gender': npc.gender if hasattr(npc, 'gender') else 'person',
-                'age': npc.age if hasattr(npc, 'age') else 25,
-                'traits': npc.traits if hasattr(npc, 'traits') else [],
-                'quirk': npc.quirk if hasattr(npc, 'quirk') else '',
-                'appearance': npc.appearance if hasattr(npc, 'appearance') else ''
-            }
+        # Generate or get BOTH portrait types
+        headshot_url = portrait_generator.get_portrait_url(npc_name, "headshot")
+        full_body_url = portrait_generator.get_portrait_url(npc_name, "full_body")
 
-            portrait_url = await portrait_generator.generate_portrait(npc_name, npc_data)
+        # Generate headshot if missing
+        if not headshot_url:
+            print(f"[PortraitGen] Generating headshot for {npc_name}")
+            headshot_url = await portrait_generator.generate_portrait(npc_name, npc_data, "headshot")
 
-        if portrait_url:
+        # Generate full body if missing
+        if not full_body_url:
+            print(f"[PortraitGen] Generating full_body for {npc_name}")
+            full_body_url = await portrait_generator.generate_portrait(npc_name, npc_data, "full_body")
+
+        if headshot_url or full_body_url:
             portraits.append({
                 "name": npc_name,
-                "url": portrait_url
+                "headshot": headshot_url,
+                "full_body": full_body_url
             })
 
     return portraits

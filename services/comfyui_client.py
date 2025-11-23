@@ -170,7 +170,8 @@ class ComfyUIClient:
                             steps: int = 20,
                             cfg_scale: float = 7.0,
                             seed: Optional[int] = None,
-                            workflow: Optional[Dict] = None) -> Optional[str]:
+                            workflow: Optional[Dict] = None,
+                            custom_filename: Optional[str] = None) -> Optional[str]:
         """
         Generate an image using ComfyUI API.
 
@@ -183,6 +184,7 @@ class ComfyUIClient:
             cfg_scale: Classifier-free guidance scale
             seed: Random seed (None for random)
             workflow: Optional custom ComfyUI workflow JSON
+            custom_filename: Optional custom filename (without extension) for saving
 
         Returns:
             Path to generated image file, or None if generation failed
@@ -232,7 +234,7 @@ class ComfyUIClient:
                     print(f"[ComfyUI] Prompt queued successfully with ID: {prompt_id}")
 
                 # Wait for generation to complete
-                image_path = await self._wait_for_generation(prompt_id, session)
+                image_path = await self._wait_for_generation(prompt_id, session, custom_filename)
                 return image_path
 
         except Exception as e:
@@ -242,6 +244,7 @@ class ComfyUIClient:
     async def _wait_for_generation(self,
                                    prompt_id: str,
                                    session: aiohttp.ClientSession,
+                                   custom_filename: Optional[str] = None,
                                    timeout: int = 300) -> Optional[str]:
         """
         Wait for image generation to complete and retrieve the result.
@@ -282,7 +285,7 @@ class ComfyUIClient:
                                         print(f"[ComfyUI] Found image: {filename} in subfolder: {subfolder}")
                                         if filename:
                                             return await self._download_image(
-                                                filename, subfolder, session
+                                                filename, subfolder, session, custom_filename
                                             )
 
                 # Still processing, wait a bit
@@ -298,7 +301,8 @@ class ComfyUIClient:
     async def _download_image(self,
                              filename: str,
                              subfolder: str,
-                             session: aiohttp.ClientSession) -> Optional[str]:
+                             session: aiohttp.ClientSession,
+                             custom_filename: Optional[str] = None) -> Optional[str]:
         """
         Download generated image from ComfyUI server.
 
@@ -306,6 +310,7 @@ class ComfyUIClient:
             filename: Name of the image file
             subfolder: Subfolder in ComfyUI output directory
             session: Active aiohttp session
+            custom_filename: Optional custom filename to use instead of auto-generated
 
         Returns:
             Local path to downloaded image
@@ -330,9 +335,13 @@ class ComfyUIClient:
                 params=params
             ) as response:
                 if response.status == 200:
-                    # Generate unique filename
-                    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-                    unique_filename = f"scene_{timestamp}_{uuid.uuid4().hex[:8]}.png"
+                    # Use custom filename if provided, otherwise generate unique filename
+                    if custom_filename:
+                        unique_filename = f"{custom_filename}.png"
+                    else:
+                        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+                        unique_filename = f"scene_{timestamp}_{uuid.uuid4().hex[:8]}.png"
+
                     output_path = os.path.join(self.output_dir, unique_filename)
 
                     # Save image

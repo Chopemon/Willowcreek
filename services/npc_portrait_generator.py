@@ -96,6 +96,10 @@ class NPCPortraitGenerator:
             width, height = 1024, 1024  # Square for circular headshot
 
         try:
+            # Create filename: NPC_Name_headshot or NPC_Name_full_body
+            safe_name = npc_name.replace(" ", "_").replace("'", "")
+            custom_filename = f"{safe_name}_{portrait_type}"
+
             # Generate portrait image
             image_url = await self.comfyui_client.generate_image(
                 prompt=positive_prompt,
@@ -103,7 +107,8 @@ class NPCPortraitGenerator:
                 width=width,
                 height=height,
                 steps=25,  # More steps for better quality portraits
-                cfg_scale=7.5
+                cfg_scale=7.5,
+                custom_filename=custom_filename
             )
 
             if image_url:
