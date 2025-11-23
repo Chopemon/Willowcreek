@@ -63,6 +63,54 @@ class NPCPortraitGenerator:
         cache_key = f"{npc_name}_{portrait_type}"
         return self.portrait_cache.get(cache_key)
 
+    def _infer_gender_from_name(self, npc_name: str) -> str:
+        """
+        Infer gender from NPC name using common name patterns.
+        Returns 'male' or 'female', defaults to 'female' if uncertain.
+        """
+        # Common female first names
+        female_names = [
+            'sarah', 'scarlet', 'tessa', 'agnes', 'anna', 'caty', 'isabella', 'eve', 'emma',
+            'elena', 'hanna', 'christine', 'eva', 'lianna', 'lily', 'lisa', 'ivy', 'maria',
+            'rose', 'angela', 'zoey', 'marta', 'rebecca', 'rachel', 'samantha', 'jessica',
+            'jennifer', 'linda', 'barbara', 'susan', 'nancy', 'karen', 'betty', 'helen',
+            'sandra', 'donna', 'carol', 'ruth', 'sharon', 'michelle', 'laura', 'melissa',
+            'kimberly', 'elizabeth', 'amy', 'stephanie', 'nicole', 'heather', 'ashley',
+            'marjorie', 'aaliyah', 'chloe', 'rita', 'gladys', 'yelena', 'mina', 'clara',
+            'nina', 'patricia', 'dorothy', 'deborah', 'virginia', 'catherine', 'joyce',
+            'diane', 'alice', 'julie', 'frances', 'gloria', 'ann', 'jane', 'marie'
+        ]
+
+        # Common male first names
+        male_names = [
+            'steve', 'tim', 'tom', 'alex', 'daniel', 'damien', 'kenny', 'david', 'ken',
+            'john', 'james', 'nate', 'luke', 'lucas', 'hiro', 'michael', 'robert', 'william',
+            'richard', 'joseph', 'thomas', 'charles', 'christopher', 'matthew', 'anthony',
+            'mark', 'donald', 'steven', 'paul', 'andrew', 'joshua', 'kenneth', 'kevin',
+            'brian', 'george', 'edward', 'ronald', 'timothy', 'jason', 'jeffrey', 'ryan',
+            'jacob', 'gary', 'nicholas', 'eric', 'jonathan', 'stephen', 'larry', 'justin',
+            'earl', 'hassan', 'derek', 'omar', 'caleb', 'toby', 'ralph', 'logan', 'tyler',
+            'eddie', 'marshall', 'grant', 'marcus', 'vincent', 'raymond', 'peter', 'harold',
+            'douglas', 'henry', 'carl', 'arthur', 'gerald', 'roger', 'keith', 'jeremy',
+            'lawrence', 'sean', 'christian', 'austin', 'benjamin', 'samuel', 'frank', 'scott'
+        ]
+
+        # Extract first name (before space)
+        first_name = npc_name.split()[0].lower()
+
+        # Check against known names
+        if first_name in female_names:
+            return 'female'
+        elif first_name in male_names:
+            return 'male'
+
+        # Check name endings (common patterns)
+        if first_name.endswith(('a', 'ie', 'y', 'lyn', 'lynn', 'elle', 'ette', 'ine', 'een')):
+            return 'female'
+
+        # Default to female if uncertain (safer for most cases)
+        return 'female'
+
     async def generate_portrait(self, npc_name: str, npc_data: Dict, portrait_type: str = "headshot") -> Optional[str]:
         """
         Generate a portrait for an NPC.
@@ -155,6 +203,11 @@ class NPCPortraitGenerator:
             gender = gender.name
 
         gender = str(gender).lower()
+
+        # Infer gender from name if missing or ambiguous
+        if gender not in ['male', 'female']:
+            gender = self._infer_gender_from_name(npc_name)
+            print(f"[PortraitGen] Inferred gender '{gender}' from name '{npc_name}'")
 
         # Build tag list
         tags = []
