@@ -333,63 +333,321 @@ class NPCPortraitGenerator:
                 clothing_tags.extend(["work clothes", "flannel", "jeans", "boots", "practical outdoor wear"])
                 clothing_added = True
 
-        # TRAIT-BASED MODIFICATIONS (secondary priority)
+        # TRAIT-BASED MODIFICATIONS (secondary priority) - Much more detailed for personality variance
         if traits:
             traits_str = ' '.join(traits).lower()
 
-            # Athletic/active traits
-            if any(word in traits_str for word in ['athletic', 'active', 'energetic', 'fitness']) and not clothing_added:
+            # Athletic/sports enthusiast
+            if any(word in traits_str for word in ['athletic', 'active', 'energetic', 'fitness', 'sporty']) and not clothing_added:
                 if gender == 'female':
-                    clothing_tags.extend(["sports bra", "athletic wear", "yoga pants", "fitness clothing"])
+                    clothing_tags.extend(["sports bra", "athletic wear", "yoga pants", "fitness clothing", "sneakers"])
                 else:
-                    clothing_tags.extend(["athletic wear", "tank top", "gym shorts"])
+                    clothing_tags.extend(["athletic wear", "tank top", "basketball shorts", "sweatpants", "sneakers"])
                 clothing_added = True
 
-            # Professional/serious traits
-            elif any(word in traits_str for word in ['professional', 'serious', 'organized', 'responsible']) and not clothing_added:
+            # Rebellious/punk/edgy
+            elif any(word in traits_str for word in ['rebellious', 'defiant', 'edgy', 'punk', 'alternative']) and not clothing_added:
                 if gender == 'female':
-                    clothing_tags.extend(["business casual", "blouse", "professional attire"])
+                    clothing_tags.extend(["ripped jeans", "band t-shirt", "leather jacket", "combat boots", "dark clothing", "grunge style"])
                 else:
-                    clothing_tags.extend(["business casual", "button-up shirt", "slacks"])
+                    clothing_tags.extend(["ripped jeans", "band t-shirt", "leather jacket", "combat boots", "dark clothing", "punk style"])
                 clothing_added = True
 
-            # Creative/artistic traits
-            elif any(word in traits_str for word in ['creative', 'artistic', 'expressive']) and not clothing_added:
-                clothing_tags.extend(["creative style", "unique fashion", "artistic clothing", "colorful"])
+            # Nerdy/intellectual/gamer
+            elif any(word in traits_str for word in ['nerdy', 'intellectual', 'studious', 'bookish', 'geeky', 'gamer']) and not clothing_added:
+                if gender == 'female':
+                    clothing_tags.extend(["graphic t-shirt", "hoodie", "jeans", "glasses", "sneakers", "casual nerdy"])
+                else:
+                    clothing_tags.extend(["graphic t-shirt", "cargo shorts", "hoodie", "glasses", "sneakers", "gamer style"])
                 clothing_added = True
 
-            # Shy/modest traits - adjust existing clothing
-            if any(word in traits_str for word in ['shy', 'modest', 'reserved', 'conservative']):
-                clothing_tags.extend(["modest", "conservative cut"])
+            # Popular/preppy/fashionable
+            elif any(word in traits_str for word in ['popular', 'preppy', 'fashionable', 'trendy', 'stylish']) and not clothing_added:
+                if gender == 'female':
+                    clothing_tags.extend(["trendy outfit", "designer jeans", "crop top", "fashionable", "jewelry", "makeup", "stylish"])
+                else:
+                    clothing_tags.extend(["polo shirt", "khakis", "boat shoes", "preppy style", "clean cut", "neat"])
+                clothing_added = True
+
+            # Shy/introverted/quiet
+            elif any(word in traits_str for word in ['shy', 'introverted', 'quiet', 'timid', 'reserved']) and not clothing_added:
+                if gender == 'female':
+                    clothing_tags.extend(["oversized sweater", "modest jeans", "comfortable clothing", "muted colors", "simple style"])
+                else:
+                    clothing_tags.extend(["hoodie", "jeans", "plain t-shirt", "muted colors", "comfortable", "unassuming"])
+                clothing_added = True
+
+            # Outgoing/party/social
+            elif any(word in traits_str for word in ['outgoing', 'social', 'party', 'extroverted', 'friendly']) and not clothing_added:
+                if gender == 'female':
+                    clothing_tags.extend(["bright colors", "fun outfit", "trendy", "eye-catching", "social butterfly style"])
+                else:
+                    clothing_tags.extend(["casual shirt", "jeans", "friendly style", "approachable", "colorful"])
+                clothing_added = True
+
+            # Creative/artistic/bohemian
+            elif any(word in traits_str for word in ['creative', 'artistic', 'expressive', 'bohemian', 'unique']) and not clothing_added:
+                if gender == 'female':
+                    clothing_tags.extend(["bohemian dress", "artistic style", "unique fashion", "layered clothing", "creative accessories"])
+                else:
+                    clothing_tags.extend(["vintage shirt", "artistic style", "unique fashion", "creative look", "unconventional"])
+                clothing_added = True
+
+            # Confident/bold/dominant
+            elif any(word in traits_str for word in ['confident', 'bold', 'dominant', 'assertive', 'strong']) and not clothing_added:
+                if gender == 'female':
+                    clothing_tags.extend(["fitted outfit", "bold colors", "confident style", "statement piece", "powerful look"])
+                else:
+                    clothing_tags.extend(["fitted shirt", "confidence", "bold style", "strong presence", "masculine"])
+                clothing_added = True
+
+            # Flirty/seductive/romantic
+            elif any(word in traits_str for word in ['flirty', 'seductive', 'romantic', 'charming']) and not clothing_added:
+                if gender == 'female':
+                    clothing_tags.extend(["low-cut top", "tight jeans", "feminine style", "alluring", "fashionable", "makeup"])
+                else:
+                    clothing_tags.extend(["fitted shirt", "stylish", "attractive", "well-groomed", "charming look"])
+                clothing_added = True
+
+            # Serious/professional/responsible
+            elif any(word in traits_str for word in ['serious', 'professional', 'organized', 'responsible', 'mature']) and not clothing_added:
+                if gender == 'female':
+                    clothing_tags.extend(["business casual", "blouse", "neat style", "professional look", "organized"])
+                else:
+                    clothing_tags.extend(["button-up shirt", "neat", "professional casual", "responsible look", "mature"])
+                clothing_added = True
+
+            # Lazy/casual/relaxed
+            elif any(word in traits_str for word in ['lazy', 'relaxed', 'casual', 'laid-back', 'easygoing']) and not clothing_added:
+                if gender == 'female':
+                    clothing_tags.extend(["sweatpants", "oversized t-shirt", "comfortable", "casual lazy style", "relaxed fit"])
+                else:
+                    clothing_tags.extend(["sweatpants", "hoodie", "comfortable", "lazy style", "relaxed", "casual wear"])
+                clothing_added = True
+
+            # Adventurous/outdoorsy
+            elif any(word in traits_str for word in ['adventurous', 'outdoorsy', 'nature', 'explorer']) and not clothing_added:
+                clothing_tags.extend(["outdoor clothing", "hiking boots", "practical wear", "cargo pants", "adventure style"])
+                clothing_added = True
+
+            # Religious/devout/conservative
+            elif any(word in traits_str for word in ['religious', 'devout', 'faithful', 'pious']) and not clothing_added:
+                if gender == 'female':
+                    clothing_tags.extend(["modest dress", "conservative clothing", "long skirt", "covered", "traditional"])
+                else:
+                    clothing_tags.extend(["modest clothing", "conservative", "neat", "traditional style", "respectful"])
+                clothing_added = True
+
+            # ADDITIONAL TRAIT MODIFIERS (can combine with above)
+            # These add to existing clothing rather than replacing
+
+            # Modest/conservative traits - adjust existing clothing
+            if any(word in traits_str for word in ['modest', 'conservative']) and clothing_added:
+                clothing_tags.extend(["modest", "conservative cut", "appropriate"])
 
             # Confident/bold traits - adjust existing clothing
-            if any(word in traits_str for word in ['confident', 'bold', 'outgoing', 'flirty']):
-                clothing_tags.extend(["fitted", "fashionable", "stylish"])
+            if any(word in traits_str for word in ['confident', 'bold', 'daring']) and clothing_added:
+                clothing_tags.extend(["fitted", "fashionable", "eye-catching"])
 
-        # QUIRK-BASED ADDITIONS (tertiary priority)
+            # Messy/sloppy traits
+            if any(word in traits_str for word in ['messy', 'sloppy', 'disheveled', 'unkempt']):
+                clothing_tags.extend(["wrinkled", "disheveled", "casual messy"])
+
+            # Clean/neat traits
+            if any(word in traits_str for word in ['neat', 'clean', 'tidy', 'organized']):
+                clothing_tags.extend(["neat", "well-maintained", "clean appearance"])
+
+            # Wealthy/rich traits
+            if any(word in traits_str for word in ['wealthy', 'rich', 'privileged', 'elite']):
+                clothing_tags.extend(["expensive", "designer", "high-end fashion", "luxury"])
+
+            # Poor/struggling traits
+            if any(word in traits_str for word in ['poor', 'struggling', 'worn']):
+                clothing_tags.extend(["worn clothing", "old clothes", "simple", "budget"])
+
+            # Muscular/strong physique
+            if any(word in traits_str for word in ['muscular', 'strong', 'buff', 'built']):
+                if gender == 'male':
+                    clothing_tags.extend(["fitted to show physique", "muscular build visible"])
+
+            # Sexy/attractive emphasis
+            if any(word in traits_str for word in ['sexy', 'attractive', 'beautiful', 'gorgeous', 'hot']):
+                if gender == 'female':
+                    clothing_tags.extend(["attractive", "flattering fit", "shows figure"])
+                else:
+                    clothing_tags.extend(["attractive", "well-fitted", "handsome"])
+
+        # QUIRK-BASED ADDITIONS (tertiary priority) - Enhanced for more personality
         if quirk and not clothing_added:
             quirk_lower = quirk.lower()
-            if "athletic" in quirk_lower or "fitness" in quirk_lower:
+
+            # Athletic/fitness quirks
+            if any(word in quirk_lower for word in ['athletic', 'fitness', 'workout', 'gym', 'sports']):
                 if gender == 'female':
-                    clothing_tags.extend(["sports bra", "athletic wear", "tight clothing"])
+                    clothing_tags.extend(["sports bra", "athletic wear", "tight clothing", "fitness style"])
                 else:
-                    clothing_tags.extend(["athletic wear", "tank top"])
-                clothing_added = True
-            elif "professional" in quirk_lower or "business" in quirk_lower:
-                clothing_tags.extend(["business casual", "professional attire"])
+                    clothing_tags.extend(["athletic wear", "tank top", "gym clothing", "sporty"])
                 clothing_added = True
 
-        # DEFAULT CLOTHING (if nothing matched)
-        if not clothing_added:
-            if age < 18:
-                clothing_tags.extend(["casual wear", "t-shirt", "jeans"])
-            elif age < 30:
+            # Flirty/seductive quirks
+            elif any(word in quirk_lower for word in ['flirt', 'seduc', 'tease', 'provocative']):
                 if gender == 'female':
-                    clothing_tags.extend(["casual modern", "jeans", "top"])
+                    clothing_tags.extend(["low-cut", "tight", "revealing", "alluring outfit", "sexy style"])
                 else:
-                    clothing_tags.extend(["casual wear", "t-shirt", "jeans"])
+                    clothing_tags.extend(["fitted shirt", "unbuttoned", "attractive", "charming style"])
+                clothing_added = True
+
+            # Professional/business quirks
+            elif any(word in quirk_lower for word in ['professional', 'business', 'formal', 'corporate']):
+                if gender == 'female':
+                    clothing_tags.extend(["business suit", "blazer", "professional attire", "formal"])
+                else:
+                    clothing_tags.extend(["business suit", "tie", "professional attire", "formal"])
+                clothing_added = True
+
+            # Bookish/nerdy quirks
+            elif any(word in quirk_lower for word in ['book', 'nerd', 'geek', 'intellectual', 'smart']):
+                clothing_tags.extend(["glasses", "cardigan", "casual intellectual", "bookish style"])
+                clothing_added = True
+
+            # Party/social quirks
+            elif any(word in quirk_lower for word in ['party', 'social', 'outgoing', 'life of the party']):
+                if gender == 'female':
+                    clothing_tags.extend(["party outfit", "trendy", "eye-catching", "fun style", "vibrant"])
+                else:
+                    clothing_tags.extend(["stylish", "trendy", "social", "party casual"])
+                clothing_added = True
+
+            # Artistic/creative quirks
+            elif any(word in quirk_lower for word in ['artist', 'creative', 'artsy', 'bohemian']):
+                clothing_tags.extend(["artistic style", "bohemian", "creative outfit", "unique fashion", "expressive"])
+                clothing_added = True
+
+            # Rebellious/bad boy-girl quirks
+            elif any(word in quirk_lower for word in ['rebel', 'bad boy', 'bad girl', 'troublemaker', 'delinquent']):
+                if gender == 'female':
+                    clothing_tags.extend(["leather jacket", "ripped jeans", "edgy", "rebellious style", "dark clothing"])
+                else:
+                    clothing_tags.extend(["leather jacket", "ripped jeans", "edgy", "bad boy style", "rebellious"])
+                clothing_added = True
+
+            # Shy/quiet quirks
+            elif any(word in quirk_lower for word in ['shy', 'quiet', 'timid', 'withdrawn']):
+                if gender == 'female':
+                    clothing_tags.extend(["oversized sweater", "modest", "comfortable", "shy style", "muted colors"])
+                else:
+                    clothing_tags.extend(["hoodie", "plain", "unassuming", "quiet style", "simple"])
+                clothing_added = True
+
+            # Outdoorsy/nature quirks
+            elif any(word in quirk_lower for word in ['outdoor', 'nature', 'hiker', 'camper']):
+                clothing_tags.extend(["outdoor clothing", "hiking gear", "practical", "nature style", "rugged"])
+                clothing_added = True
+
+            # Goth/dark quirks
+            elif any(word in quirk_lower for word in ['goth', 'dark', 'emo', 'gothic']):
+                clothing_tags.extend(["all black", "dark clothing", "goth style", "black outfit", "alternative fashion"])
+                clothing_added = True
+
+        # DEFAULT CLOTHING (if nothing matched) - Add variety based on age and gender
+        if not clothing_added:
+            # Use hash of NPC name for consistent but varied style selection
+            name_hash = sum(ord(c) for c in npc_name) % 8
+
+            if age < 13:
+                # Children
+                if gender == 'female':
+                    styles = [
+                        ["dress", "colorful", "playful"],
+                        ["t-shirt", "shorts", "casual"],
+                        ["overalls", "cheerful", "kid style"],
+                        ["hoodie", "jeans", "comfortable"]
+                    ]
+                    clothing_tags.extend(styles[name_hash % 4])
+                else:
+                    styles = [
+                        ["t-shirt", "shorts", "casual kid"],
+                        ["graphic tee", "jeans", "playful"],
+                        ["hoodie", "sweatpants", "comfortable"],
+                        ["button-up shirt", "neat kid style"]
+                    ]
+                    clothing_tags.extend(styles[name_hash % 4])
+
+            elif age < 18:
+                # Teens - Maximum variety
+                if gender == 'female':
+                    styles = [
+                        ["graphic t-shirt", "ripped jeans", "sneakers", "casual teen"],
+                        ["crop top", "high-waisted jeans", "trendy", "fashionable teen"],
+                        ["hoodie", "leggings", "comfortable", "relaxed teen style"],
+                        ["band t-shirt", "skinny jeans", "converse", "alternative teen"],
+                        ["oversized sweater", "jeans", "cozy", "soft teen style"],
+                        ["flannel shirt", "denim", "casual", "tomboy style"],
+                        ["tank top", "shorts", "athletic", "sporty casual"],
+                        ["blouse", "skirt", "neat", "preppy teen"]
+                    ]
+                    clothing_tags.extend(styles[name_hash])
+                else:
+                    styles = [
+                        ["graphic t-shirt", "jeans", "sneakers", "casual teen"],
+                        ["hoodie", "sweatpants", "comfortable", "relaxed teen"],
+                        ["band t-shirt", "ripped jeans", "alternative", "edgy teen"],
+                        ["polo shirt", "chinos", "preppy", "clean-cut teen"],
+                        ["flannel shirt", "jeans", "casual", "laid-back teen"],
+                        ["basketball jersey", "shorts", "sporty", "athletic teen"],
+                        ["button-up shirt", "jeans", "neat", "mature teen"],
+                        ["skateboard shirt", "cargo shorts", "skater style", "urban teen"]
+                    ]
+                    clothing_tags.extend(styles[name_hash])
+
+            elif age < 30:
+                # Young adults
+                if gender == 'female':
+                    styles = [
+                        ["casual modern", "jeans", "trendy top", "young adult style"],
+                        ["dress", "fashionable", "young professional"],
+                        ["blouse", "slacks", "business casual", "working woman"],
+                        ["t-shirt", "jeans", "casual comfortable"],
+                        ["sweater", "leggings", "cozy modern"],
+                        ["tank top", "shorts", "casual summer"]
+                    ]
+                    clothing_tags.extend(styles[name_hash % 6])
+                else:
+                    styles = [
+                        ["casual shirt", "jeans", "modern style"],
+                        ["button-up", "slacks", "young professional"],
+                        ["t-shirt", "jeans", "relaxed casual"],
+                        ["polo shirt", "chinos", "smart casual"],
+                        ["hoodie", "jeans", "comfortable modern"],
+                        ["henley", "jeans", "casual masculine"]
+                    ]
+                    clothing_tags.extend(styles[name_hash % 6])
+
+            elif age < 50:
+                # Middle-aged adults
+                if gender == 'female':
+                    styles = [
+                        ["blouse", "slacks", "professional adult"],
+                        ["casual dress", "comfortable mature"],
+                        ["cardigan", "jeans", "practical adult"],
+                        ["business casual", "neat mature style"]
+                    ]
+                    clothing_tags.extend(styles[name_hash % 4])
+                else:
+                    styles = [
+                        ["button-up shirt", "slacks", "mature professional"],
+                        ["polo shirt", "khakis", "casual adult"],
+                        ["collared shirt", "jeans", "practical mature"],
+                        ["sweater", "slacks", "comfortable adult"]
+                    ]
+                    clothing_tags.extend(styles[name_hash % 4])
+
             else:
-                clothing_tags.extend(["casual clothing", "comfortable"])
+                # Older adults
+                if gender == 'female':
+                    clothing_tags.extend(["modest dress", "comfortable", "mature style", "practical"])
+                else:
+                    clothing_tags.extend(["button-up shirt", "slacks", "comfortable", "mature gentleman"])
 
         # Add all clothing tags
         tags.extend(clothing_tags)
