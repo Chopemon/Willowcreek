@@ -222,13 +222,46 @@ class NPCPortraitGenerator:
                     tags.append(f"{color} eyes")
                     break
 
-            # Build/physique
+            # Build/physique - DETAILED body features extraction
             if "muscular" in appearance_lower or "athletic" in appearance_lower:
                 tags.extend(["athletic", "fit physique", "toned"])
             elif "slim" in appearance_lower or "slender" in appearance_lower:
                 tags.extend(["slender", "slim build"])
             elif "curvy" in appearance_lower:
                 tags.extend(["curvy", "feminine physique"])
+
+            # Specific body features for female characters
+            if gender == 'female':
+                # Breast size - extract from appearance
+                if any(word in appearance_lower for word in ['large breasts', 'd-cup', 'dd-cup', 'e-cup', 'big breasts', 'huge breasts']):
+                    tags.extend(["large breasts", "busty", "cleavage"])
+                elif any(word in appearance_lower for word in ['medium breasts', 'c-cup', 'b-cup', 'average breasts']):
+                    tags.append("medium breasts")
+                elif any(word in appearance_lower for word in ['small breasts', 'a-cup', 'petite breasts']):
+                    tags.append("small breasts")
+
+                # Posterior/hips
+                if any(word in appearance_lower for word in ['round posterior', 'large posterior', 'big butt', 'round butt', 'thicc', 'wide hips']):
+                    tags.extend(["round posterior", "wide hips", "curvy hips"])
+
+                # Overall figure descriptors
+                if "hourglass" in appearance_lower:
+                    tags.extend(["hourglass figure", "feminine curves"])
+                if "voluptuous" in appearance_lower:
+                    tags.extend(["voluptuous", "curvaceous"])
+                if "petite" in appearance_lower:
+                    tags.extend(["petite", "small frame"])
+                if any(word in appearance_lower for word in ['alluring', 'sexy figure', 'attractive figure']):
+                    tags.extend(["attractive figure", "appealing physique"])
+
+            # Male body features
+            if gender == 'male':
+                if any(word in appearance_lower for word in ['broad shoulders', 'wide shoulders']):
+                    tags.append("broad shoulders")
+                if "muscular" in appearance_lower:
+                    tags.extend(["muscular build", "defined muscles"])
+                if any(word in appearance_lower for word in ['lean', 'athletic build']):
+                    tags.extend(["lean build", "athletic physique"])
 
             # Skin tone
             if "pale" in appearance_lower or "fair" in appearance_lower:
@@ -254,8 +287,16 @@ class NPCPortraitGenerator:
         if occupation:
             occ_lower = occupation.lower()
 
+            # Fitness / athletics / yoga (CHECK FIRST before education catches "instructor")
+            if any(word in occ_lower for word in ['yoga', 'trainer', 'coach', 'athlete', 'fitness', 'gym']):
+                if gender == 'female':
+                    clothing_tags.extend(["sports bra", "athletic wear", "yoga pants", "fitness clothing", "tight clothing"])
+                else:
+                    clothing_tags.extend(["athletic wear", "tank top", "gym shorts", "fitness clothing"])
+                clothing_added = True
+
             # Medical professions
-            if any(word in occ_lower for word in ['nurse', 'doctor', 'paramedic', 'medical']):
+            elif any(word in occ_lower for word in ['nurse', 'doctor', 'paramedic', 'medical']):
                 if gender == 'female':
                     clothing_tags.extend(["nurse uniform", "medical scrubs", "white coat", "professional medical attire"])
                 else:
@@ -318,14 +359,6 @@ class NPCPortraitGenerator:
             # Creative professions
             elif any(word in occ_lower for word in ['artist', 'designer', 'photographer', 'writer']):
                 clothing_tags.extend(["creative style", "casual artistic", "unique fashion", "bohemian"])
-                clothing_added = True
-
-            # Fitness / athletics
-            elif any(word in occ_lower for word in ['trainer', 'coach', 'athlete', 'fitness', 'gym']):
-                if gender == 'female':
-                    clothing_tags.extend(["sports bra", "athletic wear", "yoga pants", "fitness clothing", "tight clothing"])
-                else:
-                    clothing_tags.extend(["athletic wear", "tank top", "gym shorts", "fitness clothing"])
                 clothing_added = True
 
             # Agriculture / outdoors
