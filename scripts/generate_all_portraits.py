@@ -101,13 +101,16 @@ async def generate_all_portraits(portrait_type: str = "headshot"):
             continue
 
         # Prepare NPC data
+        # Check both occupation and affiliation fields
+        occupation = npc.get('occupation', '') or npc.get('affiliation', '')
+
         npc_data = {
             'gender': npc.get('gender', 'person'),
             'age': npc.get('age', 25),
             'traits': npc.get('coreTraits', []),
             'quirk': npc.get('quirk', ''),
             'appearance': npc.get('appearance', ''),
-            'occupation': npc.get('occupation', '')
+            'occupation': occupation
         }
 
         print(f"  Age: {npc_data['age']}")

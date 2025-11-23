@@ -171,13 +171,20 @@ async def generate_npc_portraits(narrative_text: str):
             continue
 
         # Prepare NPC data for generation
+        # Check both occupation and affiliation fields
+        occupation = ''
+        if hasattr(npc, 'occupation') and npc.occupation:
+            occupation = npc.occupation
+        elif hasattr(npc, 'affiliation') and npc.affiliation:
+            occupation = npc.affiliation
+
         npc_data = {
             'gender': npc.gender if hasattr(npc, 'gender') else 'person',
             'age': npc.age if hasattr(npc, 'age') else 25,
             'traits': npc.coreTraits if hasattr(npc, 'coreTraits') else [],
             'quirk': npc.quirk if hasattr(npc, 'quirk') else '',
             'appearance': npc.appearance if hasattr(npc, 'appearance') else '',
-            'occupation': npc.occupation if hasattr(npc, 'occupation') else ''
+            'occupation': occupation
         }
 
         # Generate or get BOTH portrait types

@@ -1,0 +1,2284 @@
+================================================================================
+WILLOW CREEK NPC PORTRAIT PROMPTS
+================================================================================
+
+Total NPCs: 69
+Generated prompts for both HEADSHOT and FULL_BODY portraits
+
+================================================================================
+[1/69] Sarah Madison
+================================================================================
+
+Age: 26
+Gender: female
+Occupation: Artist, Art Cooperative Owner
+Traits: Artistic, Warm, Creative
+Quirk: 
+Appearance: Colorful, gentle demeanor, paint-stained jeans, youthful complexion, energetic presence, feminine fe...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, creative style, casual artistic, unique fashion, bohemian, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, creative style, casual artistic, unique fashion, bohemian, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[2/69] Scarlet Carter
+================================================================================
+
+Age: 38
+Gender: female
+Occupation: School Teacher, Wife, Mother
+Traits: Warm, Nurturing, Organized
+Quirk: 
+Appearance: Casual yet professional, wears glasses, brown hair, green eyes, mature features, confident bearing, ...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, brown hair, green eyes, blouse, cardigan, professional skirt, business casual, glasses, neat, well-maintained, clean appearance, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, brown hair, green eyes, blouse, cardigan, professional skirt, business casual, glasses, neat, well-maintained, clean appearance, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[3/69] Steve Kallio
+================================================================================
+
+Age: 15
+Gender: male
+Occupation: Lutheran youth, sheltered
+Traits: Naive, Devout, Stutters
+Quirk: 
+Appearance: Clean-cut, athletic, nervous smile, huge penis, adolescent features, developing build, boyish featur...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, athletic, fit physique, toned, lean build, athletic physique, modest clothing, conservative, neat, traditional style, respectful, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, athletic, fit physique, toned, lean build, athletic physique, modest clothing, conservative, neat, traditional style, respectful, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[4/69] Tessa
+================================================================================
+
+Age: 35
+Gender: female
+Occupation: Single Mother, former athlete
+Traits: Charismatic, Warm, Disorganized
+Quirk: 
+Appearance: Athletic, toned build, shoulder-length blonde hair (tousled), bright blue eyes, bold and slightly di...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blonde hair, blue eyes, athletic, fit physique, toned, sports bra, athletic wear, yoga pants, fitness clothing, tight clothing, neat, well-maintained, clean appearance, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blonde hair, blue eyes, athletic, fit physique, toned, sports bra, athletic wear, yoga pants, fitness clothing, tight clothing, neat, well-maintained, clean appearance, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[5/69] Tim Thompson
+================================================================================
+
+Age: 17
+Gender: male
+Occupation: Son of Lisa, Brother of Anna, High School Student
+Traits: Impulsive, Introvert, Analytical, Curious
+Quirk: 
+Appearance: Messy dark brown hair, intense observant gray eyes, pale skin, lean lanky build, dark circles from l...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, brown hair, gray eyes, lean build, athletic physique, light skin, band t-shirt, ripped jeans, alternative, edgy teen, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, brown hair, gray eyes, lean build, athletic physique, light skin, band t-shirt, ripped jeans, alternative, edgy teen, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[6/69] Tom Kunitz
+================================================================================
+
+Age: 15
+Gender: male
+Occupation: Mindy's Brother, Comatose
+Traits: Comatose, Dependent, Loved
+Quirk: 
+Appearance: Pale unconscious face, closed eyes with dark circles, breathing tube inserted, various IV lines and ...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, brown hair, light skin, basketball jersey, shorts, sporty, athletic teen, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, brown hair, light skin, basketball jersey, shorts, sporty, athletic teen, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[7/69] Agnes Montgomery
+================================================================================
+
+Age: 29
+Gender: female
+Occupation: Massage Therapist, single, professional
+Traits: Loving, Nurturing, Perverse
+Quirk: 
+Appearance: Innocent face with soft features, warm brown eyes, light blonde hair in loose waves, fair porcelain ...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, blonde hair, brown eyes, slender, slim build, light skin, dress, fashionable, young professional, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, blonde hair, brown eyes, slender, slim build, light skin, dress, fashionable, young professional, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[8/69] Alex Sturm
+================================================================================
+
+Age: 13
+Gender: male
+Occupation: Son of John and Maria, Brother to Elena
+Traits: Loyal, Conflicted, Secretly Rebellious
+Quirk: 
+Appearance: Tall, athletic build, dark hair, conflicted eyes. Tenses up when nervous.adolescent features, develo...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, athletic, fit physique, toned, lean build, athletic physique, ripped jeans, band t-shirt, leather jacket, combat boots, dark clothing, punk style, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, athletic, fit physique, toned, lean build, athletic physique, ripped jeans, band t-shirt, leather jacket, combat boots, dark clothing, punk style, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[9/69] Anna Thompson
+================================================================================
+
+Age: 7
+Gender: female
+Occupation: Daughter of Lisa, Sister of Tim
+Traits: Fragile, Dependent, Trusting, Loving
+Quirk: 
+Appearance: Fragile small body, soft brown hair gently brushed by Lisa, large expressive brown eyes that communi...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, brown hair, brown eyes, light skin, overalls, cheerful, kid style, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, brown hair, brown eyes, light skin, overalls, cheerful, kid style, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[10/69] Caty Kunitz
+================================================================================
+
+Age: 38
+Gender: female
+Occupation: Mother, Widow, Caretaker
+Traits: Devoted, Caring, Grieving
+Quirk: 
+Appearance: Tired but caring brown eyes with signs of grief, shoulder-length dark blonde hair pulled back practi...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blonde hair, medium-length hair, brown eyes, light skin, cardigan, jeans, practical adult, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blonde hair, medium-length hair, brown eyes, light skin, cardigan, jeans, practical adult, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[11/69] Isabella Ruiz
+================================================================================
+
+Age: 31
+Gender: female
+Occupation: Yoga Instructor, Lingerie Model, Mother
+Traits: Clumsy, Carefree, Sensitive
+Quirk: 
+Appearance: Blonde hair, blue eyes, alluring fit figure, large D-cup breasts, round posterior, cute and innocent...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blonde hair, blue eyes, athletic, fit physique, toned, large breasts, busty, cleavage, round posterior, wide hips, curvy hips, attractive figure, appealing physique, sports bra, athletic wear, yoga pants, fitness clothing, tight clothing, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blonde hair, blue eyes, athletic, fit physique, toned, large breasts, busty, cleavage, round posterior, wide hips, curvy hips, attractive figure, appealing physique, sports bra, athletic wear, yoga pants, fitness clothing, tight clothing, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[12/69] Eve Madison
+================================================================================
+
+Age: 7
+Gender: female
+Occupation: Child, artist family
+Traits: Creative, Aromantic/Asexual, Loves Sweets
+Quirk: 
+Appearance: Curly auburn hair like her mother, bright curious hazel eyes, fair skin, small for her age, constant...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, auburn hair, hazel eyes, light skin, creative style, casual artistic, unique fashion, bohemian, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, auburn hair, hazel eyes, light skin, creative style, casual artistic, unique fashion, bohemian, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[13/69] Emma Pearson
+================================================================================
+
+Age: 18
+Gender: female
+Occupation: High school senior
+Traits: Shy Introvert, Emotionally Repressed, Studious
+Quirk: 
+Appearance: Slim, petite, blonde hair, blue eyes, youthful complexion, energetic presence, feminine features, gr...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, blonde hair, blue eyes, slender, slim build, petite, small frame, graphic t-shirt, hoodie, jeans, glasses, sneakers, casual nerdy, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, blonde hair, blue eyes, slender, slim build, petite, small frame, graphic t-shirt, hoodie, jeans, glasses, sneakers, casual nerdy, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[14/69] Daniel Carter
+================================================================================
+
+Age: 40
+Gender: male
+Occupation: Engineer, Husband of Scarlet, Father
+Traits: Stern, Hardworking, Traditional
+Quirk: 
+Appearance: Short dark brown hair with some gray at temples, stern brown eyes showing exhaustion, strong jaw, fa...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, brown eyes, athletic, fit physique, toned, broad shoulders, lean build, athletic physique, light skin, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, brown eyes, athletic, fit physique, toned, broad shoulders, lean build, athletic physique, light skin, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[15/69] Elena Sturm
+================================================================================
+
+Age: 8
+Gender: female
+Occupation: Young child, Sturm family
+Traits: Innocent, Curious, Mimics Maria
+Quirk: 
+Appearance: Small for her age, big wide innocent brown eyes, messy dark brown pigtails that Maria ties, latina f...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, brown hair, brown eyes, dress, colorful, playful, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, brown hair, brown eyes, dress, colorful, playful, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[16/69] Hanna
+================================================================================
+
+Age: 17
+Gender: female
+Occupation: Church youth
+Traits: Friendly, Pious, Helpful, Bimbo
+Quirk: 
+Appearance: Light brown hair in a high ponytail, sprinkling of freckles across nose and cheeks, bright blue eyes...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, brown hair, ponytail, blue eyes, athletic, fit physique, toned, petite, small frame, light skin, bright colors, fun outfit, trendy, eye-catching, social butterfly style, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, brown hair, ponytail, blue eyes, athletic, fit physique, toned, petite, small frame, light skin, bright colors, fun outfit, trendy, eye-catching, social butterfly style, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[17/69] Hiro Lockheart
+================================================================================
+
+Age: 13
+Gender: male
+Occupation: Son of Kenny, Brother to Penny, Middle School Student
+Traits: Quiet, Gamer, Avoidant
+Quirk: 
+Appearance: Messy black hair, dark brown eyes usually focused on screens, pale skin from staying indoors, thin l...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, brown hair, brown eyes, light skin, graphic t-shirt, cargo shorts, hoodie, glasses, sneakers, gamer style, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, brown hair, brown eyes, light skin, graphic t-shirt, cargo shorts, hoodie, glasses, sneakers, gamer style, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[18/69] Christine Brunn
+================================================================================
+
+Age: 35
+Gender: female
+Occupation: Psychiatrist, emotionally guarded
+Traits: Insightful, Emotionally-Guarded, Workaholic
+Quirk: 
+Appearance: Sharp dress, tired eyes, carries notebook, mature features, confident bearing, feminine features, gr...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, red hair, cardigan, jeans, practical adult, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, red hair, cardigan, jeans, practical adult, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[19/69] Eva Seinfeld
+================================================================================
+
+Age: 10
+Gender: female
+Occupation: Student, single father's daughter
+Traits: Curious, Assertive (internally), Insecure
+Quirk: 
+Appearance: Long mousy brown hair often slightly disheveled, downcast gray eyes that avoid eye contact, fair ski...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, brown hair, gray eyes, petite, small frame, light skin, fitted outfit, bold colors, confident style, statement piece, powerful look, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, brown hair, gray eyes, petite, small frame, light skin, fitted outfit, bold colors, confident style, statement piece, powerful look, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[20/69] Damien Voss
+================================================================================
+
+Age: 32
+Gender: male
+Occupation: Massage Therapist, New to town
+Traits: Charming, Conflicted, Commitment-Avoidant
+Quirk: 
+Appearance: Rugged, charming smile, anxious hands, mature features, confident bearing, masculine build, strong f...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, fitted shirt, stylish, attractive, well-groomed, charming look, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, fitted shirt, stylish, attractive, well-groomed, charming look, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[21/69] Kenny Lockheart
+================================================================================
+
+Age: 45
+Gender: male
+Occupation: Mechanic, Single Father of Penny and Hiro
+Traits: Grieving, Overly Affectionate, Lack of Boundaries
+Quirk: 
+Appearance: Thinning dark brown hair, tired blue eyes that seem lost in thought, weathered face from grief, mech...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, blue eyes, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, blue eyes, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[22/69] Lianna Carter
+================================================================================
+
+Age: 16
+Gender: female
+Occupation: Student, writer, guitarist
+Traits: Intelligent, Creative, Empathetic, Moody
+Quirk: 
+Appearance: Long flowing dark brown hair (takes after Daniel), deep brown eyes behind rectangular reading glasse...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, brown hair, brown eyes, slender, slim build, light skin, creative style, casual artistic, unique fashion, bohemian, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, brown hair, brown eyes, slender, slim build, light skin, creative style, casual artistic, unique fashion, bohemian, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[23/69] Lily Harper
+================================================================================
+
+Age: 40
+Gender: female
+Occupation: High-School Art Teacher, Single Mother
+Traits: Restless, Compassionate, Conflicted, Nymph-like
+Quirk: 
+Appearance: Chubby, large belly, long wavy brown hair, warm smile, huge breasts, mature features, confident bear...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, brown hair, large breasts, busty, cleavage, blouse, cardigan, professional skirt, business casual, glasses, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, brown hair, large breasts, busty, cleavage, blouse, cardigan, professional skirt, business casual, glasses, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[24/69] Lisa Thompson
+================================================================================
+
+Age: 42
+Gender: female
+Occupation: Single Mother, Teacher, Caregiver
+Traits: Resilient, Lonely, Maternal, Sensual
+Quirk: 
+Appearance: Resilient front, gentle yet firm, weary determination, mature features, confident bearing, feminine ...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blouse, cardigan, professional skirt, business casual, glasses, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blouse, cardigan, professional skirt, business casual, glasses, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[25/69] Ivy
+================================================================================
+
+Age: 7
+Gender: female
+Occupation: Child of Tessa
+Traits: Sharp-witted, Observant, Critical
+Quirk: 
+Appearance: Long blonde hair like her mother but neatly brushed, sharp intelligent blue eyes, fair skin, slender...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, blonde hair, blue eyes, slender, slim build, light skin, dress, colorful, playful, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, blonde hair, blue eyes, slender, slim build, light skin, dress, colorful, playful, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[26/69] James Seinfeld
+================================================================================
+
+Age: 48
+Gender: male
+Occupation: Police Officer, Single Father
+Traits: Gentle, Soft-Spoken, Respectful
+Quirk: 
+Appearance: Short graying brown hair in neat cut, gentle gray-blue eyes that carry subtle sadness, fair weathere...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, blue eyes, light skin, uniform, badge, professional, authoritative, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, blue eyes, light skin, uniform, badge, professional, authoritative, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[27/69] David Madison
+================================================================================
+
+Age: 34
+Gender: male
+Occupation: Senior Backend Developer
+Traits: Reliable, Patient, Secretly frustrated, Provider, Low-key perverted
+Quirk: 
+Appearance: Tall, neatly trimmed beard, glasses, always in flannel shirts and jeans, tired eyes but kind smile, ...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, red hair, sweater, slacks, comfortable adult, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, red hair, sweater, slacks, comfortable adult, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[28/69] Ken Blake
+================================================================================
+
+Age: 38
+Gender: male
+Occupation: Navy SEAL, Husband, Father
+Traits: Disciplined, Charismatic, Trusting
+Quirk: 
+Appearance: Military buzzcut dark brown hair, striking intense blue eyes, strong chiseled jaw, tan weathered ski...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, blue eyes, athletic, fit physique, toned, broad shoulders, muscular build, defined muscles, lean build, athletic physique, medium skin tone, polo shirt, khakis, casual adult, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, blue eyes, athletic, fit physique, toned, broad shoulders, muscular build, defined muscles, lean build, athletic physique, medium skin tone, polo shirt, khakis, casual adult, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[29/69] John Sturm
+================================================================================
+
+Age: 37
+Gender: male
+Occupation: Oil worker, father
+Traits: Protective, Jealous, Distant
+Quirk: 
+Appearance: Large imposing muscular build (6'3"/190cm), rugged weathered face, short dark brown hair, tired dist...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, brown eyes, athletic, fit physique, toned, muscular build, defined muscles, medium skin tone, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, brown eyes, athletic, fit physique, toned, muscular build, defined muscles, medium skin tone, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[30/69] Lucas Ruiz
+================================================================================
+
+Age: 13
+Gender: male
+Occupation: Isabella Ruiz's Son, student, special needs
+Traits: Curious, Inexperienced, Inappropriate
+Quirk: 
+Appearance: Unassuming thin build, messy dark brown hair, wide curious brown eyes, latino features like Isabella...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, brown hair, brown eyes, light skin, band t-shirt, ripped jeans, alternative, edgy teen, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, brown hair, brown eyes, light skin, band t-shirt, ripped jeans, alternative, edgy teen, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[31/69] Luke Stephens
+================================================================================
+
+Age: 13
+Gender: male
+Occupation: Step-brother to Rose, middle school student
+Traits: Curious, Adventurous, Stubborn
+Quirk: 
+Appearance: Shaggy sandy blonde hair, bright blue eyes, fair skin with some freckles, lanky adolescent build, fi...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, blonde hair, blue eyes, light skin, outdoor clothing, hiking boots, practical wear, cargo pants, adventure style, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, blonde hair, blue eyes, light skin, outdoor clothing, hiking boots, practical wear, cargo pants, adventure style, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[32/69] Nate
+================================================================================
+
+Age: 37
+Gender: male
+Occupation: Ex-husband of Tessa
+Traits: Judgmental, Reliable, Distant
+Quirk: 
+Appearance: Clean-cut short brown hair neatly styled, sharp critical blue eyes, fair skin, handsome angular face...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, blue eyes, athletic, fit physique, toned, lean build, athletic physique, light skin, attractive, button-up shirt, slacks, mature professional, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, blue eyes, athletic, fit physique, toned, lean build, athletic physique, light skin, attractive, button-up shirt, slacks, mature professional, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[33/69] Pastor Naomi
+================================================================================
+
+Age: 48
+Gender: female
+Occupation: Lutheran pastor
+Traits: Guiding, Strict, Compassionate
+Quirk: 
+Appearance: Salt-and-pepper graying hair in a professional bob, warm brown eyes behind reading glasses, fair ski...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, brown hair, medium-length hair, brown eyes, light skin, modest dress, professional attire, conservative clothing, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, brown hair, medium-length hair, brown eyes, light skin, modest dress, professional attire, conservative clothing, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[34/69] Rose Stephens
+================================================================================
+
+Age: 16
+Gender: female
+Occupation: Step-sister to Luke, high school student
+Traits: Tsundere, Submissive (hidden), Jealous
+Quirk: 
+Appearance: Long dark brown hair in ponytail or loose waves, expressive hazel eyes that show every emotion, fair...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, brown hair, ponytail, hazel eyes, slender, slim build, light skin, attractive, band t-shirt, skinny jeans, converse, alternative teen, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, brown hair, ponytail, hazel eyes, slender, slim build, light skin, attractive, band t-shirt, skinny jeans, converse, alternative teen, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[35/69] Maria Sturm
+================================================================================
+
+Age: 34
+Gender: female
+Occupation: Mother, nurse
+Traits: Nurturing, Naive, Overly Affectionate
+Quirk: 
+Appearance: Warm smile, curvy, sexy, latina, brown hair, medium breasts. revealing clothing, mature features, co...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, brown hair, medium-length hair, curvy, feminine physique, medium breasts, nurse uniform, medical scrubs, white coat, professional medical attire, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, brown hair, medium-length hair, curvy, feminine physique, medium breasts, nurse uniform, medical scrubs, white coat, professional medical attire, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[36/69] Nina Blake
+================================================================================
+
+Age: 25
+Gender: female
+Occupation: Yoga Instructor, Instagram Model, Step-mother
+Traits: Restless, Charismatic, Guarded
+Quirk: 
+Appearance: Attractive, Athletic build, long auburn hair, striking green eyes, tight yoga outfits or trendy clot...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, auburn hair, green eyes, athletic, fit physique, toned, attractive, sports bra, athletic wear, yoga pants, fitness clothing, tight clothing, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, auburn hair, green eyes, athletic, fit physique, toned, attractive, sports bra, athletic wear, yoga pants, fitness clothing, tight clothing, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[37/69] Milo
+================================================================================
+
+Age: 4
+Gender: male
+Occupation: Child of Tessa
+Traits: Energetic, Curious, Mirrors Tessa
+Quirk: 
+Appearance: Small energetic body, tousled blonde hair like Tessa, bright blue eyes full of curiosity, fair skin,...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, boy, child, blonde hair, blue eyes, light skin, athletic wear, tank top, basketball shorts, sweatpants, sneakers, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, boy, child, blonde hair, blue eyes, light skin, athletic wear, tank top, basketball shorts, sweatpants, sneakers, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[38/69] Mindy Kunitz
+================================================================================
+
+Age: 13
+Gender: female
+Occupation: High School Student, bookworm, clumsy
+Traits: Inquisitive, Vulnerable, Clumsy
+Quirk: 
+Appearance: Soft brown hair often slightly disheveled, warm brown eyes usually focused on reading, fair skin tha...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, brown hair, brown eyes, petite, small frame, light skin, tank top, shorts, athletic, sporty casual, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, brown hair, brown eyes, petite, small frame, light skin, tank top, shorts, athletic, sporty casual, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[39/69] Nora Blake
+================================================================================
+
+Age: 10
+Gender: female
+Occupation: Daughter of Ken, Middle School Student
+Traits: Curious, Compassionate, Anxious
+Quirk: 
+Appearance: Small petite frame, long dark hair like her late mother Aiko, striking blue eyes like Ken (Irish-Jap...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, blue eyes, petite, small frame, light skin, hoodie, jeans, comfortable, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, blue eyes, petite, small frame, light skin, hoodie, jeans, comfortable, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[40/69] Michael Blake
+================================================================================
+
+Age: 14
+Gender: male
+Occupation: Son of Ken, High School Student
+Traits: Restless, Introspective, Charismatic
+Quirk: 
+Appearance: Lanky adolescent build starting to show Ken's athletic genes, short dark hair like his father, strik...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, blue eyes, athletic, fit physique, toned, light skin, band t-shirt, ripped jeans, alternative, edgy teen, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, blue eyes, athletic, fit physique, toned, light skin, band t-shirt, ripped jeans, alternative, edgy teen, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[41/69] Maria Kallio
+================================================================================
+
+Age: 43
+Gender: female
+Occupation: Lutheran mother, devout
+Traits: Nurturing, Devout, Wistful
+Quirk: 
+Appearance: Soft blonde hair in modest style often in bun, kind warm blue eyes, fair Finnish complexion, gentle ...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blonde hair, medium-length hair, blue eyes, light skin, modest dress, conservative clothing, long skirt, covered, traditional, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blonde hair, medium-length hair, blue eyes, light skin, modest dress, conservative clothing, long skirt, covered, traditional, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[42/69] Penny Lockheart
+================================================================================
+
+Age: 15
+Gender: female
+Occupation: Daughter of Kenny, Sister to Hiro, High School Student, Musician
+Traits: Shy, Introspective, Anxious, Compassionate
+Quirk: 
+Appearance: Petite, long black hair, blue eyes, shy posture, usually wearing band tees/dark clothes, adolescent ...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, black hair, blue eyes, petite, small frame, oversized sweater, modest jeans, comfortable clothing, muted colors, simple style, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, black hair, blue eyes, petite, small frame, oversized sweater, modest jeans, comfortable clothing, muted colors, simple style, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[43/69] Selene Arvidsson
+================================================================================
+
+Age: 29
+Gender: Female
+Occupation: Tattoo artist and co-owner of Black Ember
+Traits: Bold, Witty, Confident, Independent, Flirtatious, Emotionally guarded
+Quirk: Mixes work with seduction - late-night clients may push the line between tattoo session and something more intimate
+Appearance: 5'6" with pale skin contrasted by full-sleeve tattoos of ravens and abstract geometric designs, silv...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, black hair, gray eyes, light skin, tattoos, piercings, creative style, casual artistic, unique fashion, bohemian, fitted, fashionable, eye-catching, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, black hair, gray eyes, light skin, tattoos, piercings, creative style, casual artistic, unique fashion, bohemian, fitted, fashionable, eye-catching, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[44/69] Marjorie Hales
+================================================================================
+
+Age: 78
+Gender: person
+Occupation: Retired schoolteacher, long-time resident
+Traits: Observant, Blunt, Traditional
+Quirk: 
+Appearance: Stooped posture with age, sharp piercing blue eyes, pale wrinkled skin, silver-white hair in a neat ...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, white hair, blue eyes, light skin, piercings, button-up shirt, slacks, tie, business casual, glasses, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, white hair, blue eyes, light skin, piercings, button-up shirt, slacks, tie, business casual, glasses, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[45/69] Earl Peterson
+================================================================================
+
+Age: 81
+Gender: person
+Occupation: Retired farmer, widower
+Traits: Stubborn, Kind-hearted, Nostalgic
+Quirk: 
+Appearance: Tall but shrunken with age, weathered sun-tanned skin, deep wrinkles, gray eyes that have seen decad...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, red hair, gray eyes, medium skin tone, work clothes, flannel, jeans, boots, practical outdoor wear, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, red hair, gray eyes, medium skin tone, work clothes, flannel, jeans, boots, practical outdoor wear, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[46/69] Aaliyah Flores
+================================================================================
+
+Age: 26
+Gender: person
+Occupation: Barista at Main Street Coffee, part-time painter
+Traits: Creative, Introverted, Perceptive
+Quirk: 
+Appearance: Curly dark brown hair in a messy bun, warm brown skin, expressive dark brown eyes, delicate silver n...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, slender, slim build, dark skin, tattoos, hoodie, jeans, plain t-shirt, muted colors, comfortable, unassuming, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, slender, slim build, dark skin, tattoos, hoodie, jeans, plain t-shirt, muted colors, comfortable, unassuming, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[47/69] Hassan Karim
+================================================================================
+
+Age: 34
+Gender: person
+Occupation: Owner of Willow Creek Grocery
+Traits: Patient, Hard-working, Diplomatic
+Quirk: 
+Appearance: Well-groomed black beard, warm genuine smile, kind dark brown eyes, olive skin, neat button-up shirt...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, medium-length hair, brown eyes, medium skin tone, collared shirt, jeans, practical mature, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, medium-length hair, brown eyes, medium skin tone, collared shirt, jeans, practical mature, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[48/69] Chloe Hart
+================================================================================
+
+Age: 50
+Gender: person
+Occupation: Hairdresser at Maple Salon, well-known around town
+Traits: Flirty, Confident, Impulsive
+Quirk: 
+Appearance: Dyed vibrant red hair in styled waves, bold red lipstick, bright green eyes with heavy mascara, fair...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, red hair, green eyes, curvy, feminine physique, light skin, fitted shirt, confidence, bold style, strong presence, masculine, fitted, fashionable, eye-catching, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, red hair, green eyes, curvy, feminine physique, light skin, fitted shirt, confidence, bold style, strong presence, masculine, fitted, fashionable, eye-catching, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[49/69] Derek Cole
+================================================================================
+
+Age: 29
+Gender: person
+Occupation: Bartender at Willow Creek Bar & Grill
+Traits: Charming, Non-judgmental, Secretive
+Quirk: 
+Appearance: Tattooed forearms with sleeve designs, easy charming smile, hazel eyes, light stubble, short brown h...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, hazel eyes, athletic, fit physique, toned, tattoos, server uniform, apron, casual professional, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, hazel eyes, athletic, fit physique, toned, tattoos, server uniform, apron, casual professional, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[50/69] Linda Cho
+================================================================================
+
+Age: 42
+Gender: person
+Occupation: Nurse aide at Willow Creek Clinic
+Traits: Efficient, Soft-spoken, Resilient
+Quirk: 
+Appearance: Short black hair in a practical bob, tired but kind dark brown eyes, East Asian features, petite bui...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, dark skin, medical scrubs, white coat, professional medical attire, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, dark skin, medical scrubs, white coat, professional medical attire, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[51/69] Omar Reed
+================================================================================
+
+Age: 37
+Gender: person
+Occupation: Mechanic at Blake's Auto
+Traits: Practical, Loyal, Blunt
+Quirk: 
+Appearance: Grease-stained strong hands, faded baseball cap, muscular build, dark brown skin, short black hair, ...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, athletic, fit physique, toned, dark skin, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, athletic, fit physique, toned, dark skin, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[52/69] Rita Alvarez
+================================================================================
+
+Age: 31
+Gender: person
+Occupation: Yoga instructor at Namaste Yoga Studio
+Traits: Centered, Empathetic, Quietly stubborn
+Quirk: 
+Appearance: Athletic toned build, long dark brown hair in a braid, calm soothing voice, smooth brown skin, warm ...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, braided hair, brown eyes, athletic, fit physique, toned, dark skin, athletic wear, tank top, gym shorts, fitness clothing, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, braided hair, brown eyes, athletic, fit physique, toned, dark skin, athletic wear, tank top, gym shorts, fitness clothing, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[53/69] Caleb Morris
+================================================================================
+
+Age: 23
+Gender: person
+Occupation: Part-time clerk at Main Street Shops, aspiring streamer
+Traits: Awkward, Funny, Procrastinator
+Quirk: 
+Appearance: Messy brown hair uncombed, oversized hoodie, dark circles under tired blue eyes, pale skin from stay...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, blue eyes, light skin, polo shirt, name tag, casual professional, khakis, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, blue eyes, light skin, polo shirt, name tag, casual professional, khakis, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[54/69] Gladys Monroe
+================================================================================
+
+Age: 84
+Gender: person
+Occupation: Retired, church volunteer
+Traits: Pious, Warm, Quietly judgmental
+Quirk: 
+Appearance: Snow white hair in a neat bun, floral print dresses, steady wooden cane, pale wrinkled skin, soft bl...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, white hair, blue eyes, light skin, hoodie, jeans, plain t-shirt, muted colors, comfortable, unassuming, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, white hair, blue eyes, light skin, hoodie, jeans, plain t-shirt, muted colors, comfortable, unassuming, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[55/69] Toby Finch
+================================================================================
+
+Age: 40
+Gender: person
+Occupation: Mail carrier for Willow Creek
+Traits: Reliable, Curious, Discrete
+Quirk: 
+Appearance: Lean wiry build, windburned ruddy cheeks, postal cap slightly crooked, gray-blue eyes, thinning brow...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, blue eyes, collared shirt, jeans, practical mature, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, blue eyes, collared shirt, jeans, practical mature, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[56/69] Ralph Dugan
+================================================================================
+
+Age: 52
+Gender: person
+Occupation: Owner of Maple Lanes Bowling Alley
+Traits: Loud, Friendly, Stubborn
+Quirk: 
+Appearance: Big belly, large build, worn vintage bowling shirt, booming laugh, ruddy complexion, thinning brown ...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, blue eyes, casual shirt, jeans, friendly style, approachable, colorful, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, blue eyes, casual shirt, jeans, friendly style, approachable, colorful, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[57/69] Yelena Kovacs
+================================================================================
+
+Age: 45
+Gender: person
+Occupation: Town Hall clerk
+Traits: Efficient, Dry-witted, Guarded
+Quirk: 
+Appearance: Sharp bob haircut in dark brown, stylish rectangular glasses, crisp professional blouses, pale Easte...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, green eyes, slender, slim build, light skin, polo shirt, name tag, casual professional, khakis, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, green eyes, slender, slim build, light skin, polo shirt, name tag, casual professional, khakis, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[58/69] Logan Pierce
+================================================================================
+
+Age: 33
+Gender: person
+Occupation: Deputy at Willow Creek Police Station
+Traits: Serious, Protective, Conflicted
+Quirk: 
+Appearance: Short well-trimmed beard, standard police uniform, tired but alert blue eyes, short brown hair in re...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, blue eyes, athletic, fit physique, toned, light skin, uniform, badge, professional, authoritative, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, blue eyes, athletic, fit physique, toned, light skin, uniform, badge, professional, authoritative, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[59/69] Angela Browning
+================================================================================
+
+Age: 41
+Gender: person
+Occupation: Mall Security Guard at Willow Creek Mall
+Traits: Observant, Protective, Tired
+Quirk: 
+Appearance: Broad-shouldered muscular build, military-style buzzcut, dark circles under sharp hazel eyes, strong...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, red hair, hazel eyes, athletic, fit physique, toned, medium skin tone, collared shirt, jeans, practical mature, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, red hair, hazel eyes, athletic, fit physique, toned, medium skin tone, collared shirt, jeans, practical mature, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[60/69] Tyler Voss
+================================================================================
+
+Age: 24
+Gender: person
+Occupation: Attendant at Galaxy Arcade in Willow Creek Mall
+Traits: Laid-back, Nerdy, Avoidant
+Quirk: 
+Appearance: Lanky thin build, messy dark brown hair, faded band tee shirt, lanyard with too many keys around nec...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, green eyes, light skin, graphic t-shirt, cargo shorts, hoodie, glasses, sneakers, gamer style, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, green eyes, light skin, graphic t-shirt, cargo shorts, hoodie, glasses, sneakers, gamer style, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[61/69] Mina Patel
+================================================================================
+
+Age: 29
+Gender: person
+Occupation: Shift lead at Pretzel King in Willow Creek Mall Food Court
+Traits: Efficient, Sarcastic, Ambitious
+Quirk: 
+Appearance: Petite slender build, precise winged eyeliner, pretzel flour dusting on dark apron, smooth brown ski...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, ponytail, brown eyes, slender, slim build, dark skin, polo shirt, chinos, smart casual, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, ponytail, brown eyes, slender, slim build, dark skin, polo shirt, chinos, smart casual, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[62/69] Ryan Goldstein
+================================================================================
+
+Age: 26
+Gender: person
+Occupation: Sales clerk at ElectroZone Mobile in Willow Creek Mall
+Traits: Chatty, Tech-savvy, Restless
+Quirk: 
+Appearance: Neatly trimmed brown beard, polo shirt with store logo, constantly checking smartwatch, light brown ...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, medium-length hair, brown eyes, athletic, fit physique, toned, light skin, polo shirt, name tag, casual professional, khakis, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, medium-length hair, brown eyes, athletic, fit physique, toned, light skin, polo shirt, name tag, casual professional, khakis, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[63/69] Clara Sorensen
+================================================================================
+
+Age: 21
+Gender: person
+Occupation: Barista at Bubble Bloom tea stand in Willow Creek Mall Food Court
+Traits: Playful, Intuitive, Guarded
+Quirk: 
+Appearance: Dyed pastel pink and blue hair in a messy bun, enamel pins covering apron, chipped black nail polish...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, black hair, blue eyes, light skin, piercings, casual shirt, jeans, modern style, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, black hair, blue eyes, light skin, piercings, casual shirt, jeans, modern style, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[64/69] Nina Carver
+================================================================================
+
+Age: 34
+Gender: person
+Occupation: Cook at Maple Lanes Snack Bar
+Traits: Blunt, Dependable, Soft-hearted
+Quirk: 
+Appearance: Broad-shouldered strong build, dark brown hair tied back in a bandana, faded bowling-themed t-shirt,...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, green eyes, medium skin tone, chef coat, apron, professional kitchen attire, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, green eyes, medium skin tone, chef coat, apron, professional kitchen attire, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[65/69] Eddie "Pins" Logan
+================================================================================
+
+Age: 47
+Gender: person
+Occupation: Lane mechanic at Maple Lanes Bowling Alley
+Traits: Meticulous, Gentle, Awkward
+Quirk: 
+Appearance: Grease-stained blue coveralls, receding brown hairline, kind gentle brown eyes behind thick glasses,...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, light skin, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, light skin, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[66/69] Marshall Gibb
+================================================================================
+
+Age: 39
+Gender: person
+Occupation: Bartender at Maple Lanes Bar Area
+Traits: Charming, Perceptive, Noncommittal
+Quirk: 
+Appearance: Tall frame, slightly soft around the middle, immaculate well-groomed dark beard, rolled-up sleeves s...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, hazel eyes, tattoos, server uniform, apron, casual professional, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, hazel eyes, tattoos, server uniform, apron, casual professional, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[67/69] Marta Delgado
+================================================================================
+
+Age: 47
+Gender: person
+Occupation: Cleaner at various Main Street businesses
+Traits: Hard-working, Invisible, Observant
+Quirk: 
+Appearance: Always in practical cleaning clothes, strong broad shoulders, tired dark brown eyes, brown skin, bla...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, dark skin, polo shirt, khakis, casual adult, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, dark skin, polo shirt, khakis, casual adult, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[68/69] Grant Miller
+================================================================================
+
+Age: 39
+Gender: person
+Occupation: Road crew worker for the county
+Traits: Gruff, Dependable, Sarcastic
+Quirk: 
+Appearance: High-visibility yellow vest, dusty work boots, sunburnt neck and face, tan weathered skin, blue eyes...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, blonde hair, blue eyes, athletic, fit physique, toned, medium skin tone, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, blonde hair, blue eyes, athletic, fit physique, toned, medium skin tone, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
+================================================================================
+[69/69] Zoey Barnes
+================================================================================
+
+Age: 19
+Gender: person
+Occupation: Waitress at Willow Creek Diner, community college student
+Traits: Chatty, Restless, Sensitive
+Quirk: 
+Appearance: Bleached blonde hair in a high ponytail with dark roots showing, chipped black nail polish, notebook...
+
+--------------------------------------------------------------------------------
+HEADSHOT PORTRAIT (1024x1024)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, blonde hair, ponytail, green eyes, slender, slim build, light skin, tattoos, server uniform, apron, casual professional, natural expression, slight smile, close-up, head and shoulders, portrait, face focus, studio shot, white background, natural light, soft lighting, sharp focus on eyes, symmetrical face, beauty, professional headshot, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+FULL BODY PORTRAIT (832x1216)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, blonde hair, ponytail, green eyes, slender, slim build, light skin, tattoos, server uniform, apron, casual professional, natural expression, slight smile, full body, standing, complete figure, head to toe, full outfit visible, studio shot, white background, natural light, indoors, minimalistic background, soft focus background, sharp focus on subject, well proportioned, symmetrical, fashion, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, headshot only, close-up only, cropped body, sitting, kneeling, lying down
+
+
+
