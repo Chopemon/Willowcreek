@@ -92,6 +92,8 @@ class NPCPortraitGenerator:
         # Set dimensions based on portrait type
         if portrait_type == "full_body":
             width, height = 832, 1216  # Taller aspect ratio for full body
+        elif portrait_type == "cowboy_shot":
+            width, height = 896, 1152  # Medium ratio for waist-up
         else:  # headshot
             width, height = 1024, 1024  # Square for circular headshot
 
@@ -720,6 +722,26 @@ class NPCPortraitGenerator:
                 "symmetrical",
                 "fashion"
             ])
+        elif portrait_type == "cowboy_shot":
+            tags.extend([
+                "cowboy shot",
+                "waist up",
+                "upper body",
+                "from waist",
+                "torso visible",
+                "medium shot",
+                "upper outfit visible",
+                "standing",
+                "studio shot",
+                "white background",
+                "natural light",
+                "indoors",
+                "minimalistic background",
+                "sharp focus",
+                "well proportioned",
+                "fashion",
+                "character focus"
+            ])
         else:  # headshot
             tags.extend([
                 "close-up",
@@ -789,6 +811,18 @@ class NPCPortraitGenerator:
                 "headshot only",
                 "close-up only",
                 "cropped body",
+                "sitting",
+                "kneeling",
+                "lying down"
+            ])
+        elif portrait_type == "cowboy_shot":
+            negative_tags.extend([
+                "full body",
+                "legs visible",
+                "feet visible",
+                "headshot only",
+                "close-up only",
+                "cropped at chest",
                 "sitting",
                 "kneeling",
                 "lying down"

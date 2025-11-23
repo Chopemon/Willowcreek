@@ -62,7 +62,7 @@ def export_all_prompts(output_file: str = "portrait_prompts.txt"):
         f.write("WILLOW CREEK NPC PORTRAIT PROMPTS\n")
         f.write("=" * 80 + "\n\n")
         f.write(f"Total NPCs: {len(npc_roster)}\n")
-        f.write(f"Generated prompts for both HEADSHOT and FULL_BODY portraits\n\n")
+        f.write(f"Generated prompts for HEADSHOT, COWBOY SHOT, and FULL_BODY portraits\n\n")
 
         for idx, npc in enumerate(npc_roster, 1):
             npc_name = npc.get('name', 'Unknown')
@@ -101,6 +101,24 @@ def export_all_prompts(output_file: str = "portrait_prompts.txt"):
             try:
                 positive_prompt, negative_prompt = portrait_gen._build_portrait_prompt(
                     npc_name, npc_data, portrait_type="headshot"
+                )
+
+                f.write("POSITIVE PROMPT:\n")
+                f.write(positive_prompt + "\n\n")
+
+                f.write("NEGATIVE PROMPT:\n")
+                f.write(negative_prompt + "\n\n")
+            except Exception as e:
+                f.write(f"ERROR: {e}\n\n")
+
+            # Generate COWBOY_SHOT prompt
+            f.write("-" * 80 + "\n")
+            f.write("COWBOY SHOT PORTRAIT (896x1152 - Waist Up)\n")
+            f.write("-" * 80 + "\n\n")
+
+            try:
+                positive_prompt, negative_prompt = portrait_gen._build_portrait_prompt(
+                    npc_name, npc_data, portrait_type="cowboy_shot"
                 )
 
                 f.write("POSITIVE PROMPT:\n")

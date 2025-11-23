@@ -154,9 +154,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Generate portraits for all NPCs in npc_roster.json")
     parser.add_argument(
         "--type",
-        choices=["headshot", "full_body"],
+        choices=["headshot", "cowboy_shot", "full_body"],
         default="headshot",
-        help="Type of portrait to generate: 'headshot' (1024x1024, circular) or 'full_body' (832x1216, standing)"
+        help="Type of portrait to generate: 'headshot' (1024x1024, head & shoulders), 'cowboy_shot' (896x1152, waist up), or 'full_body' (832x1216, head to toe)"
     )
     args = parser.parse_args()
 

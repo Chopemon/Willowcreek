@@ -12,10 +12,13 @@ This script pre-generates portraits for all NPCs in `npc_data/npc_roster.json` *
 ```bash
 # From the Willowcreek directory
 
-# Generate headshots (768x768, circular, default)
+# Generate headshots (1024x1024, head & shoulders, default)
 python3 scripts/generate_all_portraits.py
 
-# Generate full body portraits (512x896, standing pose)
+# Generate cowboy shots (896x1152, waist up)
+python3 scripts/generate_all_portraits.py --type cowboy_shot
+
+# Generate full body portraits (832x1216, head to toe)
 python3 scripts/generate_all_portraits.py --type full_body
 
 # Or explicitly specify headshots
@@ -26,9 +29,15 @@ python3 scripts/generate_all_portraits.py --type headshot
 
 ### Headshot (default)
 - **Dimensions:** 1024x1024 pixels (square)
-- **Composition:** Head and shoulders portrait, circular crop
+- **Composition:** Head and shoulders portrait
 - **Focus:** Face details, eyes, expression
 - **Best for:** Character avatars, profile pictures, UI displays
+
+### Cowboy Shot
+- **Dimensions:** 896x1152 pixels (portrait orientation)
+- **Composition:** Waist up, medium shot showing upper body
+- **Focus:** Face, upper outfit, torso
+- **Best for:** Character dialogue portraits, showing outfit + face, social media style
 
 ### Full Body
 - **Dimensions:** 832x1216 pixels (portrait orientation)
