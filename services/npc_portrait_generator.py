@@ -128,11 +128,12 @@ class NPCPortraitGenerator:
 
     def _build_portrait_prompt(self, npc_name: str, npc_data: Dict, portrait_type: str = "headshot") -> Tuple[str, str]:
         """
-        Build ComfyUI prompt for NPC portrait.
+        Build ComfyUI prompt for NPC portrait using natural language tags.
 
         Args:
             npc_name: Name of the NPC
             npc_data: NPC data with appearance information
+            portrait_type: "headshot" or "full_body"
 
         Returns:
             Tuple of (positive_prompt, negative_prompt)
@@ -152,107 +153,237 @@ class NPCPortraitGenerator:
 
         gender = str(gender).lower()
 
-        # Build character description with explicit age and gender
-        # Determine gender-specific terms
+        # Build tag list
+        tags = []
+
+        # Core tags
+        tags.append("photograph")
+        tags.append("professional")
+        tags.append("high resolution")
+        tags.append("detailed")
+
+        # Gender and age tags
         if gender == 'male':
             if age < 13:
-                gender_term = "boy"
+                tags.extend(["boy", "child"])
             elif age < 18:
-                gender_term = "teenage boy"
+                tags.extend(["teenage boy", "teenager", "young"])
+            elif age < 30:
+                tags.extend(["man", "young adult"])
+            elif age < 50:
+                tags.extend(["man", "adult"])
             else:
-                gender_term = "man"
+                tags.extend(["man", "mature", "older"])
         elif gender == 'female':
             if age < 13:
-                gender_term = "girl"
+                tags.extend(["girl", "child"])
             elif age < 18:
-                gender_term = "teenage girl"
+                tags.extend(["teenage girl", "teenager", "young"])
+            elif age < 30:
+                tags.extend(["woman", "young adult"])
+            elif age < 50:
+                tags.extend(["woman", "adult"])
             else:
-                gender_term = "woman"
+                tags.extend(["woman", "mature", "older"])
         else:
-            # Fallback for non-binary or unknown gender - default to adult terms
             if age < 18:
-                gender_term = "young person"
+                tags.extend(["young person", "teenager"])
             else:
-                gender_term = "person"
+                tags.extend(["person", "adult"])
 
-        # Build age descriptor with actual age
-        if age < 18:
-            age_desc = f"{age} year old {gender_term}"
-        elif age < 30:
-            age_desc = f"{age} year old young {gender_term}"
-        elif age < 50:
-            age_desc = f"{age} year old {gender_term}"
-        else:
-            age_desc = f"{age} year old mature {gender_term}"
+        # Parse appearance for specific features
+        if appearance:
+            appearance_lower = appearance.lower()
 
-        # Use full appearance description directly
-        appearance_features = appearance if appearance else ""
+            # Hair color
+            hair_colors = ["blonde", "brown", "black", "red", "auburn", "gray", "grey", "white", "silver"]
+            for color in hair_colors:
+                if color in appearance_lower:
+                    tags.append(f"{color} hair")
+                    break
 
-        # Extract personality hints for visual style
-        mood = "neutral, calm expression"
+            # Hair style
+            if "ponytail" in appearance_lower:
+                tags.append("ponytail")
+            elif "braided" in appearance_lower or "braid" in appearance_lower:
+                tags.append("braided hair")
+            elif "short hair" in appearance_lower:
+                tags.append("short hair")
+            elif "long hair" in appearance_lower:
+                tags.append("long hair")
+            elif "medium" in appearance_lower and "hair" in appearance_lower:
+                tags.append("medium-length hair")
+
+            # Eye color
+            eye_colors = ["blue", "green", "brown", "hazel", "gray", "grey"]
+            for color in eye_colors:
+                if f"{color} eyes" in appearance_lower:
+                    tags.append(f"{color} eyes")
+                    break
+
+            # Build/physique
+            if "muscular" in appearance_lower or "athletic" in appearance_lower:
+                tags.extend(["athletic", "fit physique", "toned"])
+            elif "slim" in appearance_lower or "slender" in appearance_lower:
+                tags.extend(["slender", "slim build"])
+            elif "curvy" in appearance_lower:
+                tags.extend(["curvy", "feminine physique"])
+
+            # Skin tone
+            if "pale" in appearance_lower or "fair" in appearance_lower:
+                tags.append("light skin")
+            elif "tan" in appearance_lower or "olive" in appearance_lower:
+                tags.append("medium skin tone")
+            elif "dark" in appearance_lower and "skin" in appearance_lower:
+                tags.append("dark skin")
+
+            # Features
+            if "attractive" in appearance_lower or "beautiful" in appearance_lower or "handsome" in appearance_lower:
+                tags.append("attractive")
+            if "tattoo" in appearance_lower:
+                tags.append("tattoos")
+            if "piercing" in appearance_lower:
+                tags.append("piercings")
+
+        # Clothing style based on traits/quirk
+        clothing_added = False
+        if quirk:
+            quirk_lower = quirk.lower()
+            if "athletic" in quirk_lower or "fitness" in quirk_lower:
+                tags.extend(["sports bra", "athletic wear", "fitness clothing", "tight clothing"])
+                clothing_added = True
+            elif "professional" in quirk_lower or "business" in quirk_lower:
+                tags.extend(["business casual", "professional attire", "dress shirt"])
+                clothing_added = True
+            elif "casual" in quirk_lower:
+                tags.extend(["casual wear", "t-shirt", "jeans"])
+                clothing_added = True
+
+        if not clothing_added:
+            tags.append("casual clothing")
+
+        # Expression/mood based on quirk
         if quirk:
             quirk_lower = quirk.lower()
             if "flirt" in quirk_lower or "seductive" in quirk_lower:
-                mood = "confident, alluring gaze"
-            elif "dominant" in quirk_lower or "assertive" in quirk_lower:
-                mood = "strong, determined expression"
+                tags.extend(["confident", "smiling", "alluring gaze", "makeup", "lips"])
             elif "shy" in quirk_lower or "nervous" in quirk_lower:
-                mood = "gentle, soft expression"
+                tags.extend(["gentle expression", "soft smile", "natural makeup"])
+            elif "dominant" in quirk_lower or "assertive" in quirk_lower:
+                tags.extend(["confident", "strong expression", "serious"])
             elif "playful" in quirk_lower or "mischievous" in quirk_lower:
-                mood = "playful, slight smile"
+                tags.extend(["smiling", "playful expression", "friendly"])
+            else:
+                tags.extend(["natural expression", "slight smile"])
+        else:
+            tags.extend(["natural expression", "slight smile"])
 
-        # Build positive prompt
-        positive_parts = [
-            "masterpiece, best quality, highly detailed, 4k",
-            "professional portrait photograph",
-            age_desc,
+        # Portrait type specific tags
+        if portrait_type == "full_body":
+            tags.extend([
+                "full body",
+                "standing",
+                "complete figure",
+                "head to toe",
+                "full outfit visible",
+                "studio shot",
+                "white background",
+                "natural light",
+                "indoors",
+                "minimalistic background",
+                "soft focus background",
+                "sharp focus on subject",
+                "well proportioned",
+                "symmetrical",
+                "fashion"
+            ])
+        else:  # headshot
+            tags.extend([
+                "close-up",
+                "head and shoulders",
+                "portrait",
+                "face focus",
+                "studio shot",
+                "white background",
+                "natural light",
+                "soft lighting",
+                "sharp focus on eyes",
+                "symmetrical face",
+                "beauty",
+                "professional headshot"
+            ])
+
+        # Quality tags
+        tags.extend([
+            "photorealistic",
+            "natural skin texture",
+            "high quality",
+            "masterpiece",
+            "detailed face",
+            "sharp details"
+        ])
+
+        # Build positive prompt from tags
+        positive_prompt = ", ".join(tags)
+
+        # Build negative prompt
+        negative_tags = [
+            "low quality",
+            "blurry",
+            "distorted",
+            "ugly",
+            "deformed",
+            "disfigured",
+            "cartoon",
+            "anime",
+            "3d render",
+            "bad anatomy",
+            "bad proportions",
+            "multiple heads",
+            "extra limbs",
+            "bad hands",
+            "bad feet",
+            "missing fingers",
+            "extra fingers",
+            "fused fingers",
+            "text",
+            "watermark",
+            "logo",
+            "signature",
+            "username",
+            "artist name",
+            "cropped",
+            "out of frame",
+            "worst quality",
+            "jpeg artifacts",
+            "duplicate",
+            "mutation"
         ]
 
-        # Add appearance features if available
-        if appearance_features:
-            positive_parts.append(appearance_features)
-
-        # Adjust composition based on portrait type
+        # Type-specific negative tags
         if portrait_type == "full_body":
-            positive_parts.extend([
-                "full body portrait, standing pose",
-                mood,
-                "showing complete outfit and clothing details",
-                "full body visible from head to feet",
-                "soft studio lighting, neutral background",
-                "photorealistic, natural skin texture",
-                "professional photography, well proportioned",
-                "cinematic lighting"
+            negative_tags.extend([
+                "headshot only",
+                "close-up only",
+                "cropped body",
+                "sitting",
+                "kneeling",
+                "lying down"
             ])
-
-            # Negative prompt for full body (no "full body" in exclusions)
-            negative_prompt = (
-                "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, "
-                "multiple heads, bad hands, bad feet, text, watermark, logo, cropped, "
-                "close-up only, headshot, extreme close-up, wide angle, fish eye, sitting, kneeling"
-            )
         else:  # headshot
-            positive_parts.extend([
-                "head and shoulders portrait",
-                mood,
-                "soft studio lighting, neutral background",
-                "photorealistic, natural skin texture",
-                "sharp focus on eyes",
-                "cinematic lighting, professional photography"
+            negative_tags.extend([
+                "full body",
+                "cropped face",
+                "sunglasses",
+                "hat",
+                "hood"
             ])
 
-            # Negative prompt for headshot
-            negative_prompt = (
-                "low quality, blurry, distorted, ugly, deformed, cartoon, anime, bad anatomy, "
-                "multiple heads, bad hands, text, watermark, logo, full body, cropped face, "
-                "sunglasses, extreme close-up, wide angle, fish eye"
-            )
-
-        positive_prompt = ", ".join(positive_parts)
+        negative_prompt = ", ".join(negative_tags)
 
         print(f"[PortraitGen] {portrait_type} prompt for {npc_name}:")
-        print(f"[PortraitGen]   Positive: {positive_prompt}")
-        print(f"[PortraitGen]   Negative: {negative_prompt}")
+        print(f"[PortraitGen]   Positive: {positive_prompt[:150]}..." if len(positive_prompt) > 150 else f"[PortraitGen]   Positive: {positive_prompt}")
+        print(f"[PortraitGen]   Negative: {negative_prompt[:150]}..." if len(negative_prompt) > 150 else f"[PortraitGen]   Negative: {negative_prompt}")
 
         return positive_prompt, negative_prompt
 
