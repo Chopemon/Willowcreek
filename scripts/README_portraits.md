@@ -1,6 +1,6 @@
 # NPC Portrait Batch Generator
 
-This script pre-generates portraits for all NPCs in `npc_data/npc_roster.json`.
+This script pre-generates portraits for all NPCs in `npc_data/npc_roster.json` **and** `npc_data/npc_generic.json` (generic NPCs).
 
 ## Prerequisites
 

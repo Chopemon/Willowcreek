@@ -53,7 +53,7 @@ async def generate_all_portraits(portrait_type: str = "headshot"):
     print("[Setup] Initializing portrait generator...")
     portrait_gen = NPCPortraitGenerator(comfyui_client=comfyui_client)
 
-    # Load NPC roster
+    # Load NPC roster (main + generic)
     print(f"\n[Loading] Reading NPC roster from {roster_file}...")
     if not roster_file.exists():
         print(f"[Error] NPC roster not found at {roster_file}")
@@ -62,7 +62,21 @@ async def generate_all_portraits(portrait_type: str = "headshot"):
     with open(roster_file, 'r', encoding='utf-8') as f:
         npc_roster = json.load(f)
 
-    print(f"[Loading] ✓ Found {len(npc_roster)} NPCs in roster")
+    print(f"[Loading] ✓ Found {len(npc_roster)} main NPCs")
+
+    # Load generic NPCs
+    generic_file = base_dir / "npc_data" / "npc_generic.json"
+    generic_roster = []
+    if generic_file.exists():
+        print(f"[Loading] Reading generic NPCs from {generic_file}...")
+        with open(generic_file, 'r', encoding='utf-8') as f:
+            generic_roster = json.load(f)
+        print(f"[Loading] ✓ Found {len(generic_roster)} generic NPCs")
+        npc_roster.extend(generic_roster)
+    else:
+        print(f"[Loading] ℹ No generic NPCs file found (optional)")
+
+    print(f"[Loading] ✓ Total NPCs to process: {len(npc_roster)}")
 
     # Generate portraits
     print("\n" + "=" * 60)
@@ -92,7 +106,8 @@ async def generate_all_portraits(portrait_type: str = "headshot"):
             'age': npc.get('age', 25),
             'traits': npc.get('coreTraits', []),
             'quirk': npc.get('quirk', ''),
-            'appearance': npc.get('appearance', '')
+            'appearance': npc.get('appearance', ''),
+            'occupation': npc.get('occupation', '')
         }
 
         print(f"  Age: {npc_data['age']}")
