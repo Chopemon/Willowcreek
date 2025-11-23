@@ -144,6 +144,7 @@ class NPCPortraitGenerator:
         traits = npc_data.get('traits', [])
         quirk = npc_data.get('quirk', '')
         appearance = npc_data.get('appearance', '')
+        occupation = npc_data.get('occupation', '')
 
         # Convert Gender enum to string if needed
         if hasattr(gender, 'value'):
@@ -245,22 +246,153 @@ class NPCPortraitGenerator:
             if "piercing" in appearance_lower:
                 tags.append("piercings")
 
-        # Clothing style based on traits/quirk
+        # Clothing style based on occupation, traits, and personality
+        clothing_tags = []
         clothing_added = False
-        if quirk:
-            quirk_lower = quirk.lower()
-            if "athletic" in quirk_lower or "fitness" in quirk_lower:
-                tags.extend(["sports bra", "athletic wear", "fitness clothing", "tight clothing"])
-                clothing_added = True
-            elif "professional" in quirk_lower or "business" in quirk_lower:
-                tags.extend(["business casual", "professional attire", "dress shirt"])
-                clothing_added = True
-            elif "casual" in quirk_lower:
-                tags.extend(["casual wear", "t-shirt", "jeans"])
+
+        # OCCUPATION-BASED CLOTHING (highest priority)
+        if occupation:
+            occ_lower = occupation.lower()
+
+            # Medical professions
+            if any(word in occ_lower for word in ['nurse', 'doctor', 'paramedic', 'medical']):
+                if gender == 'female':
+                    clothing_tags.extend(["nurse uniform", "medical scrubs", "white coat", "professional medical attire"])
+                else:
+                    clothing_tags.extend(["medical scrubs", "white coat", "professional medical attire"])
                 clothing_added = True
 
+            # Education
+            elif any(word in occ_lower for word in ['teacher', 'professor', 'instructor', 'educator']):
+                if gender == 'female':
+                    clothing_tags.extend(["blouse", "cardigan", "professional skirt", "business casual", "glasses"])
+                else:
+                    clothing_tags.extend(["button-up shirt", "slacks", "tie", "business casual", "glasses"])
+                clothing_added = True
+
+            # Law enforcement / emergency
+            elif any(word in occ_lower for word in ['officer', 'police', 'sheriff', 'deputy', 'firefighter']):
+                clothing_tags.extend(["uniform", "badge", "professional", "authoritative"])
+                clothing_added = True
+
+            # Religious
+            elif any(word in occ_lower for word in ['pastor', 'minister', 'priest', 'clergy']):
+                if gender == 'female':
+                    clothing_tags.extend(["modest dress", "professional attire", "conservative clothing"])
+                else:
+                    clothing_tags.extend(["clergy collar", "dress shirt", "black pants", "professional"])
+                clothing_added = True
+
+            # Mechanics / manual labor
+            elif any(word in occ_lower for word in ['mechanic', 'technician', 'engineer', 'worker', 'construction']):
+                if gender == 'female':
+                    clothing_tags.extend(["work clothes", "denim", "coveralls", "practical clothing", "work boots"])
+                else:
+                    clothing_tags.extend(["work shirt", "denim", "coveralls", "practical clothing", "work boots"])
+                clothing_added = True
+
+            # Food service
+            elif any(word in occ_lower for word in ['chef', 'cook', 'bartender', 'waitress', 'waiter', 'server']):
+                if 'chef' in occ_lower or 'cook' in occ_lower:
+                    clothing_tags.extend(["chef coat", "apron", "professional kitchen attire"])
+                else:
+                    clothing_tags.extend(["server uniform", "apron", "casual professional"])
+                clothing_added = True
+
+            # Retail / customer service
+            elif any(word in occ_lower for word in ['cashier', 'sales', 'clerk', 'retail', 'receptionist']):
+                if gender == 'female':
+                    clothing_tags.extend(["polo shirt", "name tag", "casual professional", "khakis"])
+                else:
+                    clothing_tags.extend(["polo shirt", "name tag", "casual professional", "khakis"])
+                clothing_added = True
+
+            # Business / office
+            elif any(word in occ_lower for word in ['manager', 'executive', 'accountant', 'administrator', 'secretary']):
+                if gender == 'female':
+                    clothing_tags.extend(["business suit", "blazer", "pencil skirt", "blouse", "professional attire", "heels"])
+                else:
+                    clothing_tags.extend(["business suit", "tie", "dress shirt", "slacks", "professional attire"])
+                clothing_added = True
+
+            # Creative professions
+            elif any(word in occ_lower for word in ['artist', 'designer', 'photographer', 'writer']):
+                clothing_tags.extend(["creative style", "casual artistic", "unique fashion", "bohemian"])
+                clothing_added = True
+
+            # Fitness / athletics
+            elif any(word in occ_lower for word in ['trainer', 'coach', 'athlete', 'fitness', 'gym']):
+                if gender == 'female':
+                    clothing_tags.extend(["sports bra", "athletic wear", "yoga pants", "fitness clothing", "tight clothing"])
+                else:
+                    clothing_tags.extend(["athletic wear", "tank top", "gym shorts", "fitness clothing"])
+                clothing_added = True
+
+            # Agriculture / outdoors
+            elif any(word in occ_lower for word in ['farmer', 'rancher', 'gardener', 'landscaper']):
+                clothing_tags.extend(["work clothes", "flannel", "jeans", "boots", "practical outdoor wear"])
+                clothing_added = True
+
+        # TRAIT-BASED MODIFICATIONS (secondary priority)
+        if traits:
+            traits_str = ' '.join(traits).lower()
+
+            # Athletic/active traits
+            if any(word in traits_str for word in ['athletic', 'active', 'energetic', 'fitness']) and not clothing_added:
+                if gender == 'female':
+                    clothing_tags.extend(["sports bra", "athletic wear", "yoga pants", "fitness clothing"])
+                else:
+                    clothing_tags.extend(["athletic wear", "tank top", "gym shorts"])
+                clothing_added = True
+
+            # Professional/serious traits
+            elif any(word in traits_str for word in ['professional', 'serious', 'organized', 'responsible']) and not clothing_added:
+                if gender == 'female':
+                    clothing_tags.extend(["business casual", "blouse", "professional attire"])
+                else:
+                    clothing_tags.extend(["business casual", "button-up shirt", "slacks"])
+                clothing_added = True
+
+            # Creative/artistic traits
+            elif any(word in traits_str for word in ['creative', 'artistic', 'expressive']) and not clothing_added:
+                clothing_tags.extend(["creative style", "unique fashion", "artistic clothing", "colorful"])
+                clothing_added = True
+
+            # Shy/modest traits - adjust existing clothing
+            if any(word in traits_str for word in ['shy', 'modest', 'reserved', 'conservative']):
+                clothing_tags.extend(["modest", "conservative cut"])
+
+            # Confident/bold traits - adjust existing clothing
+            if any(word in traits_str for word in ['confident', 'bold', 'outgoing', 'flirty']):
+                clothing_tags.extend(["fitted", "fashionable", "stylish"])
+
+        # QUIRK-BASED ADDITIONS (tertiary priority)
+        if quirk and not clothing_added:
+            quirk_lower = quirk.lower()
+            if "athletic" in quirk_lower or "fitness" in quirk_lower:
+                if gender == 'female':
+                    clothing_tags.extend(["sports bra", "athletic wear", "tight clothing"])
+                else:
+                    clothing_tags.extend(["athletic wear", "tank top"])
+                clothing_added = True
+            elif "professional" in quirk_lower or "business" in quirk_lower:
+                clothing_tags.extend(["business casual", "professional attire"])
+                clothing_added = True
+
+        # DEFAULT CLOTHING (if nothing matched)
         if not clothing_added:
-            tags.append("casual clothing")
+            if age < 18:
+                clothing_tags.extend(["casual wear", "t-shirt", "jeans"])
+            elif age < 30:
+                if gender == 'female':
+                    clothing_tags.extend(["casual modern", "jeans", "top"])
+                else:
+                    clothing_tags.extend(["casual wear", "t-shirt", "jeans"])
+            else:
+                clothing_tags.extend(["casual clothing", "comfortable"])
+
+        # Add all clothing tags
+        tags.extend(clothing_tags)
 
         # Expression/mood based on quirk
         if quirk:

@@ -174,9 +174,10 @@ async def generate_npc_portraits(narrative_text: str):
         npc_data = {
             'gender': npc.gender if hasattr(npc, 'gender') else 'person',
             'age': npc.age if hasattr(npc, 'age') else 25,
-            'traits': npc.traits if hasattr(npc, 'traits') else [],
+            'traits': npc.coreTraits if hasattr(npc, 'coreTraits') else [],
             'quirk': npc.quirk if hasattr(npc, 'quirk') else '',
-            'appearance': npc.appearance if hasattr(npc, 'appearance') else ''
+            'appearance': npc.appearance if hasattr(npc, 'appearance') else '',
+            'occupation': npc.occupation if hasattr(npc, 'occupation') else ''
         }
 
         # Generate or get BOTH portrait types
