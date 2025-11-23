@@ -3,7 +3,7 @@ WILLOW CREEK NPC PORTRAIT PROMPTS
 ================================================================================
 
 Total NPCs: 69
-Generated prompts for both HEADSHOT and FULL_BODY portraits
+Generated prompts for HEADSHOT, COWBOY SHOT, and FULL_BODY portraits
 
 ================================================================================
 [1/69] Sarah Madison
@@ -25,6 +25,16 @@ photograph, professional, high resolution, detailed, woman, young adult, creativ
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, creative style, casual artistic, unique fashion, bohemian, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -60,6 +70,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, brown hair, green eyes, blouse, cardigan, professional skirt, business casual, glasses, neat, well-maintained, clean appearance, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -91,6 +111,16 @@ photograph, professional, high resolution, detailed, teenage boy, teenager, youn
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, athletic, fit physique, toned, lean build, athletic physique, modest clothing, conservative, neat, traditional style, respectful, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -126,6 +156,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blonde hair, blue eyes, athletic, fit physique, toned, sports bra, athletic wear, yoga pants, fitness clothing, tight clothing, neat, well-maintained, clean appearance, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -157,6 +197,16 @@ photograph, professional, high resolution, detailed, teenage boy, teenager, youn
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, brown hair, gray eyes, lean build, athletic physique, light skin, band t-shirt, ripped jeans, alternative, edgy teen, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -192,6 +242,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, brown hair, light skin, basketball jersey, shorts, sporty, athletic teen, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -223,6 +283,16 @@ photograph, professional, high resolution, detailed, woman, young adult, blonde 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, blonde hair, brown eyes, slender, slim build, light skin, dress, fashionable, young professional, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -258,6 +328,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, athletic, fit physique, toned, lean build, athletic physique, ripped jeans, band t-shirt, leather jacket, combat boots, dark clothing, punk style, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -289,6 +369,16 @@ photograph, professional, high resolution, detailed, girl, child, brown hair, br
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, brown hair, brown eyes, light skin, overalls, cheerful, kid style, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -324,6 +414,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blonde hair, medium-length hair, brown eyes, light skin, cardigan, jeans, practical adult, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -355,6 +455,16 @@ photograph, professional, high resolution, detailed, woman, adult, blonde hair, 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blonde hair, blue eyes, athletic, fit physique, toned, large breasts, busty, cleavage, round posterior, wide hips, curvy hips, attractive figure, appealing physique, sports bra, athletic wear, yoga pants, fitness clothing, tight clothing, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -390,6 +500,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, auburn hair, hazel eyes, light skin, creative style, casual artistic, unique fashion, bohemian, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -421,6 +541,16 @@ photograph, professional, high resolution, detailed, woman, young adult, blonde 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, blonde hair, blue eyes, slender, slim build, petite, small frame, graphic t-shirt, hoodie, jeans, glasses, sneakers, casual nerdy, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -456,6 +586,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, brown eyes, athletic, fit physique, toned, broad shoulders, lean build, athletic physique, light skin, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -487,6 +627,16 @@ photograph, professional, high resolution, detailed, girl, child, brown hair, br
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, brown hair, brown eyes, dress, colorful, playful, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -522,6 +672,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, brown hair, ponytail, blue eyes, athletic, fit physique, toned, petite, small frame, light skin, bright colors, fun outfit, trendy, eye-catching, social butterfly style, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -553,6 +713,16 @@ photograph, professional, high resolution, detailed, teenage boy, teenager, youn
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, brown hair, brown eyes, light skin, graphic t-shirt, cargo shorts, hoodie, glasses, sneakers, gamer style, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -588,6 +758,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, red hair, cardigan, jeans, practical adult, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -619,6 +799,16 @@ photograph, professional, high resolution, detailed, girl, child, brown hair, gr
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, brown hair, gray eyes, petite, small frame, light skin, fitted outfit, bold colors, confident style, statement piece, powerful look, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -654,6 +844,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, fitted shirt, stylish, attractive, well-groomed, charming look, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -685,6 +885,16 @@ photograph, professional, high resolution, detailed, man, adult, brown hair, blu
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, blue eyes, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -720,6 +930,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, brown hair, brown eyes, slender, slim build, light skin, creative style, casual artistic, unique fashion, bohemian, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -751,6 +971,16 @@ photograph, professional, high resolution, detailed, woman, adult, brown hair, l
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, brown hair, large breasts, busty, cleavage, blouse, cardigan, professional skirt, business casual, glasses, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -786,6 +1016,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blouse, cardigan, professional skirt, business casual, glasses, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -817,6 +1057,16 @@ photograph, professional, high resolution, detailed, girl, child, blonde hair, b
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, blonde hair, blue eyes, slender, slim build, light skin, dress, colorful, playful, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -852,6 +1102,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, blue eyes, light skin, uniform, badge, professional, authoritative, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -883,6 +1143,16 @@ photograph, professional, high resolution, detailed, man, adult, red hair, sweat
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, red hair, sweater, slacks, comfortable adult, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -918,6 +1188,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, blue eyes, athletic, fit physique, toned, broad shoulders, muscular build, defined muscles, lean build, athletic physique, medium skin tone, polo shirt, khakis, casual adult, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -949,6 +1229,16 @@ photograph, professional, high resolution, detailed, man, adult, brown hair, bro
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, brown eyes, athletic, fit physique, toned, muscular build, defined muscles, medium skin tone, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -984,6 +1274,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, brown hair, brown eyes, light skin, band t-shirt, ripped jeans, alternative, edgy teen, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1015,6 +1315,16 @@ photograph, professional, high resolution, detailed, teenage boy, teenager, youn
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, blonde hair, blue eyes, light skin, outdoor clothing, hiking boots, practical wear, cargo pants, adventure style, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1050,6 +1360,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, man, adult, brown hair, blue eyes, athletic, fit physique, toned, lean build, athletic physique, light skin, attractive, button-up shirt, slacks, mature professional, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1081,6 +1401,16 @@ photograph, professional, high resolution, detailed, woman, adult, brown hair, m
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, brown hair, medium-length hair, brown eyes, light skin, modest dress, professional attire, conservative clothing, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1116,6 +1446,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, brown hair, ponytail, hazel eyes, slender, slim build, light skin, attractive, band t-shirt, skinny jeans, converse, alternative teen, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1147,6 +1487,16 @@ photograph, professional, high resolution, detailed, woman, adult, brown hair, m
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, brown hair, medium-length hair, curvy, feminine physique, medium breasts, nurse uniform, medical scrubs, white coat, professional medical attire, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1182,6 +1532,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, auburn hair, green eyes, athletic, fit physique, toned, attractive, sports bra, athletic wear, yoga pants, fitness clothing, tight clothing, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1213,6 +1573,16 @@ photograph, professional, high resolution, detailed, boy, child, blonde hair, bl
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, boy, child, blonde hair, blue eyes, light skin, athletic wear, tank top, basketball shorts, sweatpants, sneakers, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1248,6 +1618,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, brown hair, brown eyes, petite, small frame, light skin, tank top, shorts, athletic, sporty casual, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1279,6 +1659,16 @@ photograph, professional, high resolution, detailed, girl, child, blue eyes, pet
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, girl, child, blue eyes, petite, small frame, light skin, hoodie, jeans, comfortable, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1314,6 +1704,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage boy, teenager, young, blue eyes, athletic, fit physique, toned, light skin, band t-shirt, ripped jeans, alternative, edgy teen, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1345,6 +1745,16 @@ photograph, professional, high resolution, detailed, woman, adult, blonde hair, 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, adult, blonde hair, medium-length hair, blue eyes, light skin, modest dress, conservative clothing, long skirt, covered, traditional, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1380,6 +1790,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, teenage girl, teenager, young, black hair, blue eyes, petite, small frame, oversized sweater, modest jeans, comfortable clothing, muted colors, simple style, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1411,6 +1831,16 @@ photograph, professional, high resolution, detailed, woman, young adult, black h
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, woman, young adult, black hair, gray eyes, light skin, tattoos, piercings, creative style, casual artistic, unique fashion, bohemian, fitted, fashionable, eye-catching, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1446,6 +1876,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, white hair, blue eyes, light skin, piercings, button-up shirt, slacks, tie, business casual, glasses, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1477,6 +1917,16 @@ photograph, professional, high resolution, detailed, person, adult, red hair, gr
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, red hair, gray eyes, medium skin tone, work clothes, flannel, jeans, boots, practical outdoor wear, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1512,6 +1962,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, slender, slim build, dark skin, tattoos, hoodie, jeans, plain t-shirt, muted colors, comfortable, unassuming, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1543,6 +2003,16 @@ photograph, professional, high resolution, detailed, person, adult, brown hair, 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, medium-length hair, brown eyes, medium skin tone, collared shirt, jeans, practical mature, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1578,6 +2048,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, red hair, green eyes, curvy, feminine physique, light skin, fitted shirt, confidence, bold style, strong presence, masculine, fitted, fashionable, eye-catching, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1609,6 +2089,16 @@ photograph, professional, high resolution, detailed, person, adult, brown hair, 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, hazel eyes, athletic, fit physique, toned, tattoos, server uniform, apron, casual professional, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1644,6 +2134,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, dark skin, medical scrubs, white coat, professional medical attire, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1675,6 +2175,16 @@ photograph, professional, high resolution, detailed, person, adult, brown hair, 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, athletic, fit physique, toned, dark skin, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1710,6 +2220,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, braided hair, brown eyes, athletic, fit physique, toned, dark skin, athletic wear, tank top, gym shorts, fitness clothing, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1741,6 +2261,16 @@ photograph, professional, high resolution, detailed, person, adult, brown hair, 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, blue eyes, light skin, polo shirt, name tag, casual professional, khakis, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1776,6 +2306,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, white hair, blue eyes, light skin, hoodie, jeans, plain t-shirt, muted colors, comfortable, unassuming, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1807,6 +2347,16 @@ photograph, professional, high resolution, detailed, person, adult, brown hair, 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, blue eyes, collared shirt, jeans, practical mature, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1842,6 +2392,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, blue eyes, casual shirt, jeans, friendly style, approachable, colorful, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1873,6 +2433,16 @@ photograph, professional, high resolution, detailed, person, adult, brown hair, 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, green eyes, slender, slim build, light skin, polo shirt, name tag, casual professional, khakis, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1908,6 +2478,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, blue eyes, athletic, fit physique, toned, light skin, uniform, badge, professional, authoritative, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -1939,6 +2519,16 @@ photograph, professional, high resolution, detailed, person, adult, red hair, ha
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, red hair, hazel eyes, athletic, fit physique, toned, medium skin tone, collared shirt, jeans, practical mature, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -1974,6 +2564,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, green eyes, light skin, graphic t-shirt, cargo shorts, hoodie, glasses, sneakers, gamer style, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -2005,6 +2605,16 @@ photograph, professional, high resolution, detailed, person, adult, brown hair, 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, ponytail, brown eyes, slender, slim build, dark skin, polo shirt, chinos, smart casual, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -2040,6 +2650,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, medium-length hair, brown eyes, athletic, fit physique, toned, light skin, polo shirt, name tag, casual professional, khakis, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -2071,6 +2691,16 @@ photograph, professional, high resolution, detailed, person, adult, black hair, 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, black hair, blue eyes, light skin, piercings, casual shirt, jeans, modern style, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -2106,6 +2736,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, green eyes, medium skin tone, chef coat, apron, professional kitchen attire, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -2137,6 +2777,16 @@ photograph, professional, high resolution, detailed, person, adult, brown hair, 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, light skin, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -2172,6 +2822,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, hazel eyes, tattoos, server uniform, apron, casual professional, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -2203,6 +2863,16 @@ photograph, professional, high resolution, detailed, person, adult, brown hair, 
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, brown hair, brown eyes, dark skin, polo shirt, khakis, casual adult, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
@@ -2238,6 +2908,16 @@ NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
 
 --------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, blonde hair, blue eyes, athletic, fit physique, toned, medium skin tone, work shirt, denim, coveralls, practical clothing, work boots, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
+
+--------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
 --------------------------------------------------------------------------------
 
@@ -2269,6 +2949,16 @@ photograph, professional, high resolution, detailed, person, adult, blonde hair,
 
 NEGATIVE PROMPT:
 low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, cropped face, sunglasses, hat, hood
+
+--------------------------------------------------------------------------------
+COWBOY SHOT PORTRAIT (896x1152 - Waist Up)
+--------------------------------------------------------------------------------
+
+POSITIVE PROMPT:
+photograph, professional, high resolution, detailed, person, adult, blonde hair, ponytail, green eyes, slender, slim build, light skin, tattoos, server uniform, apron, casual professional, natural expression, slight smile, cowboy shot, waist up, upper body, from waist, torso visible, medium shot, upper outfit visible, standing, studio shot, white background, natural light, indoors, minimalistic background, sharp focus, well proportioned, fashion, character focus, photorealistic, natural skin texture, high quality, masterpiece, detailed face, sharp details
+
+NEGATIVE PROMPT:
+low quality, blurry, distorted, ugly, deformed, disfigured, cartoon, anime, 3d render, bad anatomy, bad proportions, multiple heads, extra limbs, bad hands, bad feet, missing fingers, extra fingers, fused fingers, text, watermark, logo, signature, username, artist name, cropped, out of frame, worst quality, jpeg artifacts, duplicate, mutation, full body, legs visible, feet visible, headshot only, close-up only, cropped at chest, sitting, kneeling, lying down
 
 --------------------------------------------------------------------------------
 FULL BODY PORTRAIT (832x1216)
