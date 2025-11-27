@@ -35,3 +35,10 @@ mypy>=1.4.0
 # Utilities
 python-dateutil>=2.8.0
 tqdm>=4.65.0
+requests>=2.31.0
+
+# Portrait Generation (Optional)
+# Uncomment and install only the APIs you plan to use:
+# openai>=1.0.0        # For DALL-E 3 generation
+# replicate>=0.15.0    # For Replicate API generation
+# Note: Stability AI and Local SD use requests (already included above)
