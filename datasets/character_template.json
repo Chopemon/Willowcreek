@@ -1,0 +1,357 @@
+{
+  "meta": {
+    "template_name": "Willow Creek Character Template",
+    "version": "1.0.0",
+    "description": "Template for creating characters in the Willow Creek universe",
+    "instructions": "Copy the 'character_template' object for each new character. Fill in all fields. Add characters to the 'characters' array."
+  },
+
+  "character_template": {
+    "_comment": "Copy this template for each character. Remove this _comment field.",
+
+    "basic_info": {
+      "id": "unique_id_lowercase_no_spaces",
+      "full_name": "First Last",
+      "nickname": "Optional nickname or null",
+      "age": 0,
+      "gender": "male/female/non-binary",
+      "pronouns": "he/him, she/her, they/them",
+      "birthday": "Month Day",
+      "zodiac": "Optional zodiac sign"
+    },
+
+    "appearance": {
+      "height": "e.g., 5'8\" or 173cm",
+      "build": "slim/average/athletic/stocky/heavy",
+      "hair_color": "",
+      "hair_style": "",
+      "eye_color": "",
+      "skin_tone": "",
+      "distinguishing_features": ["list", "of", "notable", "features"],
+      "typical_clothing": "Description of usual attire",
+      "first_impression": "What people notice first about them"
+    },
+
+    "personality": {
+      "core_traits": ["list", "3-5", "key", "traits"],
+      "strengths": ["list", "of", "strengths"],
+      "weaknesses": ["list", "of", "weaknesses"],
+      "fears": ["list", "of", "fears"],
+      "desires": ["what", "they", "want"],
+      "values": ["what", "they", "believe", "in"],
+      "quirks": ["unique", "behaviors", "habits"],
+      "pet_peeves": ["things", "that", "annoy", "them"]
+    },
+
+    "background": {
+      "birthplace": "Where were they born?",
+      "raised_in": "Where did they grow up?",
+      "family_background": "Brief family history",
+      "education": "Educational background",
+      "significant_events": [
+        {
+          "event": "Description of event",
+          "age": "Age when it happened",
+          "impact": "How it affected them"
+        }
+      ],
+      "secrets": ["Things they hide from others"]
+    },
+
+    "current_situation": {
+      "residence": "Where do they live? (Use neighborhood from lore)",
+      "household": "Who do they live with?",
+      "occupation": "Job or role",
+      "workplace": "Where do they work? (Use location from lore)",
+      "income_level": "low/middle/upper",
+      "daily_routine": "Typical day description",
+      "current_goals": ["short", "term", "goals"],
+      "current_problems": ["challenges", "they", "face"]
+    },
+
+    "relationships": {
+      "_comment": "Add relationship entries for each significant connection",
+      "relationship_template": {
+        "person": "Name of related character",
+        "relation": "Type (spouse, child, friend, coworker, etc.)",
+        "dynamic": "How they interact",
+        "feelings": "How this character feels about them",
+        "history": "Brief history of relationship",
+        "tension": "Any conflicts or issues (or null)"
+      },
+      "family": [],
+      "friends": [],
+      "romantic": [],
+      "professional": [],
+      "antagonists": []
+    },
+
+    "speech_and_behavior": {
+      "speaking_style": "How do they talk? Formal, casual, verbose, terse?",
+      "vocabulary_level": "simple/average/educated/technical",
+      "accent_or_dialect": "Any notable speech patterns",
+      "catchphrases": ["phrases", "they", "often", "say"],
+      "body_language": "How do they carry themselves?",
+      "nervous_habits": ["what", "they", "do", "when", "stressed"],
+      "how_they_laugh": "Description of their laugh",
+      "how_they_show_anger": "How they express anger"
+    },
+
+    "interests": {
+      "hobbies": ["list", "of", "hobbies"],
+      "skills": ["things", "they're", "good", "at"],
+      "favorite_places": ["locations", "in", "willow", "creek"],
+      "favorite_foods": ["food", "preferences"],
+      "music_taste": "What kind of music do they like?",
+      "media_preferences": "Books, movies, TV shows they enjoy"
+    },
+
+    "story_hooks": {
+      "main_arc": "What's their central story/journey?",
+      "internal_conflict": "Their inner struggle",
+      "external_conflict": "Problems from the outside world",
+      "potential_growth": "How could they change/develop?",
+      "connections_to_plot": ["how", "they", "connect", "to", "larger", "stories"]
+    },
+
+    "roleplay_guidance": {
+      "how_to_write_them": "Tips for portraying this character",
+      "common_scenarios": ["situations", "they'd", "be", "in"],
+      "dialogue_examples": [
+        {
+          "situation": "Context",
+          "dialogue": "What they'd say"
+        }
+      ],
+      "reactions": {
+        "to_compliments": "How they respond",
+        "to_criticism": "How they respond",
+        "to_strangers": "How they respond",
+        "to_conflict": "How they respond",
+        "to_good_news": "How they respond",
+        "to_bad_news": "How they respond"
+      }
+    },
+
+    "metadata": {
+      "status": "active/inactive/background/mentioned-only",
+      "importance": "main/supporting/minor/background",
+      "created_date": "YYYY-MM-DD",
+      "last_updated": "YYYY-MM-DD",
+      "notes": "Any additional notes"
+    }
+  },
+
+  "example_character": {
+    "basic_info": {
+      "id": "eleanor_whitmore",
+      "full_name": "Eleanor Whitmore",
+      "nickname": "Miss Eleanor",
+      "age": 89,
+      "gender": "female",
+      "pronouns": "she/her",
+      "birthday": "March 15",
+      "zodiac": "Pisces"
+    },
+
+    "appearance": {
+      "height": "5'4\"",
+      "build": "frail",
+      "hair_color": "Silver-white",
+      "hair_style": "Always perfectly coiffed in an elegant updo",
+      "eye_color": "Pale blue, still sharp",
+      "skin_tone": "Fair, weathered with age",
+      "distinguishing_features": ["Always wears pearls", "Walks with an ivory-handled cane", "Carries herself like royalty"],
+      "typical_clothing": "Elegant but dated - cardigans, skirts, always proper",
+      "first_impression": "Regal and intimidating despite her age"
+    },
+
+    "personality": {
+      "core_traits": ["Dignified", "Sharp-witted", "Traditional", "Lonely", "Generous"],
+      "strengths": ["Vast knowledge of town history", "Financial resources", "Respect of community", "Good judge of character"],
+      "weaknesses": ["Stubborn", "Lives in the past", "Difficulty accepting change", "Pride prevents asking for help"],
+      "fears": ["Dying alone", "The Whitmore name being forgotten", "The estate falling into disrepair"],
+      "desires": ["To preserve her family's legacy", "To find someone worthy to inherit", "To solve the mystery of what happened to her brother"],
+      "values": ["Family legacy", "Tradition", "Proper behavior", "The town's history"],
+      "quirks": ["Refers to everyone under 50 as 'young'", "Serves tea at precisely 4pm", "Keeps a detailed journal"],
+      "pet_peeves": ["Poor manners", "Historical inaccuracies", "People who don't respect the old ways"]
+    },
+
+    "background": {
+      "birthplace": "Whitmore Estate, Willow Creek",
+      "raised_in": "Willow Creek",
+      "family_background": "Direct descendant of town founder. Last surviving member of main Whitmore line. Never married - was engaged once but fiancé died in WWII.",
+      "education": "Finished school in Portland, attended one year of college before returning to care for her mother",
+      "significant_events": [
+        {
+          "event": "Fiancé killed in WWII",
+          "age": "22",
+          "impact": "Never pursued romance again, devoted herself to family and town"
+        },
+        {
+          "event": "Brother Robert disappeared",
+          "age": "45",
+          "impact": "Spent years trying to find out what happened, never got closure"
+        },
+        {
+          "event": "Became last Whitmore",
+          "age": "72",
+          "impact": "Weight of being the end of the line, obsession with legacy"
+        }
+      ],
+      "secrets": ["Knows more about the Peterson disappearance than she lets on", "Has a will that would surprise everyone"]
+    },
+
+    "current_situation": {
+      "residence": "Whitmore Estate, 1 Whitmore Lane, Old Town",
+      "household": "Lives alone with one housekeeper who comes daily",
+      "occupation": "Retired / Estate management",
+      "workplace": "Home",
+      "income_level": "upper",
+      "daily_routine": "Rises early, reads the paper, tends to correspondence, tea at 4pm, early to bed",
+      "current_goals": ["Find someone to leave the estate to", "Complete her memoirs", "One more Founder's Day"],
+      "current_problems": ["Failing health", "No heirs", "Estate maintenance costs rising"]
+    },
+
+    "relationships": {
+      "family": [],
+      "friends": [
+        {
+          "person": "Pastor Hendricks",
+          "relation": "Old friend",
+          "dynamic": "Regular visits, plays chess",
+          "feelings": "Genuine fondness, one of few equals",
+          "history": "Known each other 40 years",
+          "tension": null
+        }
+      ],
+      "romantic": [],
+      "professional": [
+        {
+          "person": "Martha (housekeeper)",
+          "relation": "Employee of 30 years",
+          "dynamic": "Closer to family than employee",
+          "feelings": "Deep appreciation and care",
+          "history": "Martha's mother worked for the family too",
+          "tension": null
+        }
+      ],
+      "antagonists": [
+        {
+          "person": "Developer (unnamed)",
+          "relation": "Wants to buy estate",
+          "dynamic": "Cold refusal on her part",
+          "feelings": "Contempt",
+          "history": "Multiple offers rejected",
+          "tension": "He's waiting for her to die"
+        }
+      ]
+    },
+
+    "speech_and_behavior": {
+      "speaking_style": "Formal, measured, with occasional dry wit",
+      "vocabulary_level": "educated",
+      "accent_or_dialect": "Old-fashioned Pacific Northwest, very proper",
+      "catchphrases": ["In my day...", "The Whitmores have always...", "One must maintain standards"],
+      "body_language": "Erect posture despite age, direct eye contact, minimal gestures",
+      "nervous_habits": ["Touches her pearls", "Taps cane"],
+      "how_they_laugh": "Rare, quiet, refined - more of a knowing smile",
+      "how_they_show_anger": "Gets very quiet and cold, cutting remarks"
+    },
+
+    "interests": {
+      "hobbies": ["Journaling", "Local history", "Garden (though she can't tend it herself now)", "Chess"],
+      "skills": ["Town history expert", "Social navigation", "Reading people"],
+      "favorite_places": ["Whitmore Estate garden", "Old Stone Bridge", "Founder's Cemetery"],
+      "favorite_foods": ["Earl Grey tea", "Blackberry pie from the diner", "Simple, well-prepared food"],
+      "music_taste": "Classical, Big Band from her youth",
+      "media_preferences": "Mysteries (Agatha Christie), historical non-fiction, local newspaper"
+    },
+
+    "story_hooks": {
+      "main_arc": "The last Whitmore deciding the fate of her family's legacy and the secrets she'll take to the grave - or reveal",
+      "internal_conflict": "Duty to family legacy vs. desire for the truth to come out",
+      "external_conflict": "Pressure to sell estate, failing health, no heirs",
+      "potential_growth": "Learning to let go, trust someone new, reveal long-held secrets",
+      "connections_to_plot": ["Knows town secrets", "Estate could be key location", "Link to Peterson mystery", "Whitmore archives contain town history"]
+    },
+
+    "roleplay_guidance": {
+      "how_to_write_them": "Dignified but human. She's formidable but lonely. Her formality is armor. Show glimpses of the young woman she was. She observes everything and forgets nothing.",
+      "common_scenarios": ["Receiving visitors at the estate", "Historical society meetings", "Tea time conversations", "Cryptic hints about town secrets"],
+      "dialogue_examples": [
+        {
+          "situation": "Meeting someone new",
+          "dialogue": "You must be new to Willow Creek. I knew your predecessors in that position, both of them. Sit down, I'll have Martha bring tea, and you can tell me what brings you to my door."
+        },
+        {
+          "situation": "Asked about town secrets",
+          "dialogue": "There are things in this town's history that are better left undisturbed. But then again... perhaps it's time. I won't be here to see the consequences much longer."
+        }
+      ],
+      "reactions": {
+        "to_compliments": "Accepts graciously but deflects - 'The Whitmores have always tried to serve the community.'",
+        "to_criticism": "Cool silence, then a pointed observation that makes the critic uncomfortable",
+        "to_strangers": "Polite but assessing. She's deciding if you're worth her time.",
+        "to_conflict": "Refuses to raise her voice. Gets quieter and more cutting.",
+        "to_good_news": "Measured pleasure, a genuine smile that softens her whole face",
+        "to_bad_news": "Stillness, then practical questions about what must be done"
+      }
+    },
+
+    "metadata": {
+      "status": "active",
+      "importance": "supporting",
+      "created_date": "2025-12-06",
+      "last_updated": "2025-12-06",
+      "notes": "Repository of town secrets. Can be used to reveal plot information. Represents old Willow Creek."
+    }
+  },
+
+  "household_template": {
+    "_comment": "Use this to define family/household units",
+    "household_id": "unique_id",
+    "household_name": "The [Name] Household",
+    "address": "Street Address (use streets from lore)",
+    "neighborhood": "Neighborhood name (from lore)",
+    "residence_type": "house/apartment/estate/etc",
+    "members": [
+      {
+        "character_id": "reference to character",
+        "role": "head/spouse/child/relative/other",
+        "notes": "Any household-specific notes"
+      }
+    ],
+    "household_dynamics": "Description of how the household functions",
+    "household_secrets": ["Things hidden within this family"],
+    "economic_status": "low/middle/upper",
+    "pets": ["Any pets"],
+    "vehicles": ["Cars, etc."]
+  },
+
+  "relationship_types": {
+    "family": ["parent", "child", "sibling", "grandparent", "grandchild", "aunt", "uncle", "cousin", "step-parent", "step-child", "step-sibling", "in-law", "guardian"],
+    "romantic": ["spouse", "partner", "dating", "engaged", "ex-spouse", "ex-partner", "crush", "complicated"],
+    "friendship": ["best_friend", "close_friend", "friend", "acquaintance", "childhood_friend", "work_friend"],
+    "professional": ["employer", "employee", "coworker", "mentor", "student", "client", "business_partner"],
+    "antagonistic": ["rival", "enemy", "nemesis", "estranged", "complicated_history"],
+    "community": ["neighbor", "fellow_parishioner", "club_member", "teammate"]
+  },
+
+  "character_checklist": [
+    "Does this character have clear motivations?",
+    "Do they have both strengths and flaws?",
+    "Are their relationships well-defined?",
+    "Do they fit into Willow Creek's world logically?",
+    "Do they have potential for interesting stories?",
+    "Is their background consistent with their personality?",
+    "Do they have connections to other characters?",
+    "Are there hooks for interaction with other characters?",
+    "Is their daily life believable?",
+    "Do they have room to grow and change?"
+  ],
+
+  "characters": [
+    "_comment: Add your completed characters here as objects following the template above"
+  ]
+}

@@ -1,0 +1,997 @@
+{
+  "meta": {
+    "dataset_name": "Willow Creek World Lore",
+    "version": "1.0.0",
+    "description": "Comprehensive lore dataset for training AI on the Willow Creek fictional universe",
+    "created": "2025-12-06",
+    "usage": "LLM fine-tuning, RAG systems, interactive fiction, world simulation"
+  },
+
+  "town_overview": {
+    "name": "Willow Creek",
+    "state": "Oregon",
+    "country": "United States",
+    "population": 8500,
+    "founded": 1887,
+    "motto": "Where Rivers Meet, Lives Intertwine",
+    "nicknames": ["The Creek", "Willow Town", "The Valley"],
+    "description": "Willow Creek is a small Pacific Northwest town nestled in a river valley, surrounded by dense forests and rolling hills. Known for its tight-knit community, historic downtown, and the iconic willow trees that line the creek running through its center. The town balances old traditions with slow modernization, creating a unique atmosphere where everyone knows everyone—and everyone's business.",
+    "atmosphere": "Quiet streets with an undercurrent of small-town drama. Friendly faces that hide complex histories. The smell of pine and river water. Morning fog that rolls through the valley. The sound of church bells on Sunday mornings.",
+    "climate": {
+      "type": "Oceanic/Marine West Coast",
+      "summers": "Mild and pleasant, 70-85°F, occasional heat waves",
+      "winters": "Cool and wet, 35-50°F, rare snow",
+      "rainfall": "Heavy from October to April",
+      "notable": "Famous morning fog, especially in autumn"
+    }
+  },
+
+  "history": {
+    "timeline": [
+      {
+        "year": 1850,
+        "event": "First settlers arrive",
+        "details": "Fur trappers and pioneers discover the fertile valley where two creeks meet. They note the abundance of willow trees along the waterways."
+      },
+      {
+        "year": 1872,
+        "event": "Logging camp established",
+        "details": "The Whitmore Logging Company sets up operations, attracting workers and their families to the area."
+      },
+      {
+        "year": 1887,
+        "event": "Town officially incorporated",
+        "details": "Willow Creek is formally established with 312 residents. First mayor: Elijah Whitmore."
+      },
+      {
+        "year": 1892,
+        "event": "Great Fire of Willow Creek",
+        "details": "A devastating fire destroys 60% of the original downtown. The town rebuilds with brick and stone, creating the historic architecture still standing today."
+      },
+      {
+        "year": 1905,
+        "event": "Railroad arrives",
+        "details": "The Pacific Northern Railroad builds a spur line to Willow Creek, connecting it to larger cities and spurring economic growth."
+      },
+      {
+        "year": 1923,
+        "event": "Willow Creek Dam constructed",
+        "details": "The dam creates Lake Willow, providing hydroelectric power and a recreational area. Some families are displaced, creating lasting resentment."
+      },
+      {
+        "year": 1942,
+        "event": "Military outpost established",
+        "details": "During WWII, a small military training facility is built on the outskirts. It remains active in reduced capacity."
+      },
+      {
+        "year": 1958,
+        "event": "The Whitmore Mill closes",
+        "details": "The last major logging operation shuts down, forcing the town to reinvent its economy around small businesses and tourism."
+      },
+      {
+        "year": 1976,
+        "event": "Historic Downtown designation",
+        "details": "Main Street receives historic preservation status, protecting the post-fire Victorian and Craftsman architecture."
+      },
+      {
+        "year": 1985,
+        "event": "The Peterson Disappearance",
+        "details": "Local businessman Harold Peterson vanishes without a trace. The case remains unsolved and is a source of ongoing speculation."
+      },
+      {
+        "year": 1998,
+        "event": "Flood of '98",
+        "details": "Record rainfall causes the creek to overflow, damaging homes in the lower neighborhoods. The community comes together to rebuild."
+      },
+      {
+        "year": 2008,
+        "event": "Economic downturn hits hard",
+        "details": "Several Main Street businesses close. The town struggles but maintains its core identity."
+      },
+      {
+        "year": 2015,
+        "event": "Tech company satellite office opens",
+        "details": "PineTree Software opens a small office, bringing new residents and tensions between old-timers and newcomers."
+      },
+      {
+        "year": 2023,
+        "event": "Centennial Park renovation",
+        "details": "Major renovation of the town's central park, including a new amphitheater and memorial garden."
+      }
+    ],
+
+    "founding_families": [
+      {
+        "name": "Whitmore",
+        "origin": "New England",
+        "legacy": "Founded the logging industry, built the first church, donated land for the park",
+        "current_status": "Last direct descendant (Eleanor Whitmore, 89) lives in the historic Whitmore Estate"
+      },
+      {
+        "name": "Dawson",
+        "origin": "Kentucky",
+        "legacy": "Established the first general store, later became the grocery empire",
+        "current_status": "Still operate Dawson's Market on the edge of town"
+      },
+      {
+        "name": "Chen",
+        "origin": "China via California",
+        "legacy": "Railroad workers who stayed, opened the town's first restaurant in 1908",
+        "current_status": "Family still runs Golden Dragon restaurant downtown"
+      },
+      {
+        "name": "Okonkwo",
+        "origin": "Nigeria via Portland",
+        "legacy": "Arrived in 1960s, established the town's first medical clinic",
+        "current_status": "Dr. Okonkwo III practices at Willow Creek Clinic"
+      }
+    ],
+
+    "legends_and_mysteries": [
+      {
+        "name": "The Weeping Willow Ghost",
+        "type": "Local legend",
+        "description": "Said to be the spirit of a young woman who drowned in the creek in 1891. Residents claim to see her figure among the willow trees on foggy nights, particularly near the old stone bridge.",
+        "believers": "Older residents, tourists",
+        "skeptics": "Most younger people dismiss it as fog and shadows"
+      },
+      {
+        "name": "The Peterson Fortune",
+        "type": "Unsolved mystery",
+        "description": "When Harold Peterson disappeared in 1985, so did $2 million from his business accounts. Some believe he faked his death; others think he was murdered. The money was never found.",
+        "theories": ["Fled to Mexico", "Buried somewhere in town", "Business partner involvement", "Random crime"]
+      },
+      {
+        "name": "The Tunnels",
+        "type": "Urban legend / Partial truth",
+        "description": "Rumors persist of underground tunnels connecting various downtown buildings, supposedly used during Prohibition. Some basements do have sealed doorways, but no complete tunnel system has been documented.",
+        "known_facts": "The old bank definitely has a sealed passage to the building next door"
+      },
+      {
+        "name": "Lake Willow Monster",
+        "type": "Joke legend",
+        "description": "A tongue-in-cheek local legend about a creature in Lake Willow. Started as a 1970s prank but persists as a tourist attraction. The diner sells 'Monster Burgers.'",
+        "reality": "Large sturgeon in the lake sometimes surface dramatically"
+      }
+    ]
+  },
+
+  "geography": {
+    "terrain": {
+      "description": "Willow Creek sits in a river valley surrounded by forested hills. The town is bisected by Willow Creek (the waterway), with the historic downtown on the east bank and newer developments on the west.",
+      "elevation": "450 feet above sea level",
+      "notable_features": [
+        "Willow Creek (stream) - Runs north to south through town center",
+        "Pine Ridge - Forested hills to the east",
+        "Lake Willow - Reservoir 5 miles north of town",
+        "The Meadows - Flat agricultural land to the south",
+        "Old Growth Grove - Protected forest preserve"
+      ]
+    },
+
+    "districts": [
+      {
+        "name": "Downtown / Main Street",
+        "description": "Historic commercial center with brick buildings, local shops, and restaurants. The heart of community life.",
+        "character": "Walkable, charming, slightly worn",
+        "landmarks": ["Town Hall", "Main Street Diner", "Historic Theater", "Clock Tower"]
+      },
+      {
+        "name": "Old Town",
+        "description": "Oldest residential area, featuring Victorian and Craftsman homes. Tree-lined streets with established gardens.",
+        "character": "Quiet, prestigious, slightly insular",
+        "landmarks": ["Whitmore Estate", "Old Stone Bridge", "Founder's Cemetery"]
+      },
+      {
+        "name": "Riverside",
+        "description": "Middle-class neighborhood along the creek's west bank. Mix of 1950s-70s homes.",
+        "character": "Family-oriented, friendly, close-knit",
+        "landmarks": ["Riverside Park", "Little League Fields"]
+      },
+      {
+        "name": "The Heights",
+        "description": "Newer development on the western hills. Larger homes, better views, newer construction.",
+        "character": "Affluent, private, some tension with old-timers",
+        "landmarks": ["Heights Community Center", "Scenic Overlook"]
+      },
+      {
+        "name": "Industrial District",
+        "description": "Area near the old rail yard with auto shops, warehouses, and light industry.",
+        "character": "Working-class, utilitarian, some abandoned buildings",
+        "landmarks": ["Blake's Auto Repair", "Old Mill ruins", "Rail Yard"]
+      },
+      {
+        "name": "College Hill",
+        "description": "Area around Willow Creek Community College. Student housing, coffee shops, younger vibe.",
+        "character": "Youthful, transient, artsy",
+        "landmarks": ["WCCC Campus", "The Grind coffee shop", "Student Commons"]
+      },
+      {
+        "name": "Outskirts",
+        "description": "Rural areas surrounding town. Farms, larger properties, people who want privacy.",
+        "character": "Isolated, independent, self-sufficient",
+        "landmarks": ["Military Outpost", "Dawson's Farm", "County fairgrounds"]
+      }
+    ],
+
+    "streets": {
+      "main_arteries": [
+        {"name": "Main Street", "description": "Primary commercial street running east-west through downtown"},
+        {"name": "Willow Avenue", "description": "North-south road paralleling the creek"},
+        {"name": "Highway 26", "description": "State highway bypassing downtown, connects to larger cities"},
+        {"name": "Lake Road", "description": "Scenic route north to Lake Willow"}
+      ],
+      "residential_streets": [
+        {"name": "Oak Street", "description": "Quiet residential street in Riverside district"},
+        {"name": "Willow Lane", "description": "Tree-lined street in Old Town"},
+        {"name": "Maple Street", "description": "Mixed residential/commercial near downtown"},
+        {"name": "Cedar View", "description": "Newer street in The Heights"},
+        {"name": "Sycamore Lane", "description": "Residential street on town's south side"},
+        {"name": "Riverside Loop", "description": "Curved street following the creek"}
+      ]
+    }
+  },
+
+  "locations": {
+    "civic_institutions": [
+      {
+        "name": "Willow Creek Town Hall",
+        "address": "10 Civic Plaza",
+        "type": "Government",
+        "built": 1924,
+        "description": "Three-story brick building with a distinctive clock tower. Houses city offices, council chambers, and public records. The basement archives contain town history dating back to incorporation.",
+        "hours": "Mon-Fri 9 AM - 4 PM",
+        "notable": "The council chambers feature original woodwork and a mural depicting town history painted by local artist Margaret Chen in 1952.",
+        "atmosphere": "Bureaucratic but friendly. Old wood floors that creak. The smell of old paper from the archives."
+      },
+      {
+        "name": "Willow Creek Police Station",
+        "address": "75 Main St",
+        "type": "Law Enforcement",
+        "built": 1956,
+        "description": "Modest single-story station with a small holding area. The department has 12 officers and handles mostly minor incidents. Everyone knows Chief Martinez by name.",
+        "hours": "24/7",
+        "notable": "The break room has a wall of photos showing every officer since 1920. Cold case files from the Peterson disappearance are still in the evidence room.",
+        "atmosphere": "Quiet most days. Officers spend more time helping residents with non-criminal issues than fighting crime."
+      },
+      {
+        "name": "Maple Street Fire Department",
+        "address": "50 Maple St",
+        "type": "Emergency Services",
+        "built": 1948,
+        "description": "Volunteer fire department with deep community roots. Two engines, one ladder truck, and an ambulance. The annual pancake breakfast is a town tradition.",
+        "hours": "24/7",
+        "notable": "Fire Chief position has been held by a member of the Kowalski family for three generations.",
+        "atmosphere": "Brotherhood atmosphere. The station is also an informal community gathering space."
+      },
+      {
+        "name": "Willow Creek Public Library",
+        "address": "5 Library Ln",
+        "type": "Public Library",
+        "built": 1912,
+        "description": "Carnegie library with original architecture preserved. Contains 45,000 volumes, a local history room, and public computers. The children's room has a beloved reading nook shaped like a treehouse.",
+        "hours": "Mon-Sat 9 AM - 7 PM",
+        "notable": "The restricted local history collection contains journals from founding families and original town documents.",
+        "atmosphere": "Hushed reverence. Dust motes in sunbeams. The rustle of pages and soft keyboard clicks."
+      },
+      {
+        "name": "Sycamore Post Office",
+        "address": "12 Sycamore Ln",
+        "type": "Postal Service",
+        "built": 1932,
+        "description": "Art Deco post office with original brass fixtures and terrazzo floors. The community bulletin board near the entrance is the unofficial town information center.",
+        "hours": "Mon-Fri 8 AM - 5 PM, Sat 9 AM - 1 PM",
+        "notable": "Postmaster Linda Reeves has held the position for 28 years and knows everyone's business.",
+        "atmosphere": "Echoing footsteps on stone floors. The thump of stamps. Neighbors catching up in line."
+      }
+    ],
+
+    "healthcare": [
+      {
+        "name": "Willow Creek Hospital",
+        "address": "1 Willow Creek Dr",
+        "type": "Regional Hospital",
+        "built": 1967,
+        "description": "Small regional hospital with 50 beds, emergency department, surgical suite, and maternity ward. Serves Willow Creek and surrounding rural areas. Recently renovated with modern equipment.",
+        "hours": "24/7",
+        "services": ["Emergency Care", "Surgery", "Maternity", "Radiology", "Physical Therapy"],
+        "notable": "The maternity ward has delivered three generations of most local families. Dr. Sarah Okonkwo is the most respected physician.",
+        "atmosphere": "Antiseptic smell with attempts at warmth. Familiar faces among staff. The quiet beeping of monitors."
+      },
+      {
+        "name": "Willow Creek Clinic",
+        "address": "14 Magnolia Rd",
+        "type": "Medical Clinic",
+        "built": 1978,
+        "description": "Primary care clinic handling routine medical needs. Three doctors and two nurse practitioners serve the community.",
+        "hours": "Mon-Fri 9 AM - 5 PM",
+        "services": ["Family Medicine", "Checkups", "Vaccinations", "Minor Procedures"],
+        "atmosphere": "Waiting room with outdated magazines. Children's corner with worn toys. Familiar receptionists who remember your name."
+      },
+      {
+        "name": "Magnolia Mental Health Center",
+        "address": "16 Magnolia Rd",
+        "type": "Mental Health Services",
+        "built": 1995,
+        "description": "Discreet psychiatric practice in a converted Victorian house. Provides therapy, psychiatry, and counseling services. In a small town, discretion is paramount.",
+        "hours": "Mon-Fri 10 AM - 6 PM",
+        "services": ["Individual Therapy", "Family Counseling", "Psychiatric Services", "Support Groups"],
+        "notable": "The back entrance allows clients to arrive without being seen from the street.",
+        "atmosphere": "Calming earth tones. Soft music. The intentional absence of judgment."
+      }
+    ],
+
+    "education": [
+      {
+        "name": "Willow Creek Elementary School",
+        "address": "200 School Ln",
+        "type": "Elementary School",
+        "built": 1954,
+        "description": "Grades K-6. Single-story brick building with a beloved playground featuring the 'rocket ship' climbing structure from the 1970s. Strong sense of community involvement.",
+        "hours": "Mon-Fri 8 AM - 3 PM",
+        "notable": "Annual Winter Pageant and Spring Carnival are major community events.",
+        "atmosphere": "Children's artwork on every wall. The smell of cafeteria food. Echoing laughter in hallways."
+      },
+      {
+        "name": "Willow Creek Middle School",
+        "address": "300 School Ln",
+        "type": "Middle School",
+        "built": 1972,
+        "description": "Grades 7-8. Connected to the high school campus. Known for its strong music program and robotics club.",
+        "hours": "Mon-Fri 8 AM - 3 PM",
+        "notable": "The robotics team has won regional competitions three years running.",
+        "atmosphere": "Awkward energy. Lockers slamming. The universal anxiety of adolescence."
+      },
+      {
+        "name": "Willow Creek High School",
+        "address": "400 School Ln",
+        "type": "High School",
+        "built": 1962,
+        "description": "Grades 9-12. The Willow Creek Wolverines compete in football, basketball, and track. Class sizes average 25 students. Strong arts program alongside athletics.",
+        "hours": "Mon-Fri 8 AM - 3 PM",
+        "notable": "The 1987 football team's state championship banner still hangs in the gym. Annual rivalry game against Pine Ridge High is a town event.",
+        "atmosphere": "Teenage drama. Friday night lights. The universal hope and anxiety of youth."
+      },
+      {
+        "name": "Willow Creek Community College",
+        "address": "500 College Hill Rd",
+        "type": "Community College",
+        "built": 1968,
+        "description": "Two-year college offering associate degrees and vocational training. Brings younger energy to town. Many locals take continuing education classes.",
+        "hours": "Varies by class schedule",
+        "programs": ["Nursing", "Business", "Automotive Technology", "Liberal Arts", "Culinary Arts"],
+        "notable": "The culinary program runs a public restaurant where students practice.",
+        "atmosphere": "Mix of young dreamers and older career-changers. Coffee-fueled late nights."
+      },
+      {
+        "name": "Willow Creek Daycare Center",
+        "address": "25 Maple St",
+        "type": "Childcare",
+        "built": 1988,
+        "description": "Licensed daycare for children ages 6 months to 5 years. Run by the Methodist church but open to all families.",
+        "hours": "Mon-Fri 7 AM - 6 PM",
+        "atmosphere": "Cheerful chaos. Finger paintings drying on every surface. The constant hum of children at play."
+      }
+    ],
+
+    "religious": [
+      {
+        "name": "Willow Creek Lutheran Church",
+        "address": "32 Chapel Rd",
+        "type": "Lutheran Church",
+        "built": 1894,
+        "description": "White clapboard church with a tall steeple visible from across town. The oldest continuously operating church in Willow Creek. Traditional services with a strong choir program.",
+        "services": "Sunday 9 AM & 11 AM, Wednesday evening prayer",
+        "notable": "The pipe organ was donated by the Whitmore family in 1920. Annual Christmas cantata draws attendees from neighboring towns.",
+        "atmosphere": "Polished pews. Sunlight through stained glass. The weight of tradition and community."
+      },
+      {
+        "name": "St. Michael's Catholic Church",
+        "address": "45 Chapel Rd",
+        "type": "Catholic Church",
+        "built": 1910,
+        "description": "Red brick church with Gothic revival architecture. Serves a smaller but devoted congregation. Known for excellent fish fry during Lent.",
+        "services": "Sunday Mass 8 AM & 10:30 AM, Saturday Vigil 5 PM",
+        "notable": "Father O'Brien has served the parish for 32 years.",
+        "atmosphere": "Incense and candle wax. Hushed voices. The creak of kneelers."
+      },
+      {
+        "name": "First Baptist Church",
+        "address": "60 Main St",
+        "type": "Baptist Church",
+        "built": 1952,
+        "description": "Modern building with a large parking lot. More contemporary worship style. Active youth group and community outreach programs.",
+        "services": "Sunday 10 AM, Wednesday Bible Study 7 PM",
+        "notable": "Runs the town's largest food bank.",
+        "atmosphere": "Energetic worship. Warm welcomes. Strong coffee and fellowship."
+      },
+      {
+        "name": "Willow Creek Synagogue",
+        "address": "88 Elm St",
+        "type": "Reform Jewish Synagogue",
+        "built": 1978,
+        "description": "Small but active Reform congregation serving Jewish families within a 30-mile radius. Converted house with an addition for the sanctuary.",
+        "services": "Friday Shabbat 7 PM, Saturday morning services monthly",
+        "notable": "The annual Purim carnival is open to the whole community.",
+        "atmosphere": "Intimate community. The warmth of shared heritage in a small town."
+      }
+    ],
+
+    "dining": [
+      {
+        "name": "Main Street Diner",
+        "address": "101 Main St",
+        "type": "Classic Diner",
+        "established": 1946,
+        "description": "Classic American diner with counter seating, red vinyl booths, and a jukebox that still plays. Serves breakfast all day. The social hub where everyone eventually shows up.",
+        "hours": "Every day 6 AM - 10 PM",
+        "specialties": ["Buttermilk Pancakes", "Monster Burger", "Homemade Pie", "Coffee (bottomless)"],
+        "notable": "The same family has owned it since 1946. The back booth is informally reserved for the retired men who've met there for coffee every morning for 30 years.",
+        "atmosphere": "Sizzling grill. Clinking coffee cups. The murmur of gossip and laughter. Comfort food and familiar faces."
+      },
+      {
+        "name": "Golden Dragon",
+        "address": "125 Main St",
+        "type": "Chinese-American Restaurant",
+        "established": 1908,
+        "description": "Family-run Chinese restaurant, oldest in the county. Traditional American-Chinese menu with some authentic Cantonese dishes for those who ask.",
+        "hours": "Tue-Sun 11 AM - 9 PM",
+        "specialties": ["Egg Rolls", "Kung Pao Chicken", "Chen Family Special Noodles", "Fortune Cookies (made in-house)"],
+        "notable": "Fifth generation of the Chen family now runs the kitchen. The restaurant survived the 1892 fire.",
+        "atmosphere": "Red lanterns. The sizzle of the wok. Fortune cookie wisdom."
+      },
+      {
+        "name": "Willow Creek Bar & Grill",
+        "address": "115 Main St",
+        "type": "Bar and Restaurant",
+        "established": 1972,
+        "description": "After-work hangout with full bar, pub food, and weekend entertainment. Pool tables, dart boards, and karaoke on Thursdays.",
+        "hours": "Mon-Thu 4 PM - 11 PM, Fri-Sat 4 PM - 1 AM, Sun 12 PM - 8 PM",
+        "specialties": ["Loaded Nachos", "Bacon Cheeseburger", "Craft Beer Selection", "Whiskey Flights"],
+        "notable": "Thursday karaoke has launched several local music careers. The bar has photos of every high school graduating class since 1972.",
+        "atmosphere": "Dim lighting. The crack of pool balls. Laughter and the clink of glasses. Old rock on the jukebox."
+      },
+      {
+        "name": "Riverside Cafe",
+        "address": "200 Willow Ave",
+        "type": "Casual Cafe",
+        "established": 2010,
+        "description": "Modern cafe with outdoor seating overlooking the creek. Farm-to-table focus with locally sourced ingredients.",
+        "hours": "Every day 7 AM - 4 PM",
+        "specialties": ["Avocado Toast", "Seasonal Salads", "Fresh-baked Pastries", "Specialty Coffee"],
+        "notable": "Owner sources produce from three local farms. Popular with the newer residents.",
+        "atmosphere": "Natural light. The sound of the creek. The hiss of the espresso machine."
+      },
+      {
+        "name": "Pizza Palace",
+        "address": "140 Main St",
+        "type": "Pizzeria",
+        "established": 1985,
+        "description": "Family pizzeria with classic red-checkered tablecloths. Birthday party destination for generations of Willow Creek kids.",
+        "hours": "Every day 11 AM - 10 PM",
+        "specialties": ["House Special Pizza", "Garlic Knots", "Italian Subs", "Spumoni Ice Cream"],
+        "notable": "The owner, Sal, knows every kid in town by name. The arcade in back still has original 1980s games.",
+        "atmosphere": "Garlic and oregano. Kids' birthday chaos. The beep of arcade games."
+      },
+      {
+        "name": "The Grind",
+        "address": "510 College Hill Rd",
+        "type": "Coffee Shop",
+        "established": 2005,
+        "description": "College-area coffee shop with late hours, wifi, and a stage for open mic nights. Student hangout and study spot.",
+        "hours": "Mon-Sat 7 AM - 11 PM, Sun 8 AM - 8 PM",
+        "specialties": ["House Blend Coffee", "Dirty Chai", "Vegan Pastries", "Study-Session Refills"],
+        "notable": "Open mic Fridays have showcased local musicians and poets for nearly 20 years.",
+        "atmosphere": "The clatter of keyboards. Whispered study sessions. The earnestness of youth."
+      }
+    ],
+
+    "retail": [
+      {
+        "name": "Willow Creek Grocery",
+        "address": "130 Main St",
+        "type": "Grocery Store",
+        "established": 1962,
+        "description": "Independent grocery store that has resisted chain competition. Full-service butcher counter, local produce section, and a bulletin board that serves as community communication central.",
+        "hours": "Every day 7 AM - 10 PM",
+        "notable": "They still offer carry-out service for elderly customers and delivery for those who can't leave home.",
+        "atmosphere": "Fluorescent lights and linoleum. Unexpected encounters with neighbors. The intimacy of knowing someone's grocery habits."
+      },
+      {
+        "name": "Dawson's Market",
+        "address": "800 Highway 26",
+        "type": "Large Grocery/General Store",
+        "established": 1898,
+        "description": "Larger market on the edge of town, run by the founding Dawson family. Combines grocery with farm supply and hardware sections.",
+        "hours": "Every day 6 AM - 9 PM",
+        "notable": "The Dawson family has operated a store in Willow Creek since 1898. Current owner is fourth generation.",
+        "atmosphere": "The smell of feed and fertilizer mixing with fresh produce. The authenticity of a family business."
+      },
+      {
+        "name": "Main Street Shops",
+        "address": "100-150 Main St",
+        "type": "Retail District",
+        "description": "Collection of small independent shops along Main Street.",
+        "shops": [
+          {"name": "Willow Creek Pharmacy", "description": "Independent pharmacy with old-fashioned soda fountain"},
+          {"name": "The Book Nook", "description": "Used bookstore with cats wandering the aisles"},
+          {"name": "Clip & Style", "description": "Barbershop/salon where gossip flows freely"},
+          {"name": "Antiques & Oddities", "description": "Cluttered antique shop with mysterious inventory"},
+          {"name": "Hardware Plus", "description": "Hardware store where staff actually know how to fix things"},
+          {"name": "Willow Creek Florist", "description": "Family florist for every occasion"},
+          {"name": "The Craft Corner", "description": "Art supplies and craft materials"}
+        ],
+        "atmosphere": "Bell-chiming doors. Personal service. The knowledge that your purchase supports your neighbor."
+      },
+      {
+        "name": "Willow Creek Mall",
+        "address": "300 Mall Rd",
+        "type": "Shopping Mall",
+        "built": 1988,
+        "description": "Slightly aging mall that's the largest retail center within 30 miles. Anchor stores have come and gone, but the food court and movie theater remain draws.",
+        "hours": "Mon-Sat 10 AM - 9 PM, Sun 11 AM - 6 PM",
+        "stores": ["Department Store", "Clothing Shops", "Shoe Store", "Electronics Store", "Hobby Shop"],
+        "features": ["Galaxy Arcade", "Food Court", "Cineplex 6 Theater"],
+        "notable": "Teens treat it as their territory after school and on weekends. The fountain in the center makes wishes (coins go to charity).",
+        "atmosphere": "Mall music. The echo of footsteps on tile. The peculiar liminal quality of American retail."
+      },
+      {
+        "name": "Galaxy Arcade",
+        "address": "Inside Willow Creek Mall",
+        "type": "Arcade",
+        "established": 1988,
+        "description": "Classic arcade with a mix of vintage and modern games. The smell of popcorn, flashing lights, and the electronic symphony of gaming.",
+        "hours": "Mall hours",
+        "notable": "Still has working Pac-Man, Space Invaders, and pinball machines alongside modern games. High score boards are local legend.",
+        "atmosphere": "Flashing lights. Electronic sounds. The particular focus of youth and competition."
+      }
+    ],
+
+    "recreation": [
+      {
+        "name": "Willow Creek Park",
+        "address": "2 Parkview Dr",
+        "type": "Public Park",
+        "established": 1920,
+        "description": "Central park along the creek with playgrounds, walking trails, a duck pond, and picnic areas. The green heart of the community.",
+        "hours": "Dawn to dusk",
+        "features": ["Playground", "Walking Trails", "Duck Pond", "Picnic Shelters", "Band Shell", "Memorial Garden"],
+        "notable": "Summer concerts in the band shell are a weekly tradition. The Memorial Garden honors local veterans.",
+        "atmosphere": "Children's laughter. Ducks demanding bread. Joggers and dog walkers. The peace of green space."
+      },
+      {
+        "name": "Lake Willow",
+        "address": "Lake Road, 5 miles north",
+        "type": "Reservoir/Recreation Area",
+        "established": 1923,
+        "description": "Man-made lake created by the Willow Creek Dam. Popular for fishing, boating, swimming, and camping.",
+        "hours": "Dawn to dusk (camping by reservation)",
+        "features": ["Public Beach", "Boat Launch", "Fishing Pier", "Campground", "Hiking Trails"],
+        "notable": "The 'Lake Monster' legend brings curious tourists. Ice fishing popular in winter.",
+        "atmosphere": "The lap of water. Pine-scented air. The particular peace of being near water."
+      },
+      {
+        "name": "Maple Lanes Bowling Alley",
+        "address": "22 Industrial Rd",
+        "type": "Bowling Alley",
+        "established": 1965,
+        "description": "Old-school bowling alley with 12 lanes, a snack bar, arcade corner, and bar. League nights are serious business.",
+        "hours": "Mon-Thu 3 PM - 11 PM, Fri-Sun 12 PM - 1 AM",
+        "features": ["Bowling Lanes", "Arcade Corner", "Snack Bar", "Full Bar", "Cosmic Bowling (weekends)"],
+        "notable": "The Tuesday night women's league has run continuously since 1967. Cosmic bowling on Saturday nights is a teen institution.",
+        "atmosphere": "The thunder of pins. Rental shoe smell. The camaraderie of competition."
+      },
+      {
+        "name": "Old Growth Grove",
+        "address": "County Road 15",
+        "type": "Nature Preserve",
+        "established": 1978,
+        "description": "Protected forest with some of the last old-growth trees in the region. Walking trails wind through ancient Douglas firs and cedars.",
+        "hours": "Dawn to dusk",
+        "features": ["Nature Trails", "Observation Platform", "Interpretive Signs"],
+        "notable": "The largest tree, named 'The Grandmother,' is estimated to be 800 years old.",
+        "atmosphere": "Cathedral silence. Dappled light. The weight of centuries."
+      },
+      {
+        "name": "Willow Creek Community Center",
+        "address": "25 Civic Plaza",
+        "type": "Community Center",
+        "built": 1982,
+        "description": "Multipurpose facility hosting events, classes, and gatherings. Gym, meeting rooms, and event hall.",
+        "hours": "Mon-Sat 8 AM - 9 PM, Sun 12 PM - 6 PM",
+        "features": ["Gymnasium", "Meeting Rooms", "Event Hall", "Fitness Room", "Kitchen"],
+        "notable": "Hosts everything from wedding receptions to town meetings to youth basketball.",
+        "atmosphere": "Squeaking basketball shoes. Folding chairs being arranged. The logistics of community life."
+      }
+    ],
+
+    "wellness": [
+      {
+        "name": "Namaste Yoga Studio",
+        "address": "207 Maple St",
+        "type": "Yoga Studio",
+        "established": 2008,
+        "description": "Small studio in a converted storefront offering yoga classes, meditation sessions, and wellness workshops.",
+        "hours": "Class schedule varies",
+        "classes": ["Vinyasa Flow", "Gentle Yoga", "Hot Yoga", "Meditation", "Prenatal Yoga"],
+        "notable": "Owner trained in India and brings authentic practice to the small-town setting.",
+        "atmosphere": "Incense and calm. Soft music. The collective breath of a class."
+      },
+      {
+        "name": "Voss Massage Studio",
+        "address": "209 Maple St",
+        "type": "Massage Therapy",
+        "established": 2019,
+        "description": "Professional massage therapy studio offering various modalities. New to town, still building reputation.",
+        "hours": "By appointment",
+        "services": ["Swedish Massage", "Deep Tissue", "Sports Massage", "Hot Stone"],
+        "atmosphere": "Dim lighting. Soft music. The professional calm of therapeutic space."
+      },
+      {
+        "name": "Iron Works Gym",
+        "address": "30 Industrial Rd",
+        "type": "Gym",
+        "established": 1995,
+        "description": "No-frills gym with free weights, machines, and cardio equipment. Popular with serious lifters and high school athletes.",
+        "hours": "Mon-Fri 5 AM - 10 PM, Sat-Sun 7 AM - 8 PM",
+        "features": ["Free Weights", "Machines", "Cardio Equipment", "Locker Rooms"],
+        "notable": "The owner, a former powerlifter, offers free training to high school athletes.",
+        "atmosphere": "Clanging weights. The particular focus of physical effort. Mirror reflections."
+      }
+    ],
+
+    "services": [
+      {
+        "name": "Blake's Auto Repair",
+        "address": "35 Industrial Rd",
+        "type": "Auto Repair",
+        "established": 1975,
+        "description": "Family-owned garage known for honest work and fair prices. Three generations of Blakes have turned wrenches here.",
+        "hours": "Mon-Sat 8 AM - 6 PM",
+        "services": ["General Repair", "Oil Changes", "Inspections", "Brake Service"],
+        "notable": "They keep a jar of lollipops for kids and a pot of coffee for waiting customers.",
+        "atmosphere": "Grease and motor oil. The clang of tools. Honest work."
+      },
+      {
+        "name": "Willow Creek Veterinary Clinic",
+        "address": "90 Maple St",
+        "type": "Veterinary Services",
+        "established": 1968,
+        "description": "Full-service vet clinic serving pets and some farm animals. Dr. Chen treats animals with the same care most doctors give humans.",
+        "hours": "Mon-Fri 8 AM - 6 PM, Sat 9 AM - 1 PM, Emergency on-call",
+        "services": ["Wellness Exams", "Surgery", "Dental", "Emergency Care", "Boarding"],
+        "notable": "Has a 'wall of fame' with photos of patients spanning 50+ years.",
+        "atmosphere": "Antiseptic and animal. Nervous pets in waiting room. The particular love between humans and animals."
+      },
+      {
+        "name": "Willow Creek Bank & Trust",
+        "address": "50 Main St",
+        "type": "Bank",
+        "established": 1905,
+        "description": "Local bank that has resisted acquisition by larger chains. Original vault and teller windows still in use.",
+        "hours": "Mon-Fri 9 AM - 5 PM, Sat 9 AM - 12 PM",
+        "notable": "The original vault door weighs 3 tons. Bank president knows most customers by name.",
+        "atmosphere": "Marble floors. The seriousness of money. Personal service."
+      }
+    ],
+
+    "other": [
+      {
+        "name": "Willow Creek Military Outpost",
+        "address": "County Rd 12",
+        "type": "Military Installation",
+        "established": 1942,
+        "description": "Small military facility on the edge of town. Reduced operations from WWII peak but still active. Occasional source of employment for locals.",
+        "access": "Restricted",
+        "notable": "Annual open house gives civilians a glimpse inside. Several town residents are veterans who served here.",
+        "atmosphere": "Flags and discipline. The weight of service."
+      },
+      {
+        "name": "Whitmore Estate",
+        "address": "1 Whitmore Lane",
+        "type": "Historic Residence",
+        "built": 1895,
+        "description": "Grand Victorian mansion built by town founder's son. Now occupied by elderly Eleanor Whitmore, last of the direct line. Occasionally opens for historical society events.",
+        "notable": "Contains original furnishings, family portraits, and archives of town history. Garden is famous for roses.",
+        "atmosphere": "Creaking floors. The weight of history. Dust motes in sunbeams through old glass."
+      },
+      {
+        "name": "Old Stone Bridge",
+        "address": "Willow Lane at Creek Crossing",
+        "type": "Historic Landmark",
+        "built": 1889,
+        "description": "Stone arch bridge over Willow Creek. One of few structures to survive the 1892 fire. Popular spot for photos and quiet reflection.",
+        "notable": "Local tradition says couples who kiss on the bridge will stay together. The 'Weeping Willow Ghost' is said to appear near here.",
+        "atmosphere": "The sound of flowing water. Stone worn smooth by generations. Willows trailing in the current."
+      },
+      {
+        "name": "Founder's Cemetery",
+        "address": "End of Chapel Rd",
+        "type": "Historic Cemetery",
+        "established": 1873,
+        "description": "Historic cemetery with graves dating to before official town incorporation. Many founding families have plots here.",
+        "hours": "Dawn to dusk",
+        "notable": "The Whitmore family mausoleum is the largest structure. Ghost tours are held around Halloween.",
+        "atmosphere": "Quiet contemplation. Weathered headstones. The democracy of death."
+      },
+      {
+        "name": "WCFM 89.5 - Community Radio",
+        "address": "15 Main St (2nd floor)",
+        "type": "Radio Station",
+        "established": 1974,
+        "description": "Low-power community radio station run mostly by volunteers. Mix of local news, music, and community programming.",
+        "hours": "24/7 broadcast",
+        "notable": "Morning show 'Creek Talk' is how many residents start their day. Friday night 'Oldies Hour' is beloved by older listeners.",
+        "atmosphere": "The intimacy of local radio. Voices you know. Community connection through the airwaves."
+      }
+    ]
+  },
+
+  "annual_events": [
+    {
+      "name": "Founder's Day Festival",
+      "date": "Third weekend of June",
+      "description": "Annual celebration of town incorporation. Parade down Main Street, carnival in the park, fireworks over the creek.",
+      "traditions": ["Parade", "Carnival Rides", "Pie Contest", "Fireworks", "Mayor's Speech"],
+      "atmosphere": "Pride and nostalgia. Cotton candy and funnel cakes. The whole town coming together."
+    },
+    {
+      "name": "Fourth of July Celebration",
+      "date": "July 4th",
+      "description": "Patriotic celebration at Lake Willow with boat parade, barbecue competition, and the biggest fireworks display of the year.",
+      "traditions": ["Boat Parade", "BBQ Competition", "Sack Races", "Fireworks"],
+      "atmosphere": "Red, white, and blue. The smell of grilling meat. Fireworks reflected on the lake."
+    },
+    {
+      "name": "Fall Harvest Festival",
+      "date": "Second weekend of October",
+      "description": "Celebration of autumn at the County Fairgrounds. Pumpkin contests, apple cider, hay rides, and the crowning of the Harvest Queen.",
+      "traditions": ["Pumpkin Carving Contest", "Apple Cider Pressing", "Hay Rides", "Corn Maze", "Harvest Queen Pageant"],
+      "atmosphere": "Crisp air and changing leaves. The smell of apple cider. Community warmth against autumn chill."
+    },
+    {
+      "name": "Christmas in the Creek",
+      "date": "First weekend of December",
+      "description": "Town-wide Christmas celebration. Tree lighting ceremony, caroling, Santa's arrival by fire truck, and the Christmas market.",
+      "traditions": ["Tree Lighting", "Santa's Arrival", "Caroling", "Christmas Market", "Living Nativity"],
+      "atmosphere": "Twinkling lights. The smell of hot cocoa. Community warmth in the cold."
+    },
+    {
+      "name": "Memorial Day Ceremony",
+      "date": "Memorial Day",
+      "description": "Solemn ceremony at Founder's Cemetery honoring fallen veterans. Parade from Town Hall, laying of wreaths, and community lunch.",
+      "traditions": ["Parade", "Wreath Laying", "21-Gun Salute", "Reading of Names", "Community Lunch"],
+      "atmosphere": "Reverence and remembrance. The weight of sacrifice. Community gratitude."
+    },
+    {
+      "name": "Summer Concert Series",
+      "date": "Every Thursday, June-August",
+      "description": "Free concerts in the park band shell. Mix of local bands, cover groups, and occasional touring acts.",
+      "atmosphere": "Blankets on the grass. Picnic baskets. The community united by music."
+    },
+    {
+      "name": "Wolverines Homecoming",
+      "date": "Late September/Early October",
+      "description": "High school homecoming week culminating in the Friday night football game and Saturday dance. Alumni return, rivalries renew.",
+      "traditions": ["Spirit Week", "Pep Rally", "Homecoming Game", "Homecoming Dance", "Alumni Events"],
+      "atmosphere": "School spirit. Teenage drama. The bittersweet passage of time."
+    },
+    {
+      "name": "Fire Department Pancake Breakfast",
+      "date": "First Saturday of May",
+      "description": "Annual fundraiser at the fire station. All-you-can-eat pancakes, tour of the station, kids get to sit in the trucks.",
+      "traditions": ["Pancake Eating Contest", "Fire Safety Demonstrations", "Equipment Tours"],
+      "atmosphere": "Community support. Maple syrup and good intentions. The volunteer spirit."
+    },
+    {
+      "name": "Art Walk",
+      "date": "First Friday of each month, May-September",
+      "description": "Monthly evening event where downtown businesses host local artists. Wine, cheese, and culture on Main Street.",
+      "atmosphere": "Creative energy. The clink of wine glasses. Community appreciation for local talent."
+    },
+    {
+      "name": "Pine Ridge Rivalry Game",
+      "date": "Last regular season football game",
+      "description": "Annual football game against neighboring Pine Ridge High. The 'Battle for the Pinecone Trophy' dates back to 1952.",
+      "atmosphere": "Intense school spirit. Decades of rivalry. The town's competitive edge."
+    }
+  ],
+
+  "social_dynamics": {
+    "class_structure": {
+      "description": "Willow Creek has subtle but real class divisions that everyone pretends don't exist.",
+      "groups": [
+        {
+          "name": "Old Money / Founding Families",
+          "description": "Descendants of founders and early settlers. May not be wealthy now but carry social weight.",
+          "characteristics": ["Historical connections", "Social influence", "Traditional values", "Sense of ownership over town identity"]
+        },
+        {
+          "name": "Professional Class",
+          "description": "Doctors, lawyers, business owners. The practical leadership of the town.",
+          "characteristics": ["Education", "Stable income", "Community involvement", "Heights neighborhood"]
+        },
+        {
+          "name": "Working Class",
+          "description": "The backbone of Willow Creek. Service workers, trades, retail employees.",
+          "characteristics": ["Deep roots", "Practical knowledge", "Strong community bonds", "Riverside and Industrial area"]
+        },
+        {
+          "name": "Newcomers",
+          "description": "Recent arrivals, especially tech workers and remote professionals. Still earning acceptance.",
+          "characteristics": ["Different perspectives", "Sometimes seen as outsiders", "Tension with old-timers"]
+        }
+      ]
+    },
+
+    "tensions": [
+      {
+        "name": "Old vs. New",
+        "description": "Long-time residents versus newcomers. Debates about development, character of town, 'how things have always been done.'"
+      },
+      {
+        "name": "Progress vs. Preservation",
+        "description": "Should Willow Creek grow and modernize, or preserve its small-town character? Every council meeting has this subtext."
+      },
+      {
+        "name": "Church vs. Secular",
+        "description": "Religious institutions have traditionally held social power. That influence is waning, creating friction."
+      },
+      {
+        "name": "Heights vs. Riverside",
+        "description": "Subtle class tension between affluent Heights neighborhood and working-class Riverside."
+      }
+    ],
+
+    "unwritten_rules": [
+      "You wave when passing someone on the street, even if you don't know them",
+      "You don't speak ill of the dead, especially founding families",
+      "You support local businesses when possible",
+      "You show up for funerals, even for people you barely knew",
+      "What happens at the bar stays at the bar",
+      "You help neighbors without being asked",
+      "You don't ask about the Peterson disappearance in polite company",
+      "High school football games are mandatory attendance",
+      "You bring a casserole when someone is sick or grieving"
+    ],
+
+    "gossip_networks": [
+      {
+        "name": "The Diner",
+        "description": "News travels fast through Main Street Diner. The waitresses know everything."
+      },
+      {
+        "name": "Church Circles",
+        "description": "Each church has its own gossip network disguised as 'prayer concerns.'"
+      },
+      {
+        "name": "The Salon",
+        "description": "Clip & Style is where secrets are exchanged along with haircuts."
+      },
+      {
+        "name": "School Parents",
+        "description": "Parent pickup line and PTA meetings are information exchanges."
+      },
+      {
+        "name": "The Bar",
+        "description": "After a few drinks, tongues loosen. The bartender hears all."
+      }
+    ]
+  },
+
+  "local_culture": {
+    "speech_patterns": {
+      "description": "Willow Creek has its own informal dialect and expressions.",
+      "phrases": [
+        {"phrase": "Down at the Creek", "meaning": "The general downtown area"},
+        {"phrase": "Up at the Lake", "meaning": "Lake Willow area"},
+        {"phrase": "Old Town folk", "meaning": "Established families, sometimes slightly dismissive"},
+        {"phrase": "Heights people", "meaning": "Affluent newcomers, sometimes slightly dismissive"},
+        {"phrase": "Creek raised", "meaning": "Born and raised in Willow Creek, badge of authenticity"},
+        {"phrase": "Before the flood", "meaning": "Reference point to 1998 flood, 'way back when'"},
+        {"phrase": "Peterson'd", "meaning": "To disappear or vanish, dark humor reference"}
+      ]
+    },
+
+    "food_culture": {
+      "description": "Local food traditions and favorites.",
+      "staples": [
+        {"item": "Main Street Diner Pie", "description": "The gold standard. Especially the blackberry."},
+        {"item": "Golden Dragon Egg Rolls", "description": "Five generations of the same recipe."},
+        {"item": "Lake Willow Trout", "description": "Fresh caught, pan-fried, local tradition."},
+        {"item": "Dawson's Farm Produce", "description": "The freshest vegetables in the county."},
+        {"item": "Fire Station Pancakes", "description": "The annual fundraiser recipe is a town secret."}
+      ]
+    },
+
+    "local_celebrities": [
+      {
+        "name": "Coach Williams",
+        "claim": "Led the 1987 Wolverines to state championship",
+        "status": "Retired, still attends every game"
+      },
+      {
+        "name": "Margaret Chen",
+        "claim": "Painted the Town Hall mural, exhibited in Portland",
+        "status": "Deceased, but her art lives on"
+      },
+      {
+        "name": "Old Pete",
+        "claim": "Claims to have seen the Lake Monster",
+        "status": "91 years old, tells stories at the diner"
+      },
+      {
+        "name": "Sarah McKinnon",
+        "claim": "Country singer who grew up here, had a minor hit in the 90s",
+        "status": "Lives in Nashville, visits for Christmas"
+      }
+    ]
+  },
+
+  "economy": {
+    "overview": "Willow Creek's economy has transitioned from logging and agriculture to services, small manufacturing, and increasingly remote work.",
+    "major_employers": [
+      {"name": "Willow Creek Hospital", "employees": 120, "type": "Healthcare"},
+      {"name": "School District", "employees": 85, "type": "Education"},
+      {"name": "Town Government", "employees": 45, "type": "Government"},
+      {"name": "Dawson's Market", "employees": 35, "type": "Retail"},
+      {"name": "PineTree Software", "employees": 25, "type": "Technology"},
+      {"name": "Various Small Businesses", "employees": 200, "type": "Mixed"}
+    ],
+    "economic_challenges": [
+      "Young people leaving for bigger cities",
+      "Main Street shops struggling against online retail",
+      "Limited high-paying job opportunities",
+      "Housing costs rising with newcomer influx"
+    ],
+    "economic_opportunities": [
+      "Remote work bringing new residents",
+      "Tourism potential (Lake, nature)",
+      "Artisanal/craft economy growing",
+      "Bedroom community for larger cities"
+    ]
+  },
+
+  "qa_training_pairs": [
+    {
+      "question": "What is Willow Creek?",
+      "answer": "Willow Creek is a small town of about 8,500 people in Oregon, founded in 1887. It's nestled in a river valley surrounded by forests, known for its tight-knit community, historic downtown, and the willow trees that line the creek running through its center."
+    },
+    {
+      "question": "What is the history of Willow Creek?",
+      "answer": "Willow Creek was founded in 1887, growing from a logging camp established in 1872. The town survived the Great Fire of 1892 which destroyed 60% of downtown, leading to the brick and stone buildings that give Main Street its historic character today. The arrival of the railroad in 1905 brought prosperity, and the Willow Creek Dam in 1923 created Lake Willow. The town transitioned from logging after the Whitmore Mill closed in 1958."
+    },
+    {
+      "question": "What are the main landmarks in Willow Creek?",
+      "answer": "Key landmarks include the Town Hall with its distinctive clock tower, the Old Stone Bridge over Willow Creek, the Whitmore Estate, Willow Creek Lutheran Church, and Main Street Diner. Natural landmarks include Lake Willow and the Old Growth Grove with 'The Grandmother' tree."
+    },
+    {
+      "question": "What is the Peterson Disappearance?",
+      "answer": "In 1985, local businessman Harold Peterson vanished without a trace, along with $2 million from his business accounts. The case remains unsolved. Theories range from him faking his death and fleeing to Mexico, to being murdered, to the money being buried somewhere in town. It's a taboo topic in polite company but everyone has theories."
+    },
+    {
+      "question": "What is the Weeping Willow Ghost?",
+      "answer": "A local legend about the spirit of a young woman who drowned in the creek in 1891. Residents claim to see her figure among the willow trees on foggy nights, particularly near the Old Stone Bridge. Older residents tend to believe; younger people dismiss it as fog and shadows."
+    },
+    {
+      "question": "Where do people hang out in Willow Creek?",
+      "answer": "Main Street Diner is the social hub where everyone eventually shows up. Teens hang out at the mall, particularly Galaxy Arcade, or Maple Lanes bowling alley. Adults gather at Willow Creek Bar & Grill. College students prefer The Grind coffee shop. Lake Willow is popular for outdoor activities."
+    },
+    {
+      "question": "What annual events does Willow Creek celebrate?",
+      "answer": "Major events include Founder's Day Festival in June, Fourth of July at Lake Willow, Fall Harvest Festival in October, and Christmas in the Creek in December. Weekly summer concerts in the park are beloved, and the Pine Ridge rivalry football game is a town-wide event."
+    },
+    {
+      "question": "What are the neighborhoods in Willow Creek?",
+      "answer": "Main neighborhoods include Downtown/Main Street (commercial center), Old Town (historic Victorian homes), Riverside (middle-class family homes), The Heights (newer affluent area), Industrial District (working-class), College Hill (around the community college), and the rural Outskirts."
+    },
+    {
+      "question": "What is the economy of Willow Creek based on?",
+      "answer": "The economy has shifted from its logging origins to services, healthcare (the hospital is the largest employer), education, small businesses, and increasingly remote work as tech professionals move to the area. There's ongoing tension between economic growth and preserving the small-town character."
+    },
+    {
+      "question": "What social tensions exist in Willow Creek?",
+      "answer": "Main tensions include old-timers versus newcomers, debates about development versus preservation, subtle class divisions between Heights and Riverside neighborhoods, and the waning influence of religious institutions. Everyone pretends these tensions don't exist, but they simmer beneath the surface."
+    }
+  ]
+}
