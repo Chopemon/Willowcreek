@@ -23,6 +23,20 @@ plotly>=5.14.0
 # Natural Language Processing (optional for dialogue)
 textblob>=0.17.0
 
+# Local LLM Inference (choose one or both)
+# Option 1: llama-cpp-python for GGUF models (recommended - lower memory)
+# pip install llama-cpp-python
+# For GPU: CMAKE_ARGS="-DGGML_CUDA=on" pip install llama-cpp-python
+llama-cpp-python>=0.2.0
+
+# Option 2: transformers for HuggingFace models (requires more VRAM)
+# transformers>=4.51.0
+# torch>=2.0.0
+# accelerate>=0.20.0
+
+# Model downloading
+huggingface-hub>=0.20.0
+
 # Testing
 pytest>=7.4.0
 pytest-cov>=4.1.0
