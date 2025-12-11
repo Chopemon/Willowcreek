@@ -1,7 +1,9 @@
 #############################################################
 # web_app.py — FINAL FIXED VERSION (Event Reporting)
+# UPDATED: Native LLM support added
 #############################################################
 import uvicorn
+import argparse
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -17,7 +19,8 @@ BASE_DIR = Path(__file__).resolve().parent
 
 # Global State
 chat: Optional[NarrativeChat] = None
-current_mode: str = "" 
+current_mode: str = ""
+native_model_path: Optional[str] = None  # Set via command line 
 
 # Serve Static Files (CSS/JS)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
@@ -32,22 +35,27 @@ async def serve_ui():
 # --- INIT SIMULATION ---
 @app.get("/api/init", response_class=JSONResponse)
 async def init_sim(request: Request):
-    global chat, current_mode
-    mode = request.query_params.get("mode", "openrouter")
-    
+    global chat, current_mode, native_model_path
+    mode = request.query_params.get("mode", "native" if native_model_path else "local")
+
     if mode != current_mode or chat is None:
         print(f"Initializing Simulation in {mode} mode...")
         try:
-            chat = NarrativeChat(mode=mode)
+            if mode == "native":
+                chat = NarrativeChat(mode="native", model_path=native_model_path)
+            else:
+                chat = NarrativeChat(mode=mode)
             chat.initialize()
             current_mode = mode
             narration = f"**[System: Initialized {mode.upper()} Mode]**\n\n{chat.last_narrated}"
         except Exception as e:
+            import traceback
+            traceback.print_exc()
             return JSONResponse({"error": str(e)}, status_code=500)
     else:
         chat.initialize()
         narration = f"**[System: Reset {mode.upper()} Mode]**\n\n{chat.last_narrated}"
-            
+
     snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
     return JSONResponse({"narration": narration, "snapshot": snapshot})
 
@@ -114,6 +122,34 @@ async def process_action(request: Request):
     snapshot = build_frontend_snapshot(chat.sim, chat.malcolm)
     return JSONResponse({"narration": reply, "snapshot": snapshot})
 
+def main():
+    global native_model_path
+
+    parser = argparse.ArgumentParser(description="Willow Creek Web UI")
+    parser.add_argument(
+        "--model", "-m",
+        type=str,
+        default=None,
+        help="Path to GGUF model file for native mode (e.g., models/unsloth.Q8_0.gguf)"
+    )
+    parser.add_argument(
+        "--port", "-p",
+        type=int,
+        default=8000,
+        help="Port to run the server on (default: 8000)"
+    )
+    args = parser.parse_args()
+
+    # Set global model path for native mode
+    if args.model:
+        native_model_path = args.model
+        if not Path(native_model_path).is_absolute():
+            native_model_path = str(BASE_DIR / native_model_path)
+        print(f"Native LLM mode enabled with model: {native_model_path}")
+
+    print(f"Starting server at http://127.0.0.1:{args.port}")
+    uvicorn.run(app, host="127.0.0.1", port=args.port)
+
+
 if __name__ == "__main__":
-    print("Starting server at http://127.0.0.1:8000")
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+    main()
