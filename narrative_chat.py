@@ -413,6 +413,7 @@ class NarrativeChat:
         """Find NPCs mentioned in text and return their full details."""
         text_lower = text.lower()
         mentioned = []
+        seen_names = set()  # Avoid duplicates
 
         for npc in self.sim.npcs:
             if npc is None or npc.full_name == "Malcolm Newt":
@@ -420,34 +421,23 @@ class NarrativeChat:
 
             # Check if first name or full name is mentioned
             first_name = npc.full_name.split()[0].lower()
-            if first_name in text_lower or npc.full_name.lower() in text_lower:
-                details = [f"\n=== {npc.full_name} (CANON DATA - USE THIS) ==="]
-                details.append(f"  Age: {npc.age}")
-                details.append(f"  Gender: {npc.gender.value if hasattr(npc.gender, 'value') else npc.gender}")
-                details.append(f"  Occupation: {npc.occupation or 'Unemployed'}")
+            if (first_name in text_lower or npc.full_name.lower() in text_lower) and npc.full_name not in seen_names:
+                seen_names.add(npc.full_name)
+
+                # Compact format - less likely to be echoed
+                details = [f"{npc.full_name}: {npc.age}yo, {npc.occupation or 'Unemployed'}"]
 
                 if hasattr(npc, 'coreTraits') and npc.coreTraits:
-                    details.append(f"  Personality: {', '.join(npc.coreTraits[:5])}")
+                    details.append(f"  Traits: {', '.join(npc.coreTraits[:3])}")
 
                 if hasattr(npc, 'appearance') and npc.appearance:
-                    details.append(f"  Appearance: {npc.appearance}")
+                    # Truncate long appearance descriptions
+                    app = npc.appearance[:100] if len(npc.appearance) > 100 else npc.appearance
+                    details.append(f"  Looks: {app}")
 
-                if hasattr(npc, 'current_location'):
-                    details.append(f"  Current Location: {npc.current_location}")
+                details.append(f"  Mood: {npc.mood}, Arousal: {npc.needs.horny:.0f}")
+                details.append(f"  [STRANGER to Malcolm - first meeting]")
 
-                details.append(f"  Mood: {npc.mood}")
-                details.append(f"  Arousal: {npc.needs.horny:.0f}")
-
-                if hasattr(npc, 'attraction_to_malcolm'):
-                    details.append(f"  Attraction to Malcolm: {npc.attraction_to_malcolm}")
-
-                if hasattr(npc, 'secrets') and npc.secrets:
-                    details.append(f"  Secrets: {', '.join(npc.secrets[:2])}")
-
-                if hasattr(npc, 'backstory') and npc.backstory:
-                    details.append(f"  Backstory: {npc.backstory[:200]}...")
-
-                details.append(f"  Relationship with Malcolm: STRANGERS (just met)")
                 mentioned.append("\n".join(details))
 
         return "\n".join(mentioned) if mentioned else ""
@@ -485,20 +475,26 @@ class NarrativeChat:
         if self.last_narrated:
             npc_details += self._get_mentioned_npcs(self.last_narrated)
 
-        user_prompt = f"""
-Current moment to continue from:
-\"\"\"{self.last_narrated}\"\"\"
-
-WORLD SNAPSHOT (focused on immediate context):
-{world_snapshot}
+        # Build the reference section only if we have NPC details
+        reference_section = ""
+        if npc_details:
+            reference_section = f"""
+[REFERENCE ONLY - DO NOT OUTPUT THIS SECTION]
+NPCs in scene:
 {npc_details}
+[END REFERENCE]
+"""
 
-Player intention: {user_input}
+        user_prompt = f"""
+CONTINUE FROM:
+{self.last_narrated}
 
-Continue the scene in 6–12 sentences.
-Stay in third-person limited from Malcolm's POV.
-Use the NPC data provided above - do NOT invent backstory or relationships.
-Include explicit detail in sexual scenes.
+CONTEXT:
+{world_snapshot}
+{reference_section}
+ACTION: {user_input}
+
+Write 6-12 sentences continuing the scene. Third-person limited (Malcolm's POV). Use the NPC reference data for accuracy but DO NOT output any reference tags or NPC stat blocks. Just write natural prose narrative.
 """
 
         return [

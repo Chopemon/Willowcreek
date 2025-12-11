@@ -60,21 +60,21 @@ class SexualActivitySystem:
         self.stats: SexualStatistics = self.sex_sys["statistics"]
         self.risk: RiskTracking = self.sex_sys["riskTracking"]
 
-        # Activity definitions
+        # Activity definitions - keywords must be explicit to avoid false positives
         self.activity_types = {
-            "fullSex": {"keywords": ["sex", "fuck", "intercourse", "came inside", "creampie", "penetrat"],
+            "fullSex": {"keywords": ["had sex", "fucked", "fucking", "intercourse", "came inside", "creampie", "penetrated", "inside her", "inside him", "thrust into"],
                         "duration": "long", "intimacy": 10, "pregnancyRisk": True, "arousalRelief": 100, "energy": -30},
-            "blowjob": {"keywords": ["blowjob", "blow job", "suck", "oral", "head", "fellatio"],
+            "blowjob": {"keywords": ["blowjob", "blow job", "sucked his cock", "sucked his dick", "fellatio", "took him in her mouth", "mouth around his"],
                         "duration": "medium", "intimacy": 7, "pregnancyRisk": False, "arousalRelief": 90, "energy": -15},
-            "cunnilingus": {"keywords": ["cunnilingus", "eat out", "lick", "oral", "went down", "taste"],
+            "cunnilingus": {"keywords": ["cunnilingus", "ate her out", "licked her pussy", "went down on her", "tongue between her legs", "tasted her"],
                           "duration": "medium", "intimacy": 7, "pregnancyRisk": False, "arousalRelief": 85, "energy": -15},
-            "handjob": {"keywords": ["handjob", "hand job", "jerk", "stroke", "manual"],
+            "handjob": {"keywords": ["handjob", "hand job", "jerked him off", "stroked his cock", "hand on his shaft", "pumped his"],
                         "duration": "short", "intimacy": 5, "pregnancyRisk": False, "arousalRelief": 70, "energy": -10},
-            "fingering": {"keywords": ["finger", "manual", "touch", "rub"],
+            "fingering": {"keywords": ["fingered her", "fingers inside her", "rubbed her clit", "fingers between her legs", "touched her pussy"],
                           "duration": "short", "intimacy": 5, "pregnancyRisk": False, "arousalRelief": 65, "energy": -10},
-            "quickie": {"keywords": ["quickie", "quick", "fast", "hurry"],
+            "quickie": {"keywords": ["quickie", "quick fuck", "fast fuck", "bent her over"],
                         "duration": "short", "intimacy": 6, "pregnancyRisk": True, "arousalRelief": 75, "energy": -20},
-            "mutualMasturbation": {"keywords": ["mutual", "together", "watch", "stroke together"],
+            "mutualMasturbation": {"keywords": ["mutual masturbation", "touched each other", "stroked together", "watched each other"],
                                    "duration": "medium", "intimacy": 6, "pregnancyRisk": False, "arousalRelief": 60, "energy": -10},
         }
 

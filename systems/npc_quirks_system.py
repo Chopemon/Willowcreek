@@ -89,9 +89,12 @@ class NPCQuirksSystem:
                 self._add_scenario("[ALEX: Alone with Maria — guilt and desire collide]")
 
         # --- Emma (Reflex Quirk) ---
-        if "emma" in text:
-            triggers = ["banana", "curved fruit", "yellow peel"]
-            if any(t in text for t in triggers):
+        # Only trigger on specific trigger words, not just mentioning Emma
+        emma_triggers = ["banana", "curved fruit", "yellow peel", "eating banana", "peeling banana"]
+        if any(t in text for t in emma_triggers):
+            # Only if Emma is actually present or being interacted with
+            emma = self.npcs.get("Emma Pearson")
+            if emma and (emma.current_location == getattr(self.malcolm, 'current_location', '') or "emma" in text):
                 self._add_scenario(
                     "[EMMA REFLEX: Body arches involuntarily. Thighs clench. Muffled moan escapes. "
                     "Face burns crimson with shame. She has an intense orgasm.]"
