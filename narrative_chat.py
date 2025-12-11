@@ -407,6 +407,52 @@ class NarrativeChat:
         )
 
     # =====================================================================
+    # NPC Detail Fetcher
+    # =====================================================================
+    def _get_mentioned_npcs(self, text: str) -> str:
+        """Find NPCs mentioned in text and return their full details."""
+        text_lower = text.lower()
+        mentioned = []
+
+        for npc in self.sim.npcs:
+            if npc is None or npc.full_name == "Malcolm Newt":
+                continue
+
+            # Check if first name or full name is mentioned
+            first_name = npc.full_name.split()[0].lower()
+            if first_name in text_lower or npc.full_name.lower() in text_lower:
+                details = [f"\n=== {npc.full_name} (CANON DATA - USE THIS) ==="]
+                details.append(f"  Age: {npc.age}")
+                details.append(f"  Gender: {npc.gender.value if hasattr(npc.gender, 'value') else npc.gender}")
+                details.append(f"  Occupation: {npc.occupation or 'Unemployed'}")
+
+                if hasattr(npc, 'coreTraits') and npc.coreTraits:
+                    details.append(f"  Personality: {', '.join(npc.coreTraits[:5])}")
+
+                if hasattr(npc, 'appearance') and npc.appearance:
+                    details.append(f"  Appearance: {npc.appearance}")
+
+                if hasattr(npc, 'current_location'):
+                    details.append(f"  Current Location: {npc.current_location}")
+
+                details.append(f"  Mood: {npc.mood}")
+                details.append(f"  Arousal: {npc.needs.horny:.0f}")
+
+                if hasattr(npc, 'attraction_to_malcolm'):
+                    details.append(f"  Attraction to Malcolm: {npc.attraction_to_malcolm}")
+
+                if hasattr(npc, 'secrets') and npc.secrets:
+                    details.append(f"  Secrets: {', '.join(npc.secrets[:2])}")
+
+                if hasattr(npc, 'backstory') and npc.backstory:
+                    details.append(f"  Backstory: {npc.backstory[:200]}...")
+
+                details.append(f"  Relationship with Malcolm: STRANGERS (just met)")
+                mentioned.append("\n".join(details))
+
+        return "\n".join(mentioned) if mentioned else ""
+
+    # =====================================================================
     # LLM Inference (SUPPORTS BOTH LOCAL SERVER AND NATIVE)
     # =====================================================================
     def _build_messages(self, user_input: str) -> list:
@@ -432,18 +478,26 @@ class NarrativeChat:
             include_gossip=include_gossip
         )
 
+        # Get details for any NPCs mentioned in user input
+        npc_details = self._get_mentioned_npcs(user_input)
+
+        # Also check last narrated for mentioned NPCs
+        if self.last_narrated:
+            npc_details += self._get_mentioned_npcs(self.last_narrated)
+
         user_prompt = f"""
 Current moment to continue from:
 \"\"\"{self.last_narrated}\"\"\"
 
 WORLD SNAPSHOT (focused on immediate context):
 {world_snapshot}
+{npc_details}
 
 Player intention: {user_input}
 
 Continue the scene in 6–12 sentences.
 Stay in third-person limited from Malcolm's POV.
-Use the world snapshot creatively.
+Use the NPC data provided above - do NOT invent backstory or relationships.
 Include explicit detail in sexual scenes.
 """
 
