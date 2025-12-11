@@ -238,8 +238,16 @@ class NarrativeChat:
                 gender=Gender.MALE,
                 occupation="Unemployed (Wealthy)",
             )
+            self.malcolm.current_location = "Malcolm's House"
+            self.malcolm.current_action = "idle"
             self.sim.npcs.append(self.malcolm)
             self.sim.npc_dict[self.malcolm.full_name] = self.malcolm
+
+        # Ensure Malcolm has a location
+        if not hasattr(self.malcolm, 'current_location') or self.malcolm.current_location is None:
+            self.malcolm.current_location = "Malcolm's House"
+        if not hasattr(self.malcolm, 'current_action') or self.malcolm.current_action is None:
+            self.malcolm.current_action = "idle"
 
         # Malcolm metadata
         self.malcolm_extended = {
@@ -548,20 +556,30 @@ Include explicit detail in sexual scenes.
                 text = self.narrate(raw)
 
                 # Clear previous events
-                self.sim.scenario_buffer.clear()
+                if hasattr(self.sim, 'scenario_buffer'):
+                    self.sim.scenario_buffer.clear()
 
                 # Process NPC Quirks (Alex Sturm, Emma reflex, etc.)
-                self.sim.quirks.process_quirks(text)
+                try:
+                    if hasattr(self.sim, 'quirks'):
+                        self.sim.quirks.process_quirks(text)
+                except Exception as e:
+                    print(f"[Quirks system error: {e}]")
 
                 # Process Sexual Activity Detection & Consequences
-                sexual_hint = self.sim.sexual.detect_and_process(text)
-                if sexual_hint:
-                    self.sim.scenario_buffer.append(sexual_hint)
+                try:
+                    if hasattr(self.sim, 'sexual'):
+                        sexual_hint = self.sim.sexual.detect_and_process(text)
+                        if sexual_hint:
+                            self.sim.scenario_buffer.append(sexual_hint)
+                except Exception as e:
+                    print(f"[Sexual system error: {e}]")
 
                 # Output narrative + all triggered events
                 print("\n" + text)
-                for event in self.sim.scenario_buffer:
-                    print(event)
+                if hasattr(self.sim, 'scenario_buffer'):
+                    for event in self.sim.scenario_buffer:
+                        print(event)
                 print()
 
             except KeyboardInterrupt:
