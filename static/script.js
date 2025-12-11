@@ -1,7 +1,7 @@
 // script.js — Fixed Debug & Mode Handling
 
 let simRunning = false;
-let simulationMode = "openrouter"; 
+let simulationMode = "native";  // Default to native when model is loaded
 
 function updateNarration(text) {
     const out = document.getElementById("output");
@@ -26,24 +26,42 @@ function updateSnapshot(snap) {
 }
 
 // Mode Switching
+const btnNative = document.getElementById("native-btn");
 const btnLocal = document.getElementById("local-btn");
 const btnRouter = document.getElementById("openrouter-btn");
+
+function clearModeButtons() {
+    if(btnNative) btnNative.classList.remove("active");
+    if(btnLocal) btnLocal.classList.remove("active");
+    if(btnRouter) btnRouter.classList.remove("active");
+}
+
+if (btnNative) {
+    btnNative.onclick = () => {
+        simulationMode = "native";
+        clearModeButtons();
+        btnNative.classList.add("active");
+        updateNarration("Mode set to: Native (runs model directly). Click 'Start Simulation'.");
+    };
+    // Set native as default active
+    btnNative.classList.add("active");
+}
 
 if (btnLocal) {
     btnLocal.onclick = () => {
         simulationMode = "local";
+        clearModeButtons();
         btnLocal.classList.add("active");
-        if(btnRouter) btnRouter.classList.remove("active");
-        updateNarration("Mode set to: Local (LM Studio). Click 'Start Simulation'.");
+        updateNarration("Mode set to: LM Studio (localhost:1234). Click 'Start Simulation'.");
     };
 }
 
 if (btnRouter) {
     btnRouter.onclick = () => {
         simulationMode = "openrouter";
+        clearModeButtons();
         btnRouter.classList.add("active");
-        if(btnLocal) btnLocal.classList.remove("active");
-        updateNarration("Mode set to: OpenRouter. Click 'Start Simulation'.");
+        updateNarration("Mode set to: OpenRouter (cloud API). Click 'Start Simulation'.");
     };
 }
 
