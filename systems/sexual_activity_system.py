@@ -104,6 +104,14 @@ class SexualActivitySystem:
         detected_type = None
         partner_name = None
 
+        # Refresh malcolm reference in case it was set after init
+        if self.malcolm is None:
+            self.malcolm = getattr(self.sim, "malcolm", None) or self.sim.npc_dict.get("Malcolm Newt")
+
+        # Still None? Can't proceed
+        if self.malcolm is None:
+            return None
+
         for act_type, data in self.activity_types.items():
             if any(kw in text_lower for kw in data["keywords"]):
                 detected_type = act_type
@@ -112,7 +120,7 @@ class SexualActivitySystem:
             return None
 
         for npc in self.npcs:
-            if npc.full_name == "Malcolm Newt":
+            if npc is None or npc.full_name == "Malcolm Newt":
                 continue
             first_name = npc.full_name.split()[0].lower()
             if first_name in text_lower:
@@ -122,10 +130,13 @@ class SexualActivitySystem:
         if not partner_name:
             return None
 
+        # Safe access to current_location
+        location = getattr(self.malcolm, 'current_location', None) or "Unknown"
+
         return {
             "type": detected_type,
             "partner": partner_name,
-            "location": self.malcolm.current_location,
+            "location": location,
             "day": self.time.total_days,
             "hour": self.time.hour
         }

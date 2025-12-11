@@ -393,7 +393,8 @@ class NarrativeChat:
             "- Let tension build – never defuse a crisis artificially\n"
             "- Commit fully when consequences arrive\n"
             "- NPCs speak and act according to their own goals, memories, and current state\n"
-            "- Malcolm's personality colors everything: charismatic, calculating, morally flexible, sexually confident, quietly predatory\n\n"
+            "- Malcolm's personality colors everything: charismatic, calculating, morally flexible, sexually confident, quietly predatory\n"
+            "- CRITICAL: Malcolm is NEW to Willow Creek. He has NO prior relationships with anyone in town. Do NOT invent ex-girlfriends, old friends, or backstory connections. Every NPC is a stranger he is meeting for the first time.\n\n"
 
             "## SPECIAL COMMANDS (only respond if user types exactly)\n"
             "debug: roster    → [System: 41 NPCs active | 7 critical secrets circulating | 3 households on edge]\n"
