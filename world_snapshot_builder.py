@@ -314,38 +314,92 @@ def create_narrative_context(sim: 'WillowCreekSimulation', malcolm: 'NPC') -> st
 def build_frontend_snapshot(sim: 'WillowCreekSimulation', malcolm: 'NPC') -> Dict[str, Any]:
     """
     Bridge function used by web_app.py to populate the UI.
+    Returns structured data for the frontend.
     """
     # 1. Get the full text from your builder
     full_text = create_narrative_context(sim, malcolm)
-    
-    # 2. Extract Malcolm's section for the side panel
-    malcolm_stats = "Check main output for details."
-    
-    # Search for Malcolm's section header
-    lower_text = full_text.lower()
-    start_markers = ["## malcolm", "### malcolm", "malcolm's status", "malcolm state"]
-    
-    start_idx = -1
-    for marker in start_markers:
-        idx = lower_text.find(marker)
-        if idx != -1:
-            start_idx = idx
-            break
-            
-    if start_idx != -1:
-        # We found the start of Malcolm's section
-        rest_of_text = full_text[start_idx:]
-        
-        # Find the NEXT section (denoted by ##) to know where to stop
-        # Skip the first couple of chars so we don't find the header we just found
-        next_section_idx = rest_of_text.find("##", 5) 
-        
-        if next_section_idx != -1:
-            malcolm_stats = rest_of_text[:next_section_idx].strip()
-        else:
-            malcolm_stats = rest_of_text.strip()
+
+    # 2. Build structured data for the new UI
+
+    # Time info
+    time_str = sim.time.get_datetime_string() if hasattr(sim, 'time') else "Unknown"
+    day_num = sim.time.total_days if hasattr(sim, 'time') else 0
+
+    # Malcolm's stats
+    malcolm_data = {
+        "location": getattr(malcolm, 'current_location', 'Unknown'),
+        "hunger": round(malcolm.needs.hunger, 1) if hasattr(malcolm, 'needs') else 50,
+        "energy": round(malcolm.needs.energy, 1) if hasattr(malcolm, 'needs') else 50,
+        "hygiene": round(malcolm.needs.hygiene, 1) if hasattr(malcolm, 'needs') else 50,
+        "horny": round(malcolm.needs.horny, 1) if hasattr(malcolm, 'needs') else 50,
+        "social": round(getattr(malcolm.needs, 'social', 50), 1) if hasattr(malcolm, 'needs') else 50,
+        "lonely": round(malcolm.psyche.lonely, 1) if hasattr(malcolm, 'psyche') else 50,
+        "mood": "unknown"
+    }
+
+    # Get Malcolm's mood
+    try:
+        if hasattr(malcolm, 'mood'):
+            if isinstance(malcolm.mood, str):
+                malcolm_data["mood"] = malcolm.mood
+            elif hasattr(malcolm.mood, 'value'):
+                malcolm_data["mood"] = malcolm.mood.value
+            elif hasattr(malcolm.mood, 'current_mood'):
+                if hasattr(malcolm.mood.current_mood, 'value'):
+                    malcolm_data["mood"] = malcolm.mood.current_mood.value
+                else:
+                    malcolm_data["mood"] = str(malcolm.mood.current_mood)
+    except:
+        pass
+
+    # NPCs at Malcolm's current location
+    npcs_here = []
+    malcolm_loc = getattr(malcolm, 'current_location', 'Unknown')
+    for npc in sim.npcs:
+        if npc.full_name == "Malcolm Newt":
+            continue
+        npc_loc = getattr(npc, 'current_location', 'Void')
+        if npc_loc == malcolm_loc:
+            npc_mood = "?"
+            try:
+                if isinstance(npc.mood, str):
+                    npc_mood = npc.mood
+                elif hasattr(npc.mood, 'value'):
+                    npc_mood = npc.mood.value
+            except:
+                pass
+
+            npcs_here.append({
+                "name": npc.full_name,
+                "age": npc.age,
+                "occupation": getattr(npc, 'occupation', 'Unknown'),
+                "mood": npc_mood
+            })
+
+    # Recent events from scenario buffer
+    recent_events = []
+    if hasattr(sim, 'scenario_buffer'):
+        recent_events = list(sim.scenario_buffer)[-10:]  # Last 10 events
+
+    # Legacy malcolm_stats string for backwards compatibility
+    malcolm_stats = f"""## MALCOLM NEWT
+Location: {malcolm_data['location']}
+Hunger: {malcolm_data['hunger']}/100
+Energy: {malcolm_data['energy']}/100
+Hygiene: {malcolm_data['hygiene']}/100
+Arousal: {malcolm_data['horny']}/100
+Lonely: {malcolm_data['lonely']}/100
+Mood: {malcolm_data['mood']}"""
 
     return {
         "full_context": full_text,
-        "malcolm_stats": malcolm_stats
+        "malcolm_stats": malcolm_stats,
+        # New structured data
+        "time": {
+            "display": time_str,
+            "day": day_num
+        },
+        "malcolm": malcolm_data,
+        "npcs_here": npcs_here,
+        "events": recent_events
     }

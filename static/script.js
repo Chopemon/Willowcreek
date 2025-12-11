@@ -12,16 +12,87 @@ function updateNarration(text) {
 }
 
 function updateSnapshot(snap) {
-    // Update Malcolm Stats Panel
-    if(snap.malcolm_stats) {
+    // Update Time Display
+    if (snap.time) {
+        const timeDisplay = document.getElementById("time-display");
+        if (timeDisplay) {
+            timeDisplay.innerText = `${snap.time.display} | Day ${snap.time.day}`;
+        }
+    }
+
+    // Update Malcolm Stats Panel with structured data
+    if (snap.malcolm) {
+        const m = snap.malcolm;
+
+        // Location
+        const locEl = document.getElementById("malcolm-location");
+        if (locEl) locEl.innerText = m.location || "---";
+
+        // Stats with progress bars
+        updateStatBar("hunger", m.hunger);
+        updateStatBar("energy", m.energy);
+        updateStatBar("hygiene", m.hygiene);
+        updateStatBar("horny", m.horny);
+        updateStatBar("social", m.social);
+        updateStatBar("lonely", m.lonely);
+
+        // Mood
+        const moodEl = document.getElementById("malcolm-mood");
+        if (moodEl) moodEl.innerText = m.mood || "---";
+    }
+
+    // Update NPCs Here Panel
+    if (snap.npcs_here !== undefined) {
+        const npcsEl = document.getElementById("npcs-list");
+        if (npcsEl) {
+            if (snap.npcs_here.length === 0) {
+                npcsEl.innerHTML = "<span style='color:#666'>No one nearby</span>";
+            } else {
+                let html = "";
+                for (const npc of snap.npcs_here) {
+                    html += `<div class="npc-entry">
+                        <span class="npc-name">${npc.name}</span>
+                        <div class="npc-info">${npc.age}yo, ${npc.occupation} — ${npc.mood}</div>
+                    </div>`;
+                }
+                npcsEl.innerHTML = html;
+            }
+        }
+    }
+
+    // Update Events Panel
+    if (snap.events && snap.events.length > 0) {
+        const eventsEl = document.getElementById("events-list");
+        if (eventsEl) {
+            let html = "";
+            for (const evt of snap.events.slice(-5)) {  // Last 5 events
+                html += `<div class="event-item">${evt}</div>`;
+            }
+            eventsEl.innerHTML = html || "<span style='color:#666'>---</span>";
+        }
+    }
+
+    // Legacy: Update old panels if they exist
+    if (snap.malcolm_stats) {
         const statsBox = document.getElementById("malcolm-stats");
         if (statsBox) statsBox.innerText = snap.malcolm_stats;
     }
 
-    // Update Debug Panel (Always show full context now)
-    if(snap.full_context) {
+    if (snap.full_context) {
         const debugBox = document.getElementById("debug-box");
         if (debugBox) debugBox.innerText = "### AI CONTEXT (Live)\n\n" + snap.full_context;
+    }
+}
+
+function updateStatBar(statName, value) {
+    const bar = document.getElementById(`bar-${statName}`);
+    const val = document.getElementById(`val-${statName}`);
+
+    if (bar) {
+        bar.style.width = `${Math.min(100, Math.max(0, value))}%`;
+    }
+    if (val) {
+        val.innerText = Math.round(value);
     }
 }
 

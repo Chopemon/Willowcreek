@@ -3,33 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Willow Creek Simulator</title>
-    <link rel="stylesheet" href="/static/styles.css"> 
+    <title>Willow Creek 2025</title>
+    <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
     <div id="container">
-        <header><h1>Willow Creek Simulator v2</h1></header>
+        <header>
+            <h1>WILLOW CREEK 2025</h1>
+            <div id="time-display">--:-- | Day 0</div>
+        </header>
         <main>
             <div id="left-panel" class="panel">
                 <div id="output"></div>
                 <div id="input-area">
-                    <input type="text" id="user-input" placeholder="Type action...">
+                    <input type="text" id="user-input" placeholder="What does Malcolm do...">
                     <button id="wait-btn">Wait 1h</button>
                     <button id="send-btn">Send</button>
                 </div>
             </div>
             <div id="right-panel" class="panel">
-                <div id="mode-selection-area">
-                    <label>Simulation Mode:</label>
+                <!-- Mode Selection -->
+                <div id="mode-selection-area" class="info-panel">
+                    <label>Mode:</label>
                     <div class="mode-buttons">
-                        <button id="native-btn">Native (Local Model)</button>
+                        <button id="native-btn">Native</button>
                         <button id="local-btn">LM Studio</button>
-                        <button id="openrouter-btn">OpenRouter</button>
+                        <button id="openrouter-btn">Cloud</button>
                     </div>
                     <button id="init-btn">Start Simulation</button>
                 </div>
-                <div id="malcolm-stats" class="info-panel">Status...</div>
-                <div id="debug-box" class="info-panel">Debug info...</div>
+
+                <!-- Malcolm Stats -->
+                <div id="malcolm-panel" class="info-panel">
+                    <h3>MALCOLM NEWT</h3>
+                    <div id="location-display" class="stat-row">
+                        <span class="label">Location:</span>
+                        <span id="malcolm-location">---</span>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Hunger</span>
+                            <div class="progress-bar"><div id="bar-hunger" class="progress" style="width:50%"></div></div>
+                            <span id="val-hunger" class="stat-value">50</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Energy</span>
+                            <div class="progress-bar"><div id="bar-energy" class="progress energy" style="width:50%"></div></div>
+                            <span id="val-energy" class="stat-value">50</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Hygiene</span>
+                            <div class="progress-bar"><div id="bar-hygiene" class="progress hygiene" style="width:50%"></div></div>
+                            <span id="val-hygiene" class="stat-value">50</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Arousal</span>
+                            <div class="progress-bar"><div id="bar-horny" class="progress horny" style="width:50%"></div></div>
+                            <span id="val-horny" class="stat-value">50</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Social</span>
+                            <div class="progress-bar"><div id="bar-social" class="progress social" style="width:50%"></div></div>
+                            <span id="val-social" class="stat-value">50</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Lonely</span>
+                            <div class="progress-bar"><div id="bar-lonely" class="progress lonely" style="width:50%"></div></div>
+                            <span id="val-lonely" class="stat-value">50</span>
+                        </div>
+                    </div>
+                    <div id="mood-display" class="mood-box">
+                        Mood: <span id="malcolm-mood">---</span>
+                    </div>
+                </div>
+
+                <!-- NPCs Here -->
+                <div id="npcs-panel" class="info-panel">
+                    <h3>PEOPLE HERE</h3>
+                    <div id="npcs-list">No one nearby</div>
+                </div>
+
+                <!-- Recent Events -->
+                <div id="events-panel" class="info-panel">
+                    <h3>RECENT EVENTS</h3>
+                    <div id="events-list">---</div>
+                </div>
             </div>
         </main>
     </div>
