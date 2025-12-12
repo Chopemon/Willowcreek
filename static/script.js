@@ -301,6 +301,7 @@ function filterNPCs() {
 
 function openNPCDrawer(npcName) {
     const drawer = document.getElementById('npc-drawer');
+    const overlay = document.getElementById('drawer-overlay');
     if (!drawer) return;
 
     // Set NPC data
@@ -318,11 +319,16 @@ function openNPCDrawer(npcName) {
     }
 
     drawer.classList.add('open');
+    overlay?.classList.add('visible');
 }
 
-document.getElementById('close-drawer')?.addEventListener('click', () => {
+function closeNPCDrawer() {
     document.getElementById('npc-drawer')?.classList.remove('open');
-});
+    document.getElementById('drawer-overlay')?.classList.remove('visible');
+}
+
+document.getElementById('close-drawer')?.addEventListener('click', closeNPCDrawer);
+document.getElementById('drawer-overlay')?.addEventListener('click', closeNPCDrawer);
 
 // Generate portrait for NPC
 document.getElementById('generate-portrait-btn')?.addEventListener('click', async () => {
