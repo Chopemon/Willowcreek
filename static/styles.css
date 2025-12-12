@@ -340,3 +340,113 @@ button {
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+/* 15. COMFYUI PANEL */
+#comfyui-panel h3 {
+    margin: 0 0 10px 0;
+    color: #00bcd4;
+    font-size: 13px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 6px;
+}
+
+.comfy-status {
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.comfy-status.online {
+    background: #1b5e20;
+    color: #4caf50;
+}
+
+.comfy-status.offline {
+    background: #4a1414;
+    color: #ef5350;
+}
+
+.comfy-controls {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 8px;
+}
+
+.comfy-controls select {
+    flex: 1;
+    background: #333;
+    color: #ddd;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 6px;
+    font-size: 11px;
+}
+
+.comfy-controls input[type="text"] {
+    flex: 1;
+    background: #333;
+    color: #ddd;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 6px;
+    font-size: 11px;
+}
+
+.comfy-controls button {
+    padding: 6px 10px;
+    font-size: 11px;
+    background: #455a64;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comfy-controls button:hover {
+    background: #546e7a;
+}
+
+#generate-btn {
+    background: #7b1fa2;
+}
+
+#generate-btn:hover {
+    background: #9c27b0;
+}
+
+#generate-btn:disabled {
+    background: #444;
+    cursor: not-allowed;
+}
+
+#image-container {
+    background: #252525;
+    border-radius: 4px;
+    padding: 8px;
+    text-align: center;
+    min-height: 100px;
+    margin-bottom: 8px;
+}
+
+#generated-image {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 4px;
+}
+
+#image-placeholder {
+    color: #666;
+    font-size: 11px;
+    padding: 40px 0;
+}
+
+#upload-workflow-btn {
+    width: 100%;
+    background: #37474f;
+}
+
+#upload-workflow-btn:hover {
+    background: #455a64;
+}

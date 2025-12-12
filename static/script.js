@@ -202,3 +202,212 @@ if (inputField) {
         if (e.key === "Enter") send();
     });
 }
+
+
+// ==================== COMFYUI IMAGE GENERATION ====================
+
+let comfyAvailable = false;
+let currentWorkflow = "";
+
+// Check ComfyUI status
+async function checkComfyUIStatus() {
+    const statusEl = document.getElementById("comfyui-status");
+    try {
+        const res = await fetch("/api/comfyui/status");
+        const data = await res.json();
+
+        comfyAvailable = data.available;
+        currentWorkflow = data.current_workflow || "";
+
+        if (comfyAvailable) {
+            statusEl.className = "comfy-status online";
+            statusEl.innerText = `ComfyUI: Online (${data.address})`;
+        } else {
+            statusEl.className = "comfy-status offline";
+            statusEl.innerText = "ComfyUI: Offline";
+        }
+
+        // Load workflows if online
+        if (comfyAvailable) {
+            loadWorkflows();
+        }
+    } catch (e) {
+        statusEl.className = "comfy-status offline";
+        statusEl.innerText = "ComfyUI: Error";
+    }
+}
+
+// Load available workflows
+async function loadWorkflows() {
+    const selectEl = document.getElementById("workflow-select");
+    try {
+        const res = await fetch("/api/comfyui/workflows");
+        const data = await res.json();
+
+        // Clear existing options
+        selectEl.innerHTML = '<option value="">-- Select Workflow --</option>';
+
+        for (const wf of data.workflows) {
+            const opt = document.createElement("option");
+            opt.value = wf;
+            opt.textContent = wf;
+            if (wf === data.current) {
+                opt.selected = true;
+            }
+            selectEl.appendChild(opt);
+        }
+    } catch (e) {
+        console.error("Failed to load workflows:", e);
+    }
+}
+
+// Load selected workflow
+async function loadSelectedWorkflow() {
+    const selectEl = document.getElementById("workflow-select");
+    const workflow = selectEl.value;
+
+    if (!workflow) return;
+
+    try {
+        const res = await fetch("/api/comfyui/load", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ workflow })
+        });
+        const data = await res.json();
+
+        if (data.success) {
+            currentWorkflow = workflow;
+            updateNarration(`[ComfyUI] Loaded workflow: ${workflow}`);
+        } else {
+            updateNarration(`[ComfyUI] Error: ${data.error}`);
+        }
+    } catch (e) {
+        updateNarration("[ComfyUI] Failed to load workflow");
+    }
+}
+
+// Generate image
+async function generateImage() {
+    const promptEl = document.getElementById("image-prompt");
+    const generateBtn = document.getElementById("generate-btn");
+    const imageEl = document.getElementById("generated-image");
+    const placeholderEl = document.getElementById("image-placeholder");
+
+    const prompt = promptEl.value.trim();
+    if (!prompt) {
+        updateNarration("[ComfyUI] Please enter a prompt");
+        return;
+    }
+
+    if (!comfyAvailable) {
+        updateNarration("[ComfyUI] Server not available");
+        return;
+    }
+
+    // Disable button during generation
+    generateBtn.disabled = true;
+    generateBtn.innerText = "Generating...";
+    placeholderEl.innerText = "Generating image...";
+
+    try {
+        const res = await fetch("/api/comfyui/generate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                prompt: prompt,
+                negative_prompt: "blurry, low quality, distorted",
+                seed: -1
+            })
+        });
+        const data = await res.json();
+
+        if (data.success && data.image) {
+            imageEl.src = "data:image/png;base64," + data.image;
+            imageEl.style.display = "block";
+            placeholderEl.style.display = "none";
+            updateNarration(`[ComfyUI] Image generated using ${data.workflow}`);
+        } else {
+            placeholderEl.innerText = data.error || "Generation failed";
+            placeholderEl.style.display = "block";
+            imageEl.style.display = "none";
+            updateNarration(`[ComfyUI] Error: ${data.error}`);
+        }
+    } catch (e) {
+        placeholderEl.innerText = "Connection error";
+        updateNarration("[ComfyUI] Connection failed");
+    }
+
+    generateBtn.disabled = false;
+    generateBtn.innerText = "Generate";
+}
+
+// Upload workflow
+async function uploadWorkflow(file) {
+    const reader = new FileReader();
+
+    reader.onload = async (e) => {
+        try {
+            const workflow = JSON.parse(e.target.result);
+            const name = file.name.replace(".json", "");
+
+            const res = await fetch("/api/comfyui/upload", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, workflow })
+            });
+            const data = await res.json();
+
+            if (data.success) {
+                updateNarration(`[ComfyUI] Uploaded workflow: ${data.name}`);
+                loadWorkflows();  // Refresh list
+            } else {
+                updateNarration(`[ComfyUI] Upload error: ${data.error}`);
+            }
+        } catch (err) {
+            updateNarration("[ComfyUI] Invalid workflow JSON");
+        }
+    };
+
+    reader.readAsText(file);
+}
+
+// Event Listeners for ComfyUI
+const workflowSelect = document.getElementById("workflow-select");
+if (workflowSelect) {
+    workflowSelect.onchange = loadSelectedWorkflow;
+}
+
+const refreshWorkflowsBtn = document.getElementById("refresh-workflows-btn");
+if (refreshWorkflowsBtn) {
+    refreshWorkflowsBtn.onclick = () => {
+        checkComfyUIStatus();
+    };
+}
+
+const generateBtn = document.getElementById("generate-btn");
+if (generateBtn) {
+    generateBtn.onclick = generateImage;
+}
+
+const imagePromptEl = document.getElementById("image-prompt");
+if (imagePromptEl) {
+    imagePromptEl.addEventListener("keydown", e => {
+        if (e.key === "Enter") generateImage();
+    });
+}
+
+const uploadWorkflowBtn = document.getElementById("upload-workflow-btn");
+const workflowUploadInput = document.getElementById("workflow-upload");
+if (uploadWorkflowBtn && workflowUploadInput) {
+    uploadWorkflowBtn.onclick = () => workflowUploadInput.click();
+    workflowUploadInput.onchange = (e) => {
+        if (e.target.files.length > 0) {
+            uploadWorkflow(e.target.files[0]);
+            e.target.value = "";  // Reset for next upload
+        }
+    };
+}
+
+// Check ComfyUI status on page load
+checkComfyUIStatus();

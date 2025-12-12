@@ -88,6 +88,30 @@
                     <h3>RECENT EVENTS</h3>
                     <div id="events-list">---</div>
                 </div>
+
+                <!-- ComfyUI Image Generation -->
+                <div id="comfyui-panel" class="info-panel">
+                    <h3>IMAGE GENERATION</h3>
+                    <div id="comfyui-status" class="comfy-status offline">ComfyUI: Checking...</div>
+                    <div class="comfy-controls">
+                        <select id="workflow-select">
+                            <option value="">-- Select Workflow --</option>
+                        </select>
+                        <button id="refresh-workflows-btn" title="Refresh">↻</button>
+                    </div>
+                    <div class="comfy-controls">
+                        <input type="text" id="image-prompt" placeholder="Image prompt...">
+                        <button id="generate-btn">Generate</button>
+                    </div>
+                    <div id="image-container">
+                        <img id="generated-image" src="" alt="Generated image" style="display:none;">
+                        <div id="image-placeholder">No image generated</div>
+                    </div>
+                    <div class="comfy-controls">
+                        <input type="file" id="workflow-upload" accept=".json" style="display:none;">
+                        <button id="upload-workflow-btn">Upload Workflow</button>
+                    </div>
+                </div>
             </div>
         </main>
     </div>

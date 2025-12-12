@@ -49,3 +49,6 @@ mypy>=1.4.0
 # Utilities
 python-dateutil>=2.8.0
 tqdm>=4.65.0
+
+# ComfyUI Integration
+websocket-client>=1.6.0
