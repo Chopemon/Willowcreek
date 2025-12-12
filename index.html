@@ -7,113 +7,378 @@
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
-    <div id="container">
-        <header>
-            <h1>WILLOW CREEK 2025</h1>
-            <div id="time-display">--:-- | Day 0</div>
-        </header>
-        <main>
-            <div id="left-panel" class="panel">
-                <div id="output"></div>
-                <div id="input-area">
-                    <input type="text" id="user-input" placeholder="What does Malcolm do...">
-                    <button id="wait-btn">Wait 1h</button>
-                    <button id="send-btn">Send</button>
+    <div id="app">
+        <!-- LEFT SIDEBAR -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h1>WILLOW CREEK</h1>
+                <span class="version">2025</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active" data-page="simulation">
+                    <span class="nav-icon">&#9658;</span>
+                    <span class="nav-text">Simulation</span>
+                </li>
+                <li class="nav-item" data-page="npcs">
+                    <span class="nav-icon">&#128100;</span>
+                    <span class="nav-text">NPC Explorer</span>
+                </li>
+                <li class="nav-item" data-page="map">
+                    <span class="nav-icon">&#127968;</span>
+                    <span class="nav-text">Town Map</span>
+                </li>
+                <li class="nav-item" data-page="events">
+                    <span class="nav-icon">&#128172;</span>
+                    <span class="nav-text">Events Log</span>
+                </li>
+                <li class="nav-item" data-page="images">
+                    <span class="nav-icon">&#128247;</span>
+                    <span class="nav-text">Image Gen</span>
+                </li>
+                <li class="nav-item" data-page="settings">
+                    <span class="nav-icon">&#9881;</span>
+                    <span class="nav-text">Settings</span>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="sim-status" id="sim-status">
+                    <span class="status-dot offline"></span>
+                    <span>Offline</span>
                 </div>
             </div>
-            <div id="right-panel" class="panel">
-                <!-- Mode Selection -->
-                <div id="mode-selection-area" class="info-panel">
-                    <label>Mode:</label>
-                    <div class="mode-buttons">
-                        <button id="native-btn">Native</button>
-                        <button id="local-btn">LM Studio</button>
-                        <button id="openrouter-btn">Cloud</button>
-                    </div>
-                    <button id="init-btn">Start Simulation</button>
-                </div>
+        </nav>
 
-                <!-- Malcolm Stats -->
-                <div id="malcolm-panel" class="info-panel">
-                    <h3>MALCOLM NEWT</h3>
-                    <div id="location-display" class="stat-row">
-                        <span class="label">Location:</span>
-                        <span id="malcolm-location">---</span>
+        <!-- MAIN CONTENT -->
+        <main id="main-content">
+            <!-- SIMULATION PAGE -->
+            <div id="page-simulation" class="page active">
+                <header class="page-header">
+                    <div class="header-left">
+                        <h2>Simulation Dashboard</h2>
+                        <div id="time-display" class="time-badge">--:-- | Day 0</div>
                     </div>
-                    <div class="stats-grid">
-                        <div class="stat-item">
-                            <span class="stat-label">Hunger</span>
-                            <div class="progress-bar"><div id="bar-hunger" class="progress" style="width:50%"></div></div>
-                            <span id="val-hunger" class="stat-value">50</span>
+                    <div class="header-right">
+                        <div class="toggle-container">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="sim-toggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                            <span id="toggle-label">Start Simulation</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Energy</span>
-                            <div class="progress-bar"><div id="bar-energy" class="progress energy" style="width:50%"></div></div>
-                            <span id="val-energy" class="stat-value">50</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Hygiene</span>
-                            <div class="progress-bar"><div id="bar-hygiene" class="progress hygiene" style="width:50%"></div></div>
-                            <span id="val-hygiene" class="stat-value">50</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Arousal</span>
-                            <div class="progress-bar"><div id="bar-horny" class="progress horny" style="width:50%"></div></div>
-                            <span id="val-horny" class="stat-value">50</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Social</span>
-                            <div class="progress-bar"><div id="bar-social" class="progress social" style="width:50%"></div></div>
-                            <span id="val-social" class="stat-value">50</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Lonely</span>
-                            <div class="progress-bar"><div id="bar-lonely" class="progress lonely" style="width:50%"></div></div>
-                            <span id="val-lonely" class="stat-value">50</span>
-                        </div>
-                    </div>
-                    <div id="mood-display" class="mood-box">
-                        Mood: <span id="malcolm-mood">---</span>
-                    </div>
-                </div>
-
-                <!-- NPCs Here -->
-                <div id="npcs-panel" class="info-panel">
-                    <h3>PEOPLE HERE</h3>
-                    <div id="npcs-list">No one nearby</div>
-                </div>
-
-                <!-- Recent Events -->
-                <div id="events-panel" class="info-panel">
-                    <h3>RECENT EVENTS</h3>
-                    <div id="events-list">---</div>
-                </div>
-
-                <!-- ComfyUI Image Generation -->
-                <div id="comfyui-panel" class="info-panel">
-                    <h3>IMAGE GENERATION</h3>
-                    <div id="comfyui-status" class="comfy-status offline">ComfyUI: Checking...</div>
-                    <div class="comfy-controls">
-                        <select id="workflow-select">
-                            <option value="">-- Select Workflow --</option>
+                        <select id="mode-select" class="mode-dropdown">
+                            <option value="native">Native LLM</option>
+                            <option value="local">LM Studio</option>
+                            <option value="openrouter">Cloud API</option>
                         </select>
-                        <button id="refresh-workflows-btn" title="Refresh">↻</button>
                     </div>
-                    <div class="comfy-controls">
-                        <input type="text" id="image-prompt" placeholder="Image prompt...">
-                        <button id="generate-btn">Generate</button>
+                </header>
+
+                <div class="dashboard-grid">
+                    <!-- LEFT: Narrative Output -->
+                    <div class="card narrative-card">
+                        <div class="card-header">
+                            <h3>Narrative</h3>
+                        </div>
+                        <div id="output" class="narrative-output"></div>
+                        <div class="input-bar">
+                            <input type="text" id="user-input" placeholder="What does Malcolm do...">
+                            <button id="wait-btn" class="btn btn-secondary">Wait 1h</button>
+                            <button id="send-btn" class="btn btn-primary">Send</button>
+                        </div>
                     </div>
-                    <div id="image-container">
+
+                    <!-- RIGHT: Info Panels -->
+                    <div class="info-column">
+                        <!-- Malcolm Stats Card -->
+                        <div class="card malcolm-card">
+                            <div class="card-header">
+                                <h3>Malcolm Newt</h3>
+                                <span id="malcolm-location" class="location-badge">---</span>
+                            </div>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-header">
+                                        <span class="stat-label">Hunger</span>
+                                        <span id="val-hunger" class="stat-value">50</span>
+                                    </div>
+                                    <div class="progress-bar"><div id="bar-hunger" class="progress hunger" style="width:50%"></div></div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-header">
+                                        <span class="stat-label">Energy</span>
+                                        <span id="val-energy" class="stat-value">50</span>
+                                    </div>
+                                    <div class="progress-bar"><div id="bar-energy" class="progress energy" style="width:50%"></div></div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-header">
+                                        <span class="stat-label">Hygiene</span>
+                                        <span id="val-hygiene" class="stat-value">50</span>
+                                    </div>
+                                    <div class="progress-bar"><div id="bar-hygiene" class="progress hygiene" style="width:50%"></div></div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-header">
+                                        <span class="stat-label">Arousal</span>
+                                        <span id="val-horny" class="stat-value">50</span>
+                                    </div>
+                                    <div class="progress-bar"><div id="bar-horny" class="progress horny" style="width:50%"></div></div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-header">
+                                        <span class="stat-label">Social</span>
+                                        <span id="val-social" class="stat-value">50</span>
+                                    </div>
+                                    <div class="progress-bar"><div id="bar-social" class="progress social" style="width:50%"></div></div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-header">
+                                        <span class="stat-label">Lonely</span>
+                                        <span id="val-lonely" class="stat-value">50</span>
+                                    </div>
+                                    <div class="progress-bar"><div id="bar-lonely" class="progress lonely" style="width:50%"></div></div>
+                                </div>
+                            </div>
+                            <div class="mood-display">
+                                Mood: <span id="malcolm-mood" class="mood-value">---</span>
+                            </div>
+                        </div>
+
+                        <!-- Tabbed Panel -->
+                        <div class="card tabbed-card">
+                            <div class="tab-bar">
+                                <button class="tab-btn active" data-tab="nearby">Nearby</button>
+                                <button class="tab-btn" data-tab="events">Events</button>
+                                <button class="tab-btn" data-tab="gossip">Gossip</button>
+                            </div>
+                            <div class="tab-content">
+                                <div id="tab-nearby" class="tab-pane active">
+                                    <div id="npcs-list" class="npc-list">No one nearby</div>
+                                </div>
+                                <div id="tab-events" class="tab-pane">
+                                    <div id="events-list" class="events-list">No events yet</div>
+                                </div>
+                                <div id="tab-gossip" class="tab-pane">
+                                    <div id="gossip-list" class="gossip-list">No gossip yet</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NPC EXPLORER PAGE -->
+            <div id="page-npcs" class="page">
+                <header class="page-header">
+                    <h2>NPC Explorer</h2>
+                    <div class="search-bar">
+                        <input type="text" id="npc-search" placeholder="Search NPCs...">
+                        <select id="npc-filter-location">
+                            <option value="">All Locations</option>
+                        </select>
+                    </div>
+                </header>
+                <div class="npc-explorer">
+                    <div class="npc-grid" id="npc-grid">
+                        <!-- NPC cards populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOWN MAP PAGE -->
+            <div id="page-map" class="page">
+                <header class="page-header">
+                    <h2>Town Map</h2>
+                </header>
+                <div class="map-container">
+                    <div class="town-grid" id="town-grid">
+                        <div class="map-location" data-location="Town Square">
+                            <span class="loc-name">Town Square</span>
+                            <span class="loc-count" id="count-town-square">0</span>
+                        </div>
+                        <div class="map-location" data-location="Residential District">
+                            <span class="loc-name">Residential</span>
+                            <span class="loc-count" id="count-residential">0</span>
+                        </div>
+                        <div class="map-location" data-location="Shopping District">
+                            <span class="loc-name">Shopping</span>
+                            <span class="loc-count" id="count-shopping">0</span>
+                        </div>
+                        <div class="map-location" data-location="Park">
+                            <span class="loc-name">Park</span>
+                            <span class="loc-count" id="count-park">0</span>
+                        </div>
+                        <div class="map-location" data-location="School">
+                            <span class="loc-name">School</span>
+                            <span class="loc-count" id="count-school">0</span>
+                        </div>
+                        <div class="map-location" data-location="Church">
+                            <span class="loc-name">Church</span>
+                            <span class="loc-count" id="count-church">0</span>
+                        </div>
+                        <div class="map-location" data-location="Hospital">
+                            <span class="loc-name">Hospital</span>
+                            <span class="loc-count" id="count-hospital">0</span>
+                        </div>
+                        <div class="map-location" data-location="Beach">
+                            <span class="loc-name">Beach</span>
+                            <span class="loc-count" id="count-beach">0</span>
+                        </div>
+                        <div class="map-location malcolm" data-location="Malcolm">
+                            <span class="loc-name">Malcolm</span>
+                            <span class="loc-indicator">&#9733;</span>
+                        </div>
+                    </div>
+                    <div class="map-legend">
+                        <span class="legend-item"><span class="dot malcolm"></span> Malcolm's Location</span>
+                        <span class="legend-item"><span class="dot npc"></span> NPCs Present</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EVENTS LOG PAGE -->
+            <div id="page-events" class="page">
+                <header class="page-header">
+                    <h2>Events & Gossip Log</h2>
+                    <div class="event-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="system">System</button>
+                        <button class="filter-btn" data-filter="gossip">Gossip</button>
+                        <button class="filter-btn" data-filter="quirks">Quirks</button>
+                    </div>
+                </header>
+                <div class="events-feed" id="events-feed">
+                    <div class="event-placeholder">Start the simulation to see events</div>
+                </div>
+            </div>
+
+            <!-- IMAGE GENERATION PAGE -->
+            <div id="page-images" class="page">
+                <header class="page-header">
+                    <h2>Image Generation</h2>
+                    <div id="comfyui-status" class="comfy-status offline">ComfyUI: Checking...</div>
+                </header>
+                <div class="image-gen-container">
+                    <div class="image-controls card">
+                        <div class="control-group">
+                            <label>Workflow</label>
+                            <div class="input-row">
+                                <select id="workflow-select">
+                                    <option value="">-- Select Workflow --</option>
+                                </select>
+                                <button id="refresh-workflows-btn" class="btn btn-icon" title="Refresh">&#8635;</button>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label>Prompt</label>
+                            <textarea id="image-prompt" placeholder="Describe the image..."></textarea>
+                        </div>
+                        <div class="control-group">
+                            <label>Negative Prompt</label>
+                            <input type="text" id="negative-prompt" placeholder="blurry, low quality..." value="blurry, low quality, distorted">
+                        </div>
+                        <div class="control-row">
+                            <button id="generate-btn" class="btn btn-primary btn-large">Generate Image</button>
+                            <button id="upload-workflow-btn" class="btn btn-secondary">Upload Workflow</button>
+                            <input type="file" id="workflow-upload" accept=".json" style="display:none;">
+                        </div>
+                    </div>
+                    <div class="image-preview card">
                         <img id="generated-image" src="" alt="Generated image" style="display:none;">
-                        <div id="image-placeholder">No image generated</div>
+                        <div id="image-placeholder" class="placeholder">No image generated yet</div>
                     </div>
-                    <div class="comfy-controls">
-                        <input type="file" id="workflow-upload" accept=".json" style="display:none;">
-                        <button id="upload-workflow-btn">Upload Workflow</button>
+                </div>
+            </div>
+
+            <!-- SETTINGS PAGE -->
+            <div id="page-settings" class="page">
+                <header class="page-header">
+                    <h2>Settings</h2>
+                </header>
+                <div class="settings-container">
+                    <div class="settings-section card">
+                        <h3>LLM Configuration</h3>
+                        <div class="setting-item">
+                            <label>Mode</label>
+                            <select id="settings-mode">
+                                <option value="native">Native (Local GGUF)</option>
+                                <option value="local">LM Studio (localhost:1234)</option>
+                                <option value="openrouter">OpenRouter (Cloud)</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label>Temperature</label>
+                            <input type="range" id="settings-temp" min="0" max="2" step="0.1" value="0.85">
+                            <span id="temp-value">0.85</span>
+                        </div>
+                    </div>
+                    <div class="settings-section card">
+                        <h3>ComfyUI</h3>
+                        <div class="setting-item">
+                            <label>Server Address</label>
+                            <input type="text" id="settings-comfyui" value="127.0.0.1:8188">
+                        </div>
+                    </div>
+                    <div class="settings-section card">
+                        <h3>Display</h3>
+                        <div class="setting-item">
+                            <label>Dark Mode</label>
+                            <label class="toggle-switch small">
+                                <input type="checkbox" id="dark-mode-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
+
+        <!-- NPC DETAIL DRAWER -->
+        <aside id="npc-drawer" class="drawer">
+            <div class="drawer-header">
+                <h3 id="drawer-npc-name">NPC Name</h3>
+                <button id="close-drawer" class="btn-close">&times;</button>
+            </div>
+            <div class="drawer-content">
+                <div class="npc-portrait" id="drawer-portrait">
+                    <div class="portrait-placeholder">No Portrait</div>
+                </div>
+                <div class="npc-info">
+                    <div class="info-row">
+                        <span class="label">Age:</span>
+                        <span id="drawer-age">--</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Occupation:</span>
+                        <span id="drawer-occupation">--</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Location:</span>
+                        <span id="drawer-location">--</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Mood:</span>
+                        <span id="drawer-mood">--</span>
+                    </div>
+                </div>
+                <div class="npc-stats">
+                    <h4>Needs</h4>
+                    <div class="mini-stat">
+                        <span>Horny</span>
+                        <div class="mini-bar"><div id="drawer-horny" class="mini-progress horny"></div></div>
+                    </div>
+                    <div class="mini-stat">
+                        <span>Lonely</span>
+                        <div class="mini-bar"><div id="drawer-lonely" class="mini-progress lonely"></div></div>
+                    </div>
+                </div>
+                <div class="npc-bio">
+                    <h4>Background</h4>
+                    <p id="drawer-bio">No information available.</p>
+                </div>
+                <button id="generate-portrait-btn" class="btn btn-secondary btn-full">Generate Portrait</button>
+            </div>
+        </aside>
     </div>
     <script src="/static/script.js"></script>
 </body>
