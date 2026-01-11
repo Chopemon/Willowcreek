@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "memory": {
+    "id": "uuid",
+    "npc_id": "string",
+    "timestamp": "ISO-8601 string",
+    "content": "string",
+    "kind": "observation | interaction | reflection | fact",
+    "emotional_tone": "string",
+    "importance": "float (0.0 - 1.0)",
+    "tags": [
+      "string"
+    ],
+    "source": "string"
+  }
+}

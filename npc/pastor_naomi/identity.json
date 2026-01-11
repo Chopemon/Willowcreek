@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "pastor_naomi",
+  "name": "Pastor Naomi",
+  "age": 48,
+  "gender": "female",
+  "affiliation": "Lutheran pastor",
+  "occupation": "Lutheran pastor",
+  "appearance": "Stern but kind, graying hair",
+  "coreTraits": [
+    "Guiding",
+    "Strict",
+    "Compassionate"
+  ],
+  "dislikes": [
+    "Hypocrisy",
+    "Laziness in faith"
+  ],
+  "background": {
+    "currentConflict": "Sees cracks in community. Worries for youth.",
+    "vulnerability": "Voice softens with children"
+  }
+}
