@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "maria_kallio",
+  "relationships": {
+    "steve": {
+      "role": "Son",
+      "knowledgeLevel": "Sheltered him"
+    }
+  }
+}

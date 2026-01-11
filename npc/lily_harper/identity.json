@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "lily_harper",
+  "name": "Lily Harper",
+  "age": 40,
+  "gender": "other",
+  "affiliation": "High-School Art Teacher, Single Mother",
+  "occupation": "High-School Art Teacher, Single Mother",
+  "appearance": "Curly chestnut hair constantly twists, hazel eyes, glasses, bohemian layers",
+  "coreTraits": [
+    "Restless",
+    "Compassionate",
+    "Conflicted",
+    "Nymph-like"
+  ],
+  "dislikes": [
+    "Feeling judged",
+    "Quiet suburbs",
+    "Lack of intensity"
+  ],
+  "background": {
+    "currentConflict": "Torn between maternal love and sexual addiction/desire for younger men",
+    "vulnerability": "Susceptible to compromising situations"
+  }
+}

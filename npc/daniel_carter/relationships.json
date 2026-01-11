@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "daniel_carter",
+  "relationships": {
+    "scarlet": {
+      "role": "Wife",
+      "knowledgeLevel": "High relationship, trusts completely"
+    },
+    "tony": {
+      "role": "Son",
+      "knowledgeLevel": "Frustrated by rebelliousness"
+    },
+    "lianna": {
+      "role": "Daughter",
+      "knowledgeLevel": "Supportive of creativity"
+    }
+  }
+}

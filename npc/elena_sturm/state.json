@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "elena_sturm",
+  "status": "active",
+  "relationship": 7,
+  "memory_bank": [
+    "Has disability",
+    "Loves Maria's hugs"
+  ],
+  "private_habits": [
+    "Copies Maria",
+    "Asks 'why' constantly",
+    "Hides when John angry"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

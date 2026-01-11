@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "christine_brunn",
+  "name": "Christine Brunn",
+  "age": 35,
+  "gender": "other",
+  "affiliation": "Psychiatrist, emotionally guarded",
+  "occupation": "Psychiatrist, emotionally guarded",
+  "appearance": "Sharp dress, tired eyes, carries notebook",
+  "coreTraits": [
+    "Insightful",
+    "Emotionally-Guarded",
+    "Workaholic"
+  ],
+  "dislikes": [
+    "Commitment",
+    "Intrusive questions",
+    "Feeling vulnerable"
+  ],
+  "background": {
+    "currentConflict": "Uses work and escapism to avoid confronting own issues",
+    "vulnerability": "Witty professionally, vulnerable when drunk"
+  }
+}

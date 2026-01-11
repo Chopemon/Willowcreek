@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "alex_sturm",
+  "name": "Alex Sturm",
+  "age": 13,
+  "gender": "other",
+  "affiliation": "Son of John and Maria, Brother to Elena",
+  "occupation": "Son of John and Maria, Brother to Elena",
+  "appearance": "Tall, athletic build, dark hair, conflicted eyes. Tenses up when nervous.",
+  "coreTraits": [
+    "Loyal",
+    "Conflicted",
+    "Secretly Rebellious"
+  ],
+  "dislikes": [
+    "Dad's jealousy",
+    "being watched too closely",
+    "emotional confrontation"
+  ],
+  "background": {
+    "currentConflict": "Overwhelming sexual tension and guilt related to his stepmother, Maria, a constant battle between desire and filial loyalty.",
+    "vulnerability": "Body language betrays his inner turmoil - tenses up, breath catches, can't maintain eye contact when Maria is near."
+  }
+}

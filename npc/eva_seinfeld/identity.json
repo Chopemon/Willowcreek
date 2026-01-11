@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "eva_seinfeld",
+  "name": "Eva Seinfeld",
+  "age": 10,
+  "gender": "other",
+  "affiliation": "Student, single father's daughter",
+  "occupation": "Student, single father's daughter",
+  "appearance": "Shy demeanor, always looking down, slightly disheveled",
+  "coreTraits": [
+    "Curious",
+    "Assertive (internally)",
+    "Insecure"
+  ],
+  "dislikes": [
+    "Confrontation",
+    "Public speaking",
+    "Feeling ignorant"
+  ],
+  "background": {
+    "currentConflict": "Intense sexual curiosity and biological sensitivity contrast sharply with deep insecurity and lack of sexual knowledge",
+    "vulnerability": "Lacks confidence, easily manipulated due to shyness and impatience"
+  }
+}

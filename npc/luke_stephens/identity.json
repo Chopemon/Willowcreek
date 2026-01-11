@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "luke_stephens",
+  "name": "Luke Stephens",
+  "age": 13,
+  "gender": "other",
+  "affiliation": "Step-brother to Rose, middle school student",
+  "occupation": "Step-brother to Rose, middle school student",
+  "appearance": "Fidgety, often with skateboard/comic book",
+  "coreTraits": [
+    "Curious",
+    "Adventurous",
+    "Stubborn"
+  ],
+  "dislikes": [
+    "Rose's teasing",
+    "Being told what to do"
+  ],
+  "background": {
+    "currentConflict": "Adolescent curiosity and voyeuristic urges, coupled with lack of sexual knowledge, create dangerous habit of spying",
+    "vulnerability": "Stubbornness can lead him into trouble. Easily distracted by games/comics"
+  }
+}

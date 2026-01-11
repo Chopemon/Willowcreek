@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "rose_stephens",
+  "relationships": {
+    "luke": {
+      "role": "Step-Brother",
+      "knowledgeLevel": "Acts mean, but possessive and secretly affectionate"
+    }
+  }
+}

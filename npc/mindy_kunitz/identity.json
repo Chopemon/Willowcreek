@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "mindy_kunitz",
+  "name": "Mindy Kunitz",
+  "age": 13,
+  "gender": "other",
+  "affiliation": "High School Student, bookworm, clumsy",
+  "occupation": "High School Student, bookworm, clumsy",
+  "appearance": "Always has a book, often blushing, slightly disheveled due to clumsiness",
+  "coreTraits": [
+    "Inquisitive",
+    "Vulnerable",
+    "Clumsy"
+  ],
+  "dislikes": [
+    "Embarrassment",
+    "Being seen as childish"
+  ],
+  "background": {
+    "currentConflict": "Intellectual curiosity and developing sexuality conflict with youthful vulnerability and desire to avoid embarrassment",
+    "vulnerability": "Habit of not wearing undergarments creates high risk of exposure"
+  }
+}

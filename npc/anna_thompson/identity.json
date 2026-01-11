@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "anna_thompson",
+  "name": "Anna Thompson",
+  "age": 7,
+  "gender": "other",
+  "affiliation": "Daughter of Lisa, Sister of Tim",
+  "occupation": "Daughter of Lisa, Sister of Tim",
+  "appearance": "Fragile body, wheelchair-bound, communicates through eyes",
+  "coreTraits": [
+    "Fragile",
+    "Dependent",
+    "Trusting",
+    "Loving"
+  ],
+  "dislikes": [
+    "Being alone",
+    "Sudden loud noises"
+  ],
+  "background": {
+    "currentConflict": "Physical limitations make her entirely dependent on family",
+    "vulnerability": "Extreme fragility"
+  }
+}

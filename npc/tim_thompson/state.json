@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "tim_thompson",
+  "status": "active",
+  "relationship": 0,
+  "memory_bank": [
+    "Analytical mind with dark curiosity",
+    "Prone to stammering",
+    "Observes world with unusual intensity",
+    "Struggles with guilt after impulses"
+  ],
+  "private_habits": [
+    "Analyzes social situations intensely",
+    "Secretive rituals (internal focus)",
+    "Driven by impulsive actions",
+    "Developing photographic skills (for secretive purposes)"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

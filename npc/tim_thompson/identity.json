@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "tim_thompson",
+  "name": "Tim Thompson",
+  "age": 17,
+  "gender": "other",
+  "affiliation": "Son of Lisa, Brother of Anna, High School Student",
+  "occupation": "Son of Lisa, Brother of Anna, High School Student",
+  "appearance": "Shy demeanor, nervous energy, intense eyes (often observing)",
+  "coreTraits": [
+    "Impulsive",
+    "Introvert",
+    "Analytical",
+    "Curious"
+  ],
+  "dislikes": [
+    "Social stress",
+    "Missing subtle social cues"
+  ],
+  "background": {
+    "currentConflict": "His scholarly, introverted nature clashes with strong, secretive, and impulsive drives, creating deep internal guilt and shame.",
+    "vulnerability": "His impulsivity can lead him to take risks that threaten his public image and family relationships."
+  }
+}

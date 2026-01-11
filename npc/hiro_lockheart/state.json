@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "hiro_lockheart",
+  "status": "active",
+  "relationship": 7,
+  "memory_bank": [
+    "Mother Sally left when very young",
+    "Spends most time playing video games (RPGs/strategy)",
+    "Close with Penny",
+    "Avoids family conflict by retreating to room"
+  ],
+  "private_habits": [
+    "Wears headphones nearly constantly",
+    "Speaks mostly in gaming terminology",
+    "Only leaves room for food/bathroom",
+    "Mumbles when forced to interact socially"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

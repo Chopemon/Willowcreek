@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "ivy",
+  "relationships": {
+    "tessa": {
+      "role": "Mother",
+      "knowledgeLevel": "Loves but observes critically"
+    },
+    "milo": {
+      "role": "Brother",
+      "knowledgeLevel": "Annoying playmate"
+    }
+  }
+}

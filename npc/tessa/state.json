@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "tessa",
+  "status": "active",
+  "relationship": 0,
+  "memory_bank": [
+    "Separated from Nate 2 years ago",
+    "Raises Milo and Ivy",
+    "Former track star"
+  ],
+  "private_habits": [
+    "Loses phone frequently",
+    "Forgets to attend courses",
+    "Twirls hair",
+    "Claps excitedly"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

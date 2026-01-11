@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "kenny_lockheart",
+  "relationships": {
+    "penny": {
+      "role": "Daughter",
+      "knowledgeLevel": "Loves her, but his affection causes her intense conflict/arousal/guilt"
+    },
+    "hiro": {
+      "role": "Son",
+      "knowledgeLevel": "Cares for him, finds him quieter/easier to manage"
+    }
+  }
+}

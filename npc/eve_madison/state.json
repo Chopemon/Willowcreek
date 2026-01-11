@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "eve_madison",
+  "status": "active",
+  "relationship": 0,
+  "memory_bank": [
+    "Shy with strangers"
+  ],
+  "private_habits": [
+    "Hums constantly",
+    "Draws on walls"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

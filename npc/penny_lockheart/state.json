@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "penny_lockheart",
+  "status": "active",
+  "relationship": 0,
+  "memory_bank": [
+    "Mother Sally left when very young",
+    "Passionate about music (BABYMETAL inspired)",
+    "Channels emotions into dark lyrics",
+    "Close friendship with Yuna",
+    "Exploring bisexuality"
+  ],
+  "private_habits": [
+    "Fidgets with hair, bites lip (anxiety)",
+    "Stammers frequently",
+    "Voyeuristic thoughts (guilt)",
+    "Craves praise"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

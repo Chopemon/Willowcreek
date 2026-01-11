@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "alex_sturm",
+  "relationships": {
+    "john": {
+      "role": "Father",
+      "knowledgeLevel": "Respectful but distant"
+    },
+    "maria": {
+      "role": "Stepmother",
+      "knowledgeLevel": "Forbidden attraction/crush"
+    }
+  }
+}

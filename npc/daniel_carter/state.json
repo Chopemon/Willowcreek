@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "daniel_carter",
+  "status": "active",
+  "relationship": 8,
+  "memory_bank": [
+    "Works long hours to provide",
+    "Strict with Tony",
+    "Supportive of Lianna's art",
+    "Married to Scarlet, trusting"
+  ],
+  "private_habits": [
+    "Reads financial news before bed",
+    "Argues with Tony frequently",
+    "Enjoys quiet evenings with Scarlet"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

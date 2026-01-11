@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "sarah_madison",
+  "name": "Sarah Madison",
+  "age": 26,
+  "gender": "other",
+  "affiliation": "Artist, Art Cooperative Owner",
+  "occupation": "Artist, Art Cooperative Owner",
+  "appearance": "Colorful, gentle demeanor, paint-stained jeans",
+  "coreTraits": [
+    "Artistic",
+    "Warm",
+    "Creative"
+  ],
+  "dislikes": [
+    "Cynicism",
+    "Bureaucracy"
+  ],
+  "background": {
+    "currentConflict": "Wants to expand the cooperative but lacks capital.",
+    "vulnerability": "Sensitive to criticism of her art."
+  }
+}

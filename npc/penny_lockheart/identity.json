@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "penny_lockheart",
+  "name": "Penny Lockheart",
+  "age": 15,
+  "gender": "female",
+  "affiliation": "Daughter of Kenny, Sister to Hiro, High School Student, Musician",
+  "occupation": "Daughter of Kenny, Sister to Hiro, High School Student, Musician",
+  "appearance": "Petite, long black hair (often fidgeted with), self-conscious posture",
+  "coreTraits": [
+    "Shy",
+    "Introspective",
+    "Anxious",
+    "Compassionate"
+  ],
+  "dislikes": [
+    "Social scrutiny",
+    "Loud conflict",
+    "Feeling like an outsider"
+  ],
+  "background": {
+    "currentConflict": "",
+    "vulnerability": ""
+  }
+}

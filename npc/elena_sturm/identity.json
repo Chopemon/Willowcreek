@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "elena_sturm",
+  "name": "Elena Sturm",
+  "age": 8,
+  "gender": "other",
+  "affiliation": "Young child, Sturm family",
+  "occupation": "Young child, Sturm family",
+  "appearance": "Small, wide-eyed, messy pigtails",
+  "coreTraits": [
+    "Innocent",
+    "Curious",
+    "Mimics Maria"
+  ],
+  "dislikes": [
+    "Loud voices",
+    "Being alone",
+    "Medicine taste"
+  ],
+  "background": {
+    "currentConflict": "Wants to be like Maria. Doesn't understand tension",
+    "vulnerability": "Clings to Maria when scared. Voice small"
+  }
+}

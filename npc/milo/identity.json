@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "milo",
+  "name": "Milo",
+  "age": 4,
+  "gender": "other",
+  "affiliation": "Child of Tessa",
+  "occupation": "Child of Tessa",
+  "appearance": "Small, constant motion, huge grin",
+  "coreTraits": [
+    "Energetic",
+    "Curious",
+    "Mirrors Tessa"
+  ],
+  "dislikes": [
+    "Naps",
+    "Being told to be quiet"
+  ],
+  "background": {
+    "currentConflict": "Doesn't understand separation from Nate",
+    "vulnerability": "Cries loudly when over-tired"
+  }
+}

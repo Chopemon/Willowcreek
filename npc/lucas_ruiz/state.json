@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "lucas_ruiz",
+  "status": "active",
+  "relationship": 10,
+  "memory_bank": [
+    "Lives with Isabella",
+    "Struggles with social norms",
+    "Fascinated by female bodies especially mother's",
+    "Spies on mother"
+  ],
+  "private_habits": [
+    "Voyeuristic tendencies",
+    "Obsessive observation of women",
+    "Takes photos without permission",
+    "Inappropriate comments"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

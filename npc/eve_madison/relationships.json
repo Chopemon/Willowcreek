@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "eve_madison",
+  "relationships": {
+    "david": {
+      "role": "Father",
+      "knowledgeLevel": "Reads to her"
+    },
+    "sarah": {
+      "role": "Mother",
+      "knowledgeLevel": "Teaches art"
+    }
+  }
+}

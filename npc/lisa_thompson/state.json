@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "lisa_thompson",
+  "status": "active",
+  "relationship": 5,
+  "memory_bank": [
+    "Widow",
+    "Cares for disabled Anna",
+    "Internal conflict"
+  ],
+  "private_habits": [
+    "Longing sighs",
+    "Self-soothing escapes",
+    "Subtle sensual undertones",
+    "Gives handjobs to male students"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

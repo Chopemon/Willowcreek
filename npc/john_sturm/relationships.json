@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "john_sturm",
+  "relationships": {
+    "maria": {
+      "role": "Wife",
+      "knowledgeLevel": "Loves but distrusts"
+    },
+    "alex": {
+      "role": "Son",
+      "knowledgeLevel": "Proud but threatened"
+    }
+  }
+}

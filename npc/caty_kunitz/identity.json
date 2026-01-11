@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "caty_kunitz",
+  "name": "Caty Kunitz",
+  "age": 38,
+  "gender": "other",
+  "affiliation": "Mother, Widow, Caretaker",
+  "occupation": "Mother, Widow, Caretaker",
+  "appearance": "Tired but caring eyes, dresses modestly, devoted",
+  "coreTraits": [
+    "Devoted",
+    "Caring",
+    "Grieving"
+  ],
+  "dislikes": [
+    "Hospitals",
+    "Insensitivity"
+  ],
+  "background": {
+    "currentConflict": "Grief over husband Mike, combined with stress of caring for comatose son and curious daughter, creates significant emotional strain.",
+    "vulnerability": "Can break down when discussing Tom or Mike."
+  }
+}

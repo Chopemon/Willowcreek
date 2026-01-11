@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "lianna_carter",
+  "status": "active",
+  "relationship": 6,
+  "memory_bank": [
+    "Caught Tony changing once",
+    "Writes coded fantasies"
+  ],
+  "private_habits": [
+    "Touches herself thinking of Tony",
+    "Waits for parents to leave"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

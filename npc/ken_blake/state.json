@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "ken_blake",
+  "status": "active",
+  "relationship": 5,
+  "memory_bank": [
+    "Strict but caring father",
+    "Widowed after Aiko's death",
+    "Married Nina when Nora was 7",
+    "Struggles with deployment stress"
+  ],
+  "private_habits": [
+    "Has secret voyeuristic hobby (photos, cloud-stored)",
+    "Alpha male among SEALs",
+    "Checks homework strictly",
+    "Eyes linger on women's assets"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

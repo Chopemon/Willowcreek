@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "lisa_thompson",
+  "relationships": {
+    "tim": {
+      "role": "Son",
+      "knowledgeLevel": "Maintains distance due to detachment"
+    },
+    "anna": {
+      "role": "Daughter",
+      "knowledgeLevel": "Gentle protective caregiver"
+    }
+  }
+}

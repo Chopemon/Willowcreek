@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "hiro_lockheart",
+  "relationships": {
+    "kenny": {
+      "role": "Father",
+      "knowledgeLevel": "Tolerates him, finds him less complicated than Penny"
+    },
+    "penny": {
+      "role": "Sister",
+      "knowledgeLevel": "Loves her, relies on her protective instincts"
+    }
+  }
+}
