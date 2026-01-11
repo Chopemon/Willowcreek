@@ -26,6 +26,18 @@ function updateSnapshot(snap) {
         if (debugBox) debugBox.innerText = "### AI CONTEXT (Live)\n\n" + snap.full_context;
     }
 
+    if (snap.needs || snap.psyche) {
+        renderNeeds(snap.needs, snap.psyche);
+    }
+
+    if (snap.nearby_npcs) {
+        renderNearby(snap.nearby_npcs, snap.location);
+    }
+
+    if (snap.locations) {
+        renderLocations(snap.locations);
+    }
+
     lastSnapshotAt = new Date();
     updateStatusPanel();
 }
@@ -39,6 +51,9 @@ const statusMode = document.getElementById("status-mode");
 const statusModel = document.getElementById("status-model");
 const statusState = document.getElementById("status-state");
 const statusUpdated = document.getElementById("status-updated");
+const needsGrid = document.getElementById("needs-grid");
+const nearbyList = document.getElementById("nearby-list");
+const locationsList = document.getElementById("locations-list");
 
 function updateStatusPanel(stateOverride) {
     const modeLabel = simulationMode === "local" ? "Local" : "OpenRouter";
@@ -98,6 +113,109 @@ function renderStats(container, text) {
         paragraph.className = "stat-note";
         paragraph.innerText = line;
         container.appendChild(paragraph);
+    });
+}
+
+function renderNeeds(needs = {}, psyche = {}) {
+    if (!needsGrid) return;
+    const items = [
+        { key: "hunger", label: "Hunger" },
+        { key: "energy", label: "Energy" },
+        { key: "hygiene", label: "Hygiene" },
+        { key: "bladder", label: "Bladder" },
+        { key: "social", label: "Social" },
+        { key: "fun", label: "Fun" },
+        { key: "horny", label: "Horny" },
+        { key: "lonely", label: "Lonely", source: "psyche" },
+    ];
+
+    needsGrid.innerHTML = "";
+    items.forEach((item) => {
+        const value = item.source === "psyche" ? psyche[item.key] : needs[item.key];
+        if (typeof value !== "number") return;
+        const clamped = Math.max(0, Math.min(100, value));
+
+        const row = document.createElement("div");
+        row.className = "need-row";
+
+        const label = document.createElement("span");
+        label.className = "need-label";
+        label.innerText = item.label;
+
+        const meter = document.createElement("div");
+        meter.className = "need-meter";
+
+        const fill = document.createElement("div");
+        fill.className = "need-fill";
+        fill.style.width = `${clamped}%`;
+        if (clamped < 25) fill.classList.add("need-fill--low");
+        if (clamped > 75) fill.classList.add("need-fill--high");
+
+        const valueEl = document.createElement("span");
+        valueEl.className = "need-value";
+        valueEl.innerText = clamped.toFixed(0);
+
+        meter.appendChild(fill);
+        row.appendChild(label);
+        row.appendChild(meter);
+        row.appendChild(valueEl);
+        needsGrid.appendChild(row);
+    });
+
+    if (!needsGrid.children.length) {
+        needsGrid.innerText = "Needs data unavailable.";
+    }
+}
+
+function renderNearby(npcs = [], location = "") {
+    if (!nearbyList) return;
+    nearbyList.innerHTML = "";
+    if (!npcs.length) {
+        nearbyList.innerText = location ? `No nearby NPCs at ${location}.` : "No nearby NPCs.";
+        return;
+    }
+
+    npcs.forEach((npc) => {
+        const row = document.createElement("div");
+        row.className = "npc-row";
+
+        const name = document.createElement("span");
+        name.className = "npc-name";
+        name.innerText = npc.name;
+
+        const job = document.createElement("span");
+        job.className = "npc-role";
+        job.innerText = npc.occupation || "Unknown";
+
+        row.appendChild(name);
+        row.appendChild(job);
+        nearbyList.appendChild(row);
+    });
+}
+
+function renderLocations(locations = []) {
+    if (!locationsList) return;
+    locationsList.innerHTML = "";
+    if (!locations.length) {
+        locationsList.innerText = "No location data.";
+        return;
+    }
+
+    locations.forEach((loc) => {
+        const card = document.createElement("div");
+        card.className = "location-card";
+
+        const title = document.createElement("div");
+        title.className = "location-title";
+        title.innerText = `${loc.location} (${loc.count})`;
+
+        const people = document.createElement("div");
+        people.className = "location-people";
+        people.innerText = (loc.npcs || []).join(", ") || "—";
+
+        card.appendChild(title);
+        card.appendChild(people);
+        locationsList.appendChild(card);
     });
 }
 

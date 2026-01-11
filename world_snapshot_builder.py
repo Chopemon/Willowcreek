@@ -316,7 +316,8 @@ def build_frontend_snapshot(sim: 'WillowCreekSimulation', malcolm: 'NPC') -> Dic
     Bridge function used by web_app.py to populate the UI.
     """
     # 1. Get the full text from your builder
-    full_text = create_narrative_context(sim, malcolm)
+    builder = WorldSnapshotBuilder(sim)
+    full_text = builder.build_complete_snapshot(malcolm)
     
     # 2. Extract Malcolm's section for the side panel
     malcolm_stats = "Check main output for details."
@@ -345,7 +346,60 @@ def build_frontend_snapshot(sim: 'WillowCreekSimulation', malcolm: 'NPC') -> Dic
         else:
             malcolm_stats = rest_of_text.strip()
 
+    location = getattr(malcolm, "current_location", "Unknown")
+    nearby_npcs = [
+        {
+            "name": npc.full_name,
+            "occupation": getattr(npc, "occupation", "") or "Unknown",
+        }
+        for npc in sim.npcs
+        if getattr(npc, "current_location", "Unknown") == location
+        and npc.full_name != malcolm.full_name
+    ]
+
+    locations: Dict[str, List[str]] = {}
+    for npc in sim.npcs:
+        npc_location = getattr(npc, "current_location", "Unknown") or "Unknown"
+        locations.setdefault(npc_location, []).append(npc.full_name)
+
+    location_cards = [
+        {
+            "location": loc,
+            "count": len(npcs),
+            "npcs": sorted(npcs)[:6],
+        }
+        for loc, npcs in sorted(locations.items(), key=lambda item: item[0].lower())
+    ]
+
+    needs = {}
+    psyche = {}
+    if hasattr(malcolm, "needs"):
+        needs = {
+            "hunger": malcolm.needs.hunger,
+            "energy": malcolm.needs.energy,
+            "hygiene": malcolm.needs.hygiene,
+            "bladder": malcolm.needs.bladder,
+            "social": malcolm.needs.social,
+            "fun": malcolm.needs.fun,
+            "horny": malcolm.needs.horny,
+        }
+    if hasattr(malcolm, "psyche"):
+        psyche = {
+            "lonely": malcolm.psyche.lonely,
+        }
+
+    try:
+        time_env = builder._build_time_and_environment()
+    except Exception:
+        time_env = ""
+
     return {
         "full_context": full_text,
-        "malcolm_stats": malcolm_stats
+        "malcolm_stats": malcolm_stats,
+        "time_env": time_env,
+        "location": location,
+        "nearby_npcs": nearby_npcs,
+        "locations": location_cards,
+        "needs": needs,
+        "psyche": psyche,
     }

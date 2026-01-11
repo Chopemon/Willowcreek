@@ -119,6 +119,102 @@ main {
     font-size: 12px;
 }
 
+.panel-title {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #8fd3ff;
+    margin-bottom: 10px;
+}
+
+.needs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.need-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr auto;
+    align-items: center;
+    gap: 8px;
+}
+
+.need-label {
+    font-size: 11px;
+    color: #9aa7b2;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.need-meter {
+    position: relative;
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+}
+
+.need-fill {
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 188, 212, 0.7), rgba(0, 188, 212, 0.95));
+}
+
+.need-fill--low {
+    background: linear-gradient(90deg, rgba(244, 67, 54, 0.6), rgba(244, 67, 54, 0.9));
+}
+
+.need-fill--high {
+    background: linear-gradient(90deg, rgba(76, 175, 80, 0.7), rgba(76, 175, 80, 0.95));
+}
+
+.need-value {
+    font-size: 11px;
+    color: #e0e0e0;
+}
+
+.npc-list,
+.location-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.npc-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 8px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.npc-name {
+    color: #e0e0e0;
+    font-weight: bold;
+}
+
+.npc-role {
+    color: #9aa7b2;
+    font-size: 11px;
+}
+
+.location-card {
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.location-title {
+    color: #8fd3ff;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.location-people {
+    color: #b0bec5;
+    font-size: 11px;
+}
+
 #sim-status {
     border: 1px solid #2b4f6b;
     background: linear-gradient(135deg, rgba(14, 24, 38, 0.95), rgba(23, 31, 40, 0.95));
