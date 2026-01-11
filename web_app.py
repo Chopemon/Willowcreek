@@ -353,7 +353,7 @@ async def process_action(request: Request):
                 break
         
         # 3. Advance time (tick runs and generates internal events into scenario_buffer)
-        chat.advance_time(5.0 / 60.0)
+        chat.advance_time(5.0 / 60.0, player_message=text)
 
         # 4. Run text-based event detection (appends to buffer)
         # FIXED: Use both LLM output (reply) and User Input (text) for better detection

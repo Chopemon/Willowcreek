@@ -70,6 +70,7 @@ class NPC:
     current_location: str = "Home"
     home_location: str = "Home"
     mood: str = "Neutral" # <-- NEW: Fixed AttributeError
+    current_task: str = ""
     
     needs: Needs = field(default_factory=Needs)
     psyche: PsycheState = field(default_factory=PsycheState)

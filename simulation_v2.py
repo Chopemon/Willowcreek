@@ -42,6 +42,7 @@ from systems.micro_interactions_system import MicroInteractionsSystem
 from systems.npc_quirks_system import NPCQuirksSystem
 from systems.sexual_activity_system import SexualActivitySystem
 from systems.debug_overlay import DebugOverlay
+from systems.npc_agent_scheduler import CallBudget, NPCAgent, Perception
 
 # COMPREHENSIVE WORLD SNAPSHOT FOR AI NARRATOR
 from world_snapshot_builder import WorldSnapshotBuilder
@@ -62,6 +63,7 @@ class WillowCreekSimulation:
         self.debug_enabled = True
         self.debug = DebugOverlay(self)
         self._location_map_cache: Optional[Dict[str, List[NPC]]] = None  # Performance optimization
+        self._npc_agents: Dict[str, NPCAgent] = {}
 
         # Load NPC roster
         base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -126,6 +128,7 @@ class WillowCreekSimulation:
             self.female_biology.ensure_npc(npc)
             self.pregnancy.ensure_npc(npc)
             self.development.ensure_npc(npc)
+            self._npc_agents[npc.full_name] = NPCAgent(npc)
 
         self.birthdays.register_npcs(self.npcs)
 
@@ -145,7 +148,7 @@ class WillowCreekSimulation:
     # =====================================================================
     # SINGLE-STEP TICK
     # =====================================================================
-    def tick(self, time_step_hours: float = 1.0):
+    def tick(self, time_step_hours: float = 1.0, player_message: Optional[str] = None):
         """
         Single-step simulation tick (same logic as one iteration of run()).
         This is what the web UI / NarrativeChat should call.
@@ -160,6 +163,7 @@ class WillowCreekSimulation:
         self.schedule.update_locations()
         self._invalidate_location_cache()  # Cache invalidation after location changes
         loc_map = self._build_location_map()
+        self._run_agent_scheduler(loc_map, player_message)
 
         # Core simulation systems
         self.needs.process_needs(self.npcs, time_step_hours)
@@ -233,6 +237,46 @@ class WillowCreekSimulation:
         """Invalidate the location map cache after locations change."""
         self._location_map_cache = None
 
+    def _run_agent_scheduler(
+        self,
+        loc_map: Dict[str, List[NPC]],
+        player_message: Optional[str] = None,
+    ):
+        budget = CallBudget(max_calls=0, remaining=0)
+        notable_events = list(self.scenario_buffer)
+        current_time = self.time.current_datetime
+
+        for npc in self.npcs:
+            agent = self._npc_agents.get(npc.full_name)
+            if agent is None:
+                agent = NPCAgent(npc)
+                self._npc_agents[npc.full_name] = agent
+
+            location = getattr(npc, "current_location", "Unknown")
+            nearby_people = [
+                other.full_name
+                for other in loc_map.get(location, [])
+                if other.full_name != npc.full_name
+            ]
+
+            perception = Perception(
+                time=current_time,
+                location=location,
+                nearby_people=nearby_people,
+                notable_events=notable_events,
+                player_message=player_message,
+            )
+            decision = agent.tick(perception, budget)
+            self._apply_decision(npc, decision)
+
+    def _apply_decision(self, npc: NPC, decision):
+        if decision.location:
+            npc.current_location = decision.location
+        if decision.task is not None:
+            npc.current_task = decision.task
+        if decision.mood:
+            npc.mood = decision.mood
+
     def run(self, num_steps: int = 24, time_step_hours: float = 1.0):
         """
         Batch runner used for offline sims / debugging.
@@ -247,6 +291,7 @@ class WillowCreekSimulation:
             self.schedule.update_locations()
             self._invalidate_location_cache()  # Cache invalidation after location changes
             loc_map = self._build_location_map()
+            self._run_agent_scheduler(loc_map)
 
             self.needs.process_needs(self.npcs, time_step_hours)
             self.seasonal.update(self.time)
