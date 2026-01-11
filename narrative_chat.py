@@ -175,6 +175,6 @@ class NarrativeChat:
         except Exception as e:
             return f"[Connection Error: {e}]"
 
-    def advance_time(self, hours):
+    def advance_time(self, hours, player_message: Optional[str] = None):
         if self.sim:
-            self.sim.tick(hours)
+            self.sim.tick(hours, player_message=player_message)
