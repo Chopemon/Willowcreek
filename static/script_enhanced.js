@@ -529,6 +529,8 @@ class WillowCreekDashboard {
 
         // Render quick info (location, time, age, etc)
         this.renderQuickInfo(data);
+        this.renderRecentDecisions(data);
+        this.renderNearbyNPCs(data.nearby_npcs);
     }
 
     renderNeedsStats(needs) {
@@ -624,6 +626,67 @@ class WillowCreekDashboard {
                 <span class="info-value">${data.occupation || 'N/A'}</span>
             </div>
         `;
+    }
+
+    renderRecentDecisions(data) {
+        const container = document.getElementById('recent-decisions');
+        if (!container) return;
+
+        const decisions = data.agent_decisions || {};
+        const lastAction = decisions.last_action;
+        const lastSay = decisions.last_say;
+
+        if (!lastAction && !lastSay) {
+            container.innerHTML = '<p style="color: #666;">No recent decisions tracked</p>';
+            return;
+        }
+
+        const rows = [];
+        if (lastAction) {
+            rows.push(`
+                <div class="info-row">
+                    <span class="info-label">Last Action:</span>
+                    <span class="info-value">${lastAction}</span>
+                </div>
+            `);
+        }
+        if (lastSay) {
+            rows.push(`
+                <div class="info-row">
+                    <span class="info-label">Last Say:</span>
+                    <span class="info-value">${lastSay}</span>
+                </div>
+            `);
+        }
+
+        container.innerHTML = rows.join('');
+    }
+
+    renderNearbyNPCs(npcs) {
+        const container = document.getElementById('nearby-npcs');
+        if (!container) return;
+
+        if (!npcs || npcs.length === 0) {
+            container.innerHTML = '<p style="color: #666;">No nearby NPCs</p>';
+            return;
+        }
+
+        container.innerHTML = npcs.map(npc => {
+            const details = [];
+            if (npc.current_task) {
+                details.push(`Task: ${npc.current_task}`);
+            }
+            if (npc.mood) {
+                details.push(`Mood: ${npc.mood}`);
+            }
+
+            return `
+                <div class="info-row">
+                    <span class="info-label">${npc.name}</span>
+                    <span class="info-value">${details.join(' | ') || 'Status unknown'}</span>
+                </div>
+            `;
+        }).join('');
     }
 
     async updateLocationMap() {
