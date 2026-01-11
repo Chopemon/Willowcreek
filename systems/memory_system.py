@@ -1,6 +1,8 @@
 # systems/memory_system.py
 # Memory system for tracking important events and interactions
 
+import json
+import os
 from typing import Dict, List, Optional
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -63,9 +65,14 @@ class Memory:
 class MemorySystem:
     """Manages memories for all characters"""
 
-    def __init__(self):
+    def __init__(self, memory_path: Optional[str] = None, auto_save: bool = True):
         self.character_memories: Dict[str, List[Memory]] = {}
         self.firsts_tracker: Dict[str, bool] = {}
+        self.memory_path = memory_path
+        self.auto_save = auto_save
+
+        if self.memory_path:
+            self.load_from_file(self.memory_path)
 
     def add_memory(
         self,
@@ -95,6 +102,10 @@ class MemorySystem:
         )
 
         self.character_memories[character_name].append(memory)
+
+        if self.auto_save and self.memory_path:
+            self.save_to_file(self.memory_path)
+
         return memory
 
     def get_memories(
@@ -140,3 +151,87 @@ class MemorySystem:
             lines.append(f"  Day {memory.sim_day}: {memory.description}")
 
         return "\n".join(lines)
+
+    def save_to_file(self, memory_path: str) -> None:
+        try:
+            directory = os.path.dirname(memory_path)
+            if directory:
+                os.makedirs(directory, exist_ok=True)
+
+            data = {
+                "character_memories": {
+                    name: [self._memory_to_dict(memory) for memory in memories]
+                    for name, memories in self.character_memories.items()
+                },
+                "firsts_tracker": self.firsts_tracker,
+            }
+
+            with open(memory_path, "w", encoding="utf-8") as file_handle:
+                json.dump(data, file_handle, ensure_ascii=False, indent=2)
+        except Exception as exc:
+            print(f"[MemorySystem] Failed to save memories to {memory_path}: {exc}")
+
+    def load_from_file(self, memory_path: str) -> None:
+        if not os.path.exists(memory_path):
+            return
+
+        try:
+            with open(memory_path, "r", encoding="utf-8") as file_handle:
+                data = json.load(file_handle)
+        except Exception as exc:
+            print(f"[MemorySystem] Failed to load memories from {memory_path}: {exc}")
+            return
+
+        character_memories = data.get("character_memories", {})
+        loaded_memories: Dict[str, List[Memory]] = {}
+        for name, memories in character_memories.items():
+            loaded_memories[name] = [self._memory_from_dict(entry) for entry in memories]
+
+        self.character_memories = loaded_memories
+        self.firsts_tracker = data.get("firsts_tracker", {})
+
+    def _memory_to_dict(self, memory: Memory) -> Dict:
+        return {
+            "memory_type": memory.memory_type.value,
+            "description": memory.description,
+            "sim_day": memory.sim_day,
+            "sim_hour": memory.sim_hour,
+            "importance": memory.importance.name,
+            "participants": memory.participants,
+            "location": memory.location,
+            "metadata": memory.metadata,
+            "real_timestamp": memory.real_timestamp.isoformat(),
+        }
+
+    def _memory_from_dict(self, data: Dict) -> Memory:
+        memory_type_value = data.get("memory_type", MemoryType.SPECIAL_EVENT.value)
+        try:
+            memory_type = MemoryType(memory_type_value)
+        except ValueError:
+            memory_type = MemoryType.SPECIAL_EVENT
+
+        importance_value = data.get("importance", MemoryImportance.MINOR.name)
+        try:
+            importance = MemoryImportance[importance_value]
+        except KeyError:
+            importance = MemoryImportance.MINOR
+
+        real_timestamp = data.get("real_timestamp")
+        parsed_timestamp = datetime.now()
+        if real_timestamp:
+            try:
+                parsed_timestamp = datetime.fromisoformat(real_timestamp)
+            except ValueError:
+                parsed_timestamp = datetime.now()
+
+        return Memory(
+            memory_type=memory_type,
+            description=data.get("description", ""),
+            sim_day=data.get("sim_day", 0),
+            sim_hour=data.get("sim_hour", 0),
+            importance=importance,
+            participants=data.get("participants", []),
+            location=data.get("location", ""),
+            metadata=data.get("metadata", {}),
+            real_timestamp=parsed_timestamp,
+        )
