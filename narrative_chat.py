@@ -26,7 +26,10 @@ class NarrativeChat:
         if mode not in CONFIG: raise ValueError(f"Invalid mode: {mode}")
         
         self.mode = mode
-        self.api_url = CONFIG[mode]["api_url"]
+        if mode == "local":
+            self.api_url = os.getenv("LOCAL_LLM_URL", CONFIG[mode]["api_url"])
+        else:
+            self.api_url = CONFIG[mode]["api_url"]
         self.model_name = model_name or CONFIG[mode]["model_name"]
         
         if CONFIG[mode]["key_env"]:
