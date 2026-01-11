@@ -12,11 +12,13 @@ CONFIG = {
     "openrouter": {
         "api_url": "https://openrouter.ai/api/v1/chat/completions",
         "model_name": "tngtech/deepseek-r1t2-chimera:free",
+        "memory_model_name": "openai/gpt-4o-mini",
         "key_env": "OPENROUTER_API_KEY"
     },
     "local": {
         "api_url": "http://localhost:1234/v1/chat/completions",
         "model_name": "local-model",
+        "memory_model_name": "local-model",
         "key_env": None
     }
 }
@@ -28,12 +30,14 @@ class NarrativeChat:
         self.mode = mode
         self.api_url = CONFIG[mode]["api_url"]
         self.model_name = CONFIG[mode]["model_name"]
+        self.memory_model_name = CONFIG[mode]["memory_model_name"]
 
         # Debug logging for mode initialization
         print(f"\n[NarrativeChat] ===== INITIALIZING =====")
         print(f"[NarrativeChat] Mode: {mode}")
         print(f"[NarrativeChat] API URL: {self.api_url}")
         print(f"[NarrativeChat] Model: {self.model_name}")
+        print(f"[NarrativeChat] Memory Model: {self.memory_model_name}")
 
         if CONFIG[mode]["key_env"]:
             self.api_key = os.getenv(CONFIG[mode]["key_env"])
@@ -51,6 +55,7 @@ class NarrativeChat:
         self.malcolm: Optional[NPC] = None
         self.narrative_history: List[Dict] = [] 
         self.last_narrated: str = ""
+        self.memory_enabled = True
 
     def initialize(self):
         self.sim = WillowCreekSimulation()
@@ -171,6 +176,7 @@ class NarrativeChat:
             self.narrative_history.append({"role": "assistant", "content": content})
             
             self.last_narrated = content 
+            self._update_memory(user_input, content, world_snapshot)
             return content
         except Exception as e:
             return f"[Connection Error: {e}]"
@@ -178,3 +184,120 @@ class NarrativeChat:
     def advance_time(self, hours):
         if self.sim:
             self.sim.tick(hours)
+
+    def _update_memory(self, user_input: str, response: str, world_snapshot: str) -> None:
+        if not self.sim or not self.sim.memory or not self.memory_enabled:
+            return
+
+        prompt = (
+            "You extract durable narrative memories from the latest scene.\n"
+            "Return ONLY JSON (no markdown). Use this schema:\n"
+            "[\n"
+            "  {\n"
+            "    \"description\": \"short memory description\",\n"
+            "    \"memory_type\": \"conversation|conflict|gift_given|gift_received|special_event|first_meeting|achievement|embarrassment|betrayal\",\n"
+            "    \"importance\": \"trivial|minor|moderate|significant|major|life_changing\",\n"
+            "    \"participants\": [\"Name A\", \"Name B\"],\n"
+            "    \"location\": \"Location if known\"\n"
+            "  }\n"
+            "]\n"
+            "Rules: 0-3 memories, only include durable events that should persist.\n"
+        )
+
+        user_payload = (
+            f"World snapshot:\n{world_snapshot}\n\n"
+            f"Player action: {user_input}\n\n"
+            f"Narrative response:\n{response}\n"
+        )
+
+        headers = {"Content-Type": "application/json"}
+        if self.api_key and self.api_key != "NOT_REQUIRED":
+            headers["Authorization"] = f"Bearer {self.api_key}"
+
+        payload = {
+            "model": self.memory_model_name,
+            "messages": [
+                {"role": "system", "content": prompt},
+                {"role": "user", "content": user_payload},
+            ],
+            "temperature": 0.2,
+            "max_tokens": 400,
+        }
+
+        try:
+            res = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
+            if res.status_code != 200:
+                print(f"[NarrativeChat] Memory model error: {res.text}")
+                return
+            content = res.json()["choices"][0]["message"]["content"]
+            memories = self._parse_memory_json(content)
+            if not memories:
+                return
+            self._store_memories(memories)
+        except Exception as exc:
+            print(f"[NarrativeChat] Memory update failed: {exc}")
+
+    def _parse_memory_json(self, content: str) -> List[Dict]:
+        import json
+
+        start = content.find("[")
+        end = content.rfind("]")
+        if start != -1 and end != -1 and end > start:
+            content = content[start : end + 1]
+
+        try:
+            data = json.loads(content)
+        except Exception:
+            return []
+
+        if not isinstance(data, list):
+            return []
+
+        return [item for item in data if isinstance(item, dict)]
+
+    def _store_memories(self, memories: List[Dict]) -> None:
+        from systems.memory_system import MemoryType, MemoryImportance
+
+        current_day = self.sim.time.total_days
+        current_hour = self.sim.time.hour
+
+        for entry in memories:
+            description = str(entry.get("description", "")).strip()
+            if not description:
+                continue
+
+            memory_type_value = str(entry.get("memory_type", "special_event")).lower()
+            memory_type_map = {
+                "conversation": MemoryType.CONVERSATION,
+                "conflict": MemoryType.CONFLICT,
+                "gift_given": MemoryType.GIFT_GIVEN,
+                "gift_received": MemoryType.GIFT_RECEIVED,
+                "special_event": MemoryType.SPECIAL_EVENT,
+                "first_meeting": MemoryType.FIRST_MEETING,
+                "achievement": MemoryType.ACHIEVEMENT,
+                "embarrassment": MemoryType.EMBARRASSMENT,
+                "betrayal": MemoryType.BETRAYAL,
+            }
+            memory_type = memory_type_map.get(memory_type_value, MemoryType.SPECIAL_EVENT)
+
+            importance_value = str(entry.get("importance", "minor")).upper()
+            importance = MemoryImportance.MINOR
+            if hasattr(MemoryImportance, importance_value):
+                importance = MemoryImportance[importance_value]
+
+            participants = entry.get("participants") or []
+            if not isinstance(participants, list):
+                participants = []
+
+            location = str(entry.get("location", "")).strip()
+
+            self.sim.memory.add_memory(
+                "Malcolm Newt",
+                memory_type,
+                description,
+                current_day,
+                current_hour,
+                importance,
+                participants=participants,
+                location=location,
+            )

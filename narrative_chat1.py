@@ -7,12 +7,18 @@ from entities.npc import NPC, Gender
 
 
 class NarrativeChat:
-    def __init__(self, lm_studio_url: str = "http://localhost:1234/v1/chat/completions"):
+    def __init__(
+        self,
+        lm_studio_url: str = "http://localhost:1234/v1/chat/completions",
+        memory_model_name: str = "local-model",
+    ):
         self.lm_studio_url = lm_studio_url
+        self.memory_model_name = memory_model_name
         self.sim: Optional[WillowCreekSimulation] = None
         self.malcolm: Optional[NPC] = None
         self.malcolm_extended = {}
         self.last_narrated: str = ""
+        self.memory_enabled = True
 
     def initialize(self):
         print("\n" + "=" * 80)
@@ -150,6 +156,39 @@ class NarrativeChat:
             "stream": False,
         }
 
+    def _build_memory_payload(self, user_input: str, response: str, world_snapshot: str):
+        system_prompt = (
+            "You extract durable narrative memories from the latest scene.\n"
+            "Return ONLY JSON (no markdown). Use this schema:\n"
+            "[\n"
+            "  {\n"
+            "    \"description\": \"short memory description\",\n"
+            "    \"memory_type\": \"conversation|conflict|gift_given|gift_received|special_event|first_meeting|achievement|embarrassment|betrayal\",\n"
+            "    \"importance\": \"trivial|minor|moderate|significant|major|life_changing\",\n"
+            "    \"participants\": [\"Name A\", \"Name B\"],\n"
+            "    \"location\": \"Location if known\"\n"
+            "  }\n"
+            "]\n"
+            "Rules: 0-3 memories, only include durable events that should persist.\n"
+        )
+
+        user_prompt = (
+            f"World snapshot:\n{world_snapshot}\n\n"
+            f"Player action: {user_input}\n\n"
+            f"Narrative response:\n{response}\n"
+        )
+
+        return {
+            "model": self.memory_model_name,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            "temperature": 0.2,
+            "max_tokens": 300,
+            "stream": False,
+        }
+
     def narrate(self, user_input: str) -> str:
         payload = self._build_lm_payload(user_input)
         
@@ -174,6 +213,8 @@ class NarrativeChat:
             if "choices" in json_response and len(json_response["choices"]) > 0:
                 response = json_response["choices"][0]["message"]["content"].strip()
                 self.last_narrated = response
+                world_snapshot = self.sim.build_world_snapshot(self.malcolm)
+                self._update_memory(user_input, response, world_snapshot)
                 return response
             else:
                 print(f"\n[ERROR] Unexpected response format from LM Studio:")
@@ -199,6 +240,95 @@ class NarrativeChat:
             import traceback
             traceback.print_exc()
             return f"[Narrator Error: {e}]"
+
+    def _update_memory(self, user_input: str, response: str, world_snapshot: str) -> None:
+        if not self.sim or not self.sim.memory or not self.memory_enabled:
+            return
+
+        payload = self._build_memory_payload(user_input, response, world_snapshot)
+
+        try:
+            r = requests.post(self.lm_studio_url, json=payload, timeout=60)
+            r.raise_for_status()
+            json_response = r.json()
+        except Exception as exc:
+            print(f"\n[ERROR] Memory model call failed: {exc}")
+            return
+
+        if "choices" not in json_response or not json_response["choices"]:
+            return
+
+        content = json_response["choices"][0]["message"]["content"].strip()
+        memories = self._parse_memory_json(content)
+        if not memories:
+            return
+        self._store_memories(memories)
+
+    def _parse_memory_json(self, content: str):
+        import json
+
+        start = content.find("[")
+        end = content.rfind("]")
+        if start != -1 and end != -1 and end > start:
+            content = content[start : end + 1]
+
+        try:
+            data = json.loads(content)
+        except Exception:
+            return []
+
+        if not isinstance(data, list):
+            return []
+
+        return [item for item in data if isinstance(item, dict)]
+
+    def _store_memories(self, memories):
+        from systems.memory_system import MemoryType, MemoryImportance
+
+        current_day = self.sim.time.total_days
+        current_hour = self.sim.time.hour
+
+        memory_type_map = {
+            "conversation": MemoryType.CONVERSATION,
+            "conflict": MemoryType.CONFLICT,
+            "gift_given": MemoryType.GIFT_GIVEN,
+            "gift_received": MemoryType.GIFT_RECEIVED,
+            "special_event": MemoryType.SPECIAL_EVENT,
+            "first_meeting": MemoryType.FIRST_MEETING,
+            "achievement": MemoryType.ACHIEVEMENT,
+            "embarrassment": MemoryType.EMBARRASSMENT,
+            "betrayal": MemoryType.BETRAYAL,
+        }
+
+        for entry in memories:
+            description = str(entry.get("description", "")).strip()
+            if not description:
+                continue
+
+            memory_type_value = str(entry.get("memory_type", "special_event")).lower()
+            memory_type = memory_type_map.get(memory_type_value, MemoryType.SPECIAL_EVENT)
+
+            importance_value = str(entry.get("importance", "minor")).upper()
+            importance = MemoryImportance.MINOR
+            if hasattr(MemoryImportance, importance_value):
+                importance = MemoryImportance[importance_value]
+
+            participants = entry.get("participants") or []
+            if not isinstance(participants, list):
+                participants = []
+
+            location = str(entry.get("location", "")).strip()
+
+            self.sim.memory.add_memory(
+                "Malcolm Newt",
+                memory_type,
+                description,
+                current_day,
+                current_hour,
+                importance,
+                participants=participants,
+                location=location,
+            )
 
     def run_chat(self):
         if self.sim is None or self.malcolm is None:
