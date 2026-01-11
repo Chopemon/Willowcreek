@@ -7,7 +7,7 @@ class WillowCreekDashboard {
         this.npcSearchTerm = '';
         this.debugExpanded = false;
         this.latestSnapshot = null;
-        this.simulationMode = 'openrouter'; // Default mode
+        this.simulationMode = 'openrouter';
 
         this.init();
     }
@@ -20,11 +20,6 @@ class WillowCreekDashboard {
 
     // ===== EVENT LISTENERS =====
     setupEventListeners() {
-        // Mode selection buttons
-        document.querySelectorAll('.mode-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => this.handleModeSwitch(e));
-        });
-
         // Action buttons
         document.getElementById('init-sim-btn')?.addEventListener('click', () => this.initSimulation());
         document.getElementById('send-action-btn')?.addEventListener('click', () => this.sendAction());
@@ -86,18 +81,6 @@ class WillowCreekDashboard {
 
         // Refresh data for the active tab
         this.refreshTabData(tabName);
-    }
-
-    handleModeSwitch(e) {
-        document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
-        e.target.classList.add('active');
-
-        // Store the selected mode
-        this.simulationMode = e.target.dataset.mode || 'openrouter';
-        console.log(`[Dashboard] Mode switched to: ${this.simulationMode}`);
-
-        // Update narrative with mode selection
-        this.updateNarrative(`Mode set to: ${this.simulationMode === 'local' ? 'Local (LM Studio)' : 'OpenRouter'}. Click 'Initialize Simulation'.`);
     }
 
     handleTimelineFilter(e) {
