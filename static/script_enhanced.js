@@ -7,7 +7,7 @@ class WillowCreekDashboard {
         this.npcSearchTerm = '';
         this.debugExpanded = false;
         this.latestSnapshot = null;
-        this.simulationMode = 'openrouter';
+        this.simulationMode = 'local';
 
         this.init();
     }
@@ -20,6 +20,11 @@ class WillowCreekDashboard {
 
     // ===== EVENT LISTENERS =====
     setupEventListeners() {
+        // Mode selection buttons
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => this.handleModeSwitch(e));
+        });
+
         // Action buttons
         document.getElementById('init-sim-btn')?.addEventListener('click', () => this.initSimulation());
         document.getElementById('send-action-btn')?.addEventListener('click', () => this.sendAction());
@@ -64,6 +69,16 @@ class WillowCreekDashboard {
                 this.switchTab(tabName);
             });
         });
+    }
+
+    handleModeSwitch(e) {
+        document.querySelectorAll('.mode-btn').forEach(btn => btn.classList.remove('active'));
+        e.target.classList.add('active');
+
+        this.simulationMode = e.target.dataset.mode || 'local';
+        console.log(`[Dashboard] Mode switched to: ${this.simulationMode}`);
+
+        this.updateNarrative(`Mode set to: ${this.simulationMode === 'local' ? 'Local Model' : 'OpenRouter'}. Click 'Start Simulation'.`);
     }
 
     switchTab(tabName) {

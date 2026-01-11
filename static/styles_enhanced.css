@@ -142,13 +142,22 @@ body {
     align-items: center;
 }
 
-.mode-label {
-    padding: 8px 12px;
-    border: 1px solid #3a3a3a;
+.mode-btn {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #444;
+    background: #2a2a2a;
+    color: #888;
     border-radius: 8px;
-    color: #b0bec5;
+    cursor: pointer;
     font-weight: 600;
-    background: #242424;
+    transition: all 0.2s;
+}
+
+.mode-btn.active {
+    background: #00bcd4;
+    color: #0a0a0a;
+    border-color: #00bcd4;
 }
 
 .primary-btn {
