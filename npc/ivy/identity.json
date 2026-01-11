@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "ivy",
+  "name": "Ivy",
+  "age": 7,
+  "gender": "other",
+  "affiliation": "Child of Tessa",
+  "occupation": "Child of Tessa",
+  "appearance": "Sharp eyes, serious expression, neat",
+  "coreTraits": [
+    "Sharp-witted",
+    "Observant",
+    "Critical"
+  ],
+  "dislikes": [
+    "Tessa's disorganization",
+    "Milo's motion"
+  ],
+  "background": {
+    "currentConflict": "Acts as mini-adult trying to bring order to Tessa's chaos",
+    "vulnerability": "Becomes withdrawn when ignored"
+  }
+}

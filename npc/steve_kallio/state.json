@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "steve_kallio",
+  "status": "active",
+  "relationship": 7,
+  "memory_bank": [
+    "Sheltered",
+    "Naive about girls"
+  ],
+  "private_habits": [
+    "Prays before meals",
+    "Blushes at compliments"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

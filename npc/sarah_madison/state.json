@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "sarah_madison",
+  "status": "active",
+  "relationship": 5,
+  "memory_bank": [
+    "Met David at college",
+    "Struggles to make art profitable"
+  ],
+  "private_habits": [
+    "Paints late at night",
+    "Uses own body as model"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

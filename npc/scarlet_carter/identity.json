@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "scarlet_carter",
+  "name": "Scarlet Carter",
+  "age": 38,
+  "gender": "other",
+  "affiliation": "School Teacher, Wife, Mother",
+  "occupation": "School Teacher, Wife, Mother",
+  "appearance": "Casual yet professional, wears glasses, brown hair, green eyes",
+  "coreTraits": [
+    "Warm",
+    "Nurturing",
+    "Organized"
+  ],
+  "dislikes": [
+    "Messiness",
+    "Being late",
+    "Loud noises"
+  ],
+  "background": {
+    "currentConflict": "Maintains a perfect, organized family facade while struggling internally with a private, obsessive sexual compulsion and inappropriate desires toward young boys.",
+    "vulnerability": "Messiness or being late can severely disrupt her emotional balance."
+  }
+}

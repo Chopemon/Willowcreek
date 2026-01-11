@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "nora_blake",
+  "name": "Nora Blake",
+  "age": 10,
+  "gender": "other",
+  "affiliation": "Daughter of Ken, Middle School Student",
+  "occupation": "Daughter of Ken, Middle School Student",
+  "appearance": "Small, expressive eyes, often clutching blanket or phone",
+  "coreTraits": [
+    "Curious",
+    "Compassionate",
+    "Anxious"
+  ],
+  "dislikes": [
+    "Ken leaving for deployment",
+    "Nina's distance"
+  ],
+  "background": {
+    "currentConflict": "Anxiety over father's dangerous job channeled through creative outlets and close bond with brother, while navigating relationship with distant stepmother",
+    "vulnerability": "Anxiety can make her overly clingy to Ken"
+  }
+}

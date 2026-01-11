@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "caty_kunitz",
+  "status": "active",
+  "relationship": 5,
+  "memory_bank": [
+    "Widowed 1 year ago (husband Mike)",
+    "Mother to Mindy and comatose Tom",
+    "Visits hospital regularly"
+  ],
+  "private_habits": [
+    "Visits hospital frequently",
+    "Shows signs of grief",
+    "Supportive of Mindy's interests",
+    "takes care of her son's sexual needs"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

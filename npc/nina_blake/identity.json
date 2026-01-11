@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "nina_blake",
+  "name": "Nina Blake",
+  "age": 25,
+  "gender": "other",
+  "affiliation": "Yoga Instructor, Instagram Model, Step-mother",
+  "occupation": "Yoga Instructor, Instagram Model, Step-mother",
+  "appearance": "Attractive, perpetually restless, wears yoga attire frequently",
+  "coreTraits": [
+    "Restless",
+    "Charismatic",
+    "Guarded"
+  ],
+  "dislikes": [
+    "Being tied down",
+    "The kids' affection for deceased mother"
+  ],
+  "background": {
+    "currentConflict": "Need for attention and sexual fulfillment, coupled with husband's deployments, leads to infidelity, creating precarious family situation",
+    "vulnerability": "Easily distracted by social media validation"
+  }
+}

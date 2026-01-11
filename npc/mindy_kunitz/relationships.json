@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "mindy_kunitz",
+  "relationships": {
+    "caty": {
+      "role": "Mother",
+      "knowledgeLevel": "Loves and relies on bond"
+    },
+    "tom": {
+      "role": "Brother (Comatose)",
+      "knowledgeLevel": "Visits, cherishes memories"
+    }
+  }
+}

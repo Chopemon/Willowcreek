@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "ivy",
+  "status": "active",
+  "relationship": 10,
+  "memory_bank": [
+    "Lives with Tessa",
+    "Left at school once (trauma)",
+    "Picked up by Nate every other weekend"
+  ],
+  "private_habits": [
+    "Asks pointed questions",
+    "Organizes toys rigorously",
+    "Watches mother closely"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

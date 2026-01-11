@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "damien_voss",
+  "name": "Damien Voss",
+  "age": 32,
+  "gender": "other",
+  "affiliation": "Massage Therapist, New to town",
+  "occupation": "Massage Therapist, New to town",
+  "appearance": "Rugged, charming smile, anxious hands",
+  "coreTraits": [
+    "Charming",
+    "Conflicted",
+    "Commitment-Avoidant"
+  ],
+  "dislikes": [
+    "Intimacy",
+    "Financial stress",
+    "Long-term planning"
+  ],
+  "background": {
+    "currentConflict": "Struggles to keep practice professional due to past habits",
+    "vulnerability": "Voice becomes flat discussing past or feelings"
+  }
+}

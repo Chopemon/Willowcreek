@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "james_seinfeld",
+  "status": "active",
+  "relationship": 5,
+  "memory_bank": [
+    "Widowed after wife's death during Eva's birth",
+    "Dedicated single parent to Eva",
+    "Allowed inappropriate touching by Eva in past"
+  ],
+  "private_habits": [
+    "Deals with parenting challenges alone",
+    "Calm demeanor under stress",
+    "Treats others with respect"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "christine_brunn",
+  "status": "active",
+  "relationship": 0,
+  "memory_bank": [
+    "From NYC",
+    "Relocated to Willow Creek",
+    "Estranged from mother",
+    "Father left at 10"
+  ],
+  "private_habits": [
+    "Drinks excessively alone",
+    "Bites nails when stressed",
+    "Falls asleep to porn",
+    "Casual sex"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

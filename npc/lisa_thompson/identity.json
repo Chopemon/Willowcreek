@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "lisa_thompson",
+  "name": "Lisa Thompson",
+  "age": 42,
+  "gender": "other",
+  "affiliation": "Single Mother, Teacher, Caregiver",
+  "occupation": "Single Mother, Teacher, Caregiver",
+  "appearance": "Resilient front, gentle yet firm, weary determination",
+  "coreTraits": [
+    "Resilient",
+    "Lonely",
+    "Maternal",
+    "Sensual"
+  ],
+  "dislikes": [
+    "Chaos",
+    "Feeling overwhelmed"
+  ],
+  "background": {
+    "currentConflict": "Battle between loneliness, sensual desires, and maternal responsibilities leads to risky behavior",
+    "vulnerability": "Need for escape makes her susceptible to compromising situations"
+  }
+}

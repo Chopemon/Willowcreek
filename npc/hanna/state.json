@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "hanna",
+  "status": "active",
+  "relationship": 2,
+  "memory_bank": [
+    "Volunteers at events"
+  ],
+  "private_habits": [
+    "Sings hymns quietly"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "tim_thompson",
+  "relationships": {
+    "lisa": {
+      "role": "Mother",
+      "knowledgeLevel": "Keeps secret life distant from her, cares genuinely"
+    },
+    "anna": {
+      "role": "Sister",
+      "knowledgeLevel": "Deeply cares for her, protective"
+    }
+  }
+}

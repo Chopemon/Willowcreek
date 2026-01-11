@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "michael_blake",
+  "name": "Michael Blake",
+  "age": 14,
+  "gender": "other",
+  "affiliation": "Son of Ken, High School Student",
+  "occupation": "Son of Ken, High School Student",
+  "appearance": "Restless energy, charismatic smile, often with phone/controller",
+  "coreTraits": [
+    "Restless",
+    "Introspective",
+    "Charismatic"
+  ],
+  "dislikes": [
+    "Ken's strictness",
+    "Being alone too long",
+    "Nina's distance"
+  ],
+  "background": {
+    "currentConflict": "Adolescent sexual development warped by voyeurism toward charismatic stepmother and attempts to hide struggles (PE, porn) behind charming facade",
+    "vulnerability": "Passive nature and praise kink make him susceptible to manipulation"
+  }
+}

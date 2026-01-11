@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "ken_blake",
+  "relationships": {
+    "nina": {
+      "role": "Wife",
+      "knowledgeLevel": "Trusts completely (unaware of cheating)"
+    },
+    "nora": {
+      "role": "Daughter",
+      "knowledgeLevel": "High bond, protective"
+    },
+    "michael": {
+      "role": "Son",
+      "knowledgeLevel": "Disciplined parent, wants son strong"
+    }
+  }
+}

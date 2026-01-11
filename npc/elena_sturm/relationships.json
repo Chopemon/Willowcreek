@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "elena_sturm",
+  "relationships": {
+    "maria": {
+      "role": "Mother",
+      "knowledgeLevel": "Protective"
+    },
+    "john": {
+      "role": "Father",
+      "knowledgeLevel": "Doting when present"
+    },
+    "alex": {
+      "role": "Brother",
+      "knowledgeLevel": "Teaches games"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "hanna",
+  "name": "Hanna",
+  "age": 17,
+  "gender": "other",
+  "affiliation": "Church youth",
+  "occupation": "Church youth",
+  "appearance": "Freckles, ponytail",
+  "coreTraits": [
+    "Friendly",
+    "Pious",
+    "Helpful",
+    "Bimbo"
+  ],
+  "dislikes": [
+    "Being late to service"
+  ],
+  "background": {
+    "currentConflict": "Wants to be seen as mature (is 17)",
+    "vulnerability": null
+  }
+}

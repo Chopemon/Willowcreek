@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "nora_blake",
+  "relationships": {
+    "ken": {
+      "role": "Father",
+      "knowledgeLevel": "Clings to him, anxious about his job"
+    },
+    "nina": {
+      "role": "Step-Mother",
+      "knowledgeLevel": "Distant, but tries to understand her"
+    },
+    "michael": {
+      "role": "Step-Brother",
+      "knowledgeLevel": "Close bond, tickles and plays with him"
+    }
+  }
+}

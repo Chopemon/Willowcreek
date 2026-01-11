@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "lily_harper",
+  "status": "active",
+  "relationship": 0,
+  "memory_bank": [
+    "Divorced 2018",
+    "Teaching at Willow Creek High",
+    "Secret addictions"
+  ],
+  "private_habits": [
+    "Twists hair",
+    "Nervous laugh",
+    "Secret chats",
+    "Compulsive masturbation"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

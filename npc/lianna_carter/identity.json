@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "lianna_carter",
+  "name": "Lianna Carter",
+  "age": 16,
+  "gender": "other",
+  "affiliation": "Student, writer, guitarist",
+  "occupation": "Student, writer, guitarist",
+  "appearance": "Long dark hair, journal always in hand",
+  "coreTraits": [
+    "Intelligent",
+    "Creative",
+    "Empathetic",
+    "Moody"
+  ],
+  "dislikes": [
+    "Being interrupted",
+    "Tony's noise"
+  ],
+  "background": {
+    "currentConflict": "Desire vs taboo. Guilt vs curiosity",
+    "vulnerability": "Voice drops, eyes linger, breath catches"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "scarlet_carter",
+  "relationships": {
+    "daniel": {
+      "role": "Husband",
+      "knowledgeLevel": "Loving but busy"
+    },
+    "tony": {
+      "role": "Son (16)",
+      "knowledgeLevel": "Standard maternal bond"
+    },
+    "lianna": {
+      "role": "Daughter (16)",
+      "knowledgeLevel": "Standard maternal bond"
+    }
+  }
+}

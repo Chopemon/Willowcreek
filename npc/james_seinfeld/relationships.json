@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "james_seinfeld",
+  "relationships": {
+    "eva": {
+      "role": "Daughter",
+      "knowledgeLevel": "Loyal, but unaware of her intense curiosity and internal struggles"
+    }
+  }
+}

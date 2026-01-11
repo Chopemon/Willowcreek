@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "nora_blake",
+  "status": "active",
+  "relationship": 7,
+  "memory_bank": [
+    "Born to Ken and Aiko",
+    "Lost mother at age 3",
+    "Nina joined family at age 7",
+    "Close bond with Michael",
+    "Fascinated by TikTok"
+  ],
+  "private_habits": [
+    "Scrolls TikTok",
+    "Asks wide-eyed questions",
+    "Clutches blanket when scared/anxious",
+    "Sketches dragons"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

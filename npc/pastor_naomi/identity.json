@@ -3,7 +3,7 @@
   "npc_id": "pastor_naomi",
   "name": "Pastor Naomi",
   "age": 48,
-  "gender": "female",
+  "gender": "other",
   "affiliation": "Lutheran pastor",
   "occupation": "Lutheran pastor",
   "appearance": "Stern but kind, graying hair",

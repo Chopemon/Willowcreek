@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "tom_kunitz",
+  "name": "Tom Kunitz",
+  "age": 15,
+  "gender": "other",
+  "affiliation": "Mindy's Brother, Comatose",
+  "occupation": "Mindy's Brother, Comatose",
+  "appearance": "Hospital gown, tubes, still (comatose)",
+  "coreTraits": [
+    "Comatose",
+    "Dependent",
+    "Loved"
+  ],
+  "dislikes": [
+    "N/A"
+  ],
+  "background": {
+    "currentConflict": "Life support decision looms. His mother Caty is devoted to his care.",
+    "vulnerability": "Complete dependency on medical intervention."
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "tessa",
+  "name": "Tessa",
+  "age": 35,
+  "gender": "other",
+  "affiliation": "Single Mother, former athlete",
+  "occupation": "Single Mother, former athlete",
+  "appearance": "Charismatic smile, athletic build, messy style",
+  "coreTraits": [
+    "Charismatic",
+    "Warm",
+    "Disorganized"
+  ],
+  "dislikes": [
+    "Routine",
+    "Being judged by Nate"
+  ],
+  "background": {
+    "currentConflict": "Struggles to balance desire for freedom and social life with responsibilities of single motherhood.",
+    "vulnerability": "Afraid of being judged as an inadequate mother."
+  }
+}

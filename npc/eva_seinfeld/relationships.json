@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "eva_seinfeld",
+  "relationships": {
+    "james": {
+      "role": "Father",
+      "knowledgeLevel": "Cares for him, finds him distant/overprotective"
+    }
+  }
+}

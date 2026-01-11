@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "alex_sturm",
+  "status": "active",
+  "relationship": 7,
+  "memory_bank": [
+    "Grew up with John often away",
+    "Triggered by Maria's unconscious affection",
+    "Masturbates in garage after workouts",
+    "Fantasizes during family dinners",
+    "Steals glances then feels guilt"
+  ],
+  "private_habits": [
+    "Masturbates in garage after workouts",
+    "Fantasizes about Maria",
+    "Steals glances then feels guilt",
+    "Constant battle between guilt and desire"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

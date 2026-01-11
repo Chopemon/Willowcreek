@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "rose_stephens",
+  "status": "active",
+  "relationship": 5,
+  "memory_bank": [
+    "Stepsiblings with Luke since Luke was 3",
+    "Acts mean but cares deeply",
+    "Hides true feelings",
+    "Sexually naive"
+  ],
+  "private_habits": [
+    "Bothers Luke constantly",
+    "Fakes dislike for Luke's interests",
+    "Acts superior",
+    "Tries to show off"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

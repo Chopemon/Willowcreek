@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "anna_thompson",
+  "relationships": {
+    "lisa": {
+      "role": "Mother",
+      "knowledgeLevel": "Deep trust"
+    },
+    "tim": {
+      "role": "Brother",
+      "knowledgeLevel": "Intense affection"
+    }
+  }
+}

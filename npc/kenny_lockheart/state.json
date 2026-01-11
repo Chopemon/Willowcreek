@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "kenny_lockheart",
+  "status": "active",
+  "relationship": 5,
+  "memory_bank": [
+    "Wife Sally left when Penny was very young",
+    "Deeply loves children",
+    "Struggles with grief and single parenthood",
+    "Exhibits inappropriate touching toward Penny"
+  ],
+  "private_habits": [
+    "Often sighs softly (grief)",
+    "Lingers in conversation/physical contact with Penny",
+    "Makes awkward, sometimes suggestive comments",
+    "Attempts to be 'cool' or 'understanding'"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

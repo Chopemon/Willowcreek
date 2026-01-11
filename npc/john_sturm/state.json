@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "john_sturm",
+  "status": "away",
+  "relationship": 3,
+  "memory_bank": [
+    "Missed birthdays",
+    "Caught Alex staring once"
+  ],
+  "private_habits": [
+    "Checks Maria's phone",
+    "Drinks alone",
+    "Fantasizes about control",
+    "Squeezes Elena's butt"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "maria_sturm",
+  "relationships": {
+    "john": {
+      "role": "Husband",
+      "knowledgeLevel": "Unaware of effect on Alex"
+    },
+    "alex": {
+      "role": "Son",
+      "knowledgeLevel": "Sees him as 'her boy'"
+    },
+    "elena": {
+      "role": "Daughter",
+      "knowledgeLevel": "Teaches to mimic"
+    }
+  }
+}

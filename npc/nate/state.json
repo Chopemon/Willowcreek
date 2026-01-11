@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "nate",
+  "status": "dormant",
+  "relationship": 2,
+  "memory_bank": [
+    "Separated from Tessa 2 years ago",
+    "Takes custody every other weekend",
+    "Critical of Tessa"
+  ],
+  "private_habits": [
+    "Makes judgmental comments",
+    "Calls at precise times"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

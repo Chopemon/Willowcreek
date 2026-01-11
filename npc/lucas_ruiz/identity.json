@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "lucas_ruiz",
+  "name": "Lucas Ruiz",
+  "age": 13,
+  "gender": "other",
+  "affiliation": "Isabella Ruiz's Son, student, special needs",
+  "occupation": "Isabella Ruiz's Son, student, special needs",
+  "appearance": "Unassuming, often clutching phone, wide eyes",
+  "coreTraits": [
+    "Curious",
+    "Inexperienced",
+    "Inappropriate"
+  ],
+  "dislikes": [
+    "Sudden changes",
+    "Being told 'no'",
+    "Being away from phone"
+  ],
+  "background": {
+    "currentConflict": "Lack of social understanding combined with voyeuristic urges puts him in awkward/dangerous situations",
+    "vulnerability": "Easily confused by complex social interactions"
+  }
+}

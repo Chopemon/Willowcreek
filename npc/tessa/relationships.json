@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "tessa",
+  "relationships": {
+    "milo": {
+      "role": "Son (4)",
+      "knowledgeLevel": "Loves fiercely"
+    },
+    "ivy": {
+      "role": "Daughter (7)",
+      "knowledgeLevel": "Loves fiercely"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "nina_blake",
+  "status": "active",
+  "relationship": 2,
+  "memory_bank": [
+    "Yoga instructor and Instagram model",
+    "Joined Blake family when Nora was 7",
+    "Distant relationship with step-children",
+    "Has secret affairs during Ken's deployments"
+  ],
+  "private_habits": [
+    "Snaps selfies frequently",
+    "Posts suggestive content",
+    "Secretive about phone/affairs",
+    "Avoids deep interaction with kids"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

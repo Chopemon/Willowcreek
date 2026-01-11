@@ -1,0 +1,10 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "nate",
+  "relationships": {
+    "tessa": {
+      "role": "Ex-Wife",
+      "knowledgeLevel": "Low relationship, high conflict"
+    }
+  }
+}

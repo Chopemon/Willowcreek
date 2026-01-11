@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "michael_blake",
+  "relationships": {
+    "ken": {
+      "role": "Father",
+      "knowledgeLevel": "Wants his approval but finds him too strict"
+    },
+    "nina": {
+      "role": "Step-Mother",
+      "knowledgeLevel": "Source of forbidden fascination (voyeurism)"
+    },
+    "nora": {
+      "role": "Step-Sister",
+      "knowledgeLevel": "Close bond, protective, trusts her"
+    }
+  }
+}

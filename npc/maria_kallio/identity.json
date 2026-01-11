@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "maria_kallio",
+  "name": "Maria Kallio",
+  "age": 43,
+  "gender": "other",
+  "affiliation": "Lutheran mother, devout",
+  "occupation": "Lutheran mother, devout",
+  "appearance": "Modest dress, kind eyes",
+  "coreTraits": [
+    "Nurturing",
+    "Devout",
+    "Wistful"
+  ],
+  "dislikes": [
+    "Gossip",
+    "Disrespect in church"
+  ],
+  "background": {
+    "currentConflict": "Libido channeled into faith. Longs for connection.",
+    "vulnerability": "Eyes soften when speaking of past"
+  }
+}

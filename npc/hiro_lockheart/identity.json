@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "hiro_lockheart",
+  "name": "Hiro Lockheart",
+  "age": 13,
+  "gender": "other",
+  "affiliation": "Son of Kenny, Brother to Penny, Middle School Student",
+  "occupation": "Son of Kenny, Brother to Penny, Middle School Student",
+  "appearance": "Often with headphones or gaming controller, slightly pale from lack of sunlight",
+  "coreTraits": [
+    "Quiet",
+    "Gamer",
+    "Avoidant"
+  ],
+  "dislikes": [
+    "Social interaction",
+    "Being interrupted while gaming",
+    "Loud emotional scenes"
+  ],
+  "background": {
+    "currentConflict": "Primary conflict is social—using gaming as shield against awkwardness and emotional strain of family life",
+    "vulnerability": "Extremely reliant on sister for emotional and practical needs outside gaming world"
+  }
+}

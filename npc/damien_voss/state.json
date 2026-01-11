@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "damien_voss",
+  "status": "active",
+  "relationship": 0,
+  "memory_bank": [
+    "Licensed in Santa Monica",
+    "Offered 'extras'",
+    "Moved to legitimize practice"
+  ],
+  "private_habits": [
+    "Touches silver ring when anxious",
+    "Lights lavender candle",
+    "Offers happy endings to select clients"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

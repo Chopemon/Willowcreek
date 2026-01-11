@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "kenny_lockheart",
+  "name": "Kenny Lockheart",
+  "age": 45,
+  "gender": "other",
+  "affiliation": "Single Father of Penny and Hiro",
+  "occupation": "Single Father of Penny and Hiro",
+  "appearance": "Appears friendly and well-meaning, often seems lost in thought",
+  "coreTraits": [
+    "Grieving",
+    "Overly Affectionate",
+    "Lack of Boundaries"
+  ],
+  "dislikes": [
+    "Conflict",
+    "Feeling lonely",
+    "Being reminded of Sally"
+  ],
+  "background": {
+    "currentConflict": "Emotional neediness and failure to set proper physical boundaries create highly toxic and confusing environment for Penny",
+    "vulnerability": "Greatest fear is losing his children or being left alone"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "milo",
+  "status": "active",
+  "relationship": 10,
+  "memory_bank": [
+    "Lives with Tessa",
+    "Picked up by Nate every other weekend"
+  ],
+  "private_habits": [
+    "Constant motion",
+    "Asks lots of questions",
+    "Mirrors Tessa's moods"
+  ],
+  "current_location": "Home",
+  "home_location": "Home"
+}

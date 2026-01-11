@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "npc_id": "ken_blake",
+  "name": "Ken Blake",
+  "age": 38,
+  "gender": "other",
+  "affiliation": "Navy SEAL, Husband, Father",
+  "occupation": "Navy SEAL, Husband, Father",
+  "appearance": "Disciplined, authoritative bearing, charismatic smile",
+  "coreTraits": [
+    "Disciplined",
+    "Charismatic",
+    "Trusting"
+  ],
+  "dislikes": [
+    "Disobedience",
+    "Disloyalty (unaware of Nina's cheating)"
+  ],
+  "background": {
+    "currentConflict": "Disciplined military life and high trust in wife contrast with hidden restless voyeuristic side and wife's infidelity",
+    "vulnerability": "Absolute trust in Nina makes him highly vulnerable to emotional damage"
+  }
+}
