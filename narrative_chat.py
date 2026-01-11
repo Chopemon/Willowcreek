@@ -22,12 +22,12 @@ CONFIG = {
 }
 
 class NarrativeChat:
-    def __init__(self, mode: str = "openrouter"):
+    def __init__(self, mode: str = "openrouter", model_name: Optional[str] = None):
         if mode not in CONFIG: raise ValueError(f"Invalid mode: {mode}")
         
         self.mode = mode
         self.api_url = CONFIG[mode]["api_url"]
-        self.model_name = CONFIG[mode]["model_name"]
+        self.model_name = model_name or CONFIG[mode]["model_name"]
         
         if CONFIG[mode]["key_env"]:
             self.api_key = os.getenv(CONFIG[mode]["key_env"])

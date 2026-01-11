@@ -2,6 +2,7 @@
 
 let simRunning = false;
 let simulationMode = "openrouter"; 
+let selectedModel = "";
 
 function updateNarration(text) {
     const out = document.getElementById("output");
@@ -28,6 +29,79 @@ function updateSnapshot(snap) {
 // Mode Switching
 const btnLocal = document.getElementById("local-btn");
 const btnRouter = document.getElementById("openrouter-btn");
+const modelSelect = document.getElementById("model-select");
+const modelStatus = document.getElementById("model-status");
+
+async function loadModels() {
+    if (!modelSelect) return;
+    modelSelect.innerHTML = "";
+    selectedModel = "";
+
+    try {
+        const res = await fetch(`/api/models?mode=${simulationMode}`);
+        const data = await res.json();
+        const models = data.models || [];
+        const defaultModel = data.default_model || "";
+
+        if (!models.length) {
+            const opt = new Option("No models found in /models", "");
+            opt.disabled = true;
+            opt.selected = true;
+            modelSelect.appendChild(opt);
+            modelSelect.disabled = true;
+            if (modelStatus) modelStatus.innerText = "No models detected. Add files/folders to /models.";
+            return;
+        }
+
+        models.forEach((model) => {
+            const opt = new Option(model, model);
+            if (model === defaultModel) {
+                opt.selected = true;
+                selectedModel = model;
+            }
+            modelSelect.appendChild(opt);
+        });
+
+        if (!selectedModel) {
+            selectedModel = modelSelect.value;
+        }
+
+        modelSelect.disabled = false;
+        if (modelStatus) modelStatus.innerText = "Choose a local model before starting.";
+    } catch (e) {
+        const opt = new Option("Failed to load models", "");
+        opt.disabled = true;
+        opt.selected = true;
+        modelSelect.appendChild(opt);
+        modelSelect.disabled = true;
+        if (modelStatus) modelStatus.innerText = "Could not load models. Check server logs.";
+    }
+}
+
+function updateModelUI() {
+    if (!modelSelect) return;
+    if (simulationMode === "local") {
+        loadModels();
+    } else {
+        modelSelect.innerHTML = "";
+        const opt = new Option("Model selection unavailable", "");
+        opt.disabled = true;
+        opt.selected = true;
+        modelSelect.appendChild(opt);
+        modelSelect.disabled = true;
+        selectedModel = "";
+        if (modelStatus) modelStatus.innerText = "Model selection is only available for Local mode.";
+    }
+}
+
+if (modelSelect) {
+    modelSelect.addEventListener("change", () => {
+        selectedModel = modelSelect.value;
+        if (selectedModel) {
+            updateNarration(`Model set to: ${selectedModel}`);
+        }
+    });
+}
 
 if (btnLocal) {
     btnLocal.onclick = () => {
@@ -35,6 +109,7 @@ if (btnLocal) {
         btnLocal.classList.add("active");
         if(btnRouter) btnRouter.classList.remove("active");
         updateNarration("Mode set to: Local (LM Studio). Click 'Start Simulation'.");
+        updateModelUI();
     };
 }
 
@@ -44,6 +119,7 @@ if (btnRouter) {
         btnRouter.classList.add("active");
         if(btnLocal) btnLocal.classList.remove("active");
         updateNarration("Mode set to: OpenRouter. Click 'Start Simulation'.");
+        updateModelUI();
     };
 }
 
@@ -57,7 +133,11 @@ if (initBtn) {
         
         updateNarration("Initializing...");
         try {
-            const res = await fetch("/api/init?mode=" + simulationMode);
+            const params = new URLSearchParams({ mode: simulationMode });
+            if (simulationMode === "local" && selectedModel) {
+                params.append("model", selectedModel);
+            }
+            const res = await fetch(`/api/init?${params.toString()}`);
             const data = await res.json();
             
             if (data.error) {
@@ -75,6 +155,8 @@ if (initBtn) {
         }
     };
 }
+
+updateModelUI();
 
 // Send Action
 async function send() {
