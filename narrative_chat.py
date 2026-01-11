@@ -3,6 +3,7 @@
 
 import requests
 import os
+from pathlib import Path
 from typing import Optional, List, Dict
 from simulation_v2 import WillowCreekSimulation
 from entities.npc import NPC
@@ -26,11 +27,26 @@ class NarrativeChat:
         if mode not in CONFIG: raise ValueError(f"Invalid mode: {mode}")
         
         self.mode = mode
+        self.api_url: Optional[str]
+        self.local_model_path: Optional[Path] = None
+        self.local_model = None
+
         if mode == "local":
-            self.api_url = os.getenv("LOCAL_LLM_URL", CONFIG[mode]["api_url"])
+            self.local_model_path = self._resolve_local_model_path(model_name)
+            env_url = os.getenv("LOCAL_LLM_URL")
+            if env_url:
+                self.api_url = env_url
+            elif self.local_model_path:
+                self.api_url = None
+            else:
+                self.api_url = CONFIG[mode]["api_url"]
         else:
             self.api_url = CONFIG[mode]["api_url"]
-        self.model_name = model_name or CONFIG[mode]["model_name"]
+
+        if mode == "local" and self.local_model_path:
+            self.model_name = self.local_model_path.name
+        else:
+            self.model_name = model_name or CONFIG[mode]["model_name"]
         
         if CONFIG[mode]["key_env"]:
             self.api_key = os.getenv(CONFIG[mode]["key_env"])
@@ -46,6 +62,9 @@ class NarrativeChat:
 
     def initialize(self):
         self.sim = WillowCreekSimulation()
+
+        if self.mode == "local" and self.local_model_path and self.local_model is None:
+            self._load_local_model()
         
         # Robustly find Malcolm
         self.malcolm = self.sim.npc_dict.get("Malcolm Newt")
@@ -126,22 +145,81 @@ class NarrativeChat:
             "max_tokens": 800
         }
 
-        try:
-            res = requests.post(self.api_url, headers=headers, json=payload)
-            if res.status_code != 200: return f"[API Error: {res.text}]"
-            
-            content = res.json()["choices"][0]["message"]["content"]
-            
-            # Update History
-            # We store the simplified version in history to avoid exploding context size with repetitive World States
-            self.narrative_history.append({"role": "user", "content": user_input})
-            self.narrative_history.append({"role": "assistant", "content": content})
-            
-            self.last_narrated = content 
-            return content
-        except Exception as e:
-            return f"[Connection Error: {e}]"
+        if self.local_model:
+            try:
+                response = self.local_model.create_chat_completion(
+                    messages=messages,
+                    temperature=payload["temperature"],
+                    max_tokens=payload["max_tokens"],
+                )
+                content = response["choices"][0]["message"]["content"]
+            except Exception as e:
+                return f"[Local Model Error: {e}]"
+        else:
+            if not self.api_url:
+                return "[Local Model Error: No local model loaded or API URL configured]"
+            try:
+                res = requests.post(self.api_url, headers=headers, json=payload)
+                if res.status_code != 200: return f"[API Error: {res.text}]"
+                
+                content = res.json()["choices"][0]["message"]["content"]
+            except Exception as e:
+                return f"[Connection Error: {e}]"
+
+        # Update History
+        # We store the simplified version in history to avoid exploding context size with repetitive World States
+        self.narrative_history.append({"role": "user", "content": user_input})
+        self.narrative_history.append({"role": "assistant", "content": content})
+        
+        self.last_narrated = content 
+        return content
 
     def advance_time(self, hours):
         if self.sim:
             self.sim.tick(hours)
+
+    def _resolve_local_model_path(self, model_name: Optional[str]) -> Optional[Path]:
+        models_dir = Path(__file__).resolve().parent / "models"
+        if not models_dir.exists():
+            return None
+
+        if model_name:
+            candidate = models_dir / model_name
+            if candidate.is_file():
+                return candidate
+            if candidate.is_dir():
+                return self._first_model_file(candidate)
+            return None
+
+        return self._first_model_file(models_dir)
+
+    def _first_model_file(self, search_dir: Path) -> Optional[Path]:
+        if not search_dir.exists():
+            return None
+        model_files = sorted(search_dir.glob("*.gguf"), key=lambda path: path.name.lower())
+        if model_files:
+            return model_files[0]
+        for item in sorted(search_dir.iterdir(), key=lambda path: path.name.lower()):
+            if item.is_dir():
+                nested = self._first_model_file(item)
+                if nested:
+                    return nested
+        return None
+
+    def _load_local_model(self) -> None:
+        if not self.local_model_path:
+            return
+        try:
+            from llama_cpp import Llama
+        except Exception:
+            print("ERROR: llama-cpp-python is not installed. Install it to run local models.")
+            return
+
+        ctx = int(os.getenv("LOCAL_LLM_CTX", "4096"))
+        threads = os.getenv("LOCAL_LLM_THREADS")
+        kwargs = {"model_path": str(self.local_model_path), "n_ctx": ctx}
+        if threads:
+            kwargs["n_threads"] = int(threads)
+
+        print(f"Loading local model from {self.local_model_path}...")
+        self.local_model = Llama(**kwargs)
