@@ -3,6 +3,7 @@
 let simRunning = false;
 let simulationMode = "openrouter"; 
 let selectedModel = "";
+let lastSnapshotAt = null;
 
 function updateNarration(text) {
     const out = document.getElementById("output");
@@ -16,7 +17,7 @@ function updateSnapshot(snap) {
     // Update Malcolm Stats Panel
     if(snap.malcolm_stats) {
         const statsBox = document.getElementById("malcolm-stats");
-        if (statsBox) statsBox.innerText = snap.malcolm_stats;
+        if (statsBox) renderStats(statsBox, snap.malcolm_stats);
     }
 
     // Update Debug Panel (Always show full context now)
@@ -24,6 +25,9 @@ function updateSnapshot(snap) {
         const debugBox = document.getElementById("debug-box");
         if (debugBox) debugBox.innerText = "### AI CONTEXT (Live)\n\n" + snap.full_context;
     }
+
+    lastSnapshotAt = new Date();
+    updateStatusPanel();
 }
 
 // Mode Switching
@@ -31,6 +35,71 @@ const btnLocal = document.getElementById("local-btn");
 const btnRouter = document.getElementById("openrouter-btn");
 const modelSelect = document.getElementById("model-select");
 const modelStatus = document.getElementById("model-status");
+const statusMode = document.getElementById("status-mode");
+const statusModel = document.getElementById("status-model");
+const statusState = document.getElementById("status-state");
+const statusUpdated = document.getElementById("status-updated");
+
+function updateStatusPanel(stateOverride) {
+    const modeLabel = simulationMode === "local" ? "Local" : "OpenRouter";
+    const modelLabel = selectedModel || "Default";
+    const stateLabel = stateOverride || (simRunning ? "Running" : "Idle");
+    const updatedLabel = lastSnapshotAt ? lastSnapshotAt.toLocaleTimeString() : "—";
+
+    if (statusMode) statusMode.innerText = modeLabel;
+    if (statusModel) statusModel.innerText = modelLabel;
+    if (statusState) {
+        statusState.innerText = stateLabel;
+        statusState.classList.toggle("status-chip--running", stateLabel === "Running");
+        statusState.classList.toggle("status-chip--error", stateLabel === "Error");
+    }
+    if (statusUpdated) statusUpdated.innerText = updatedLabel;
+}
+
+function renderStats(container, text) {
+    container.innerHTML = "";
+    const lines = text.split("\n").map((line) => line.trim()).filter(Boolean);
+    if (!lines.length) {
+        container.innerText = "Status unavailable.";
+        return;
+    }
+
+    lines.forEach((line) => {
+        if (line.startsWith("##") || line.startsWith("###")) {
+            const header = document.createElement("div");
+            header.className = "stat-header";
+            header.innerText = line.replace(/^#+\s*/, "");
+            container.appendChild(header);
+            return;
+        }
+
+        const separator = line.includes("│") ? "│" : line.includes(":") ? ":" : null;
+        if (separator) {
+            const [label, ...rest] = line.split(separator);
+            const value = rest.join(separator).trim();
+            const row = document.createElement("div");
+            row.className = "stat-row";
+
+            const labelEl = document.createElement("span");
+            labelEl.className = "stat-label";
+            labelEl.innerText = label.trim();
+
+            const valueEl = document.createElement("span");
+            valueEl.className = "stat-value";
+            valueEl.innerText = value || "—";
+
+            row.appendChild(labelEl);
+            row.appendChild(valueEl);
+            container.appendChild(row);
+            return;
+        }
+
+        const paragraph = document.createElement("div");
+        paragraph.className = "stat-note";
+        paragraph.innerText = line;
+        container.appendChild(paragraph);
+    });
+}
 
 async function loadModels() {
     if (!modelSelect) return;
@@ -110,6 +179,7 @@ if (btnLocal) {
         if(btnRouter) btnRouter.classList.remove("active");
         updateNarration("Mode set to: Local (LM Studio). Click 'Start Simulation'.");
         updateModelUI();
+        updateStatusPanel();
     };
 }
 
@@ -120,6 +190,7 @@ if (btnRouter) {
         if(btnLocal) btnLocal.classList.remove("active");
         updateNarration("Mode set to: OpenRouter. Click 'Start Simulation'.");
         updateModelUI();
+        updateStatusPanel();
     };
 }
 
@@ -132,6 +203,7 @@ if (initBtn) {
         }
         
         updateNarration("Initializing...");
+        updateStatusPanel("Starting...");
         try {
             const params = new URLSearchParams({ mode: simulationMode });
             if (simulationMode === "local" && selectedModel) {
@@ -142,6 +214,7 @@ if (initBtn) {
             
             if (data.error) {
                 updateNarration("Error: " + data.error);
+                updateStatusPanel("Error");
             } else {
                 // Clear old output and show opening
                 document.getElementById("output").innerText = ""; 
@@ -149,14 +222,17 @@ if (initBtn) {
                 updateSnapshot(data.snapshot);
                 simRunning = true;
                 initBtn.innerText = "Reset Simulation";
+                updateStatusPanel();
             }
         } catch (e) {
             updateNarration("Connection failed. Is the server running?");
+            updateStatusPanel("Error");
         }
     };
 }
 
 updateModelUI();
+updateStatusPanel();
 
 // Send Action
 async function send() {
@@ -175,8 +251,10 @@ async function send() {
         const data = await res.json();
         updateNarration(data.narration);
         updateSnapshot(data.snapshot);
+        updateStatusPanel();
     } catch (e) {
         updateNarration("Error sending action.");
+        updateStatusPanel("Error");
     }
 }
 
