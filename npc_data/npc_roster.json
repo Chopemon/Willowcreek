@@ -226,7 +226,7 @@
       "Dependent",
       "Loved"
     ],
-    "status": "dormant",
+    "status": "active",
     "relationship": 10,
     "memory": [
       "Comatose in hospital for 1 year",
@@ -1097,7 +1097,7 @@
       "Provider",
       "Low-key perverted"
     ],
-    "status": "married",
+    "status": "active",
     "partner": "Sarah Madison",
     "relationship": 10,
     "memory": [
@@ -1203,7 +1203,7 @@
       "Jealous",
       "Distant"
     ],
-    "status": "away",
+    "status": "active",
     "relationship": 3,
     "partner": "Maria Sturm",
     "memory": [
@@ -1331,7 +1331,7 @@
       "Reliable",
       "Distant"
     ],
-    "status": "dormant",
+    "status": "active",
     "relationship": 2,
     "memory": [
       "Separated from Tessa 2 years ago",

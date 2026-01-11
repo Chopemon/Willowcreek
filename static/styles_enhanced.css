@@ -139,6 +139,7 @@ body {
     display: flex;
     gap: 10px;
     flex-shrink: 0;
+    align-items: center;
 }
 
 .mode-btn {

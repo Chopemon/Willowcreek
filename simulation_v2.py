@@ -48,7 +48,12 @@ from world_snapshot_builder import WorldSnapshotBuilder
 
 
 class WillowCreekSimulation:
-    def __init__(self, num_npcs: int = 41, start_date: Optional[datetime] = None):
+    def __init__(
+        self,
+        num_npcs: int = 41,
+        start_date: Optional[datetime] = None,
+        memory_path: Optional[str] = None,
+    ):
         print("=== WILLOW CREEK 2025 - FULLY AUTONOMOUS WORLD ===\n")
 
         # Core
@@ -86,7 +91,8 @@ class WillowCreekSimulation:
         self.environmental = EnvironmentalSystem()
         self.emotional = EmotionalContagionSystem(self)
         self.seasonal = SeasonalDynamicsSystem()
-        self.memory = MemorySystem()
+        memory_path = memory_path or os.path.join(base_dir, "saves", "narrative_memory.json")
+        self.memory = MemorySystem(memory_path=memory_path)
         self.schedule = ScheduleSystem(self)
 
         # Life systems

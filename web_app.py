@@ -66,10 +66,7 @@ async def serve_ui():
     # Serve enhanced dashboard
     index_path = BASE_DIR / "index_enhanced.html"
     if not index_path.exists():
-        # Fallback to old version
-        index_path = BASE_DIR / "index.html"
-        if not index_path.exists():
-            return HTMLResponse("<h1>ERROR: index.html not found</h1>", status_code=500)
+        return HTMLResponse("<h1>ERROR: index_enhanced.html not found</h1>", status_code=500)
     return index_path.read_text(encoding="utf-8")
 
 @app.get("/ui", response_class=HTMLResponse)
