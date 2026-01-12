@@ -73,6 +73,10 @@ async def serve_ui():
         return HTMLResponse("<h1>ERROR: index_enhanced.html not found</h1>", status_code=500)
     return index_path.read_text(encoding="utf-8")
 
+@app.get("/favicon.ico")
+async def favicon():
+    return JSONResponse({}, status_code=204)
+
 @app.get("/ui", response_class=HTMLResponse)
 async def serve_game_systems_ui():
     """Serve the game systems UI (portraits, map, stats, relationships)"""
@@ -634,10 +638,7 @@ async def generate_image_manual():
 @app.get("/api/snapshot", response_class=JSONResponse)
 async def get_snapshot():
     global chat
-    if chat is None:
-        return JSONResponse({"error": "Sim not started"}, status_code=400)
-
-    # build_frontend_snapshot handles None gracefully, but check anyway
+    # build_frontend_snapshot handles None gracefully
     snapshot = build_frontend_snapshot(chat.sim if chat else None, chat.malcolm if chat else None)
     return JSONResponse(snapshot)
 
@@ -646,7 +647,7 @@ async def get_snapshot():
 async def get_locations():
     global chat
     if chat is None or chat.sim is None:
-        return JSONResponse({"error": "Sim not started"}, status_code=400)
+        return JSONResponse({"locations": {}, "malcolm_location": "Unknown"})
 
     # Build location map
     locations = {}
@@ -668,7 +669,7 @@ async def get_locations():
 async def get_npcs():
     global chat
     if chat is None or chat.sim is None:
-        return JSONResponse({"error": "Sim not started"}, status_code=400)
+        return JSONResponse({"npcs": []})
 
     npcs_data = []
     for npc in chat.sim.npcs:
@@ -686,7 +687,7 @@ async def get_npcs():
 async def get_timeline():
     global chat
     if chat is None or chat.sim is None:
-        return JSONResponse({"error": "Sim not started"}, status_code=400)
+        return JSONResponse({"events": []})
 
     # Check if timeline exists
     events = []
@@ -700,7 +701,14 @@ async def get_timeline():
 async def get_analysis():
     global chat
     if chat is None or chat.sim is None:
-        return JSONResponse({"error": "Sim not started"}, status_code=400)
+        return JSONResponse({
+            "total_relationships": 0,
+            "avg_affinity": 0,
+            "total_actions": 0,
+            "top_activity": "N/A",
+            "time_elapsed": "00:00",
+            "total_npcs": 0
+        })
 
     # Calculate relationship metrics
     relationships = chat.sim.relationships.get_all_relationships()

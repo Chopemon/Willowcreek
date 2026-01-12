@@ -41,6 +41,7 @@ class NarrativeChat:
         self.memory_model_name = memory_model_name or self.model_name or CONFIG[mode]["memory_model_name"]
         self.local_client: Optional[LocalLLMClient] = None
         self.local_memory_client: Optional[LocalLLMClient] = None
+        self.local_error: Optional[str] = None
 
         # Debug logging for mode initialization
         print(f"\n[NarrativeChat] ===== INITIALIZING =====")
@@ -51,13 +52,23 @@ class NarrativeChat:
 
         if mode == "local":
             self.api_key = "NOT_REQUIRED"
-            self.local_client = LocalLLMClient(model_name=self._resolve_local_model(self.model_name))
-            if self.memory_model_name == self.model_name:
-                self.local_memory_client = self.local_client
-            else:
-                self.local_memory_client = LocalLLMClient(
-                    model_name=self._resolve_local_model(self.memory_model_name)
+            resolved_model = self._resolve_local_model(self.model_name)
+            resolved_memory_model = self._resolve_local_model(self.memory_model_name)
+            gguf_models = [
+                name for name in (resolved_model, resolved_memory_model)
+                if name and str(name).lower().endswith(".gguf")
+            ]
+            if gguf_models:
+                self.local_error = (
+                    "GGUF models are not supported by transformers. "
+                    "Use a local Llama.cpp server or a Hugging Face model path."
                 )
+            else:
+                self.local_client = LocalLLMClient(model_name=resolved_model)
+                if self.memory_model_name == self.model_name:
+                    self.local_memory_client = self.local_client
+                else:
+                    self.local_memory_client = LocalLLMClient(model_name=resolved_memory_model)
             print(f"[NarrativeChat] API Key: Not required for local mode")
         elif CONFIG[mode]["key_env"]:
             self.api_key = os.getenv(CONFIG[mode]["key_env"])
@@ -175,6 +186,8 @@ class NarrativeChat:
         }
 
         try:
+            if self.local_error and not self.api_url:
+                return f"[Local Model Error: {self.local_error}]"
             if self.local_client:
                 print(f"[NarrativeChat] Using local model: {self.model_name}")
                 prompt = self._build_prompt(messages)
@@ -255,6 +268,8 @@ class NarrativeChat:
         }
 
         try:
+            if self.local_error and not self.api_url:
+                return
             if self.local_memory_client:
                 prompt_text = self._build_prompt(payload["messages"])
                 response = self.local_memory_client.generate(
