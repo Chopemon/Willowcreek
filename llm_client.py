@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import os
+from pathlib import Path
 from dataclasses import dataclass
 from typing import List
 
@@ -16,9 +17,21 @@ class LocalLLMClient:
         from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 
         resolved_model = model_name or os.getenv("LOCAL_MODEL_NAME", "gpt2")
+        local_files_only = False
+        if resolved_model:
+            candidate_path = Path(resolved_model)
+            if candidate_path.exists():
+                resolved_model = str(candidate_path)
+                local_files_only = True
         self.model_name = resolved_model
-        self.tokenizer = AutoTokenizer.from_pretrained(resolved_model)
-        self.model = AutoModelForCausalLM.from_pretrained(resolved_model)
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            resolved_model,
+            local_files_only=local_files_only,
+        )
+        self.model = AutoModelForCausalLM.from_pretrained(
+            resolved_model,
+            local_files_only=local_files_only,
+        )
         self.generator = pipeline(
             "text-generation",
             model=self.model,

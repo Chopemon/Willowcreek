@@ -4,6 +4,7 @@
 import requests
 import os
 from typing import Optional, List, Dict
+from pathlib import Path
 from simulation_v2 import WillowCreekSimulation
 from entities.npc import NPC
 from enhanced_snapshot_builder import create_narrative_context
@@ -50,11 +51,13 @@ class NarrativeChat:
 
         if mode == "local":
             self.api_key = "NOT_REQUIRED"
-            self.local_client = LocalLLMClient(model_name=self.model_name)
+            self.local_client = LocalLLMClient(model_name=self._resolve_local_model(self.model_name))
             if self.memory_model_name == self.model_name:
                 self.local_memory_client = self.local_client
             else:
-                self.local_memory_client = LocalLLMClient(model_name=self.memory_model_name)
+                self.local_memory_client = LocalLLMClient(
+                    model_name=self._resolve_local_model(self.memory_model_name)
+                )
             print(f"[NarrativeChat] API Key: Not required for local mode")
         elif CONFIG[mode]["key_env"]:
             self.api_key = os.getenv(CONFIG[mode]["key_env"])
@@ -282,6 +285,19 @@ class NarrativeChat:
             content = message.get("content", "")
             lines.append(f"{role}: {content}")
         return "\n\n".join(lines)
+
+    @staticmethod
+    def _resolve_local_model(model_name: str) -> str:
+        if not model_name:
+            return model_name
+        candidate = Path(model_name)
+        if candidate.exists():
+            return str(candidate)
+        models_root = Path(os.getenv("LOCAL_MODELS_DIR", "models"))
+        resolved = models_root / model_name
+        if resolved.exists():
+            return str(resolved)
+        return model_name
 
     def _parse_memory_json(self, content: str) -> List[Dict]:
         import json
