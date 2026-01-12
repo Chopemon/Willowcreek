@@ -19,7 +19,8 @@ CONFIG = {
         "api_url": "http://localhost:1234/v1/chat/completions",
         "model_name": "local-model",
         "memory_model_name": "local-model",
-        "key_env": None
+        "key_env": None,
+        "context_size": 2048
     }
 }
 
@@ -31,6 +32,7 @@ class NarrativeChat:
         self.api_url = CONFIG[mode]["api_url"]
         self.model_name = CONFIG[mode]["model_name"]
         self.memory_model_name = CONFIG[mode]["memory_model_name"]
+        self.context_size = CONFIG[mode].get("context_size")
 
         # Debug logging for mode initialization
         print(f"\n[NarrativeChat] ===== INITIALIZING =====")
@@ -153,6 +155,8 @@ class NarrativeChat:
             "temperature": 0.85, # Slightly higher for creative writing
             "max_tokens": 800
         }
+        if self.context_size:
+            payload["max_context_tokens"] = self.context_size
 
         try:
             print(f"[NarrativeChat] Making API call to: {self.api_url}")
@@ -223,6 +227,8 @@ class NarrativeChat:
             "temperature": 0.2,
             "max_tokens": 400,
         }
+        if self.context_size:
+            payload["max_context_tokens"] = self.context_size
 
         try:
             res = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
