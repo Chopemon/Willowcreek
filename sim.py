@@ -29,12 +29,21 @@ class NPCActor:
         core_traits = ", ".join(self.profile.identity["coreTraits"])
         memory_seed = self.profile.state.get("memory_bank", [])
         memory_hint = memory_seed[0] if memory_seed else "Reflects on the day"
+        recent_memories = self.memory_store.list(self.profile.npc_id)[-3:]
+        memory_lines = [record.content for record in recent_memories]
+        relationships = self.profile.relationships.get("relationships", {})
+        relationship_summary = ", ".join(
+            f"{other_npc}: {data.get('relationship', 'unknown')}"
+            for other_npc, data in list(relationships.items())[:3]
+        )
 
         prompt = (
             f"NPC: {name}\n"
             f"Location: {location}\n"
             f"Core traits: {core_traits}\n"
+            f"Relationships: {relationship_summary or 'none'}\n"
             f"Memory seed: {memory_hint}\n"
+            f"Recent memories: {', '.join(memory_lines) or 'none'}\n"
             "Describe a short, present-tense action the NPC takes next."
         )
 
@@ -50,7 +59,7 @@ class NPCActor:
             kind="reflection",
             emotional_tone="thoughtful",
             importance=0.4,
-            tags=["tick"],
+            tags=["tick", "autonomy"],
             source="sim.py",
         )
         self.memory_store.add(record)

@@ -3,7 +3,7 @@
 
 import json
 import os
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Iterable
 from dataclasses import dataclass, field
 from datetime import datetime
 from enum import Enum
@@ -50,6 +50,11 @@ class Memory:
     participants: List[str] = field(default_factory=list)
     location: str = ""
     metadata: Dict = field(default_factory=dict)
+    emotional_tone: str = "neutral"
+    tags: List[str] = field(default_factory=list)
+    strength: float = 1.0
+    last_accessed_day: Optional[int] = None
+    last_decay_day: Optional[int] = None
     real_timestamp: datetime = field(default_factory=datetime.now)
 
     def get_age_days(self, current_sim_day: int) -> int:
@@ -60,6 +65,18 @@ class Memory:
         """Get a readable summary of the memory"""
         participants_str = ", ".join(self.participants) if self.participants else "someone"
         return f"Day {self.sim_day}, {self.sim_hour:02d}:00 - {self.description} (with {participants_str})"
+
+    def recall(self, current_sim_day: int, boost: float = 0.05) -> None:
+        """Mark this memory as recalled to strengthen it slightly."""
+        self.last_accessed_day = current_sim_day
+        self.strength = min(2.0, self.strength + boost)
+
+    def get_weight(self, current_sim_day: int) -> float:
+        """Compute salience weight for recall."""
+        age_days = max(0, current_sim_day - self.sim_day)
+        recency_bonus = max(0.0, 10.0 - age_days)
+        intensity = max(0.1, self.strength)
+        return (self.importance.value * 2.0 + recency_bonus) * intensity
 
 
 class MemorySystem:
@@ -84,7 +101,10 @@ class MemorySystem:
         importance: MemoryImportance,
         participants: List[str] = None,
         location: str = "",
-        metadata: Dict = None
+        metadata: Dict = None,
+        emotional_tone: str = "neutral",
+        tags: Optional[Iterable[str]] = None,
+        strength: float = 1.0
     ) -> Memory:
         """Add a memory to a character"""
         if character_name not in self.character_memories:
@@ -98,7 +118,11 @@ class MemorySystem:
             importance=importance,
             participants=participants or [],
             location=location,
-            metadata=metadata or {}
+            metadata=metadata or {},
+            emotional_tone=emotional_tone,
+            tags=list(tags or []),
+            strength=strength,
+            last_decay_day=sim_day
         )
 
         self.character_memories[character_name].append(memory)
@@ -137,6 +161,91 @@ class MemorySystem:
             memories = memories[:limit]
 
         return memories
+
+    def get_recent_memories(self, character_name: str, count: int = 10) -> List[Memory]:
+        """Get most recent memories for a character."""
+        return self.get_memories(character_name, limit=count)
+
+    def get_salient_memories(
+        self,
+        character_name: str,
+        current_sim_day: int,
+        limit: int = 5,
+        min_importance: Optional[MemoryImportance] = None,
+        participant: Optional[str] = None,
+        tags: Optional[Iterable[str]] = None,
+    ) -> List[Memory]:
+        """Get top memories weighted by importance and recency."""
+        memories = self.get_memories(
+            character_name,
+            min_importance=min_importance,
+            participant=participant,
+        )
+
+        if tags:
+            tag_set = set(tags)
+            memories = [m for m in memories if tag_set.intersection(m.tags)]
+
+        weighted = sorted(memories, key=lambda m: m.get_weight(current_sim_day), reverse=True)
+        return weighted[:limit]
+
+    def build_memory_context(
+        self,
+        character_name: str,
+        current_sim_day: int,
+        limit: int = 5,
+        min_importance: MemoryImportance = MemoryImportance.MINOR,
+    ) -> str:
+        """Build a compact memory summary for prompts."""
+        memories = self.get_salient_memories(
+            character_name,
+            current_sim_day=current_sim_day,
+            limit=limit,
+            min_importance=min_importance,
+        )
+        if not memories:
+            return ""
+
+        lines = [f"{character_name}'s recent memories:"]
+        for memory in memories:
+            memory.recall(current_sim_day)
+            tone = f" ({memory.emotional_tone})" if memory.emotional_tone else ""
+            lines.append(f"- {memory.get_summary()}{tone}")
+        return "\n".join(lines)
+
+    def decay_memories(
+        self,
+        current_sim_day: int,
+        daily_decay: float = 0.03,
+        min_strength: float = 0.2,
+    ) -> None:
+        """Decay memory strength over time."""
+        for memories in self.character_memories.values():
+            for memory in memories:
+                last_decay = memory.last_decay_day or memory.sim_day
+                elapsed = max(0, current_sim_day - last_decay)
+                if elapsed <= 0:
+                    continue
+                memory.strength = max(min_strength, memory.strength - daily_decay * elapsed)
+                memory.last_decay_day = current_sim_day
+
+    def reinforce_memory(
+        self,
+        character_name: str,
+        description_contains: str,
+        current_sim_day: int,
+        boost: float = 0.1,
+    ) -> int:
+        """Reinforce memories matching text; returns count reinforced."""
+        if character_name not in self.character_memories:
+            return 0
+        count = 0
+        needle = description_contains.lower()
+        for memory in self.character_memories[character_name]:
+            if needle in memory.description.lower():
+                memory.recall(current_sim_day, boost=boost)
+                count += 1
+        return count
 
     def get_relationship_timeline(self, character_name: str, other_character: str) -> str:
         """Get timeline of relationship with another character"""
@@ -200,6 +309,11 @@ class MemorySystem:
             "participants": memory.participants,
             "location": memory.location,
             "metadata": memory.metadata,
+            "emotional_tone": memory.emotional_tone,
+            "tags": memory.tags,
+            "strength": memory.strength,
+            "last_accessed_day": memory.last_accessed_day,
+            "last_decay_day": memory.last_decay_day,
             "real_timestamp": memory.real_timestamp.isoformat(),
         }
 
@@ -233,5 +347,10 @@ class MemorySystem:
             participants=data.get("participants", []),
             location=data.get("location", ""),
             metadata=data.get("metadata", {}),
+            emotional_tone=data.get("emotional_tone", "neutral"),
+            tags=data.get("tags", []),
+            strength=float(data.get("strength", 1.0)),
+            last_accessed_day=data.get("last_accessed_day"),
+            last_decay_day=data.get("last_decay_day"),
             real_timestamp=parsed_timestamp,
         )
