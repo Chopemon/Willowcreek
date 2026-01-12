@@ -21,7 +21,7 @@ class LocalLLMClient:
         if resolved_model:
             candidate_path = Path(resolved_model)
             if candidate_path.exists():
-                resolved_model = str(candidate_path)
+                resolved_model = str(candidate_path.resolve())
                 local_files_only = True
         self.model_name = resolved_model
         self.tokenizer = AutoTokenizer.from_pretrained(

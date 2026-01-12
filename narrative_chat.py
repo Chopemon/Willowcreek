@@ -292,11 +292,14 @@ class NarrativeChat:
             return model_name
         candidate = Path(model_name)
         if candidate.exists():
-            return str(candidate)
+            return str(candidate.resolve())
+        has_separator = "/" in model_name or "\\" in model_name
+        if has_separator:
+            return model_name
         models_root = Path(os.getenv("LOCAL_MODELS_DIR", "models"))
         resolved = models_root / model_name
         if resolved.exists():
-            return str(resolved)
+            return str(resolved.resolve())
         return model_name
 
     def _parse_memory_json(self, content: str) -> List[Dict]:
