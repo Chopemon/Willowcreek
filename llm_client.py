@@ -21,6 +21,11 @@ class LocalLLMClient:
         if resolved_model:
             candidate_path = Path(resolved_model)
             if candidate_path.exists():
+                if candidate_path.suffix.lower() == ".gguf":
+                    raise RuntimeError(
+                        "GGUF models are not supported by transformers. "
+                        "Use a local Llama.cpp server or a Hugging Face model path."
+                    )
                 resolved_model = str(candidate_path.resolve())
                 local_files_only = True
         self.model_name = resolved_model

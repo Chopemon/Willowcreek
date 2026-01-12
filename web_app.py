@@ -173,7 +173,7 @@ async def _init_sim_handler(
         import traceback
         print(f"[WebApp] ERROR during initialization:")
         print(traceback.format_exc())
-        return JSONResponse({"error": f"Initialization failed: {str(e)}"}, status_code=500)
+        return JSONResponse({"error": f"Initialization failed: {str(e)}"}, status_code=400)
 
 def generate_image_prompts(scene_context, narrative_text: Optional[str] = None):
     """
