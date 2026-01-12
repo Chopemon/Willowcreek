@@ -7,7 +7,7 @@ class WillowCreekDashboard {
         this.npcSearchTerm = '';
         this.debugExpanded = false;
         this.latestSnapshot = null;
-        this.simulationMode = 'local';
+        this.simulationMode = 'openrouter';
 
         this.init();
     }
@@ -15,6 +15,8 @@ class WillowCreekDashboard {
     init() {
         this.setupEventListeners();
         this.setupTabSwitching();
+        this.applyModeDefaults();
+        this.refreshLocalModelList();
         this.switchTab('stats'); // Default to stats tab
     }
 
@@ -78,7 +80,71 @@ class WillowCreekDashboard {
         this.simulationMode = e.target.dataset.mode || 'local';
         console.log(`[Dashboard] Mode switched to: ${this.simulationMode}`);
 
+        this.applyModeDefaults();
+        this.refreshLocalModelList();
         this.updateNarrative(`Mode set to: ${this.simulationMode === 'local' ? 'Local Model' : 'OpenRouter'}. Click 'Start Simulation'.`);
+    }
+
+    applyModeDefaults() {
+        const modelInput = document.getElementById('model-name');
+        const memoryInput = document.getElementById('memory-model-name');
+
+        if (!modelInput || !memoryInput) return;
+
+        if (this.simulationMode === 'openrouter') {
+            modelInput.setAttribute('list', 'model-options');
+            memoryInput.setAttribute('list', 'model-options');
+            if (!modelInput.value) {
+                modelInput.value = 'tngtech/deepseek-r1t2-chimera:free';
+            }
+            if (!memoryInput.value) {
+                memoryInput.value = 'openai/gpt-4o-mini';
+            }
+        } else {
+            modelInput.setAttribute('list', 'local-model-options');
+            memoryInput.setAttribute('list', 'local-model-options');
+            const isRemoteModel = (value) => value && value.includes('/');
+            if (isRemoteModel(modelInput.value)) {
+                modelInput.value = '';
+            }
+            if (isRemoteModel(memoryInput.value)) {
+                memoryInput.value = '';
+            }
+        }
+    }
+
+    async refreshLocalModelList() {
+        const modelInput = document.getElementById('model-name');
+        const datalist = document.getElementById('local-model-options');
+
+        if (!modelInput || !datalist) return;
+        if (this.simulationMode !== 'local') return;
+
+        try {
+            const response = await fetch('/api/local-models');
+            if (!response.ok) return;
+            const data = await response.json();
+            const models = Array.isArray(data.models) ? data.models : [];
+
+            datalist.innerHTML = '';
+            models.forEach(model => {
+                const option = document.createElement('option');
+                option.value = model;
+                datalist.appendChild(option);
+            });
+
+            if (models.length > 0) {
+                if (!modelInput.value) {
+                    modelInput.value = models[0];
+                }
+                const memoryInput = document.getElementById('memory-model-name');
+                if (memoryInput && !memoryInput.value) {
+                    memoryInput.value = models[0];
+                }
+            }
+        } catch (error) {
+            console.warn('[Dashboard] Failed to load local model list:', error);
+        }
     }
 
     switchTab(tabName) {
@@ -136,10 +202,17 @@ class WillowCreekDashboard {
         console.log(`[Dashboard] Initializing with mode: ${this.simulationMode}`);
 
         try {
+            const modelInput = document.getElementById('model-name');
+            const memoryInput = document.getElementById('memory-model-name');
+
             const response = await fetch('/api/init', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ mode: this.simulationMode })
+                body: JSON.stringify({
+                    mode: this.simulationMode,
+                    model_name: modelInput?.value?.trim() || null,
+                    memory_model_name: memoryInput?.value?.trim() || null
+                })
             });
             const data = await response.json();
 
