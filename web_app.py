@@ -91,15 +91,10 @@ async def list_local_models():
     models = set()
 
     for entry in LOCAL_MODELS_DIR.rglob("*"):
-        if entry.name.startswith("."):
+        if entry.name.startswith(".") or not entry.is_file():
             continue
-        if entry.is_file() and entry.suffix.lower() in model_extensions:
+        if entry.suffix.lower() in model_extensions:
             models.add(str(entry.relative_to(LOCAL_MODELS_DIR)))
-        elif entry.is_dir():
-            for child in entry.iterdir():
-                if child.is_file() and child.suffix.lower() in model_extensions:
-                    models.add(str(entry.relative_to(LOCAL_MODELS_DIR)))
-                    break
 
     if not models:
         for entry in LOCAL_MODELS_DIR.iterdir():
