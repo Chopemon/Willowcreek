@@ -129,7 +129,7 @@ async def _init_sim_handler(
     try:
         resolved_api_url = api_url
         if mode == "local" and not resolved_api_url:
-            resolved_api_url = os.getenv("LOCAL_API_URL", "http://localhost:1234/v1/chat/completions")
+            resolved_api_url = os.getenv("LOCAL_API_URL")
 
         model_changed = (
             (model_name or None) != (current_model_name or None)
