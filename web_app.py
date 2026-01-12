@@ -87,14 +87,26 @@ async def list_local_models():
     if not LOCAL_MODELS_DIR.exists():
         return JSONResponse({"models": []})
 
-    models = []
-    for entry in LOCAL_MODELS_DIR.iterdir():
+    model_extensions = {".gguf", ".bin", ".safetensors", ".pt", ".pth"}
+    models = set()
+
+    for entry in LOCAL_MODELS_DIR.rglob("*"):
         if entry.name.startswith("."):
             continue
-        if entry.is_dir():
-            models.append(entry.name)
-        elif entry.is_file():
-            models.append(entry.name)
+        if entry.is_file() and entry.suffix.lower() in model_extensions:
+            models.add(str(entry.relative_to(LOCAL_MODELS_DIR)))
+        elif entry.is_dir():
+            for child in entry.iterdir():
+                if child.is_file() and child.suffix.lower() in model_extensions:
+                    models.add(str(entry.relative_to(LOCAL_MODELS_DIR)))
+                    break
+
+    if not models:
+        for entry in LOCAL_MODELS_DIR.iterdir():
+            if entry.name.startswith("."):
+                continue
+            if entry.is_dir() or entry.is_file():
+                models.add(entry.name)
 
     return JSONResponse({"models": sorted(models)})
 
