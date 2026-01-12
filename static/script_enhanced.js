@@ -93,6 +93,7 @@ class WillowCreekDashboard {
 
         if (this.simulationMode === 'openrouter') {
             modelInput.setAttribute('list', 'model-options');
+            memoryInput.setAttribute('list', 'model-options');
             if (!modelInput.value) {
                 modelInput.value = 'tngtech/deepseek-r1t2-chimera:free';
             }
@@ -101,6 +102,7 @@ class WillowCreekDashboard {
             }
         } else {
             modelInput.setAttribute('list', 'local-model-options');
+            memoryInput.setAttribute('list', 'local-model-options');
             if (!modelInput.value) {
                 modelInput.value = 'local-model';
             }
