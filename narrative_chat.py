@@ -25,6 +25,9 @@ CONFIG = {
     }
 }
 
+NARRATIVE_MAX_TOKENS = 2048
+MEMORY_MAX_TOKENS = 2048
+
 class NarrativeChat:
     def __init__(
         self,
@@ -171,7 +174,7 @@ class NarrativeChat:
             "model": self.model_name,
             "messages": messages,
             "temperature": 0.85, # Slightly higher for creative writing
-            "max_tokens": 800
+            "max_tokens": NARRATIVE_MAX_TOKENS
         }
 
         try:
@@ -251,7 +254,7 @@ class NarrativeChat:
                 {"role": "user", "content": user_payload},
             ],
             "temperature": 0.2,
-            "max_tokens": 400,
+            "max_tokens": MEMORY_MAX_TOKENS,
         }
 
         try:
