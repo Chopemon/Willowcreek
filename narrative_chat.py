@@ -59,10 +59,11 @@ class NarrativeChat:
                 if name and str(name).lower().endswith(".gguf")
             ]
             if gguf_models:
-                self.local_error = (
-                    "GGUF models are not supported by transformers. "
-                    "Use a local Llama.cpp server or a Hugging Face model path."
-                )
+                if not self.api_url:
+                    self.api_url = os.getenv(
+                        "LOCAL_API_URL",
+                        "http://localhost:8080/v1/chat/completions",
+                    )
             else:
                 self.local_client = LocalLLMClient(model_name=resolved_model)
                 if self.memory_model_name == self.model_name:
