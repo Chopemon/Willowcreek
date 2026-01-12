@@ -371,16 +371,7 @@ class AIPromptGenerator:
             self.api_url = "http://localhost:1234/v1/chat/completions"
             self.model_name = "local-model"
             self.api_key = "NOT_REQUIRED"
-        self.max_tokens = self._resolve_max_tokens(os.getenv("SCENE_PROMPT_MAX_TOKENS"))
-
-    @staticmethod
-    def _resolve_max_tokens(env_value: Optional[str]) -> int:
-        if not env_value:
-            return 2048
-        try:
-            return max(int(env_value), 1)
-        except ValueError:
-            return 2048
+        self.max_tokens = 2048
 
     def generate_prompt_from_narrative(self, narrative_text: str, context: SceneContext) -> Tuple[str, str]:
         """

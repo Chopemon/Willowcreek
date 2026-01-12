@@ -35,8 +35,8 @@ CONFIG = {
     }
 }
 
-NARRATIVE_MAX_TOKENS = _resolve_max_tokens("NARRATIVE_MAX_TOKENS", 2048)
-MEMORY_MAX_TOKENS = _resolve_max_tokens("MEMORY_MAX_TOKENS", 2048)
+NARRATIVE_MAX_TOKENS = 2048
+MEMORY_MAX_TOKENS = 2048
 
 class NarrativeChat:
     def __init__(
