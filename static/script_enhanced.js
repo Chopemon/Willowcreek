@@ -16,6 +16,7 @@ class WillowCreekDashboard {
         this.setupEventListeners();
         this.setupTabSwitching();
         this.applyModeDefaults();
+        this.refreshLocalModelList();
         this.switchTab('stats'); // Default to stats tab
     }
 
@@ -80,34 +81,60 @@ class WillowCreekDashboard {
         console.log(`[Dashboard] Mode switched to: ${this.simulationMode}`);
 
         this.applyModeDefaults();
+        this.refreshLocalModelList();
         this.updateNarrative(`Mode set to: ${this.simulationMode === 'local' ? 'Local Model' : 'OpenRouter'}. Click 'Start Simulation'.`);
     }
 
     applyModeDefaults() {
         const modelInput = document.getElementById('model-name');
         const memoryInput = document.getElementById('memory-model-name');
-        const apiInput = document.getElementById('api-url');
 
-        if (!modelInput || !memoryInput || !apiInput) return;
+        if (!modelInput || !memoryInput) return;
 
         if (this.simulationMode === 'openrouter') {
+            modelInput.setAttribute('list', 'model-options');
             if (!modelInput.value) {
                 modelInput.value = 'tngtech/deepseek-r1t2-chimera:free';
             }
             if (!memoryInput.value) {
                 memoryInput.value = 'openai/gpt-4o-mini';
             }
-            apiInput.placeholder = 'https://openrouter.ai/api/v1/chat/completions';
         } else {
+            modelInput.setAttribute('list', 'local-model-options');
             if (!modelInput.value) {
                 modelInput.value = 'local-model';
             }
             if (!memoryInput.value) {
                 memoryInput.value = 'local-model';
             }
-            if (!apiInput.value) {
-                apiInput.value = 'http://localhost:1234/v1/chat/completions';
+        }
+    }
+
+    async refreshLocalModelList() {
+        const modelInput = document.getElementById('model-name');
+        const datalist = document.getElementById('local-model-options');
+
+        if (!modelInput || !datalist) return;
+        if (this.simulationMode !== 'local') return;
+
+        try {
+            const response = await fetch('/api/local-models');
+            if (!response.ok) return;
+            const data = await response.json();
+            const models = Array.isArray(data.models) ? data.models : [];
+
+            datalist.innerHTML = '';
+            models.forEach(model => {
+                const option = document.createElement('option');
+                option.value = model;
+                datalist.appendChild(option);
+            });
+
+            if (models.length > 0 && !modelInput.value) {
+                modelInput.value = models[0];
             }
+        } catch (error) {
+            console.warn('[Dashboard] Failed to load local model list:', error);
         }
     }
 
@@ -168,7 +195,6 @@ class WillowCreekDashboard {
         try {
             const modelInput = document.getElementById('model-name');
             const memoryInput = document.getElementById('memory-model-name');
-            const apiInput = document.getElementById('api-url');
 
             const response = await fetch('/api/init', {
                 method: 'POST',
@@ -176,8 +202,7 @@ class WillowCreekDashboard {
                 body: JSON.stringify({
                     mode: this.simulationMode,
                     model_name: modelInput?.value?.trim() || null,
-                    memory_model_name: memoryInput?.value?.trim() || null,
-                    api_url: apiInput?.value?.trim() || null
+                    memory_model_name: memoryInput?.value?.trim() || null
                 })
             });
             const data = await response.json();

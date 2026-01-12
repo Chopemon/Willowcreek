@@ -20,6 +20,7 @@ import os
 
 app = FastAPI()
 BASE_DIR = Path(__file__).resolve().parent
+LOCAL_MODELS_DIR = Path(os.getenv("LOCAL_MODELS_DIR", BASE_DIR / "models"))
 
 # Include API router for game systems
 app.include_router(api_router)
@@ -79,6 +80,23 @@ async def serve_game_systems_ui():
     if not ui_path.exists():
         return HTMLResponse("<h1>ERROR: ui_components.html not found</h1>", status_code=404)
     return ui_path.read_text(encoding="utf-8")
+
+@app.get("/api/local-models", response_class=JSONResponse)
+async def list_local_models():
+    """Return local model names from the models directory."""
+    if not LOCAL_MODELS_DIR.exists():
+        return JSONResponse({"models": []})
+
+    models = []
+    for entry in LOCAL_MODELS_DIR.iterdir():
+        if entry.name.startswith("."):
+            continue
+        if entry.is_dir():
+            models.append(entry.name)
+        elif entry.is_file():
+            models.append(entry.name)
+
+    return JSONResponse({"models": sorted(models)})
 
 # --- INIT SIMULATION (supports both GET and POST) ---
 async def _init_sim_handler(

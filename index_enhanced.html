@@ -44,14 +44,11 @@
                         <option value="openai/gpt-4o"></option>
                         <option value="anthropic/claude-3.5-sonnet"></option>
                     </datalist>
+                    <datalist id="local-model-options"></datalist>
                 </div>
                 <div class="model-field">
                     <label for="memory-model-name">Memory model (optional)</label>
                     <input id="memory-model-name" type="text" placeholder="Defaults to narrative model">
-                </div>
-                <div class="model-field">
-                    <label for="api-url">API URL (local only)</label>
-                    <input id="api-url" type="text" placeholder="http://localhost:1234/v1/chat/completions">
                 </div>
             </div>
 
@@ -159,6 +156,6 @@
         </div>
     </div>
 
-    <script src="/static/script_enhanced.js?v=6"></script>
+    <script src="/static/script_enhanced.js?v=7"></script>
 </body>
 </html>
