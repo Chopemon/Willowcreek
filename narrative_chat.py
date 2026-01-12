@@ -10,6 +10,16 @@ from entities.npc import NPC
 from enhanced_snapshot_builder import create_narrative_context
 from llm_client import LocalLLMClient
 
+def _resolve_max_tokens(env_name: str, default: int) -> int:
+    value = os.getenv(env_name)
+    if not value:
+        return default
+    try:
+        return max(int(value), 1)
+    except ValueError:
+        return default
+
+
 CONFIG = {
     "openrouter": {
         "api_url": "https://openrouter.ai/api/v1/chat/completions",
