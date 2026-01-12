@@ -24,13 +24,19 @@ CONFIG = {
 }
 
 class NarrativeChat:
-    def __init__(self, mode: str = "openrouter"):
+    def __init__(
+        self,
+        mode: str = "openrouter",
+        model_name: Optional[str] = None,
+        memory_model_name: Optional[str] = None,
+        api_url: Optional[str] = None,
+    ):
         if mode not in CONFIG: raise ValueError(f"Invalid mode: {mode}")
 
         self.mode = mode
-        self.api_url = CONFIG[mode]["api_url"]
-        self.model_name = CONFIG[mode]["model_name"]
-        self.memory_model_name = CONFIG[mode]["memory_model_name"]
+        self.api_url = api_url or CONFIG[mode]["api_url"]
+        self.model_name = model_name or CONFIG[mode]["model_name"]
+        self.memory_model_name = memory_model_name or self.model_name or CONFIG[mode]["memory_model_name"]
 
         # Debug logging for mode initialization
         print(f"\n[NarrativeChat] ===== INITIALIZING =====")

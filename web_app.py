@@ -27,6 +27,9 @@ app.include_router(api_router)
 # Global State
 chat: Optional[NarrativeChat] = None
 current_mode: str = ""
+current_model_name: Optional[str] = None
+current_memory_model_name: Optional[str] = None
+current_api_url: Optional[str] = None
 game_manager_instance = None
 
 # Image Generation Services
@@ -78,9 +81,20 @@ async def serve_game_systems_ui():
     return ui_path.read_text(encoding="utf-8")
 
 # --- INIT SIMULATION (supports both GET and POST) ---
-async def _init_sim_handler(mode: str):
+async def _init_sim_handler(
+    mode: str,
+    model_name: Optional[str] = None,
+    memory_model_name: Optional[str] = None,
+    api_url: Optional[str] = None,
+):
     """Shared handler for init simulation"""
-    global chat, current_mode, ai_prompt_generator, game_manager_instance
+    global chat
+    global current_mode
+    global current_model_name
+    global current_memory_model_name
+    global current_api_url
+    global ai_prompt_generator
+    global game_manager_instance
 
     print(f"\n[WebApp] ===== INIT REQUEST =====")
     print(f"[WebApp] Requested mode: {mode}")
@@ -88,11 +102,25 @@ async def _init_sim_handler(mode: str):
     print(f"[WebApp] ==========================\n")
 
     try:
-        if mode != current_mode or chat is None:
+        model_changed = (
+            (model_name or None) != (current_model_name or None)
+            or (memory_model_name or None) != (current_memory_model_name or None)
+            or (api_url or None) != (current_api_url or None)
+        )
+
+        if mode != current_mode or chat is None or model_changed:
             print(f"Initializing Simulation in {mode} mode...")
-            chat = NarrativeChat(mode=mode)
+            chat = NarrativeChat(
+                mode=mode,
+                model_name=model_name,
+                memory_model_name=memory_model_name,
+                api_url=api_url,
+            )
             chat.initialize()
             current_mode = mode
+            current_model_name = model_name
+            current_memory_model_name = memory_model_name
+            current_api_url = api_url
 
             # Initialize AI prompt generator with matching mode
             if AI_PROMPTS_ENABLED:
@@ -211,16 +239,25 @@ async def generate_npc_portraits(narrative_text: str):
 @app.get("/api/init", response_class=JSONResponse)
 async def init_sim_get(request: Request):
     mode = request.query_params.get("mode", "openrouter")
-    return await _init_sim_handler(mode)
+    model_name = request.query_params.get("model_name")
+    memory_model_name = request.query_params.get("memory_model_name")
+    api_url = request.query_params.get("api_url")
+    return await _init_sim_handler(mode, model_name, memory_model_name, api_url)
 
 @app.post("/api/init", response_class=JSONResponse)
 async def init_sim_post(request: Request):
     try:
         data = await request.json()
         mode = data.get("mode", "openrouter")
+        model_name = data.get("model_name")
+        memory_model_name = data.get("memory_model_name")
+        api_url = data.get("api_url")
     except:
         mode = request.query_params.get("mode", "openrouter")
-    return await _init_sim_handler(mode)
+        model_name = request.query_params.get("model_name")
+        memory_model_name = request.query_params.get("memory_model_name")
+        api_url = request.query_params.get("api_url")
+    return await _init_sim_handler(mode, model_name, memory_model_name, api_url)
 
 # --- ACTION HANDLER ---
 @app.post("/api/act", response_class=JSONResponse)

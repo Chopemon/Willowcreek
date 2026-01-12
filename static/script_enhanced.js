@@ -7,7 +7,7 @@ class WillowCreekDashboard {
         this.npcSearchTerm = '';
         this.debugExpanded = false;
         this.latestSnapshot = null;
-        this.simulationMode = 'local';
+        this.simulationMode = 'openrouter';
 
         this.init();
     }
@@ -15,6 +15,7 @@ class WillowCreekDashboard {
     init() {
         this.setupEventListeners();
         this.setupTabSwitching();
+        this.applyModeDefaults();
         this.switchTab('stats'); // Default to stats tab
     }
 
@@ -78,7 +79,36 @@ class WillowCreekDashboard {
         this.simulationMode = e.target.dataset.mode || 'local';
         console.log(`[Dashboard] Mode switched to: ${this.simulationMode}`);
 
+        this.applyModeDefaults();
         this.updateNarrative(`Mode set to: ${this.simulationMode === 'local' ? 'Local Model' : 'OpenRouter'}. Click 'Start Simulation'.`);
+    }
+
+    applyModeDefaults() {
+        const modelInput = document.getElementById('model-name');
+        const memoryInput = document.getElementById('memory-model-name');
+        const apiInput = document.getElementById('api-url');
+
+        if (!modelInput || !memoryInput || !apiInput) return;
+
+        if (this.simulationMode === 'openrouter') {
+            if (!modelInput.value) {
+                modelInput.value = 'tngtech/deepseek-r1t2-chimera:free';
+            }
+            if (!memoryInput.value) {
+                memoryInput.value = 'openai/gpt-4o-mini';
+            }
+            apiInput.placeholder = 'https://openrouter.ai/api/v1/chat/completions';
+        } else {
+            if (!modelInput.value) {
+                modelInput.value = 'local-model';
+            }
+            if (!memoryInput.value) {
+                memoryInput.value = 'local-model';
+            }
+            if (!apiInput.value) {
+                apiInput.value = 'http://localhost:1234/v1/chat/completions';
+            }
+        }
     }
 
     switchTab(tabName) {
@@ -136,10 +166,19 @@ class WillowCreekDashboard {
         console.log(`[Dashboard] Initializing with mode: ${this.simulationMode}`);
 
         try {
+            const modelInput = document.getElementById('model-name');
+            const memoryInput = document.getElementById('memory-model-name');
+            const apiInput = document.getElementById('api-url');
+
             const response = await fetch('/api/init', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ mode: this.simulationMode })
+                body: JSON.stringify({
+                    mode: this.simulationMode,
+                    model_name: modelInput?.value?.trim() || null,
+                    memory_model_name: memoryInput?.value?.trim() || null,
+                    api_url: apiInput?.value?.trim() || null
+                })
             });
             const data = await response.json();
 
