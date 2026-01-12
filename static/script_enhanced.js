@@ -103,11 +103,12 @@ class WillowCreekDashboard {
         } else {
             modelInput.setAttribute('list', 'local-model-options');
             memoryInput.setAttribute('list', 'local-model-options');
-            if (!modelInput.value) {
-                modelInput.value = 'local-model';
+            const isRemoteModel = (value) => value && value.includes('/');
+            if (isRemoteModel(modelInput.value)) {
+                modelInput.value = '';
             }
-            if (!memoryInput.value) {
-                memoryInput.value = 'local-model';
+            if (isRemoteModel(memoryInput.value)) {
+                memoryInput.value = '';
             }
         }
     }
@@ -132,8 +133,14 @@ class WillowCreekDashboard {
                 datalist.appendChild(option);
             });
 
-            if (models.length > 0 && !modelInput.value) {
-                modelInput.value = models[0];
+            if (models.length > 0) {
+                if (!modelInput.value) {
+                    modelInput.value = models[0];
+                }
+                const memoryInput = document.getElementById('memory-model-name');
+                if (memoryInput && !memoryInput.value) {
+                    memoryInput.value = models[0];
+                }
             }
         } catch (error) {
             console.warn('[Dashboard] Failed to load local model list:', error);

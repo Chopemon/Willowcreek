@@ -120,10 +120,20 @@ async def _init_sim_handler(
     print(f"[WebApp] ==========================\n")
 
     try:
+        resolved_api_url = api_url
+        if mode == "local" and not resolved_api_url:
+            resolved_api_url = os.getenv("LOCAL_API_URL")
+
+        if mode == "local" and not resolved_api_url:
+            return JSONResponse(
+                {"error": "Local mode requires LOCAL_API_URL. Select OpenRouter or set LOCAL_API_URL."},
+                status_code=400,
+            )
+
         model_changed = (
             (model_name or None) != (current_model_name or None)
             or (memory_model_name or None) != (current_memory_model_name or None)
-            or (api_url or None) != (current_api_url or None)
+            or (resolved_api_url or None) != (current_api_url or None)
         )
 
         if mode != current_mode or chat is None or model_changed:
@@ -132,13 +142,13 @@ async def _init_sim_handler(
                 mode=mode,
                 model_name=model_name,
                 memory_model_name=memory_model_name,
-                api_url=api_url,
+                api_url=resolved_api_url,
             )
             chat.initialize()
             current_mode = mode
             current_model_name = model_name
             current_memory_model_name = memory_model_name
-            current_api_url = api_url
+            current_api_url = resolved_api_url
 
             # Initialize AI prompt generator with matching mode
             if AI_PROMPTS_ENABLED:
