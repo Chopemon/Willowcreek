@@ -4,9 +4,11 @@
 import requests
 import os
 from typing import Optional, List, Dict
+from pathlib import Path
 from simulation_v2 import WillowCreekSimulation
 from entities.npc import NPC
 from enhanced_snapshot_builder import create_narrative_context
+from llm_client import LocalLLMClient
 
 CONFIG = {
     "openrouter": {
@@ -24,22 +26,42 @@ CONFIG = {
 }
 
 class NarrativeChat:
-    def __init__(self, mode: str = "openrouter"):
+    def __init__(
+        self,
+        mode: str = "openrouter",
+        model_name: Optional[str] = None,
+        memory_model_name: Optional[str] = None,
+        api_url: Optional[str] = None,
+    ):
         if mode not in CONFIG: raise ValueError(f"Invalid mode: {mode}")
 
         self.mode = mode
-        self.api_url = CONFIG[mode]["api_url"]
-        self.model_name = CONFIG[mode]["model_name"]
-        self.memory_model_name = CONFIG[mode]["memory_model_name"]
+        self.api_url = api_url or (None if mode == "local" else CONFIG[mode]["api_url"])
+        self.model_name = model_name or CONFIG[mode]["model_name"]
+        self.memory_model_name = memory_model_name or self.model_name or CONFIG[mode]["memory_model_name"]
+        self.local_client: Optional[LocalLLMClient] = None
+        self.local_memory_client: Optional[LocalLLMClient] = None
+        context_env = os.getenv("LOCAL_CONTEXT_SIZE")
+        self.context_size = int(context_env) if context_env else None
 
         # Debug logging for mode initialization
         print(f"\n[NarrativeChat] ===== INITIALIZING =====")
         print(f"[NarrativeChat] Mode: {mode}")
-        print(f"[NarrativeChat] API URL: {self.api_url}")
+        print(f"[NarrativeChat] API URL: {self.api_url or 'local-client'}")
         print(f"[NarrativeChat] Model: {self.model_name}")
         print(f"[NarrativeChat] Memory Model: {self.memory_model_name}")
 
-        if CONFIG[mode]["key_env"]:
+        if mode == "local":
+            self.api_key = "NOT_REQUIRED"
+            resolved_model = self._resolve_local_model(self.model_name)
+            resolved_memory_model = self._resolve_local_model(self.memory_model_name)
+            self.local_client = LocalLLMClient(model_name=resolved_model)
+            if self.memory_model_name == self.model_name:
+                self.local_memory_client = self.local_client
+            else:
+                self.local_memory_client = LocalLLMClient(model_name=resolved_memory_model)
+            print(f"[NarrativeChat] API Key: Not required for local mode")
+        elif CONFIG[mode]["key_env"]:
             self.api_key = os.getenv(CONFIG[mode]["key_env"])
             if not self.api_key:
                 print(f"WARNING: {CONFIG[mode]['key_env']} not set.")
@@ -90,6 +112,8 @@ class NarrativeChat:
         self.narrative_history = []
 
     def narrate(self, user_input: str) -> str:
+        if not hasattr(self, "context_size"):
+            self.context_size = None
         # 1. Get World Snapshot
         world_snapshot = create_narrative_context(self.sim, self.malcolm)
 
@@ -146,7 +170,7 @@ class NarrativeChat:
         headers = {"Content-Type": "application/json"}
         if self.api_key and self.api_key != "NOT_REQUIRED":
             headers["Authorization"] = f"Bearer {self.api_key}"
-            
+
         payload = {
             "model": self.model_name,
             "messages": messages,
@@ -155,27 +179,37 @@ class NarrativeChat:
         }
 
         try:
-            print(f"[NarrativeChat] Making API call to: {self.api_url}")
-            print(f"[NarrativeChat] Using model: {self.model_name}")
-            print(f"[NarrativeChat] Temperature: {payload['temperature']}, Max tokens: {payload['max_tokens']}")
+            if self.local_client:
+                print(f"[NarrativeChat] Using local model: {self.model_name}")
+                prompt = self._build_prompt(messages)
+                response = self.local_client.generate(
+                    prompt,
+                    max_new_tokens=payload["max_tokens"],
+                    temperature=payload["temperature"],
+                )
+                content = response.text
+            else:
+                print(f"[NarrativeChat] Making API call to: {self.api_url}")
+                print(f"[NarrativeChat] Using model: {self.model_name}")
+                print(f"[NarrativeChat] Temperature: {payload['temperature']}, Max tokens: {payload['max_tokens']}")
 
-            res = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
+                res = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
 
-            print(f"[NarrativeChat] Response status: {res.status_code}")
+                print(f"[NarrativeChat] Response status: {res.status_code}")
 
-            if res.status_code != 200:
-                print(f"[NarrativeChat] API Error: {res.text}")
-                return f"[API Error: {res.text}]"
+                if res.status_code != 200:
+                    print(f"[NarrativeChat] API Error: {res.text}")
+                    return f"[API Error: {res.text}]"
 
-            content = res.json()["choices"][0]["message"]["content"]
-            print(f"[NarrativeChat] Response received, length: {len(content)} characters")
-            
+                content = res.json()["choices"][0]["message"]["content"]
+                print(f"[NarrativeChat] Response received, length: {len(content)} characters")
+
             # Update History
             # We store the simplified version in history to avoid exploding context size with repetitive World States
             self.narrative_history.append({"role": "user", "content": user_input})
             self.narrative_history.append({"role": "assistant", "content": content})
-            
-            self.last_narrated = content 
+
+            self.last_narrated = content
             self._update_memory(user_input, content, world_snapshot)
             return content
         except Exception as e:
@@ -225,17 +259,52 @@ class NarrativeChat:
         }
 
         try:
-            res = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
-            if res.status_code != 200:
-                print(f"[NarrativeChat] Memory model error: {res.text}")
-                return
-            content = res.json()["choices"][0]["message"]["content"]
+            if self.local_memory_client:
+                prompt_text = self._build_prompt(payload["messages"])
+                response = self.local_memory_client.generate(
+                    prompt_text,
+                    max_new_tokens=payload["max_tokens"],
+                    temperature=payload["temperature"],
+                )
+                content = response.text
+            else:
+                res = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
+                if res.status_code != 200:
+                    print(f"[NarrativeChat] Memory model error: {res.text}")
+                    return
+                content = res.json()["choices"][0]["message"]["content"]
+
             memories = self._parse_memory_json(content)
             if not memories:
                 return
             self._store_memories(memories)
         except Exception as exc:
             print(f"[NarrativeChat] Memory update failed: {exc}")
+
+    @staticmethod
+    def _build_prompt(messages: List[Dict]) -> str:
+        lines = []
+        for message in messages:
+            role = message.get("role", "user").upper()
+            content = message.get("content", "")
+            lines.append(f"{role}: {content}")
+        return "\n\n".join(lines)
+
+    @staticmethod
+    def _resolve_local_model(model_name: str) -> str:
+        if not model_name:
+            return model_name
+        candidate = Path(model_name)
+        if candidate.exists():
+            return str(candidate.resolve())
+        has_separator = "/" in model_name or "\\" in model_name
+        if has_separator:
+            return model_name
+        models_root = Path(os.getenv("LOCAL_MODELS_DIR", "models"))
+        resolved = models_root / model_name
+        if resolved.exists():
+            return str(resolved.resolve())
+        return model_name
 
     def _parse_memory_json(self, content: str) -> List[Dict]:
         import json
