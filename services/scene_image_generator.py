@@ -371,6 +371,7 @@ class AIPromptGenerator:
             self.api_url = "http://localhost:1234/v1/chat/completions"
             self.model_name = "local-model"
             self.api_key = "NOT_REQUIRED"
+        self.max_tokens = 2048
 
     def generate_prompt_from_narrative(self, narrative_text: str, context: SceneContext) -> Tuple[str, str]:
         """
@@ -419,8 +420,10 @@ Generate a photorealistic, cinematic image prompt."""
             "model": self.model_name,
             "messages": messages,
             "temperature": 0.7,  # Balanced creativity
-            "max_tokens": 500
+            "max_tokens": self.max_tokens
         }
+        if self.mode == "local":
+            payload["max_context_tokens"] = self.context_size
 
         try:
             print(f"[AIPromptGen] Generating prompts from narrative using {self.mode} mode...")
