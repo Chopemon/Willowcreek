@@ -426,7 +426,9 @@ def build_frontend_snapshot(sim: 'WillowCreekSimulation', malcolm: 'NPC') -> Dic
             "malcolm_state": "Initializing...",
             "needs": {},
             "psychological": {},
-            "world_time": "Day 0, 00:00"
+            "world_time": "Day 0, 00:00",
+            "agent_decisions": {},
+            "nearby_npcs": []
         }
 
     # Get the full text snapshot using enhanced version
@@ -482,6 +484,68 @@ def build_frontend_snapshot(sim: 'WillowCreekSimulation', malcolm: 'NPC') -> Dic
     date_str = sim.time.get_datetime_string().split()[0:3]  # Get "Monday, September 01"
     date_str = " ".join(date_str)
 
+    def _clean_text(value: Any) -> Optional[str]:
+        if value is None:
+            return None
+        if isinstance(value, str):
+            trimmed = value.strip()
+            return trimmed if trimmed else None
+        return str(value)
+
+    def _extract_mood(npc: 'NPC') -> Optional[str]:
+        mood = getattr(npc, 'mood', None)
+        if mood is None:
+            return None
+        if isinstance(mood, str):
+            return mood
+        if hasattr(mood, 'value'):
+            return mood.value
+        if hasattr(mood, 'current_mood'):
+            current = mood.current_mood
+            if hasattr(current, 'value'):
+                return current.value
+            return str(current)
+        return str(mood)
+
+    def _extract_current_task(npc: 'NPC') -> Optional[str]:
+        for attr_name in ('current_task', 'task', 'current_activity'):
+            value = getattr(npc, attr_name, None)
+            cleaned = _clean_text(value)
+            if cleaned:
+                return cleaned
+        return None
+
+    last_action = _clean_text(getattr(malcolm, 'last_action', None)) or _clean_text(getattr(sim, 'last_action', None))
+    last_say = (
+        _clean_text(getattr(malcolm, 'last_say', None))
+        or _clean_text(getattr(malcolm, 'last_said', None))
+        or _clean_text(getattr(sim, 'last_say', None))
+        or _clean_text(getattr(sim, 'last_said', None))
+    )
+
+    agent_decisions = {
+        "last_action": last_action,
+        "last_say": last_say
+    }
+
+    nearby_npcs = []
+    malcolm_location = getattr(malcolm, 'current_location', None)
+    if malcolm_location and hasattr(sim, 'npcs'):
+        for npc in sim.npcs:
+            if npc.full_name == malcolm.full_name:
+                continue
+            if getattr(npc, 'current_location', None) != malcolm_location:
+                continue
+            entry = {
+                "name": npc.full_name,
+                "mood": _extract_mood(npc),
+                "current_task": _extract_current_task(npc)
+            }
+            if entry["mood"] or entry["current_task"]:
+                nearby_npcs.append(entry)
+            if len(nearby_npcs) >= 8:
+                break
+
     return {
         "full_context": full_text,
         "malcolm_stats": malcolm_stats,
@@ -492,5 +556,7 @@ def build_frontend_snapshot(sim: 'WillowCreekSimulation', malcolm: 'NPC') -> Dic
         "time": time_str,
         "date": date_str,
         "age": getattr(malcolm, 'age', 30),
-        "occupation": getattr(malcolm, 'occupation', '')
+        "occupation": getattr(malcolm, 'occupation', ''),
+        "agent_decisions": agent_decisions,
+        "nearby_npcs": nearby_npcs
     }
