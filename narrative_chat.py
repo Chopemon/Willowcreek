@@ -10,6 +10,16 @@ from entities.npc import NPC
 from enhanced_snapshot_builder import create_narrative_context
 from llm_client import LocalLLMClient
 
+def _resolve_max_tokens(env_name: str, default: int) -> int:
+    value = os.getenv(env_name)
+    if not value:
+        return default
+    try:
+        return max(int(value), 1)
+    except ValueError:
+        return default
+
+
 CONFIG = {
     "openrouter": {
         "api_url": "https://openrouter.ai/api/v1/chat/completions",
@@ -21,9 +31,13 @@ CONFIG = {
         "api_url": "http://localhost:1234/v1/chat/completions",
         "model_name": "local-model",
         "memory_model_name": "local-model",
-        "key_env": None
+        "key_env": None,
+        "context_size": 2048
     }
 }
+
+NARRATIVE_MAX_TOKENS = 2048
+MEMORY_MAX_TOKENS = 2048
 
 class NarrativeChat:
     def __init__(
@@ -41,8 +55,6 @@ class NarrativeChat:
         self.memory_model_name = memory_model_name or self.model_name or CONFIG[mode]["memory_model_name"]
         self.local_client: Optional[LocalLLMClient] = None
         self.local_memory_client: Optional[LocalLLMClient] = None
-        context_env = os.getenv("LOCAL_CONTEXT_SIZE")
-        self.context_size = int(context_env) if context_env else None
 
         # Debug logging for mode initialization
         print(f"\n[NarrativeChat] ===== INITIALIZING =====")
@@ -173,8 +185,10 @@ class NarrativeChat:
             "model": self.model_name,
             "messages": messages,
             "temperature": 0.85, # Slightly higher for creative writing
-            "max_tokens": 800
+            "max_tokens": NARRATIVE_MAX_TOKENS
         }
+        if self.context_size:
+            payload["max_context_tokens"] = self.context_size
 
         try:
             if self.local_client:
@@ -253,8 +267,10 @@ class NarrativeChat:
                 {"role": "user", "content": user_payload},
             ],
             "temperature": 0.2,
-            "max_tokens": 400,
+            "max_tokens": MEMORY_MAX_TOKENS,
         }
+        if self.context_size:
+            payload["max_context_tokens"] = self.context_size
 
         try:
             if self.local_memory_client:
