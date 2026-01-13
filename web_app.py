@@ -3,7 +3,7 @@
 #############################################################
 import uvicorn
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse, JSONResponse
+from fastapi.responses import HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 from typing import Optional
@@ -20,6 +20,7 @@ import os
 
 app = FastAPI()
 BASE_DIR = Path(__file__).resolve().parent
+LOCAL_MODELS_DIR = Path(os.getenv("LOCAL_MODELS_DIR", BASE_DIR / "models"))
 
 # Include API router for game systems
 app.include_router(api_router)
@@ -27,6 +28,9 @@ app.include_router(api_router)
 # Global State
 chat: Optional[NarrativeChat] = None
 current_mode: str = ""
+current_model_name: Optional[str] = None
+current_memory_model_name: Optional[str] = None
+current_api_url: Optional[str] = None
 game_manager_instance = None
 
 # Image Generation Services
@@ -69,6 +73,10 @@ async def serve_ui():
         return HTMLResponse("<h1>ERROR: index_enhanced.html not found</h1>", status_code=500)
     return index_path.read_text(encoding="utf-8")
 
+@app.get("/favicon.ico")
+async def favicon():
+    return Response(status_code=204, content=b"", media_type="image/x-icon")
+
 @app.get("/ui", response_class=HTMLResponse)
 async def serve_game_systems_ui():
     """Serve the game systems UI (portraits, map, stats, relationships)"""
@@ -77,10 +85,45 @@ async def serve_game_systems_ui():
         return HTMLResponse("<h1>ERROR: ui_components.html not found</h1>", status_code=404)
     return ui_path.read_text(encoding="utf-8")
 
+@app.get("/api/local-models", response_class=JSONResponse)
+async def list_local_models():
+    """Return local model names from the models directory."""
+    if not LOCAL_MODELS_DIR.exists():
+        return JSONResponse({"models": []})
+
+    models = set()
+
+    for entry in LOCAL_MODELS_DIR.rglob("*"):
+        if entry.name.startswith("."):
+            continue
+        if entry.is_file():
+            models.add(str(entry.relative_to(LOCAL_MODELS_DIR)))
+        elif entry.is_dir():
+            models.add(str(entry.relative_to(LOCAL_MODELS_DIR)))
+
+    if not models:
+        for entry in LOCAL_MODELS_DIR.iterdir():
+            if entry.name.startswith("."):
+                continue
+            models.add(entry.name)
+
+    return JSONResponse({"models": sorted(models)})
+
 # --- INIT SIMULATION (supports both GET and POST) ---
-async def _init_sim_handler(mode: str):
+async def _init_sim_handler(
+    mode: str,
+    model_name: Optional[str] = None,
+    memory_model_name: Optional[str] = None,
+    api_url: Optional[str] = None,
+):
     """Shared handler for init simulation"""
-    global chat, current_mode, ai_prompt_generator, game_manager_instance
+    global chat
+    global current_mode
+    global current_model_name
+    global current_memory_model_name
+    global current_api_url
+    global ai_prompt_generator
+    global game_manager_instance
 
     print(f"\n[WebApp] ===== INIT REQUEST =====")
     print(f"[WebApp] Requested mode: {mode}")
@@ -88,11 +131,29 @@ async def _init_sim_handler(mode: str):
     print(f"[WebApp] ==========================\n")
 
     try:
-        if mode != current_mode or chat is None:
+        resolved_api_url = api_url
+        if mode == "local" and not resolved_api_url:
+            resolved_api_url = os.getenv("LOCAL_API_URL")
+
+        model_changed = (
+            (model_name or None) != (current_model_name or None)
+            or (memory_model_name or None) != (current_memory_model_name or None)
+            or (resolved_api_url or None) != (current_api_url or None)
+        )
+
+        if mode != current_mode or chat is None or model_changed:
             print(f"Initializing Simulation in {mode} mode...")
-            chat = NarrativeChat(mode=mode)
+            chat = NarrativeChat(
+                mode=mode,
+                model_name=model_name,
+                memory_model_name=memory_model_name,
+                api_url=resolved_api_url,
+            )
             chat.initialize()
             current_mode = mode
+            current_model_name = model_name
+            current_memory_model_name = memory_model_name
+            current_api_url = resolved_api_url
 
             # Initialize AI prompt generator with matching mode
             if AI_PROMPTS_ENABLED:
@@ -116,7 +177,7 @@ async def _init_sim_handler(mode: str):
         import traceback
         print(f"[WebApp] ERROR during initialization:")
         print(traceback.format_exc())
-        return JSONResponse({"error": f"Initialization failed: {str(e)}"}, status_code=500)
+        return JSONResponse({"error": f"Initialization failed: {str(e)}"}, status_code=400)
 
 def generate_image_prompts(scene_context, narrative_text: Optional[str] = None):
     """
@@ -211,16 +272,25 @@ async def generate_npc_portraits(narrative_text: str):
 @app.get("/api/init", response_class=JSONResponse)
 async def init_sim_get(request: Request):
     mode = request.query_params.get("mode", "openrouter")
-    return await _init_sim_handler(mode)
+    model_name = request.query_params.get("model_name")
+    memory_model_name = request.query_params.get("memory_model_name")
+    api_url = request.query_params.get("api_url")
+    return await _init_sim_handler(mode, model_name, memory_model_name, api_url)
 
 @app.post("/api/init", response_class=JSONResponse)
 async def init_sim_post(request: Request):
     try:
         data = await request.json()
         mode = data.get("mode", "openrouter")
+        model_name = data.get("model_name")
+        memory_model_name = data.get("memory_model_name")
+        api_url = data.get("api_url")
     except:
         mode = request.query_params.get("mode", "openrouter")
-    return await _init_sim_handler(mode)
+        model_name = request.query_params.get("model_name")
+        memory_model_name = request.query_params.get("memory_model_name")
+        api_url = request.query_params.get("api_url")
+    return await _init_sim_handler(mode, model_name, memory_model_name, api_url)
 
 # --- ACTION HANDLER ---
 @app.post("/api/act", response_class=JSONResponse)
@@ -568,10 +638,7 @@ async def generate_image_manual():
 @app.get("/api/snapshot", response_class=JSONResponse)
 async def get_snapshot():
     global chat
-    if chat is None:
-        return JSONResponse({"error": "Sim not started"}, status_code=400)
-
-    # build_frontend_snapshot handles None gracefully, but check anyway
+    # build_frontend_snapshot handles None gracefully
     snapshot = build_frontend_snapshot(chat.sim if chat else None, chat.malcolm if chat else None)
     return JSONResponse(snapshot)
 
@@ -580,7 +647,7 @@ async def get_snapshot():
 async def get_locations():
     global chat
     if chat is None or chat.sim is None:
-        return JSONResponse({"error": "Sim not started"}, status_code=400)
+        return JSONResponse({"locations": {}, "malcolm_location": "Unknown"})
 
     # Build location map
     locations = {}
@@ -602,7 +669,7 @@ async def get_locations():
 async def get_npcs():
     global chat
     if chat is None or chat.sim is None:
-        return JSONResponse({"error": "Sim not started"}, status_code=400)
+        return JSONResponse({"npcs": []})
 
     npcs_data = []
     for npc in chat.sim.npcs:
@@ -620,7 +687,7 @@ async def get_npcs():
 async def get_timeline():
     global chat
     if chat is None or chat.sim is None:
-        return JSONResponse({"error": "Sim not started"}, status_code=400)
+        return JSONResponse({"events": []})
 
     # Check if timeline exists
     events = []
@@ -634,7 +701,14 @@ async def get_timeline():
 async def get_analysis():
     global chat
     if chat is None or chat.sim is None:
-        return JSONResponse({"error": "Sim not started"}, status_code=400)
+        return JSONResponse({
+            "total_relationships": 0,
+            "avg_affinity": 0,
+            "total_actions": 0,
+            "top_activity": "N/A",
+            "time_elapsed": "00:00",
+            "total_npcs": 0
+        })
 
     # Calculate relationship metrics
     relationships = chat.sim.relationships.get_all_relationships()
