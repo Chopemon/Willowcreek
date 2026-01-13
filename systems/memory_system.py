@@ -3,6 +3,7 @@
 
 import json
 import os
+import re
 from typing import Dict, List, Optional, Iterable
 from dataclasses import dataclass, field
 from datetime import datetime
@@ -189,6 +190,47 @@ class MemorySystem:
         weighted = sorted(memories, key=lambda m: m.get_weight(current_sim_day), reverse=True)
         return weighted[:limit]
 
+    def retrieve_memories(
+        self,
+        character_name: str,
+        query: str,
+        current_sim_day: int,
+        limit: int = 5,
+        min_importance: MemoryImportance = MemoryImportance.TRIVIAL,
+    ) -> List[Memory]:
+        """Retrieve memories relevant to a query using lightweight token overlap."""
+        if not query or character_name not in self.character_memories:
+            return []
+
+        query_tokens = self._tokenize(query)
+        if not query_tokens:
+            return []
+
+        candidates = self.get_memories(character_name, min_importance=min_importance)
+        scored: List[tuple[float, Memory]] = []
+        for memory in candidates:
+            memory_tokens = self._tokenize(
+                " ".join(
+                    [
+                        memory.description,
+                        " ".join(memory.participants),
+                        memory.location,
+                        " ".join(memory.tags),
+                    ]
+                )
+            )
+            if not memory_tokens:
+                continue
+            overlap = len(query_tokens.intersection(memory_tokens))
+            if overlap == 0:
+                continue
+            recency_weight = memory.get_weight(current_sim_day) * 0.1
+            score = overlap * 2.0 + recency_weight
+            scored.append((score, memory))
+
+        scored.sort(key=lambda item: item[0], reverse=True)
+        return [memory for _, memory in scored[:limit]]
+
     def build_memory_context(
         self,
         character_name: str,
@@ -211,6 +253,31 @@ class MemorySystem:
             memory.recall(current_sim_day)
             tone = f" ({memory.emotional_tone})" if memory.emotional_tone else ""
             lines.append(f"- {memory.get_summary()}{tone}")
+        return "\n".join(lines)
+
+    def build_retrieved_memory_context(
+        self,
+        character_name: str,
+        query: str,
+        current_sim_day: int,
+        limit: int = 5,
+        min_importance: MemoryImportance = MemoryImportance.TRIVIAL,
+    ) -> str:
+        """Build a compact RAG memory summary for prompts."""
+        memories = self.retrieve_memories(
+            character_name,
+            query,
+            current_sim_day=current_sim_day,
+            limit=limit,
+            min_importance=min_importance,
+        )
+        if not memories:
+            return ""
+
+        lines = ["## RELEVANT MEMORIES"]
+        for memory in memories:
+            memory.recall(current_sim_day)
+            lines.append(f"  • {memory.get_summary()}")
         return "\n".join(lines)
 
     def decay_memories(
@@ -260,6 +327,10 @@ class MemorySystem:
             lines.append(f"  Day {memory.sim_day}: {memory.description}")
 
         return "\n".join(lines)
+
+    @staticmethod
+    def _tokenize(text: str) -> set[str]:
+        return {token for token in re.findall(r"[a-z0-9']+", text.lower()) if token}
 
     def save_to_file(self, memory_path: str) -> None:
         try:
