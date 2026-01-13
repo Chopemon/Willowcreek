@@ -1,0 +1,10 @@
+{
+  "location": "Willow Creek Library",
+  "mood": "focused",
+  "needs": {
+    "rest": 0.3,
+    "social": 0.5,
+    "hunger": 0.2
+  },
+  "current_task": "Cataloging new arrivals"
+}

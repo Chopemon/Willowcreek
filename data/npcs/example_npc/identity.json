@@ -1,0 +1,13 @@
+{
+  "id": "example_npc",
+  "name": "Alex Harper",
+  "age": 32,
+  "affiliation": "Librarian at Willow Creek Library",
+  "appearance": "Neat chestnut hair tied back, round glasses, ink-stained fingertips, cozy cardigan, calm attentive posture.",
+  "coreTraits": ["Curious", "Patient", "Introverted"],
+  "status": "active",
+  "background": {
+    "currentConflict": "Feels the library budget shrinking while demand grows.",
+    "vulnerability": "Avoids asking for help even when overloaded."
+  }
+}
