@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Willow Creek Enhanced Dashboard</title>
-    <link rel="stylesheet" href="/static/styles_enhanced.css?v=3">
+    <link rel="stylesheet" href="/static/styles_enhanced.css?v=6">
 </head>
 <body>
     <!-- Top Status Bar -->
@@ -29,9 +29,27 @@
         <!-- Left Panel: Narrative & Input -->
         <div id="left-panel">
             <div id="mode-selection">
-                <button id="local-mode-btn" class="mode-btn active" data-mode="local">Local Model</button>
-                <button id="openrouter-mode-btn" class="mode-btn" data-mode="openrouter">OpenRouter</button>
+                <button id="local-mode-btn" class="mode-btn" data-mode="local">Local Model</button>
+                <button id="openrouter-mode-btn" class="mode-btn active" data-mode="openrouter">OpenRouter</button>
                 <button id="init-sim-btn" class="primary-btn">Start Simulation</button>
+            </div>
+
+            <div id="model-selection">
+                <div class="model-field">
+                    <label for="model-name">Narrative model</label>
+                    <input id="model-name" type="text" list="model-options" placeholder="e.g. tngtech/deepseek-r1t2-chimera:free">
+                    <datalist id="model-options">
+                        <option value="tngtech/deepseek-r1t2-chimera:free"></option>
+                        <option value="openai/gpt-4o-mini"></option>
+                        <option value="openai/gpt-4o"></option>
+                        <option value="anthropic/claude-3.5-sonnet"></option>
+                    </datalist>
+                    <datalist id="local-model-options"></datalist>
+                </div>
+                <div class="model-field">
+                    <label for="memory-model-name">Memory model (optional)</label>
+                    <input id="memory-model-name" type="text" list="model-options" placeholder="Defaults to narrative model">
+                </div>
             </div>
 
             <div id="narrative-output"></div>
@@ -138,6 +156,6 @@
         </div>
     </div>
 
-    <script src="/static/script_enhanced.js?v=5"></script>
+    <script src="/static/script_enhanced.js?v=10"></script>
 </body>
 </html>
