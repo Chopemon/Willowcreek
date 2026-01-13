@@ -14,7 +14,13 @@ class LLMResponse:
 
 
 class LocalLLMClient:
-    def __init__(self, model_name: str | None = None, device: str = "auto") -> None:
+    def __init__(
+        self,
+        model_name: str | None = None,
+        device: str = "auto",
+        context_size: int | None = None,
+    ) -> None:
+        resolved_context = self._resolve_context_size(context_size)
         resolved_model = model_name or os.getenv("LOCAL_MODEL_NAME", "gpt2")
         local_files_only = False
         gguf_path = None
@@ -35,7 +41,7 @@ class LocalLLMClient:
                 )
             from llama_cpp import Llama
 
-            self._llama = Llama(model_path=gguf_path)
+            self._llama = Llama(model_path=gguf_path, n_ctx=resolved_context)
             self.tokenizer = None
             self.model = None
             self.generator = None
@@ -46,6 +52,7 @@ class LocalLLMClient:
                 resolved_model,
                 local_files_only=local_files_only,
             )
+            self.tokenizer.model_max_length = resolved_context
             self.model = AutoModelForCausalLM.from_pretrained(
                 resolved_model,
                 local_files_only=local_files_only,
@@ -56,6 +63,18 @@ class LocalLLMClient:
                 tokenizer=self.tokenizer,
                 device_map=device,
             )
+
+    @staticmethod
+    def _resolve_context_size(context_size: int | None) -> int:
+        if context_size:
+            return max(int(context_size), 1)
+        env_value = os.getenv("LLM_CONTEXT_SIZE")
+        if not env_value:
+            return 2048
+        try:
+            return max(int(env_value), 1)
+        except ValueError:
+            return 2048
 
     def generate(
         self,
