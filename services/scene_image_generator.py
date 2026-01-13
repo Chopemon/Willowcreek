@@ -422,6 +422,8 @@ Generate a photorealistic, cinematic image prompt."""
             "temperature": 0.7,  # Balanced creativity
             "max_tokens": self.max_tokens
         }
+        if self.mode == "local":
+            payload["max_context_tokens"] = self.context_size
 
         try:
             print(f"[AIPromptGen] Generating prompts from narrative using {self.mode} mode...")

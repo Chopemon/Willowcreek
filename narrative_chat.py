@@ -31,7 +31,8 @@ CONFIG = {
         "api_url": "http://localhost:1234/v1/chat/completions",
         "model_name": "local-model",
         "memory_model_name": "local-model",
-        "key_env": None
+        "key_env": None,
+        "context_size": 2048
     }
 }
 
@@ -186,6 +187,8 @@ class NarrativeChat:
             "temperature": 0.85, # Slightly higher for creative writing
             "max_tokens": NARRATIVE_MAX_TOKENS
         }
+        if self.context_size:
+            payload["max_context_tokens"] = self.context_size
 
         try:
             if self.local_client:
@@ -266,6 +269,8 @@ class NarrativeChat:
             "temperature": 0.2,
             "max_tokens": MEMORY_MAX_TOKENS,
         }
+        if self.context_size:
+            payload["max_context_tokens"] = self.context_size
 
         try:
             if self.local_memory_client:

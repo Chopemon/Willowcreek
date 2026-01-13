@@ -8,8 +8,9 @@
 }
 
 body {
-    background: #0a0a0a;
-    color: #e0e0e0;
+    background: radial-gradient(circle at top, rgba(28, 40, 74, 0.65), rgba(10, 10, 10, 0.95) 55%),
+        linear-gradient(140deg, #0a0a0a 0%, #0f172a 100%);
+    color: #e6edf5;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height: 100vh;
     overflow: hidden;
@@ -19,14 +20,15 @@ body {
 
 /* ===== STATUS BAR ===== */
 #status-bar {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-    border-bottom: 2px solid #00bcd4;
+    background: linear-gradient(120deg, rgba(16, 24, 48, 0.95) 0%, rgba(21, 32, 65, 0.92) 100%);
+    border-bottom: 1px solid rgba(0, 188, 212, 0.4);
     padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-shrink: 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(12px);
 }
 
 #time-display {
@@ -53,9 +55,10 @@ body {
     gap: 8px;
     font-size: 16px;
     padding: 8px 16px;
-    background: rgba(0, 188, 212, 0.1);
-    border-radius: 8px;
-    border: 1px solid rgba(0, 188, 212, 0.3);
+    background: rgba(0, 188, 212, 0.08);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 188, 212, 0.35);
+    box-shadow: inset 0 0 0 1px rgba(0, 188, 212, 0.1);
 }
 
 .location-icon {
@@ -75,15 +78,16 @@ body {
 #quick-actions button {
     padding: 8px 16px;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
     transition: all 0.2s;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
 #save-btn {
-    background: #4caf50;
+    background: linear-gradient(140deg, #56cc6f 0%, #2e9b4c 100%);
     color: white;
 }
 
@@ -93,7 +97,7 @@ body {
 }
 
 #load-btn {
-    background: #2196f3;
+    background: linear-gradient(140deg, #4aa3ff 0%, #1c6ddf 100%);
     color: white;
 }
 
@@ -103,7 +107,7 @@ body {
 }
 
 #reset-btn {
-    background: #ff5722;
+    background: linear-gradient(140deg, #ff7b47 0%, #e64a19 100%);
     color: white;
 }
 
@@ -128,11 +132,12 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    background: #1e1e1e;
-    border-radius: 12px;
-    border: 1px solid #333;
+    background: linear-gradient(160deg, rgba(28, 28, 28, 0.96) 0%, rgba(18, 18, 18, 0.98) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
     padding: 15px;
     overflow: hidden;
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.3);
 }
 
 #mode-selection {
@@ -183,30 +188,31 @@ body {
 .mode-btn {
     flex: 1;
     padding: 10px;
-    border: 2px solid #444;
-    background: #2a2a2a;
-    color: #888;
-    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(42, 42, 42, 0.85);
+    color: #a7b0bc;
+    border-radius: 12px;
     cursor: pointer;
     font-weight: 600;
     transition: all 0.2s;
 }
 
 .mode-btn.active {
-    background: #00bcd4;
+    background: linear-gradient(135deg, #00bcd4 0%, #38ef7d 100%);
     color: #0a0a0a;
-    border-color: #00bcd4;
+    border-color: rgba(0, 188, 212, 0.7);
 }
 
 .primary-btn {
     padding: 10px 20px;
-    background: #4caf50;
+    background: linear-gradient(135deg, #55d685 0%, #2e9b4c 100%);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
 }
 
 .primary-btn:hover {
@@ -218,13 +224,14 @@ body {
     flex: 1;
     overflow-y: auto;
     padding: 15px;
-    background: #161616;
-    border-radius: 8px;
-    border: 1px solid #2a2a2a;
+    background: rgba(18, 18, 18, 0.9);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
     font-family: Georgia, serif;
     font-size: 15px;
     line-height: 1.8;
     color: #ddd;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 }
 
 #narrative-output::-webkit-scrollbar {
@@ -248,8 +255,10 @@ body {
     display: flex;
     gap: 12px;
     padding: 12px;
-    background: #252525;
-    border-radius: 8px;
+    background: rgba(23, 23, 23, 0.9);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 0 0 1px rgba(0, 188, 212, 0.08);
 }
 
 #image-gallery:empty {
@@ -258,11 +267,12 @@ body {
 
 .scene-image-container {
     position: relative;
-    background: #1e1e1e;
-    border: 2px solid #444;
-    border-radius: 8px;
+    background: rgba(20, 20, 20, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
     padding: 8px;
     max-width: 250px;
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.35);
 }
 
 .scene-image {
@@ -295,17 +305,18 @@ body {
     gap: 10px;
     flex-shrink: 0;
     padding-top: 10px;
-    border-top: 1px solid #333;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 #action-input {
     flex: 1;
     padding: 12px;
-    background: #2a2a2a;
-    border: 2px solid #444;
-    border-radius: 8px;
+    background: rgba(32, 32, 32, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     color: white;
     font-size: 15px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
 }
 
 #action-input:focus {
@@ -315,12 +326,13 @@ body {
 
 #send-action-btn {
     padding: 12px 24px;
-    background: #00bcd4;
+    background: linear-gradient(135deg, #00bcd4 0%, #38ef7d 100%);
     color: #0a0a0a;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     font-weight: bold;
     cursor: pointer;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
 }
 
 #send-action-btn:hover {
@@ -329,10 +341,10 @@ body {
 
 #wait-1h-btn {
     padding: 12px 20px;
-    background: #455a64;
+    background: linear-gradient(135deg, #546e7a 0%, #37474f 100%);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     cursor: pointer;
 }
 
@@ -345,17 +357,18 @@ body {
     flex: 2;
     display: flex;
     flex-direction: column;
-    background: #1e1e1e;
-    border-radius: 12px;
-    border: 1px solid #333;
+    background: linear-gradient(160deg, rgba(27, 27, 27, 0.95) 0%, rgba(18, 18, 18, 0.98) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
     overflow: hidden;
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Tab Navigation */
 #tab-nav {
     display: flex;
-    background: #252525;
-    border-bottom: 2px solid #00bcd4;
+    background: rgba(22, 22, 22, 0.9);
+    border-bottom: 1px solid rgba(0, 188, 212, 0.4);
     flex-shrink: 0;
 }
 
@@ -379,8 +392,8 @@ body {
 
 .tab-btn.active {
     color: #00bcd4;
-    background: rgba(0, 188, 212, 0.1);
-    border-bottom-color: #00bcd4;
+    background: rgba(0, 188, 212, 0.12);
+    border-bottom-color: rgba(0, 188, 212, 0.7);
 }
 
 /* Tab Content */
@@ -414,11 +427,12 @@ body {
 }
 
 .stat-section {
-    background: #161616;
-    border-radius: 8px;
+    background: rgba(20, 20, 20, 0.92);
+    border-radius: 12px;
     padding: 12px;
     margin-bottom: 12px;
-    border: 1px solid #2a2a2a;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: inset 0 0 0 1px rgba(0, 188, 212, 0.05);
 }
 
 .stat-bar {
@@ -473,10 +487,11 @@ body {
 }
 
 .location-item {
-    background: #161616;
-    border-radius: 8px;
+    background: rgba(20, 20, 20, 0.92);
+    border-radius: 12px;
     padding: 10px;
-    border-left: 4px solid #00bcd4;
+    border-left: 3px solid #00bcd4;
+    border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .location-name {
@@ -509,9 +524,9 @@ body {
 #npc-search {
     width: 100%;
     padding: 10px;
-    background: #2a2a2a;
-    border: 2px solid #444;
-    border-radius: 8px;
+    background: rgba(32, 32, 32, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     color: white;
     margin-bottom: 12px;
 }
@@ -523,10 +538,10 @@ body {
 }
 
 .npc-profile {
-    background: #161616;
-    border-radius: 8px;
+    background: rgba(20, 20, 20, 0.92);
+    border-radius: 12px;
     padding: 12px;
-    border: 1px solid #2a2a2a;
+    border: 1px solid rgba(255, 255, 255, 0.06);
     cursor: pointer;
     transition: all 0.2s;
 }
@@ -553,14 +568,15 @@ body {
     display: flex;
     gap: 8px;
     margin-bottom: 12px;
+    flex-wrap: wrap;
 }
 
 .filter-btn {
     padding: 6px 12px;
-    background: #2a2a2a;
-    border: 1px solid #444;
-    border-radius: 6px;
-    color: #888;
+    background: rgba(32, 32, 32, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    color: #9aa4b2;
     cursor: pointer;
     font-size: 12px;
 }
@@ -578,10 +594,11 @@ body {
 }
 
 .timeline-event {
-    background: #161616;
+    background: rgba(20, 20, 20, 0.92);
     border-left: 4px solid #00bcd4;
-    border-radius: 6px;
+    border-radius: 10px;
     padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .event-time {
@@ -624,12 +641,13 @@ body {
     position: fixed;
     bottom: 10px;
     right: 10px;
-    background: #1e1e1e;
-    border: 2px solid #00bcd4;
-    border-radius: 8px;
+    background: rgba(24, 24, 24, 0.92);
+    border: 1px solid rgba(0, 188, 212, 0.5);
+    border-radius: 12px;
     max-width: 400px;
     max-height: 300px;
     z-index: 1000;
+    box-shadow: 0 18px 30px rgba(0, 0, 0, 0.3);
 }
 
 #debug-toggle {
@@ -681,11 +699,11 @@ body {
 }
 
 .analysis-section {
-    background: #161616;
-    border-radius: 8px;
+    background: rgba(20, 20, 20, 0.92);
+    border-radius: 12px;
     padding: 12px;
     margin-bottom: 12px;
-    border: 1px solid #2a2a2a;
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .metric-row {
@@ -729,20 +747,21 @@ body {
     display: flex;
     gap: 12px;
     padding: 12px;
-    background: #252525;
-    border-radius: 8px;
+    background: rgba(23, 23, 23, 0.9);
+    border-radius: 12px;
     margin-bottom: 12px;
     overflow-x: auto;
     flex-wrap: wrap;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .npc-portrait-card {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #1e1e1e;
-    border: 2px solid #444;
-    border-radius: 8px;
+    background: rgba(20, 20, 20, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
     padding: 8px;
     min-width: 120px;
     max-width: 150px;
