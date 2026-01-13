@@ -26,8 +26,9 @@ class GameManager:
     This is the main integration point for the Willow Creek simulation.
     """
 
-    def __init__(self, simulation=None):
+    def __init__(self, simulation=None, llm_client=None):
         self.sim = simulation
+        self.llm_client = llm_client
 
         # Initialize all systems
         self.skills = SkillSystem()
@@ -93,7 +94,9 @@ class GameManager:
                 self.sim.time.total_days,
                 self.sim.time.hour,
                 MemoryImportance.MINOR,
-                participants=[npc_name]
+                participants=[npc_name],
+                emotional_tone="friendly",
+                tags=["conversation"],
             )
 
         # Update statistics
@@ -142,7 +145,9 @@ class GameManager:
                     self.sim.time.total_days,
                     self.sim.time.hour,
                     MemoryImportance.MODERATE,
-                    participants=[receiver]
+                    participants=[receiver],
+                    emotional_tone="warm",
+                    tags=["gift"],
                 )
 
                 self.memory.add_memory(
@@ -152,7 +157,9 @@ class GameManager:
                     self.sim.time.total_days,
                     self.sim.time.hour,
                     MemoryImportance.MODERATE,
-                    participants=[giver]
+                    participants=[giver],
+                    emotional_tone="grateful",
+                    tags=["gift"],
                 )
 
             # Reputation boost
@@ -188,7 +195,9 @@ class GameManager:
                     self.sim.time.hour,
                     MemoryImportance.SIGNIFICANT,
                     participants=[other],
-                    location=location
+                    location=location,
+                    emotional_tone="romantic",
+                    tags=["date"],
                 )
 
         # Statistics
@@ -233,8 +242,14 @@ class GameManager:
             self.sim.npcs,
             self.relationships,
             current_day,
-            current_hour
+            current_hour,
+            memory_system=self.memory,
+            economy_system=self.economy,
+            llm_client=self.llm_client,
         )
+
+        # Decay memories for all characters
+        self.memory.decay_memories(current_day)
 
         # Gossip spreads
         self.reputation.simulate_gossip_spread(self.sim.npcs, current_day)
@@ -250,6 +265,8 @@ class GameManager:
         # Weekly wage payment (every 7 days)
         if current_day % 7 == 0:
             self.economy.pay_weekly_wages()
+            for character_name in list(self.economy.character_jobs.keys()):
+                self.economy.evaluate_promotions(character_name)
 
     # ========================================================================
     # SAVE/LOAD
