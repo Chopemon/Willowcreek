@@ -126,6 +126,15 @@ class NarrativeChat:
     def narrate(self, user_input: str) -> str:
         # 1. Get World Snapshot
         world_snapshot = create_narrative_context(self.sim, self.malcolm)
+        if self.sim and self.sim.memory and self.memory_enabled:
+            query = f"{user_input}\n{self.last_narrated}"
+            retrieved = self.sim.memory.build_retrieved_memory_context(
+                "Malcolm Newt",
+                query,
+                current_sim_day=self.sim.time.total_days,
+            )
+            if retrieved:
+                world_snapshot = f"{world_snapshot}\n\n{retrieved}"
 
         # --- DIALOGUE-FOCUSED SYSTEM PROMPT ---
         system_prompt = (

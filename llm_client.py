@@ -46,7 +46,16 @@ class LocalLLMClient:
             self.model = None
             self.generator = None
         else:
+            import torch
             from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+
+            resolved_device = self._resolve_device(device, torch)
+            pipeline_device = self._resolve_pipeline_device(resolved_device)
+            torch_dtype = (
+                torch.float16
+                if resolved_device in {"cuda", "mps"} or resolved_device.startswith("cuda:")
+                else None
+            )
 
             self.tokenizer = AutoTokenizer.from_pretrained(
                 resolved_model,
@@ -56,12 +65,15 @@ class LocalLLMClient:
             self.model = AutoModelForCausalLM.from_pretrained(
                 resolved_model,
                 local_files_only=local_files_only,
+                torch_dtype=torch_dtype,
             )
+            if resolved_device != "cpu":
+                self.model.to(resolved_device)
             self.generator = pipeline(
                 "text-generation",
                 model=self.model,
                 tokenizer=self.tokenizer,
-                device_map=device,
+                device=pipeline_device,
             )
 
     @staticmethod
@@ -75,6 +87,29 @@ class LocalLLMClient:
             return max(int(env_value), 1)
         except ValueError:
             return 2048
+
+    @staticmethod
+    def _resolve_device(requested: str, torch_module) -> str:
+        env_device = os.getenv("LLM_DEVICE")
+        if env_device:
+            return env_device
+        if requested and requested != "auto":
+            return requested
+        if torch_module.cuda.is_available():
+            return "cuda"
+        if torch_module.backends.mps.is_available():
+            return "mps"
+        return "cpu"
+
+    @staticmethod
+    def _resolve_pipeline_device(device: str) -> int | str:
+        if device.startswith("cuda"):
+            if ":" in device:
+                return int(device.split(":", 1)[1])
+            return 0
+        if device == "mps":
+            return "mps"
+        return -1
 
     def generate(
         self,
