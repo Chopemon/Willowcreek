@@ -75,7 +75,7 @@ async def serve_ui():
 
 @app.get("/favicon.ico")
 async def favicon():
-    return Response(status_code=204)
+    return JSONResponse({}, status_code=204)
 
 @app.get("/ui", response_class=HTMLResponse)
 async def serve_game_systems_ui():
