@@ -9,6 +9,7 @@ import json
 from pathlib import Path
 from typing import Optional, Dict, Tuple
 import asyncio
+import requests
 
 
 class NPCPortraitGenerator:
@@ -33,6 +34,17 @@ class NPCPortraitGenerator:
         self.cache_file = self.portraits_dir / "portrait_cache.json"
         self.portrait_cache = self._load_cache()
 
+        self.prompt_llm_enabled = os.getenv("PORTRAIT_PROMPT_LLM_ENABLED", "true").lower() in {"1", "true", "yes", "on"}
+        self.prompt_model_name = os.getenv(
+            "PORTRAIT_PROMPT_MODEL",
+            "llama3.3-8b-instruct-thinking-heretic-uncensored-claude-4.5-opus-high-reasoning-i1",
+        )
+        self.prompt_api_url = os.getenv(
+            "LM_STUDIO_API_URL",
+            os.getenv("LOCAL_API_URL", "http://localhost:1234/v1/chat/completions"),
+        )
+        self.prompt_timeout_seconds = self._resolve_prompt_timeout()
+
         print(f"[PortraitGen] Initialized. Cache contains {len(self.portrait_cache)} portraits")
 
     def _load_cache(self) -> Dict[str, str]:
@@ -52,6 +64,14 @@ class NPCPortraitGenerator:
                 json.dump(self.portrait_cache, f, indent=2)
         except Exception as e:
             print(f"[PortraitGen] Error saving cache: {e}")
+
+    @staticmethod
+    def _resolve_prompt_timeout() -> int:
+        raw_value = os.getenv("PORTRAIT_PROMPT_TIMEOUT_SECONDS", "120")
+        try:
+            return max(int(raw_value), 1)
+        except ValueError:
+            return 120
 
     def has_portrait(self, npc_name: str, portrait_type: str = "headshot") -> bool:
         """Check if NPC already has a portrait of specified type."""
@@ -111,7 +131,28 @@ class NPCPortraitGenerator:
         # Default to female if uncertain (safer for most cases)
         return 'female'
 
-    async def generate_portrait(self, npc_name: str, npc_data: Dict, portrait_type: str = "headshot") -> Optional[str]:
+    async def generate_portrait_prompts(
+        self,
+        npc_name: str,
+        npc_data: Dict,
+        portrait_type: str = "headshot",
+    ) -> Tuple[str, str]:
+        if not self.prompt_llm_enabled:
+            return self._build_portrait_prompt(npc_name, npc_data, portrait_type)
+
+        prompt_from_llm = self._generate_portrait_prompt_with_llm(npc_name, npc_data, portrait_type)
+        if prompt_from_llm:
+            return prompt_from_llm
+
+        return self._build_portrait_prompt(npc_name, npc_data, portrait_type)
+
+    async def generate_portrait(
+        self,
+        npc_name: str,
+        npc_data: Dict,
+        portrait_type: str = "headshot",
+        prompts: Optional[Tuple[str, str]] = None,
+    ) -> Optional[str]:
         """
         Generate a portrait for an NPC.
 
@@ -135,7 +176,10 @@ class NPCPortraitGenerator:
         print(f"[PortraitGen] Generating new {portrait_type} portrait for {npc_name}")
 
         # Build portrait prompt from NPC data
-        positive_prompt, negative_prompt = self._build_portrait_prompt(npc_name, npc_data, portrait_type)
+        if prompts is None:
+            positive_prompt, negative_prompt = await self.generate_portrait_prompts(npc_name, npc_data, portrait_type)
+        else:
+            positive_prompt, negative_prompt = prompts
 
         # Set dimensions based on portrait type
         if portrait_type == "full_body":
@@ -175,6 +219,87 @@ class NPCPortraitGenerator:
         except Exception as e:
             print(f"[PortraitGen] Error generating {portrait_type} portrait for {npc_name}: {e}")
             return None
+
+    def _generate_portrait_prompt_with_llm(
+        self,
+        npc_name: str,
+        npc_data: Dict,
+        portrait_type: str,
+    ) -> Optional[Tuple[str, str]]:
+        system_prompt = (
+            "You are an expert prompt engineer for photorealistic character portraits in ComfyUI/Stable Diffusion. "
+            "Use the provided profile to craft a concise, vivid prompt. "
+            "The positive prompt must start with a phrase like \"portrait of <Name>, a woman/man...\". "
+            "Include the NPC name for consistency. Avoid unsafe or explicit content."
+        )
+
+        gender = npc_data.get("gender", "person")
+        if hasattr(gender, "value"):
+            gender = gender.value
+        elif hasattr(gender, "name"):
+            gender = gender.name
+
+        user_prompt = (
+            "Create a portrait prompt using this NPC profile:\n"
+            f"Name: {npc_name}\n"
+            f"Gender: {gender}\n"
+            f"Age: {npc_data.get('age', 25)}\n"
+            f"Appearance: {npc_data.get('appearance', '')}\n"
+            f"Occupation: {npc_data.get('occupation', '')}\n"
+            f"Traits: {', '.join(npc_data.get('traits', []))}\n"
+            f"Quirk: {npc_data.get('quirk', '')}\n"
+            f"Portrait type: {portrait_type}\n\n"
+            "Output format:\n"
+            "POSITIVE: ...\n"
+            "NEGATIVE: ..."
+        )
+
+        payload = {
+            "model": self.prompt_model_name,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            "temperature": 0.6,
+            "max_tokens": 512,
+        }
+
+        try:
+            print(f"[PortraitGen] Generating prompt via LLM for {npc_name} ({portrait_type})")
+            response = requests.post(
+                self.prompt_api_url,
+                json=payload,
+                timeout=self.prompt_timeout_seconds,
+            )
+            if response.status_code != 200:
+                print(f"[PortraitGen] Prompt LLM error: {response.status_code} - {response.text}")
+                return None
+
+            content = response.json()["choices"][0]["message"]["content"]
+            parsed = self._parse_prompt_response(content)
+            if parsed:
+                return parsed
+
+            print("[PortraitGen] Prompt LLM response could not be parsed, falling back.")
+            return None
+        except Exception as exc:
+            print(f"[PortraitGen] Prompt LLM request failed: {exc}")
+            return None
+
+    def _parse_prompt_response(self, content: str) -> Optional[Tuple[str, str]]:
+        positive_prompt = None
+        negative_prompt = None
+
+        for line in content.splitlines():
+            if line.strip().lower().startswith("positive:"):
+                positive_prompt = line.split(":", 1)[1].strip()
+            elif line.strip().lower().startswith("negative:"):
+                negative_prompt = line.split(":", 1)[1].strip()
+
+        if positive_prompt and negative_prompt:
+            return positive_prompt, negative_prompt
+
+        return None
 
     def _build_portrait_prompt(self, npc_name: str, npc_data: Dict, portrait_type: str = "headshot") -> Tuple[str, str]:
         """

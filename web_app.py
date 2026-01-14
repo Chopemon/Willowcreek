@@ -290,39 +290,60 @@ async def generate_npc_portraits(narrative_text: str):
     print(f"[PortraitGen] Detected NPCs in narrative: {', '.join(mentioned_npcs)}")
 
     portraits = []
-    unloaded_models, manager = _unload_llm_models()
-    try:
-        for npc_name in mentioned_npcs:
-            # Get NPC data - check both main NPC dict and generic NPCs
-            npc = chat.sim.npc_dict.get(npc_name)
-            if not npc:
-                print(f"[PortraitGen] NPC {npc_name} not found in roster, skipping")
-                continue
+    pending_portraits = []
+    for npc_name in mentioned_npcs:
+        # Get NPC data - check both main NPC dict and generic NPCs
+        npc = chat.sim.npc_dict.get(npc_name)
+        if not npc:
+            print(f"[PortraitGen] NPC {npc_name} not found in roster, skipping")
+            continue
 
-            npc_data = _build_npc_portrait_data(npc)
+        npc_data = _build_npc_portrait_data(npc)
 
-            # Generate or get BOTH portrait types
-            headshot_url = portrait_generator.get_portrait_url(npc_name, "headshot")
-            full_body_url = portrait_generator.get_portrait_url(npc_name, "full_body")
+        # Generate or get BOTH portrait types
+        headshot_url = portrait_generator.get_portrait_url(npc_name, "headshot")
+        full_body_url = portrait_generator.get_portrait_url(npc_name, "full_body")
 
-            # Generate headshot if missing
-            if not headshot_url:
-                print(f"[PortraitGen] Generating headshot for {npc_name}")
-                headshot_url = await portrait_generator.generate_portrait(npc_name, npc_data, "headshot")
+        if not headshot_url:
+            print(f"[PortraitGen] Generating headshot prompt for {npc_name}")
+            headshot_prompt = await portrait_generator.generate_portrait_prompts(npc_name, npc_data, "headshot")
+            pending_portraits.append(("headshot", npc_name, npc_data, headshot_prompt))
 
-            # Generate full body if missing
-            if not full_body_url:
-                print(f"[PortraitGen] Generating full_body for {npc_name}")
-                full_body_url = await portrait_generator.generate_portrait(npc_name, npc_data, "full_body")
+        if not full_body_url:
+            print(f"[PortraitGen] Generating full_body prompt for {npc_name}")
+            full_body_prompt = await portrait_generator.generate_portrait_prompts(npc_name, npc_data, "full_body")
+            pending_portraits.append(("full_body", npc_name, npc_data, full_body_prompt))
 
-            if headshot_url or full_body_url:
-                portraits.append({
-                    "name": npc_name,
-                    "headshot": headshot_url,
-                    "full_body": full_body_url
-                })
-    finally:
-        _reload_llm_models(unloaded_models, manager)
+        if headshot_url or full_body_url:
+            portraits.append({
+                "name": npc_name,
+                "headshot": headshot_url,
+                "full_body": full_body_url
+            })
+
+    if pending_portraits:
+        unloaded_models, manager = _unload_llm_models()
+        try:
+            for portrait_type, npc_name, npc_data, prompts in pending_portraits:
+                print(f"[PortraitGen] Generating {portrait_type} for {npc_name}")
+                image_url = await portrait_generator.generate_portrait(
+                    npc_name,
+                    npc_data,
+                    portrait_type,
+                    prompts=prompts,
+                )
+                if image_url:
+                    for entry in portraits:
+                        if entry["name"] == npc_name:
+                            entry[portrait_type] = image_url
+                            break
+                    else:
+                        portraits.append({
+                            "name": npc_name,
+                            portrait_type: image_url,
+                        })
+        finally:
+            _reload_llm_models(unloaded_models, manager)
 
     return portraits
 
@@ -349,21 +370,33 @@ async def _autogenerate_all_npc_portraits() -> None:
     if not portrait_generator or not chat or not chat.sim:
         return
     print("[PortraitGen] Auto-generating portraits for roster...")
-    unloaded_models, manager = _unload_llm_models()
-    try:
-        for npc in chat.sim.npcs:
-            npc_name = npc.full_name
-            npc_data = _build_npc_portrait_data(npc)
+    pending_portraits = []
+    for npc in chat.sim.npcs:
+        npc_name = npc.full_name
+        npc_data = _build_npc_portrait_data(npc)
 
-            headshot_url = portrait_generator.get_portrait_url(npc_name, "headshot")
-            full_body_url = portrait_generator.get_portrait_url(npc_name, "full_body")
+        headshot_url = portrait_generator.get_portrait_url(npc_name, "headshot")
+        full_body_url = portrait_generator.get_portrait_url(npc_name, "full_body")
 
-            if not headshot_url:
-                await portrait_generator.generate_portrait(npc_name, npc_data, "headshot")
-            if not full_body_url:
-                await portrait_generator.generate_portrait(npc_name, npc_data, "full_body")
-    finally:
-        _reload_llm_models(unloaded_models, manager)
+        if not headshot_url:
+            headshot_prompt = await portrait_generator.generate_portrait_prompts(npc_name, npc_data, "headshot")
+            pending_portraits.append(("headshot", npc_name, npc_data, headshot_prompt))
+        if not full_body_url:
+            full_body_prompt = await portrait_generator.generate_portrait_prompts(npc_name, npc_data, "full_body")
+            pending_portraits.append(("full_body", npc_name, npc_data, full_body_prompt))
+
+    if pending_portraits:
+        unloaded_models, manager = _unload_llm_models()
+        try:
+            for portrait_type, npc_name, npc_data, prompts in pending_portraits:
+                await portrait_generator.generate_portrait(
+                    npc_name,
+                    npc_data,
+                    portrait_type,
+                    prompts=prompts,
+                )
+        finally:
+            _reload_llm_models(unloaded_models, manager)
 
 
 @app.get("/api/init", response_class=JSONResponse)
