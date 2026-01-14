@@ -373,6 +373,7 @@ class AIPromptGenerator:
             self.model_name = "llama3.3-8b-instruct-thinking-heretic-uncensored-claude-4.5-opus-high-reasoning-i1"
             self.api_key = "NOT_REQUIRED"
         self.max_tokens = 2048
+        self.timeout_seconds = self._resolve_timeout()
 
     def _resolve_context_size(self) -> int:
         raw_value = os.getenv("AI_PROMPT_CONTEXT_SIZE", "2048")
@@ -380,6 +381,13 @@ class AIPromptGenerator:
             return max(int(raw_value), 1)
         except ValueError:
             return 2048
+
+    def _resolve_timeout(self) -> int:
+        raw_value = os.getenv("AI_PROMPT_TIMEOUT_SECONDS", "120")
+        try:
+            return max(int(raw_value), 1)
+        except ValueError:
+            return 120
 
     def generate_prompt_from_narrative(self, narrative_text: str, context: SceneContext) -> Tuple[str, str]:
         """
@@ -436,7 +444,12 @@ Generate a photorealistic, cinematic image prompt."""
         try:
             print(f"[AIPromptGen] Generating prompts from narrative using {self.mode} mode...")
 
-            response = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
+            response = requests.post(
+                self.api_url,
+                headers=headers,
+                json=payload,
+                timeout=self.timeout_seconds,
+            )
 
             if response.status_code != 200:
                 print(f"[AIPromptGen] API Error: {response.status_code} - {response.text}")
