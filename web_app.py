@@ -16,6 +16,7 @@ from services.scene_image_generator import SceneAnalyzer, ImagePromptGenerator, 
 from services.npc_portrait_generator import NPCPortraitGenerator
 from api_endpoints import router as api_router
 from game_manager import get_game_manager
+from lm_studio_client import LMStudioClient
 import os
 import urllib.error
 import urllib.request
@@ -56,6 +57,7 @@ COMFYUI_ENABLED = _resolve_comfyui_enabled()
 COMFYUI_URL = os.getenv("COMFYUI_URL", "http://127.0.0.1:8188")
 AI_PROMPTS_ENABLED = os.getenv("AI_PROMPTS_ENABLED", "true").lower() == "true"  # AI-based prompt generation
 PORTRAITS_ENABLED = os.getenv("PORTRAITS_ENABLED", "true").lower() == "true"  # NPC portrait generation
+LM_STUDIO_MANAGE_ENABLED = _env_truthy(os.getenv("LM_STUDIO_MANAGE_ENABLED", "false"))
 
 comfyui_client = ComfyUIClient(base_url=COMFYUI_URL) if COMFYUI_ENABLED else None
 scene_analyzer = SceneAnalyzer()
@@ -69,6 +71,7 @@ portrait_generator = NPCPortraitGenerator(comfyui_client) if (COMFYUI_ENABLED an
 
 print(f"[ImageGen] AI-based prompt generation: {'ENABLED' if AI_PROMPTS_ENABLED else 'DISABLED'}")
 print(f"[PortraitGen] NPC portraits: {'ENABLED' if PORTRAITS_ENABLED and COMFYUI_ENABLED else 'DISABLED'}")
+print(f"[LMStudio] Model management: {'ENABLED' if LM_STUDIO_MANAGE_ENABLED else 'DISABLED'}")
 
 # Serve Static Files (CSS/JS)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
@@ -82,6 +85,43 @@ app.mount("/generated_images", StaticFiles(directory=generated_images_dir), name
 npc_portraits_dir = BASE_DIR / "static" / "npc_portraits"
 npc_portraits_dir.mkdir(exist_ok=True)
 app.mount("/npc_portraits", StaticFiles(directory=npc_portraits_dir), name="npc_portraits")
+
+
+def _get_llm_models_for_management() -> list[str]:
+    models: list[str] = []
+    for model_name in (current_model_name, current_memory_model_name):
+        if model_name and model_name not in models:
+            models.append(model_name)
+    return models
+
+
+def _unload_llm_models() -> tuple[list[str], LMStudioClient | None]:
+    if not LM_STUDIO_MANAGE_ENABLED:
+        return [], None
+    models = _get_llm_models_for_management()
+    if not models:
+        return [], None
+    manager = LMStudioClient(model_name=models[0])
+    unloaded: list[str] = []
+    for model_name in models:
+        try:
+            manager.unload_model(model_name)
+            unloaded.append(model_name)
+            print(f"[LMStudio] Unloaded model: {model_name}")
+        except Exception as exc:
+            print(f"[LMStudio] Failed to unload {model_name}: {exc}")
+    return unloaded, manager
+
+
+def _reload_llm_models(unloaded: list[str], manager: LMStudioClient | None) -> None:
+    if not LM_STUDIO_MANAGE_ENABLED or not unloaded or manager is None:
+        return
+    for model_name in unloaded:
+        try:
+            manager.load_model(model_name)
+            print(f"[LMStudio] Reloaded model: {model_name}")
+        except Exception as exc:
+            print(f"[LMStudio] Failed to reload {model_name}: {exc}")
 
 @app.get("/", response_class=HTMLResponse)
 async def serve_ui():
@@ -462,36 +502,40 @@ async def process_action(request: Request):
 
         # 6. GENERATE IMAGES for interesting scenes
         if COMFYUI_ENABLED and comfyui_client and hasattr(chat.sim, 'scenario_buffer'):
-            for event_text in chat.sim.scenario_buffer:
-                # Analyze if this event deserves an image
-                scene_context = scene_analyzer.analyze_scene(event_text, chat.sim, chat.malcolm)
+            unloaded_models, manager = _unload_llm_models()
+            try:
+                for event_text in chat.sim.scenario_buffer:
+                    # Analyze if this event deserves an image
+                    scene_context = scene_analyzer.analyze_scene(event_text, chat.sim, chat.malcolm)
 
-                if scene_context and scene_context.priority >= 7:  # High priority scenes only
-                    print(f"[ImageGen] Generating image for: {scene_context.activity}")
+                    if scene_context and scene_context.priority >= 7:  # High priority scenes only
+                        print(f"[ImageGen] Generating image for: {scene_context.activity}")
 
-                    # Generate image prompt (with AI using narrative text if enabled)
-                    positive_prompt, negative_prompt = generate_image_prompts(scene_context, narrative_text=reply)
+                        # Generate image prompt (with AI using narrative text if enabled)
+                        positive_prompt, negative_prompt = generate_image_prompts(scene_context, narrative_text=reply)
 
-                    # Generate image via ComfyUI
-                    try:
-                        image_url = await comfyui_client.generate_image(
-                            prompt=positive_prompt,
-                            negative_prompt=negative_prompt,
-                            width=832,
-                            height=1216,
-                            steps=20,
-                            cfg_scale=7.0
-                        )
+                        # Generate image via ComfyUI
+                        try:
+                            image_url = await comfyui_client.generate_image(
+                                prompt=positive_prompt,
+                                negative_prompt=negative_prompt,
+                                width=832,
+                                height=1216,
+                                steps=20,
+                                cfg_scale=7.0
+                            )
 
-                        if image_url:
-                            generated_images.append({
-                                "url": image_url,
-                                "caption": scene_context.activity,
-                                "scene_type": scene_context.scene_type
-                            })
-                            print(f"[ImageGen] ✓ Image generated: {image_url}")
-                    except Exception as e:
-                        print(f"[ImageGen] Error generating image: {e}")
+                            if image_url:
+                                generated_images.append({
+                                    "url": image_url,
+                                    "caption": scene_context.activity,
+                                    "scene_type": scene_context.scene_type
+                                })
+                                print(f"[ImageGen] ✓ Image generated: {image_url}")
+                        except Exception as e:
+                            print(f"[ImageGen] Error generating image: {e}")
+            finally:
+                _reload_llm_models(unloaded_models, manager)
 
         # Clear scenario buffer after processing
         if hasattr(chat.sim, 'scenario_buffer'):
@@ -533,29 +577,33 @@ async def wait_time(request: Request):
 
     # Generate images for wait events
     if COMFYUI_ENABLED and comfyui_client and hasattr(chat.sim, 'scenario_buffer'):
-        for event_text in chat.sim.scenario_buffer:
-            scene_context = scene_analyzer.analyze_scene(event_text, chat.sim, chat.malcolm)
+        unloaded_models, manager = _unload_llm_models()
+        try:
+            for event_text in chat.sim.scenario_buffer:
+                scene_context = scene_analyzer.analyze_scene(event_text, chat.sim, chat.malcolm)
 
-            if scene_context and scene_context.priority >= 7:
-                print(f"[ImageGen] Generating image for wait event: {scene_context.activity}")
-                # Wait events don't have narrative, use template-based prompts
-                positive_prompt, negative_prompt = generate_image_prompts(scene_context)
+                if scene_context and scene_context.priority >= 7:
+                    print(f"[ImageGen] Generating image for wait event: {scene_context.activity}")
+                    # Wait events don't have narrative, use template-based prompts
+                    positive_prompt, negative_prompt = generate_image_prompts(scene_context)
 
-                try:
-                    image_url = await comfyui_client.generate_image(
-                        prompt=positive_prompt,
-                        negative_prompt=negative_prompt,
-                        width=832, height=1216, steps=20, cfg_scale=7.0
-                    )
+                    try:
+                        image_url = await comfyui_client.generate_image(
+                            prompt=positive_prompt,
+                            negative_prompt=negative_prompt,
+                            width=832, height=1216, steps=20, cfg_scale=7.0
+                        )
 
-                    if image_url:
-                        generated_images.append({
-                            "url": image_url,
-                            "caption": scene_context.activity,
-                            "scene_type": scene_context.scene_type
-                        })
-                except Exception as e:
-                    print(f"[ImageGen] Error: {e}")
+                        if image_url:
+                            generated_images.append({
+                                "url": image_url,
+                                "caption": scene_context.activity,
+                                "scene_type": scene_context.scene_type
+                            })
+                    except Exception as e:
+                        print(f"[ImageGen] Error: {e}")
+        finally:
+            _reload_llm_models(unloaded_models, manager)
 
     # Clear buffer
     if hasattr(chat.sim, 'scenario_buffer'):
@@ -619,29 +667,32 @@ async def generate_image_manual():
         # Generate prompts (could use last narrative, but safer to use templates for manual generation)
         positive_prompt, negative_prompt = generate_image_prompts(scene_context, narrative_text=chat.last_narrated if chat else None)
 
-        # Generate image
-        image_url = await comfyui_client.generate_image(
-            prompt=positive_prompt,
-            negative_prompt=negative_prompt,
-            width=832, height=1216, steps=20, cfg_scale=7.0
-        )
+        unloaded_models, manager = _unload_llm_models()
+        try:
+            # Generate image
+            image_url = await comfyui_client.generate_image(
+                prompt=positive_prompt,
+                negative_prompt=negative_prompt,
+                width=832, height=1216, steps=20, cfg_scale=7.0
+            )
 
-        if image_url:
-            generated_images.append({
-                "url": image_url,
-                "caption": scene_context.activity,
-                "scene_type": scene_context.scene_type
-            })
-            print(f"[ImageGen] Successfully generated image: {image_url}")
-            return JSONResponse({
-                "success": True,
-                "images": generated_images
-            })
-        else:
+            if image_url:
+                generated_images.append({
+                    "url": image_url,
+                    "caption": scene_context.activity,
+                    "scene_type": scene_context.scene_type
+                })
+                print(f"[ImageGen] Successfully generated image: {image_url}")
+                return JSONResponse({
+                    "success": True,
+                    "images": generated_images
+                })
             return JSONResponse({
                 "success": False,
                 "error": "Image generation returned no URL"
             })
+        finally:
+            _reload_llm_models(unloaded_models, manager)
 
     except Exception as e:
         print(f"[ImageGen] Manual generation error: {e}")
