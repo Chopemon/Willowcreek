@@ -211,6 +211,7 @@ class NPCPortraitGenerator:
 
         # Build tag list
         tags = []
+        tags.append(f"portrait of {npc_name}")
 
         # Core tags
         tags.append("photograph")
@@ -246,6 +247,10 @@ class NPCPortraitGenerator:
                 tags.extend(["young person", "teenager"])
             else:
                 tags.extend(["person", "adult"])
+
+        # Include raw appearance description for direct prompting
+        if appearance:
+            tags.append(appearance)
 
         # Parse appearance for specific features
         if appearance:

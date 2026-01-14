@@ -7,6 +7,7 @@ from fastapi.responses import HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
 from typing import Optional
+import asyncio
 
 # Custom Imports
 from narrative_chat import NarrativeChat
@@ -57,6 +58,7 @@ COMFYUI_ENABLED = _resolve_comfyui_enabled()
 COMFYUI_URL = os.getenv("COMFYUI_URL", "http://127.0.0.1:8188")
 AI_PROMPTS_ENABLED = os.getenv("AI_PROMPTS_ENABLED", "true").lower() == "true"  # AI-based prompt generation
 PORTRAITS_ENABLED = os.getenv("PORTRAITS_ENABLED", "true").lower() == "true"  # NPC portrait generation
+PORTRAIT_AUTOGEN_ENABLED = _env_truthy(os.getenv("PORTRAIT_AUTOGEN_ENABLED", "true"))
 LM_STUDIO_MANAGE_ENABLED = _env_truthy(os.getenv("LM_STUDIO_MANAGE_ENABLED", "true"))
 
 comfyui_client = ComfyUIClient(base_url=COMFYUI_URL) if COMFYUI_ENABLED else None
@@ -71,6 +73,7 @@ portrait_generator = NPCPortraitGenerator(comfyui_client) if (COMFYUI_ENABLED an
 
 print(f"[ImageGen] AI-based prompt generation: {'ENABLED' if AI_PROMPTS_ENABLED else 'DISABLED'}")
 print(f"[PortraitGen] NPC portraits: {'ENABLED' if PORTRAITS_ENABLED and COMFYUI_ENABLED else 'DISABLED'}")
+print(f"[PortraitGen] Auto-generate portraits: {'ENABLED' if PORTRAIT_AUTOGEN_ENABLED else 'DISABLED'}")
 print(f"[LMStudio] Model management: {'ENABLED' if LM_STUDIO_MANAGE_ENABLED else 'DISABLED'}")
 
 # Serve Static Files (CSS/JS)
@@ -228,6 +231,8 @@ async def _init_sim_handler(
             game_manager_instance = get_game_manager(chat.sim)
             game_manager_instance.initialize_character("Malcolm Newt", is_player=True)
             print(f"[WebApp] Game manager initialized with {len(chat.sim.npcs)} NPCs")
+            if portrait_generator and PORTRAIT_AUTOGEN_ENABLED:
+                asyncio.create_task(_autogenerate_all_npc_portraits())
 
         snapshot = build_frontend_snapshot(chat.sim if chat else None, chat.malcolm if chat else None)
         return JSONResponse({"narration": narration, "snapshot": snapshot, "images": [], "portraits": []})
@@ -286,22 +291,7 @@ async def generate_npc_portraits(narrative_text: str):
             print(f"[PortraitGen] NPC {npc_name} not found in roster, skipping")
             continue
 
-        # Prepare NPC data for generation
-        # Check both occupation and affiliation fields
-        occupation = ''
-        if hasattr(npc, 'occupation') and npc.occupation:
-            occupation = npc.occupation
-        elif hasattr(npc, 'affiliation') and npc.affiliation:
-            occupation = npc.affiliation
-
-        npc_data = {
-            'gender': npc.gender if hasattr(npc, 'gender') else 'person',
-            'age': npc.age if hasattr(npc, 'age') else 25,
-            'traits': npc.coreTraits if hasattr(npc, 'coreTraits') else [],
-            'quirk': npc.quirk if hasattr(npc, 'quirk') else '',
-            'appearance': npc.appearance if hasattr(npc, 'appearance') else '',
-            'occupation': occupation
-        }
+        npc_data = _build_npc_portrait_data(npc)
 
         # Generate or get BOTH portrait types
         headshot_url = portrait_generator.get_portrait_url(npc_name, "headshot")
@@ -325,6 +315,45 @@ async def generate_npc_portraits(narrative_text: str):
             })
 
     return portraits
+
+
+def _build_npc_portrait_data(npc) -> dict:
+    # Check both occupation and affiliation fields
+    occupation = ''
+    if hasattr(npc, 'occupation') and npc.occupation:
+        occupation = npc.occupation
+    elif hasattr(npc, 'affiliation') and npc.affiliation:
+        occupation = npc.affiliation
+
+    return {
+        'gender': npc.gender if hasattr(npc, 'gender') else 'person',
+        'age': npc.age if hasattr(npc, 'age') else 25,
+        'traits': npc.coreTraits if hasattr(npc, 'coreTraits') else [],
+        'quirk': npc.quirk if hasattr(npc, 'quirk') else '',
+        'appearance': npc.appearance if hasattr(npc, 'appearance') else '',
+        'occupation': occupation
+    }
+
+
+async def _autogenerate_all_npc_portraits() -> None:
+    if not portrait_generator or not chat or not chat.sim:
+        return
+    print("[PortraitGen] Auto-generating portraits for roster...")
+    unloaded_models, manager = _unload_llm_models()
+    try:
+        for npc in chat.sim.npcs:
+            npc_name = npc.full_name
+            npc_data = _build_npc_portrait_data(npc)
+
+            headshot_url = portrait_generator.get_portrait_url(npc_name, "headshot")
+            full_body_url = portrait_generator.get_portrait_url(npc_name, "full_body")
+
+            if not headshot_url:
+                await portrait_generator.generate_portrait(npc_name, npc_data, "headshot")
+            if not full_body_url:
+                await portrait_generator.generate_portrait(npc_name, npc_data, "full_body")
+    finally:
+        _reload_llm_models(unloaded_models, manager)
 
 
 @app.get("/api/init", response_class=JSONResponse)
