@@ -370,7 +370,7 @@ class AIPromptGenerator:
             self.api_key = os.getenv("OPENROUTER_API_KEY")
         else:  # local
             self.api_url = "http://localhost:1234/v1/chat/completions"
-            self.model_name = "local-model"
+            self.model_name = "llama3.3-8b-instruct-thinking-heretic-uncensored-claude-4.5-opus-high-reasoning-i1"
             self.api_key = "NOT_REQUIRED"
         self.max_tokens = 2048
 
