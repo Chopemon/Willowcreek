@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Optional, Dict, Tuple
 import asyncio
 import requests
+import re
 
 
 class NPCPortraitGenerator:
@@ -292,6 +293,8 @@ class NPCPortraitGenerator:
         if not cleaned:
             return None
 
+        cleaned = re.sub(r"^```(?:json)?\s*|\s*```$", "", cleaned, flags=re.IGNORECASE | re.DOTALL).strip()
+
         positive_prompt = None
         negative_prompt = None
 
@@ -306,13 +309,17 @@ class NPCPortraitGenerator:
             return positive_prompt, negative_prompt
 
         inline = cleaned.lower()
-        if "positive:" in inline and "negative:" in inline:
-            positive_start = inline.index("positive:") + len("positive:")
-            negative_start = inline.index("negative:")
-            positive_prompt = cleaned[positive_start:negative_start].strip(" \n-")
-            negative_prompt = cleaned[negative_start + len("negative:"):].strip(" \n-")
-            if positive_prompt and negative_prompt:
-                return positive_prompt, negative_prompt
+        if "positive" in inline and "negative" in inline:
+            match = re.search(
+                r"positive\s*:\s*(?P<pos>.+?)\s*negative\s*:\s*(?P<neg>.+)$",
+                cleaned,
+                flags=re.IGNORECASE | re.DOTALL,
+            )
+            if match:
+                positive_prompt = match.group("pos").strip(" \n-")
+                negative_prompt = match.group("neg").strip(" \n-")
+                if positive_prompt and negative_prompt:
+                    return positive_prompt, negative_prompt
 
         try:
             parsed = json.loads(cleaned)
