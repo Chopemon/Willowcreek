@@ -361,6 +361,7 @@ class AIPromptGenerator:
             mode: "openrouter" or "local" - which LLM to use
         """
         self.mode = mode
+        self.context_size = self._resolve_context_size()
 
         # LLM configuration (matches narrative_chat.py)
         if mode == "openrouter":
@@ -372,6 +373,13 @@ class AIPromptGenerator:
             self.model_name = "local-model"
             self.api_key = "NOT_REQUIRED"
         self.max_tokens = 2048
+
+    def _resolve_context_size(self) -> int:
+        raw_value = os.getenv("AI_PROMPT_CONTEXT_SIZE", "2048")
+        try:
+            return max(int(raw_value), 1)
+        except ValueError:
+            return 2048
 
     def generate_prompt_from_narrative(self, narrative_text: str, context: SceneContext) -> Tuple[str, str]:
         """
