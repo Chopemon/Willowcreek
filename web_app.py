@@ -17,6 +17,8 @@ from services.npc_portrait_generator import NPCPortraitGenerator
 from api_endpoints import router as api_router
 from game_manager import get_game_manager
 import os
+import urllib.error
+import urllib.request
 
 app = FastAPI()
 BASE_DIR = Path(__file__).resolve().parent
@@ -38,7 +40,19 @@ def _env_truthy(value: str) -> bool:
     return str(value).strip().lower() in {"1", "true", "yes", "on", "y"}
 
 
-COMFYUI_ENABLED = _env_truthy(os.getenv("COMFYUI_ENABLED", "false"))
+def _resolve_comfyui_enabled() -> bool:
+    raw_value = os.getenv("COMFYUI_ENABLED")
+    if raw_value is not None:
+        return _env_truthy(raw_value)
+    comfyui_url = os.getenv("COMFYUI_URL", "http://127.0.0.1:8188")
+    try:
+        with urllib.request.urlopen(comfyui_url, timeout=1):
+            return True
+    except (urllib.error.URLError, ValueError):
+        return False
+
+
+COMFYUI_ENABLED = _resolve_comfyui_enabled()
 COMFYUI_URL = os.getenv("COMFYUI_URL", "http://127.0.0.1:8188")
 AI_PROMPTS_ENABLED = os.getenv("AI_PROMPTS_ENABLED", "true").lower() == "true"  # AI-based prompt generation
 PORTRAITS_ENABLED = os.getenv("PORTRAITS_ENABLED", "true").lower() == "true"  # NPC portrait generation
