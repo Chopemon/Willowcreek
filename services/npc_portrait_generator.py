@@ -168,8 +168,8 @@ class NPCPortraitGenerator:
             print(f"[PortraitGen] ComfyUI client not available")
             return None
 
-        # Check cache first
-        if self.has_portrait(npc_name, portrait_type):
+        # Check cache first (skip when explicit prompts are provided)
+        if prompts is None and self.has_portrait(npc_name, portrait_type):
             print(f"[PortraitGen] Using cached {portrait_type} portrait for {npc_name}")
             return self.get_portrait_url(npc_name, portrait_type)
 
@@ -180,6 +180,7 @@ class NPCPortraitGenerator:
             positive_prompt, negative_prompt = await self.generate_portrait_prompts(npc_name, npc_data, portrait_type)
         else:
             positive_prompt, negative_prompt = prompts
+            print(f"[PortraitGen] Using provided prompts for {npc_name} ({portrait_type})")
 
         # Set dimensions based on portrait type
         if portrait_type == "full_body":
