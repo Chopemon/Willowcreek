@@ -95,6 +95,10 @@ def _get_llm_models_for_management() -> list[str]:
     for model_name in (current_model_name, current_memory_model_name):
         if model_name and model_name not in models:
             models.append(model_name)
+    if chat:
+        for model_name in (getattr(chat, "model_name", None), getattr(chat, "memory_model_name", None)):
+            if model_name and model_name not in models:
+                models.append(model_name)
     return models
 
 
@@ -212,8 +216,8 @@ async def _init_sim_handler(
             )
             chat.initialize()
             current_mode = mode
-            current_model_name = model_name
-            current_memory_model_name = memory_model_name
+            current_model_name = chat.model_name
+            current_memory_model_name = chat.memory_model_name
             current_api_url = resolved_api_url
 
             # Initialize AI prompt generator with matching mode
@@ -224,6 +228,8 @@ async def _init_sim_handler(
             narration = f"**[System: Initialized {mode.upper()} Mode]**\n\n{getattr(chat, 'last_narrated', 'Starting simulation...')}"
         else:
             chat.initialize()
+            current_model_name = chat.model_name
+            current_memory_model_name = chat.memory_model_name
             narration = f"**[System: Reset {mode.upper()} Mode]**\n\n{getattr(chat, 'last_narrated', 'Resetting simulation...')}"
 
         # Initialize game manager with all 17 systems
