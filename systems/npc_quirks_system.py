@@ -105,7 +105,7 @@ class NPCQuirksSystem:
                 )
 
         # --- Nora (Anxiety/TikTok Quirk) ---
-        nora = self.npcs.get("Nora Holbrook")
+        nora = self.npcs.get("Nora Blake")
         if nora and self.message_count % 20 == 0 and random.random() < 0.2:
             self._add_scenario(
                 "[NORA: Scrolls TikTok. Clutches blanket when anxious. "
@@ -115,89 +115,84 @@ class NPCQuirksSystem:
                 self._add_scenario("[NORA: Late hour — clings to family]")
         
         # --- Lianna (Jealousy/Obsession Quirk) ---
-        lianna = self.npcs.get("Lianna West")
+        lianna = self.npcs.get("Lianna Carter")
         if lianna and "chloe" in text.lower() and random.random() < 0.5:
             self._add_scenario("[LIANNA: Her eyes flash cold as she observes Chloe. The possessive edge in her voice is subtle but sharp.]")
 
         # --- Lisa (Dominance/Flirt Quirk) ---
-        lisa = self.npcs.get("Lisa Fox")
+        lisa = self.npcs.get("Lisa Thompson")
         if lisa and self.message_count % 15 == 0 and random.random() < 0.3:
             self._add_scenario("[LISA: Crosses her legs slowly, maintaining unbroken eye contact, a silent challenge in her grin.]")
 
         # --- Michael (Recklessness Quirk) ---
-        michael = self.npcs.get("Michael Chen")
+        michael = self.npcs.get("Michael Blake")
         if michael and michael.current_location == "The Hideout" and random.random() < 0.3:
             self._add_scenario("[MICHAEL: Pulls out his phone and covertly records a risky stunt, looking for a new viral moment.]")
 
         # --- Eva (Escapism Quirk) ---
-        eva = self.npcs.get("Eva Sterling")
+        eva = self.npcs.get("Eva Seinfeld")
         if eva and eva.current_location == "Willow Creek Library" and random.random() < 0.4:
             self._add_scenario("[EVA: Her expression is distant, lost in the pages of a fantasy novel, avoiding reality.]")
         
         # --- Nina (Insecurity Quirk) ---
-        nina = self.npcs.get("Nina Sharpe")
+        nina = self.npcs.get("Nina Blake")
         if nina and random.random() < 0.2 and ("compliment" in text or "beautiful" in text):
             self._add_scenario("[NINA: Flinches slightly at the compliment, immediately looking down and smoothing her clothes, unable to accept genuine praise.]")
 
         # --- Agnes (Judgment Quirk) ---
-        agnes = self.npcs.get("Agnes Plum")
+        agnes = self.npcs.get("Agnes Montgomery")
         if agnes and random.random() < 0.1:
             self._add_scenario("[AGNES: Her gaze sweeps over the room, settling briefly on someone with an air of subtle disapproval. The silent judgment is palpable.]")
 
         # --- Scarlet (Vulnerability Quirk) ---
-        scarlet = self.npcs.get("Scarlet Reyes")
+        scarlet = self.npcs.get("Scarlet Carter")
         if scarlet and scarlet.needs.social < 30:
              self._add_scenario("[SCARLET: Tugs nervously at her sleeve, the bravado slipping to reveal a brief flash of genuine loneliness and need for comfort.]")
 
         # --- Lily (Loyalty Quirk) ---
-        lily = self.npcs.get("Lily Vance")
+        lily = self.npcs.get("Lily Harper")
         if lily and ("family" in text or "vance" in text) and random.random() < 0.3:
             self._add_scenario("[LILY: Her posture straightens, eyes narrowed with fierce, protective loyalty. She will defend her family name to the end.]")
 
         # --- Isabella (Aesthetic Quirk) ---
-        isabella = self.npcs.get("Isabella Chen")
+        isabella = self.npcs.get("Isabella Ruiz")
         if isabella and random.random() < 0.2:
             self._add_scenario("[ISABELLA: Pauses a conversation to adjust a scarf or jacket, prioritizing her meticulous, trendy aesthetic above all else.]")
 
         # --- Damien (Need for Validation Quirk) ---
-        damien = self.npcs.get("Damien Cole")
+        damien = self.npcs.get("Damien Voss")
         if damien and random.random() < 0.2 and "ignored" in text:
             self._add_scenario("[DAMIEN: Speaks louder than necessary, throwing out a cynical, witty remark just to force a reaction from those ignoring him.]")
 
         # --- Christine (Over-Caring Quirk) ---
-        christine = self.npcs.get("Christine Wells")
+        christine = self.npcs.get("Christine Brunn")
         if christine and christine.needs.social < 50:
             self._add_scenario("[CHRISTINE: Offers unsolicited advice and a warm drink to a random NPC, seeking connection by attempting to fix a non-existent problem.]")
         
         # --- Penny (Control Quirk) ---
-        penny = self.npcs.get("Penny Rose")
+        penny = self.npcs.get("Penny Lockheart")
         if penny and random.random() < 0.15:
             self._add_scenario("[PENNY: Quickly steps in to organize a pile of misplaced items or reroute a conversation, revealing her strong need for control.]")
 
         # --- Mindy (Self-Sabotage Quirk) ---
-        mindy = self.npcs.get("Mindy Clark")
+        mindy = self.npcs.get("Mindy Kunitz")
         if mindy and random.random() < 0.1:
             self._add_scenario("[MINDY: Just as a positive opportunity arises, she makes an oddly deflating or self-deprecating comment, actively pushing success away.]")
 
         # --- Rose (Secretiveness Quirk) ---
-        rose = self.npcs.get("Rose Sterling")
+        rose = self.npcs.get("Rose Stephens")
         if rose and random.random() < 0.2:
             self._add_scenario("[ROSE: Her hand hovers near her mouth as she speaks, a flicker of panic suggesting she almost revealed a secret she shouldn't have.]")
 
         # --- Luke (Provocation Quirk) ---
-        luke = self.npcs.get("Luke Vance")
+        luke = self.npcs.get("Luke Stephens")
         if luke and random.random() < 0.15 and "calm" in text:
             self._add_scenario("[LUKE: Eyes darting around, he leans into a heated discussion, clearly enjoying the tension and chaos he is helping to create.]")
 
         # --- Tim (Social Incompetence Quirk) ---
-        tim = self.npcs.get("Tim Wells")
+        tim = self.npcs.get("Tim Thompson")
         if tim and random.random() < 0.2:
             self._add_scenario("[TIM: Recites a complex technical fact about a mundane subject, completely misreading the social cue to change the topic.]")
-
-        # --- Tony (Sarcasm Quirk) ---
-        tony = self.npcs.get("Tony Rose")
-        if tony and random.random() < 0.1:
-            self._add_scenario("[TONY: A slow, knowing smirk spreads across his face, followed by a remark dripping with heavy, unmistakable sarcasm.]")
 
         # =======================================================================
         # QUIRK LOGIC END
