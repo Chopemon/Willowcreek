@@ -96,13 +96,14 @@ class NPCQuirksSystem:
                 getattr(emma, "current_location", None)
                 == getattr(self.malcolm, "current_location", None)
             )
-        if "emma" in text or emma_present:
-            triggers = ["banana", "curved fruit", "yellow peel"]
-            if any(t in text for t in triggers):
-                self._add_scenario(
-                    "[EMMA REFLEX: Body arches involuntarily. Thighs clench. Muffled moan escapes. "
-                    "Face burns crimson with shame. She has an intense orgasm.]"
-                )
+        triggers = ["banana", "curved fruit", "yellow peel"]
+        emma_mentioned = "emma" in text or "pearson" in text
+        malcolm_mentioned = "malcolm" in text or "newt" in text
+        if emma and any(t in text for t in triggers) and (emma_mentioned or emma_present or malcolm_mentioned):
+            self._add_scenario(
+                "[EMMA REFLEX: Body arches involuntarily. Thighs clench. Muffled moan escapes. "
+                "Face burns crimson with shame. She has an intense orgasm.]"
+            )
 
         # --- Nora (Anxiety/TikTok Quirk) ---
         nora = self.npcs.get("Nora Blake")

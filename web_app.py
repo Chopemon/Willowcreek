@@ -34,7 +34,11 @@ current_api_url: Optional[str] = None
 game_manager_instance = None
 
 # Image Generation Services
-COMFYUI_ENABLED = os.getenv("COMFYUI_ENABLED", "false").lower() == "true"
+def _env_truthy(value: str) -> bool:
+    return str(value).strip().lower() in {"1", "true", "yes", "on", "y"}
+
+
+COMFYUI_ENABLED = _env_truthy(os.getenv("COMFYUI_ENABLED", "false"))
 COMFYUI_URL = os.getenv("COMFYUI_URL", "http://127.0.0.1:8188")
 AI_PROMPTS_ENABLED = os.getenv("AI_PROMPTS_ENABLED", "true").lower() == "true"  # AI-based prompt generation
 PORTRAITS_ENABLED = os.getenv("PORTRAITS_ENABLED", "true").lower() == "true"  # NPC portrait generation
