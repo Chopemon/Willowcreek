@@ -26,8 +26,8 @@ CONFIG = {
     },
     "local": {
         "api_url": "http://localhost:1234/v1/chat/completions",
-        "model_name": "local-model",
-        "memory_model_name": "local-model",
+        "model_name": "qwen3-4b-rpg-roleplay-v2",
+        "memory_model_name": "llama3.3-8b-instruct-thinking-heretic-uncensored-claude-4.5-opus-high-reasoning-i1",
         "key_env": None,
         "context_size": 2048
     }
