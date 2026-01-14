@@ -288,17 +288,42 @@ class NPCPortraitGenerator:
             return None
 
     def _parse_prompt_response(self, content: str) -> Optional[Tuple[str, str]]:
+        cleaned = content.strip()
+        if not cleaned:
+            return None
+
         positive_prompt = None
         negative_prompt = None
 
-        for line in content.splitlines():
-            if line.strip().lower().startswith("positive:"):
+        for line in cleaned.splitlines():
+            lowered = line.strip().lower()
+            if lowered.startswith("positive:"):
                 positive_prompt = line.split(":", 1)[1].strip()
-            elif line.strip().lower().startswith("negative:"):
+            elif lowered.startswith("negative:"):
                 negative_prompt = line.split(":", 1)[1].strip()
 
         if positive_prompt and negative_prompt:
             return positive_prompt, negative_prompt
+
+        inline = cleaned.lower()
+        if "positive:" in inline and "negative:" in inline:
+            positive_start = inline.index("positive:") + len("positive:")
+            negative_start = inline.index("negative:")
+            positive_prompt = cleaned[positive_start:negative_start].strip(" \n-")
+            negative_prompt = cleaned[negative_start + len("negative:"):].strip(" \n-")
+            if positive_prompt and negative_prompt:
+                return positive_prompt, negative_prompt
+
+        try:
+            parsed = json.loads(cleaned)
+        except json.JSONDecodeError:
+            return None
+
+        if isinstance(parsed, dict):
+            positive = parsed.get("positive") or parsed.get("prompt") or parsed.get("positive_prompt")
+            negative = parsed.get("negative") or parsed.get("negative_prompt")
+            if isinstance(positive, str) and isinstance(negative, str):
+                return positive.strip(), negative.strip()
 
         return None
 
