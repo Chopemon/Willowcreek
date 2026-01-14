@@ -52,6 +52,12 @@ class NarrativeChat:
         self.memory_model_name = memory_model_name or self.model_name or CONFIG[mode]["memory_model_name"]
         self.context_size = CONFIG[mode].get("context_size")
 
+        if mode == "local" and not api_url:
+            self.api_url = os.getenv(
+                "LM_STUDIO_API_URL",
+                os.getenv("LOCAL_API_URL", self.api_url),
+            )
+
         # Debug logging for mode initialization
         print(f"\n[NarrativeChat] ===== INITIALIZING =====")
         print(f"[NarrativeChat] Mode: {mode}")
