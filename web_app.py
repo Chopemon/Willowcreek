@@ -284,35 +284,39 @@ async def generate_npc_portraits(narrative_text: str):
     print(f"[PortraitGen] Detected NPCs in narrative: {', '.join(mentioned_npcs)}")
 
     portraits = []
-    for npc_name in mentioned_npcs:
-        # Get NPC data - check both main NPC dict and generic NPCs
-        npc = chat.sim.npc_dict.get(npc_name)
-        if not npc:
-            print(f"[PortraitGen] NPC {npc_name} not found in roster, skipping")
-            continue
+    unloaded_models, manager = _unload_llm_models()
+    try:
+        for npc_name in mentioned_npcs:
+            # Get NPC data - check both main NPC dict and generic NPCs
+            npc = chat.sim.npc_dict.get(npc_name)
+            if not npc:
+                print(f"[PortraitGen] NPC {npc_name} not found in roster, skipping")
+                continue
 
-        npc_data = _build_npc_portrait_data(npc)
+            npc_data = _build_npc_portrait_data(npc)
 
-        # Generate or get BOTH portrait types
-        headshot_url = portrait_generator.get_portrait_url(npc_name, "headshot")
-        full_body_url = portrait_generator.get_portrait_url(npc_name, "full_body")
+            # Generate or get BOTH portrait types
+            headshot_url = portrait_generator.get_portrait_url(npc_name, "headshot")
+            full_body_url = portrait_generator.get_portrait_url(npc_name, "full_body")
 
-        # Generate headshot if missing
-        if not headshot_url:
-            print(f"[PortraitGen] Generating headshot for {npc_name}")
-            headshot_url = await portrait_generator.generate_portrait(npc_name, npc_data, "headshot")
+            # Generate headshot if missing
+            if not headshot_url:
+                print(f"[PortraitGen] Generating headshot for {npc_name}")
+                headshot_url = await portrait_generator.generate_portrait(npc_name, npc_data, "headshot")
 
-        # Generate full body if missing
-        if not full_body_url:
-            print(f"[PortraitGen] Generating full_body for {npc_name}")
-            full_body_url = await portrait_generator.generate_portrait(npc_name, npc_data, "full_body")
+            # Generate full body if missing
+            if not full_body_url:
+                print(f"[PortraitGen] Generating full_body for {npc_name}")
+                full_body_url = await portrait_generator.generate_portrait(npc_name, npc_data, "full_body")
 
-        if headshot_url or full_body_url:
-            portraits.append({
-                "name": npc_name,
-                "headshot": headshot_url,
-                "full_body": full_body_url
-            })
+            if headshot_url or full_body_url:
+                portraits.append({
+                    "name": npc_name,
+                    "headshot": headshot_url,
+                    "full_body": full_body_url
+                })
+    finally:
+        _reload_llm_models(unloaded_models, manager)
 
     return portraits
 
