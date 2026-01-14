@@ -89,7 +89,14 @@ class NPCQuirksSystem:
                 self._add_scenario("[ALEX: Alone with Maria — guilt and desire collide]")
 
         # --- Emma (Reflex Quirk) ---
-        if "emma" in text:
+        emma = self.npcs.get("Emma Pearson")
+        emma_present = False
+        if emma and self.malcolm:
+            emma_present = (
+                getattr(emma, "current_location", None)
+                == getattr(self.malcolm, "current_location", None)
+            )
+        if "emma" in text or emma_present:
             triggers = ["banana", "curved fruit", "yellow peel"]
             if any(t in text for t in triggers):
                 self._add_scenario(
