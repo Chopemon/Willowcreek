@@ -57,7 +57,7 @@ COMFYUI_ENABLED = _resolve_comfyui_enabled()
 COMFYUI_URL = os.getenv("COMFYUI_URL", "http://127.0.0.1:8188")
 AI_PROMPTS_ENABLED = os.getenv("AI_PROMPTS_ENABLED", "true").lower() == "true"  # AI-based prompt generation
 PORTRAITS_ENABLED = os.getenv("PORTRAITS_ENABLED", "true").lower() == "true"  # NPC portrait generation
-LM_STUDIO_MANAGE_ENABLED = _env_truthy(os.getenv("LM_STUDIO_MANAGE_ENABLED", "false"))
+LM_STUDIO_MANAGE_ENABLED = _env_truthy(os.getenv("LM_STUDIO_MANAGE_ENABLED", "true"))
 
 comfyui_client = ComfyUIClient(base_url=COMFYUI_URL) if COMFYUI_ENABLED else None
 scene_analyzer = SceneAnalyzer()
