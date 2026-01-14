@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List
 
-from llm_client import LocalLLMClient
+from lm_studio_client import LMStudioClient, LLMResponse
 from memory_store import MemoryRecord, MemoryStore
 
 
@@ -23,7 +23,7 @@ class NPCActor:
         self.profile = profile
         self.memory_store = memory_store
 
-    def act(self, llm_client: LocalLLMClient | None = None) -> str:
+    def act(self, llm_client: LMStudioClient | None = None) -> str:
         name = self.profile.identity["name"]
         location = self.profile.state["current_location"]
         core_traits = ", ".join(self.profile.identity["coreTraits"])
@@ -48,7 +48,7 @@ class NPCActor:
         )
 
         if llm_client:
-            response = llm_client.generate(prompt)
+            response: LLMResponse = llm_client.generate(prompt)
             action_text = response.text.strip()
         else:
             action_text = f"{name} pauses at {location}, thinking about {memory_hint.lower()}."
@@ -94,7 +94,7 @@ def load_profiles(npc_root: Path) -> List[NPCProfile]:
 
 def run_simulation(npc_root: Path, ticks: int, use_llm: bool) -> None:
     memory_store = MemoryStore()
-    llm_client = LocalLLMClient() if use_llm else None
+    llm_client = LMStudioClient() if use_llm else None
     profiles = load_profiles(npc_root)
 
     for tick in range(1, ticks + 1):

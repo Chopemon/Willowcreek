@@ -1,15 +1,12 @@
 # narrative_chat.py
 # FIXED: Restored original atmospheric opening, system prompt, and prompt structure.
 
-import requests
 import os
+import requests
 from typing import Optional, List, Dict
-from pathlib import Path
 from simulation_v2 import WillowCreekSimulation
 from entities.npc import NPC
 from enhanced_snapshot_builder import create_narrative_context
-from llm_client import LocalLLMClient
-
 def _resolve_max_tokens(env_name: str, default: int) -> int:
     value = os.getenv(env_name)
     if not value:
@@ -50,28 +47,20 @@ class NarrativeChat:
         if mode not in CONFIG: raise ValueError(f"Invalid mode: {mode}")
 
         self.mode = mode
-        self.api_url = api_url or (None if mode == "local" else CONFIG[mode]["api_url"])
+        self.api_url = api_url or CONFIG[mode]["api_url"]
         self.model_name = model_name or CONFIG[mode]["model_name"]
         self.memory_model_name = memory_model_name or self.model_name or CONFIG[mode]["memory_model_name"]
-        self.local_client: Optional[LocalLLMClient] = None
-        self.local_memory_client: Optional[LocalLLMClient] = None
+        self.context_size = CONFIG[mode].get("context_size")
 
         # Debug logging for mode initialization
         print(f"\n[NarrativeChat] ===== INITIALIZING =====")
         print(f"[NarrativeChat] Mode: {mode}")
-        print(f"[NarrativeChat] API URL: {self.api_url or 'local-client'}")
+        print(f"[NarrativeChat] API URL: {self.api_url}")
         print(f"[NarrativeChat] Model: {self.model_name}")
         print(f"[NarrativeChat] Memory Model: {self.memory_model_name}")
 
         if mode == "local":
             self.api_key = "NOT_REQUIRED"
-            resolved_model = self._resolve_local_model(self.model_name)
-            resolved_memory_model = self._resolve_local_model(self.memory_model_name)
-            self.local_client = LocalLLMClient(model_name=resolved_model)
-            if self.memory_model_name == self.model_name:
-                self.local_memory_client = self.local_client
-            else:
-                self.local_memory_client = LocalLLMClient(model_name=resolved_memory_model)
             print(f"[NarrativeChat] API Key: Not required for local mode")
         elif CONFIG[mode]["key_env"]:
             self.api_key = os.getenv(CONFIG[mode]["key_env"])
@@ -126,6 +115,15 @@ class NarrativeChat:
     def narrate(self, user_input: str) -> str:
         # 1. Get World Snapshot
         world_snapshot = create_narrative_context(self.sim, self.malcolm)
+        if self.sim and self.sim.memory and self.memory_enabled:
+            query = f"{user_input}\n{self.last_narrated}"
+            retrieved = self.sim.memory.build_retrieved_memory_context(
+                "Malcolm Newt",
+                query,
+                current_sim_day=self.sim.time.total_days,
+            )
+            if retrieved:
+                world_snapshot = f"{world_snapshot}\n\n{retrieved}"
 
         # --- DIALOGUE-FOCUSED SYSTEM PROMPT ---
         system_prompt = (
@@ -191,30 +189,20 @@ class NarrativeChat:
             payload["max_context_tokens"] = self.context_size
 
         try:
-            if self.local_client:
-                print(f"[NarrativeChat] Using local model: {self.model_name}")
-                prompt = self._build_prompt(messages)
-                response = self.local_client.generate(
-                    prompt,
-                    max_new_tokens=payload["max_tokens"],
-                    temperature=payload["temperature"],
-                )
-                content = response.text
-            else:
-                print(f"[NarrativeChat] Making API call to: {self.api_url}")
-                print(f"[NarrativeChat] Using model: {self.model_name}")
-                print(f"[NarrativeChat] Temperature: {payload['temperature']}, Max tokens: {payload['max_tokens']}")
+            print(f"[NarrativeChat] Making API call to: {self.api_url}")
+            print(f"[NarrativeChat] Using model: {self.model_name}")
+            print(f"[NarrativeChat] Temperature: {payload['temperature']}, Max tokens: {payload['max_tokens']}")
 
-                res = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
+            res = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
 
-                print(f"[NarrativeChat] Response status: {res.status_code}")
+            print(f"[NarrativeChat] Response status: {res.status_code}")
 
-                if res.status_code != 200:
-                    print(f"[NarrativeChat] API Error: {res.text}")
-                    return f"[API Error: {res.text}]"
+            if res.status_code != 200:
+                print(f"[NarrativeChat] API Error: {res.text}")
+                return f"[API Error: {res.text}]"
 
-                content = res.json()["choices"][0]["message"]["content"]
-                print(f"[NarrativeChat] Response received, length: {len(content)} characters")
+            content = res.json()["choices"][0]["message"]["content"]
+            print(f"[NarrativeChat] Response received, length: {len(content)} characters")
 
             # Update History
             # We store the simplified version in history to avoid exploding context size with repetitive World States
@@ -273,20 +261,11 @@ class NarrativeChat:
             payload["max_context_tokens"] = self.context_size
 
         try:
-            if self.local_memory_client:
-                prompt_text = self._build_prompt(payload["messages"])
-                response = self.local_memory_client.generate(
-                    prompt_text,
-                    max_new_tokens=payload["max_tokens"],
-                    temperature=payload["temperature"],
-                )
-                content = response.text
-            else:
-                res = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
-                if res.status_code != 200:
-                    print(f"[NarrativeChat] Memory model error: {res.text}")
-                    return
-                content = res.json()["choices"][0]["message"]["content"]
+            res = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
+            if res.status_code != 200:
+                print(f"[NarrativeChat] Memory model error: {res.text}")
+                return
+            content = res.json()["choices"][0]["message"]["content"]
 
             memories = self._parse_memory_json(content)
             if not memories:
@@ -294,31 +273,6 @@ class NarrativeChat:
             self._store_memories(memories)
         except Exception as exc:
             print(f"[NarrativeChat] Memory update failed: {exc}")
-
-    @staticmethod
-    def _build_prompt(messages: List[Dict]) -> str:
-        lines = []
-        for message in messages:
-            role = message.get("role", "user").upper()
-            content = message.get("content", "")
-            lines.append(f"{role}: {content}")
-        return "\n\n".join(lines)
-
-    @staticmethod
-    def _resolve_local_model(model_name: str) -> str:
-        if not model_name:
-            return model_name
-        candidate = Path(model_name)
-        if candidate.exists():
-            return str(candidate.resolve())
-        has_separator = "/" in model_name or "\\" in model_name
-        if has_separator:
-            return model_name
-        models_root = Path(os.getenv("LOCAL_MODELS_DIR", "models"))
-        resolved = models_root / model_name
-        if resolved.exists():
-            return str(resolved.resolve())
-        return model_name
 
     def _parse_memory_json(self, content: str) -> List[Dict]:
         import json
