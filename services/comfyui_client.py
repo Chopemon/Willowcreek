@@ -95,12 +95,23 @@ class ComfyUIClient:
 
         if full_path.exists():
             with open(full_path, 'r', encoding='utf-8') as f:
-                self.workflow_template = json.load(f)
+                self.workflow_template = self._sanitize_workflow(json.load(f))
             node_count = len(self.workflow_template) if self.workflow_template else 0
             print(f"[ComfyUI] ✓ Successfully loaded workflow '{workflow_path}' with {node_count} nodes")
         else:
             print(f"[ComfyUI] ✗ Workflow not found at {full_path}")
             print(f"[ComfyUI] ✗ Will use default workflow instead")
+
+    def _sanitize_workflow(self, workflow: Dict) -> Dict:
+        """Remove non-node entries (comments/metadata) lacking class_type."""
+        cleaned = {}
+        for node_id, node in workflow.items():
+            if not isinstance(node, dict):
+                continue
+            if "class_type" not in node:
+                continue
+            cleaned[node_id] = node
+        return cleaned
 
     def _inject_prompts(self,
                        workflow: Dict,
