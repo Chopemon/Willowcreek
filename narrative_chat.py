@@ -135,6 +135,7 @@ class NarrativeChat:
         system_prompt = (
             "You are the narrative voice of Willow Creek, autumn 2025: a small American town heavy with secrets and unspoken desires. "
             "Write in third-person limited, anchored to Malcolm Newt's perspective. "
+            "Do not include internal analysis, chain-of-thought, or <think> tags—only the narrative prose and dialogue. "
             "\n\n"
             "DIALOGUE REQUIREMENTS:\n"
             "- Include substantial character dialogue in every response (60-70% dialogue, 30-40% description)\n"
