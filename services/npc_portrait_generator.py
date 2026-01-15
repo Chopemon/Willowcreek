@@ -48,6 +48,11 @@ class NPCPortraitGenerator:
 
         print(f"[PortraitGen] Initialized. Cache contains {len(self.portrait_cache)} portraits")
 
+    @staticmethod
+    def _portrait_filename(npc_name: str, portrait_type: str) -> str:
+        safe_name = npc_name.replace(" ", "_").replace("'", "")
+        return f"{safe_name}_{portrait_type}.png"
+
     def _load_cache(self) -> Dict[str, str]:
         """Load portrait cache from disk."""
         if self.cache_file.exists():
@@ -82,7 +87,19 @@ class NPCPortraitGenerator:
     def get_portrait_url(self, npc_name: str, portrait_type: str = "headshot") -> Optional[str]:
         """Get portrait URL for an NPC if it exists."""
         cache_key = f"{npc_name}_{portrait_type}"
-        return self.portrait_cache.get(cache_key)
+        cached = self.portrait_cache.get(cache_key)
+        if cached:
+            return cached
+
+        filename = self._portrait_filename(npc_name, portrait_type)
+        file_path = self.portraits_dir / filename
+        if file_path.exists():
+            url = f"/npc_portraits/{filename}"
+            self.portrait_cache[cache_key] = url
+            self._save_cache()
+            return url
+
+        return None
 
     def _infer_gender_from_name(self, npc_name: str) -> str:
         """
@@ -160,7 +177,7 @@ class NPCPortraitGenerator:
         Args:
             npc_name: Name of the NPC
             npc_data: NPC data dictionary with appearance info
-            portrait_type: Type of portrait - "headshot" (768x768) or "full_body" (512x896)
+            portrait_type: Type of portrait - "headshot", "medium_shot", or "full_body"
 
         Returns:
             URL to the generated portrait image, or None if generation failed
@@ -186,15 +203,13 @@ class NPCPortraitGenerator:
         # Set dimensions based on portrait type
         if portrait_type == "full_body":
             width, height = 832, 1216  # Taller aspect ratio for full body
-        elif portrait_type == "cowboy_shot":
+        elif portrait_type in {"cowboy_shot", "medium_shot"}:
             width, height = 896, 1152  # Medium ratio for waist-up
         else:  # headshot
             width, height = 1024, 1024  # Square for circular headshot
 
         try:
-            # Create filename: NPC_Name_headshot or NPC_Name_full_body
-            safe_name = npc_name.replace(" ", "_").replace("'", "")
-            custom_filename = f"{safe_name}_{portrait_type}"
+            custom_filename = self._portrait_filename(npc_name, portrait_type).replace(".png", "")
 
             # Generate portrait image
             image_url = await self.comfyui_client.generate_image(
@@ -341,7 +356,7 @@ class NPCPortraitGenerator:
         Args:
             npc_name: Name of the NPC
             npc_data: NPC data with appearance information
-            portrait_type: "headshot" or "full_body"
+            portrait_type: "headshot", "medium_shot", or "full_body"
 
         Returns:
             Tuple of (positive_prompt, negative_prompt)
@@ -938,7 +953,7 @@ class NPCPortraitGenerator:
                 "symmetrical",
                 "fashion"
             ])
-        elif portrait_type == "cowboy_shot":
+        elif portrait_type in {"cowboy_shot", "medium_shot"}:
             tags.extend([
                 "cowboy shot",
                 "waist up",
@@ -1031,7 +1046,7 @@ class NPCPortraitGenerator:
                 "kneeling",
                 "lying down"
             ])
-        elif portrait_type == "cowboy_shot":
+        elif portrait_type in {"cowboy_shot", "medium_shot"}:
             negative_tags.extend([
                 "full body",
                 "legs visible",

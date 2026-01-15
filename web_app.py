@@ -19,6 +19,7 @@ from api_endpoints import router as api_router
 from game_manager import get_game_manager
 from lm_studio_client import LMStudioClient
 import os
+import json
 import urllib.error
 import urllib.request
 
@@ -69,10 +70,10 @@ template_prompt_generator = ImagePromptGenerator()
 ai_prompt_generator = None  # Will be initialized based on LLM mode
 
 # Initialize portrait generator
-portrait_generator = NPCPortraitGenerator(comfyui_client) if (COMFYUI_ENABLED and PORTRAITS_ENABLED) else None
+portrait_generator = NPCPortraitGenerator(comfyui_client if COMFYUI_ENABLED else None) if PORTRAITS_ENABLED else None
 
 print(f"[ImageGen] AI-based prompt generation: {'ENABLED' if AI_PROMPTS_ENABLED else 'DISABLED'}")
-print(f"[PortraitGen] NPC portraits: {'ENABLED' if PORTRAITS_ENABLED and COMFYUI_ENABLED else 'DISABLED'}")
+print(f"[PortraitGen] NPC portraits: {'ENABLED' if PORTRAITS_ENABLED else 'DISABLED'}")
 print(f"[PortraitGen] Auto-generate portraits: {'ENABLED' if PORTRAIT_AUTOGEN_ENABLED else 'DISABLED'}")
 print(f"[LMStudio] Model management: {'ENABLED' if LM_STUDIO_MANAGE_ENABLED else 'DISABLED'}")
 
@@ -270,13 +271,13 @@ def generate_image_prompts(scene_context, narrative_text: Optional[str] = None):
 async def generate_npc_portraits(narrative_text: str):
     """
     Detect NPCs in narrative and generate portraits for them.
-    Generates both headshot (close-up) and full_body portraits.
+    Returns medium-shot portraits (thighs up) if available.
 
     Args:
         narrative_text: The narrative text to analyze
 
     Returns:
-        List of portrait dictionaries with {name, headshot_url, full_body_url}
+        List of portrait dictionaries with {name, url}
     """
     if not portrait_generator or not chat:
         return []
@@ -299,45 +300,11 @@ async def generate_npc_portraits(narrative_text: str):
 
         npc_data = _build_npc_portrait_data(npc)
 
-        # Generate or get BOTH portrait types
-        headshot_url = portrait_generator.get_portrait_url(npc_name, "headshot")
-        full_body_url = portrait_generator.get_portrait_url(npc_name, "full_body")
-
-        if not headshot_url:
-            print(f"[PortraitGen] Generating headshot prompt for {npc_name}")
-            headshot_prompt = await portrait_generator.generate_portrait_prompts(npc_name, npc_data, "headshot")
-            unloaded_models, manager = _unload_llm_models()
-            try:
-                print(f"[PortraitGen] Generating headshot for {npc_name}")
-                headshot_url = await portrait_generator.generate_portrait(
-                    npc_name,
-                    npc_data,
-                    "headshot",
-                    prompts=headshot_prompt,
-                )
-            finally:
-                _reload_llm_models(unloaded_models, manager)
-
-        if not full_body_url:
-            print(f"[PortraitGen] Generating full_body prompt for {npc_name}")
-            full_body_prompt = await portrait_generator.generate_portrait_prompts(npc_name, npc_data, "full_body")
-            unloaded_models, manager = _unload_llm_models()
-            try:
-                print(f"[PortraitGen] Generating full_body for {npc_name}")
-                full_body_url = await portrait_generator.generate_portrait(
-                    npc_name,
-                    npc_data,
-                    "full_body",
-                    prompts=full_body_prompt,
-                )
-            finally:
-                _reload_llm_models(unloaded_models, manager)
-
-        if headshot_url or full_body_url:
+        portrait_url = portrait_generator.get_portrait_url(npc_name, "medium_shot")
+        if portrait_url:
             portraits.append({
                 "name": npc_name,
-                "headshot": headshot_url,
-                "full_body": full_body_url
+                "url": portrait_url,
             })
 
     return portraits
@@ -364,38 +331,26 @@ def _build_npc_portrait_data(npc) -> dict:
 async def _autogenerate_all_npc_portraits() -> None:
     if not portrait_generator or not chat or not chat.sim:
         return
-    print("[PortraitGen] Auto-generating portraits for roster...")
+    print("[PortraitGen] Auto-generating portrait prompts for roster...")
+    from pathlib import Path
+
+    prompts = {}
     for npc in chat.sim.npcs:
         npc_name = npc.full_name
         npc_data = _build_npc_portrait_data(npc)
+        prompt_pair = await portrait_generator.generate_portrait_prompts(npc_name, npc_data, "medium_shot")
+        prompts[npc_name] = {
+            "portrait_type": "medium_shot",
+            "positive": prompt_pair[0],
+            "negative": prompt_pair[1],
+            "filename": portrait_generator._portrait_filename(npc_name, "medium_shot"),
+        }
 
-        headshot_url = portrait_generator.get_portrait_url(npc_name, "headshot")
-        full_body_url = portrait_generator.get_portrait_url(npc_name, "full_body")
-
-        if not headshot_url:
-            headshot_prompt = await portrait_generator.generate_portrait_prompts(npc_name, npc_data, "headshot")
-            unloaded_models, manager = _unload_llm_models()
-            try:
-                await portrait_generator.generate_portrait(
-                    npc_name,
-                    npc_data,
-                    "headshot",
-                    prompts=headshot_prompt,
-                )
-            finally:
-                _reload_llm_models(unloaded_models, manager)
-        if not full_body_url:
-            full_body_prompt = await portrait_generator.generate_portrait_prompts(npc_name, npc_data, "full_body")
-            unloaded_models, manager = _unload_llm_models()
-            try:
-                await portrait_generator.generate_portrait(
-                    npc_name,
-                    npc_data,
-                    "full_body",
-                    prompts=full_body_prompt,
-                )
-            finally:
-                _reload_llm_models(unloaded_models, manager)
+    if prompts:
+        output_path = Path(portrait_generator.portraits_dir) / "portrait_prompts.json"
+        with open(output_path, "w", encoding="utf-8") as f:
+            json.dump(prompts, f, indent=2)
+        print(f"[PortraitGen] Saved portrait prompts to {output_path}")
 
 
 @app.get("/api/init", response_class=JSONResponse)

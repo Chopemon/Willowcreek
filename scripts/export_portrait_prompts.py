@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Export all NPC portrait prompts to a text file.
-This generates prompts for both headshot and full_body portraits without actually generating images.
+This generates prompts for medium-shot portraits without actually generating images.
 """
 
 import json
@@ -62,7 +62,7 @@ def export_all_prompts(output_file: str = "portrait_prompts.txt"):
         f.write("WILLOW CREEK NPC PORTRAIT PROMPTS\n")
         f.write("=" * 80 + "\n\n")
         f.write(f"Total NPCs: {len(npc_roster)}\n")
-        f.write(f"Generated prompts for HEADSHOT, COWBOY SHOT, and FULL_BODY portraits\n\n")
+        f.write("Generated prompts for MEDIUM_SHOT portraits (thighs up)\n\n")
 
         for idx, npc in enumerate(npc_roster, 1):
             npc_name = npc.get('name', 'Unknown')
@@ -93,50 +93,14 @@ def export_all_prompts(output_file: str = "portrait_prompts.txt"):
             f.write(f"Quirk: {npc_data['quirk']}\n")
             f.write(f"Appearance: {npc_data['appearance'][:100]}...\n\n")
 
-            # Generate HEADSHOT prompt
+            # Generate MEDIUM_SHOT prompt
             f.write("-" * 80 + "\n")
-            f.write("HEADSHOT PORTRAIT (1024x1024)\n")
+            f.write("MEDIUM SHOT PORTRAIT (896x1152 - Thighs Up)\n")
             f.write("-" * 80 + "\n\n")
 
             try:
                 positive_prompt, negative_prompt = portrait_gen._build_portrait_prompt(
-                    npc_name, npc_data, portrait_type="headshot"
-                )
-
-                f.write("POSITIVE PROMPT:\n")
-                f.write(positive_prompt + "\n\n")
-
-                f.write("NEGATIVE PROMPT:\n")
-                f.write(negative_prompt + "\n\n")
-            except Exception as e:
-                f.write(f"ERROR: {e}\n\n")
-
-            # Generate COWBOY_SHOT prompt
-            f.write("-" * 80 + "\n")
-            f.write("COWBOY SHOT PORTRAIT (896x1152 - Waist Up)\n")
-            f.write("-" * 80 + "\n\n")
-
-            try:
-                positive_prompt, negative_prompt = portrait_gen._build_portrait_prompt(
-                    npc_name, npc_data, portrait_type="cowboy_shot"
-                )
-
-                f.write("POSITIVE PROMPT:\n")
-                f.write(positive_prompt + "\n\n")
-
-                f.write("NEGATIVE PROMPT:\n")
-                f.write(negative_prompt + "\n\n")
-            except Exception as e:
-                f.write(f"ERROR: {e}\n\n")
-
-            # Generate FULL_BODY prompt
-            f.write("-" * 80 + "\n")
-            f.write("FULL BODY PORTRAIT (832x1216)\n")
-            f.write("-" * 80 + "\n\n")
-
-            try:
-                positive_prompt, negative_prompt = portrait_gen._build_portrait_prompt(
-                    npc_name, npc_data, portrait_type="full_body"
+                    npc_name, npc_data, portrait_type="medium_shot"
                 )
 
                 f.write("POSITIVE PROMPT:\n")
