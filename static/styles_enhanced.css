@@ -18,6 +18,18 @@ body {
     flex-direction: column;
 }
 
+body.autoplay #mode-selection,
+body.autoplay #model-selection,
+body.autoplay #input-controls,
+body.autoplay #quick-actions {
+    display: none;
+}
+
+body.autoplay #status-bar {
+    justify-content: flex-start;
+    gap: 16px;
+}
+
 /* ===== STATUS BAR ===== */
 #status-bar {
     background: linear-gradient(120deg, rgba(16, 24, 48, 0.95) 0%, rgba(21, 32, 65, 0.92) 100%);
@@ -29,6 +41,18 @@ body {
     flex-shrink: 0;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
     backdrop-filter: blur(12px);
+}
+
+#autoplay-indicator {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(0, 188, 212, 0.5);
+    background: rgba(0, 188, 212, 0.12);
+    color: #00bcd4;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 #time-display {
