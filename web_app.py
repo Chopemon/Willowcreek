@@ -134,6 +134,8 @@ async def _init_sim_handler(
         resolved_api_url = api_url
         if mode == "local" and not resolved_api_url:
             resolved_api_url = os.getenv("LOCAL_API_URL")
+        if mode == "lmstudio" and not resolved_api_url:
+            resolved_api_url = os.getenv("LMSTUDIO_API_URL")
 
         model_changed = (
             (model_name or None) != (current_model_name or None)

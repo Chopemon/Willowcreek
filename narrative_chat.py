@@ -33,6 +33,13 @@ CONFIG = {
         "memory_model_name": "local-model",
         "key_env": None,
         "context_size": 2048
+    },
+    "lmstudio": {
+        "api_url": os.getenv("LMSTUDIO_API_URL", "http://localhost:1234/v1/chat/completions"),
+        "model_name": os.getenv("LMSTUDIO_MODEL_NAME", "local-model"),
+        "memory_model_name": os.getenv("LMSTUDIO_MEMORY_MODEL_NAME", "local-model"),
+        "key_env": None,
+        "context_size": 2048
     }
 }
 

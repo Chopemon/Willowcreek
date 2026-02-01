@@ -90,7 +90,11 @@ class WillowCreekDashboard {
 
         this.applyModeDefaults();
         this.refreshLocalModelList();
-        const modeLabel = this.simulationMode === 'local' ? 'Local Model' : 'OpenRouter';
+        const modeLabel = this.simulationMode === 'local'
+            ? 'Local Model'
+            : this.simulationMode === 'lmstudio'
+                ? 'LM Studio'
+                : 'OpenRouter';
         const followUp = this.autoplayEnabled ? 'Autoplay will continue with the new mode.' : "Click 'Start Simulation'.";
         this.updateNarrative(`Mode set to: ${modeLabel}. ${followUp}`);
     }
@@ -208,7 +212,7 @@ class WillowCreekDashboard {
         const datalist = document.getElementById('local-model-options');
 
         if (!modelInput || !datalist) return;
-        if (this.simulationMode !== 'local') return;
+        if (!['local', 'lmstudio'].includes(this.simulationMode)) return;
 
         try {
             const response = await fetch('/api/local-models');
