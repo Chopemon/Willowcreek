@@ -13,6 +13,7 @@ class WillowCreekDashboard {
         this.autoplayTimer = null;
         this.autoplayInFlight = false;
         this.simulationInitialized = false;
+        this.autoplayPrompt = 'Continue the story.';
 
         this.init();
     }
@@ -173,9 +174,33 @@ class WillowCreekDashboard {
         if (this.autoplayInFlight) return;
         this.autoplayInFlight = true;
         try {
-            await this.waitHours(1);
+            await this.runAutoplayNarration();
         } finally {
             this.autoplayInFlight = false;
+        }
+    }
+
+    async runAutoplayNarration() {
+        try {
+            const response = await fetch('/api/act', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ action: this.autoplayPrompt })
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.error || 'Autoplay failed');
+            }
+
+            this.updateNarrative(data.narration);
+            this.updateSnapshot(data.snapshot);
+            this.displayImages(data.images);
+            this.displayPortraits(data.portraits || []);
+        } catch (error) {
+            console.error('Autoplay step failed:', error);
+            this.updateNarrative(`Autoplay error: ${error.message}`);
+            this.stopAutoplay();
+            this.updateAutoplayUI();
         }
     }
 
