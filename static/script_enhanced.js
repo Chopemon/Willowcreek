@@ -8,6 +8,10 @@ class WillowCreekDashboard {
         this.debugExpanded = false;
         this.latestSnapshot = null;
         this.simulationMode = 'openrouter';
+        this.autoplayEnabled = true;
+        this.autoplayIntervalMs = 45000;
+        this.autoplayTimer = null;
+        this.autoplayInFlight = false;
 
         this.init();
     }
@@ -17,7 +21,9 @@ class WillowCreekDashboard {
         this.setupTabSwitching();
         this.applyModeDefaults();
         this.refreshLocalModelList();
+        this.enableAutoplayUI();
         this.switchTab('stats'); // Default to stats tab
+        this.startAutoplay();
     }
 
     // ===== EVENT LISTENERS =====
@@ -82,7 +88,51 @@ class WillowCreekDashboard {
 
         this.applyModeDefaults();
         this.refreshLocalModelList();
-        this.updateNarrative(`Mode set to: ${this.simulationMode === 'local' ? 'Local Model' : 'OpenRouter'}. Click 'Start Simulation'.`);
+        const modeLabel = this.simulationMode === 'local' ? 'Local Model' : 'OpenRouter';
+        const followUp = this.autoplayEnabled ? 'Autoplay will continue with the new mode.' : "Click 'Start Simulation'.";
+        this.updateNarrative(`Mode set to: ${modeLabel}. ${followUp}`);
+    }
+
+    enableAutoplayUI() {
+        if (!this.autoplayEnabled) return;
+
+        document.body.classList.add('autoplay');
+
+        const statusBar = document.getElementById('status-bar');
+        const quickActions = document.getElementById('quick-actions');
+
+        if (statusBar && !document.getElementById('autoplay-indicator')) {
+            const indicator = document.createElement('div');
+            indicator.id = 'autoplay-indicator';
+            indicator.textContent = 'Autoplay';
+            if (quickActions) {
+                statusBar.insertBefore(indicator, quickActions);
+            } else {
+                statusBar.appendChild(indicator);
+            }
+        }
+    }
+
+    async startAutoplay() {
+        if (!this.autoplayEnabled) return;
+        if (this.autoplayTimer) return;
+
+        this.updateNarrative('Autoplay enabled. Sit back and watch the story unfold.');
+        await this.initSimulation();
+
+        this.autoplayTimer = setInterval(() => {
+            this.runAutoplayStep();
+        }, this.autoplayIntervalMs);
+    }
+
+    async runAutoplayStep() {
+        if (this.autoplayInFlight) return;
+        this.autoplayInFlight = true;
+        try {
+            await this.waitHours(1);
+        } finally {
+            this.autoplayInFlight = false;
+        }
     }
 
     applyModeDefaults() {
@@ -215,6 +265,9 @@ class WillowCreekDashboard {
                 })
             });
             const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.error || 'Initialization failed');
+            }
 
             this.updateNarrative(data.narration);
             this.updateSnapshot(data.snapshot);
@@ -263,17 +316,26 @@ class WillowCreekDashboard {
     }
 
     async wait1Hour() {
-        const btn = document.getElementById('wait-1h-btn');
-        btn.disabled = true;
-        btn.textContent = 'Waiting...';
+        await this.waitHours(1, { showButton: true });
+    }
+
+    async waitHours(hours, { showButton = false } = {}) {
+        const btn = showButton ? document.getElementById('wait-1h-btn') : null;
+        if (btn) {
+            btn.disabled = true;
+            btn.textContent = 'Waiting...';
+        }
 
         try {
             const response = await fetch('/api/wait', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ hours: 1 })
+                body: JSON.stringify({ hours })
             });
             const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.error || 'Wait failed');
+            }
 
             this.updateNarrative(data.narration);
             this.updateSnapshot(data.snapshot);
@@ -282,8 +344,10 @@ class WillowCreekDashboard {
             console.error('Wait failed:', error);
             this.updateNarrative(`Error: ${error.message}`);
         } finally {
-            btn.disabled = false;
-            btn.textContent = 'Wait 1 Hour';
+            if (btn) {
+                btn.disabled = false;
+                btn.textContent = 'Wait 1 Hour';
+            }
         }
     }
 
