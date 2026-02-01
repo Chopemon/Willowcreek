@@ -8,10 +8,11 @@ class WillowCreekDashboard {
         this.debugExpanded = false;
         this.latestSnapshot = null;
         this.simulationMode = 'openrouter';
-        this.autoplayEnabled = true;
+        this.autoplayEnabled = false;
         this.autoplayIntervalMs = 45000;
         this.autoplayTimer = null;
         this.autoplayInFlight = false;
+        this.simulationInitialized = false;
 
         this.init();
     }
@@ -21,7 +22,7 @@ class WillowCreekDashboard {
         this.setupTabSwitching();
         this.applyModeDefaults();
         this.refreshLocalModelList();
-        this.enableAutoplayUI();
+        this.updateAutoplayUI();
         this.switchTab('stats'); // Default to stats tab
         this.startAutoplay();
     }
@@ -38,6 +39,7 @@ class WillowCreekDashboard {
         document.getElementById('send-action-btn')?.addEventListener('click', () => this.sendAction());
         document.getElementById('wait-1h-btn')?.addEventListener('click', () => this.wait1Hour());
         document.getElementById('generate-image-btn')?.addEventListener('click', () => this.generateImage());
+        document.getElementById('autoplay-toggle')?.addEventListener('click', () => this.toggleAutoplay());
 
         // Quick actions
         document.getElementById('save-btn')?.addEventListener('click', () => this.saveCheckpoint());
@@ -88,16 +90,17 @@ class WillowCreekDashboard {
 
         this.applyModeDefaults();
         this.refreshLocalModelList();
-        const modeLabel = this.simulationMode === 'local' ? 'Local Model' : 'OpenRouter';
+        const modeLabel = this.simulationMode === 'local'
+            ? 'Local Model'
+            : this.simulationMode === 'lmstudio'
+                ? 'LM Studio'
+                : 'OpenRouter';
         const followUp = this.autoplayEnabled ? 'Autoplay will continue with the new mode.' : "Click 'Start Simulation'.";
         this.updateNarrative(`Mode set to: ${modeLabel}. ${followUp}`);
     }
 
     enableAutoplayUI() {
         if (!this.autoplayEnabled) return;
-
-        document.body.classList.add('autoplay');
-
         const statusBar = document.getElementById('status-bar');
         const quickActions = document.getElementById('quick-actions');
 
@@ -113,16 +116,57 @@ class WillowCreekDashboard {
         }
     }
 
+    updateAutoplayUI() {
+        const button = document.getElementById('autoplay-toggle');
+        if (button) {
+            button.textContent = this.autoplayEnabled ? 'Autoplay: On' : 'Autoplay: Off';
+            button.classList.toggle('active', this.autoplayEnabled);
+        }
+
+        document.body.classList.toggle('autoplay', this.autoplayEnabled);
+
+        if (this.autoplayEnabled) {
+            this.enableAutoplayUI();
+        } else {
+            const indicator = document.getElementById('autoplay-indicator');
+            if (indicator) {
+                indicator.remove();
+            }
+        }
+    }
+
+    toggleAutoplay() {
+        this.autoplayEnabled = !this.autoplayEnabled;
+        this.updateAutoplayUI();
+
+        if (this.autoplayEnabled) {
+            this.startAutoplay();
+        } else {
+            this.stopAutoplay();
+            this.updateNarrative('Autoplay paused. You can control the simulation manually.');
+        }
+    }
+
     async startAutoplay() {
         if (!this.autoplayEnabled) return;
         if (this.autoplayTimer) return;
 
         this.updateNarrative('Autoplay enabled. Sit back and watch the story unfold.');
-        await this.initSimulation();
+        if (!this.simulationInitialized) {
+            await this.initSimulation();
+        }
 
         this.autoplayTimer = setInterval(() => {
             this.runAutoplayStep();
         }, this.autoplayIntervalMs);
+    }
+
+    stopAutoplay() {
+        if (this.autoplayTimer) {
+            clearInterval(this.autoplayTimer);
+            this.autoplayTimer = null;
+        }
+        this.autoplayInFlight = false;
     }
 
     async runAutoplayStep() {
@@ -168,7 +212,7 @@ class WillowCreekDashboard {
         const datalist = document.getElementById('local-model-options');
 
         if (!modelInput || !datalist) return;
-        if (this.simulationMode !== 'local') return;
+        if (!['local', 'lmstudio'].includes(this.simulationMode)) return;
 
         try {
             const response = await fetch('/api/local-models');
@@ -273,6 +317,7 @@ class WillowCreekDashboard {
             this.updateSnapshot(data.snapshot);
             this.displayImages(data.images);
             this.displayPortraits(data.portraits || []);
+            this.simulationInitialized = true;
 
             btn.textContent = 'Initialize Simulation';
         } catch (error) {

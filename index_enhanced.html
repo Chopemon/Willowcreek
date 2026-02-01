@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Willow Creek Enhanced Dashboard</title>
-    <link rel="stylesheet" href="/static/styles_enhanced.css?v=5">
+    <link rel="stylesheet" href="/static/styles_enhanced.css?v=6">
 </head>
 <body>
     <!-- Top Status Bar -->
@@ -17,6 +17,7 @@
             <span class="location-icon">📍</span>
             <span id="malcolm-current-loc">Unknown</span>
         </div>
+        <button id="autoplay-toggle" title="Toggle autoplay">Autoplay: Off</button>
         <div id="quick-actions">
             <button id="save-btn" title="Save checkpoint">💾 Save</button>
             <button id="load-btn" title="Load checkpoint">📁 Load</button>
@@ -30,6 +31,7 @@
         <div id="left-panel">
             <div id="mode-selection">
                 <button id="local-mode-btn" class="mode-btn" data-mode="local">Local Model</button>
+                <button id="lmstudio-mode-btn" class="mode-btn" data-mode="lmstudio">LM Studio</button>
                 <button id="openrouter-mode-btn" class="mode-btn active" data-mode="openrouter">OpenRouter</button>
                 <button id="init-sim-btn" class="primary-btn">Start Simulation</button>
             </div>
@@ -156,6 +158,6 @@
         </div>
     </div>
 
-    <script src="/static/script_enhanced.js?v=9"></script>
+    <script src="/static/script_enhanced.js?v=10"></script>
 </body>
 </html>

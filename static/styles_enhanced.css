@@ -18,13 +18,6 @@ body {
     flex-direction: column;
 }
 
-body.autoplay #mode-selection,
-body.autoplay #model-selection,
-body.autoplay #input-controls,
-body.autoplay #quick-actions {
-    display: none;
-}
-
 body.autoplay #status-bar {
     justify-content: flex-start;
     gap: 16px;
@@ -97,6 +90,30 @@ body.autoplay #status-bar {
 #quick-actions {
     display: flex;
     gap: 10px;
+}
+
+#autoplay-toggle {
+    padding: 8px 14px;
+    border: 1px solid rgba(0, 188, 212, 0.4);
+    border-radius: 10px;
+    background: rgba(0, 188, 212, 0.12);
+    color: #00bcd4;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+#autoplay-toggle.active {
+    background: rgba(0, 188, 212, 0.3);
+    border-color: rgba(0, 188, 212, 0.8);
+    box-shadow: 0 0 12px rgba(0, 188, 212, 0.3);
+}
+
+#autoplay-toggle:hover {
+    transform: translateY(-1px);
 }
 
 #quick-actions button {
