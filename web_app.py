@@ -2,7 +2,7 @@
 # web_app.py — FINAL FIXED VERSION (Event Reporting)
 #############################################################
 import uvicorn
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse, JSONResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pathlib import Path
@@ -16,6 +16,7 @@ from services.scene_image_generator import SceneAnalyzer, ImagePromptGenerator, 
 from services.npc_portrait_generator import NPCPortraitGenerator
 from api_endpoints import router as api_router
 from game_manager import get_game_manager
+from systems.websocket_dashboard import DashboardSocketManager
 import os
 
 app = FastAPI()
@@ -32,6 +33,7 @@ current_model_name: Optional[str] = None
 current_memory_model_name: Optional[str] = None
 current_api_url: Optional[str] = None
 game_manager_instance = None
+dashboard_sockets = DashboardSocketManager()
 
 # Image Generation Services
 COMFYUI_ENABLED = os.getenv("COMFYUI_ENABLED", "false").lower() == "true"
@@ -108,6 +110,25 @@ async def list_local_models():
             models.add(entry.name)
 
     return JSONResponse({"models": sorted(models)})
+
+
+@app.websocket("/ws/dashboard")
+async def websocket_dashboard(websocket: WebSocket):
+    await dashboard_sockets.connect(websocket)
+    try:
+        while True:
+            await websocket.receive_text()
+            if game_manager_instance:
+                await dashboard_sockets.broadcast(
+                    {
+                        "market": game_manager_instance.market.summary(),
+                        "story_arcs": [arc.title for arc in game_manager_instance.story_arcs.arcs.values()],
+                        "events": game_manager_instance.event_log[-20:],
+                        "profiling": game_manager_instance.profiler.summary(),
+                    }
+                )
+    except WebSocketDisconnect:
+        dashboard_sockets.disconnect(websocket)
 
 # --- INIT SIMULATION (supports both GET and POST) ---
 async def _init_sim_handler(
