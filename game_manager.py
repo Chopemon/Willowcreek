@@ -16,8 +16,20 @@ from systems.location_system import LocationSystem
 from systems.npc_autonomy_system import NPCAutonomy
 from systems.statistics_system import StatisticsSystem
 from systems.save_system import SaveSystem
+from systems.db_save_system import DatabaseSaveSystem
+from systems.timeline_system import TimelineSystem
 from systems.intimate_system import IntimateSystem
 from systems.consequences_system import ConsequencesSystem
+from systems.market_system import MarketSystem
+from systems.business_system import BusinessSystem
+from systems.job_market_system import JobMarketSystem
+from systems.advanced_gossip_system import AdvancedGossipSystem
+from systems.family_tree_system import FamilyTreeSystem
+from systems.aging_system import AgingSystem
+from systems.story_arc_system import StoryArcSystem
+from systems.drama_detection_system import DramaDetectionSystem
+from systems.performance_profiler import PerformanceProfiler
+from systems.ab_testing_system import ABTestingSystem
 
 
 class GameManager:
@@ -45,8 +57,21 @@ class GameManager:
         self.npc_autonomy = NPCAutonomy()
         self.statistics = StatisticsSystem()
         self.save_system = SaveSystem()
+        self.db_save_system = DatabaseSaveSystem()
+        self.timeline = TimelineSystem()
         self.intimate = IntimateSystem()
         self.consequences = ConsequencesSystem()
+        self.market = MarketSystem()
+        self.business = BusinessSystem()
+        self.job_market = JobMarketSystem(self.economy)
+        self.advanced_gossip = AdvancedGossipSystem()
+        self.family_tree = FamilyTreeSystem()
+        self.aging = AgingSystem()
+        self.story_arcs = StoryArcSystem()
+        self.drama = DramaDetectionSystem()
+        self.profiler = PerformanceProfiler()
+        self.ab_testing = ABTestingSystem()
+        self.event_log: List[Dict] = []
 
         print("[GameManager] All 17 systems initialized successfully!")
 
@@ -80,6 +105,7 @@ class GameManager:
         """Player talks to an NPC"""
         # Record interaction
         self.relationships.record_interaction(player_name, npc_name, "talk")
+        self._record_event("conversation", [player_name, npc_name], f"{player_name} talked with {npc_name}.")
 
         # Add XP
         xp_gained = self.skills.add_experience(player_name, SkillType.CHARISMA, 5)
@@ -120,6 +146,7 @@ class GameManager:
             self.skills.add_experience(player_name, SkillType.SEDUCTION, 8)
             self.skills.add_experience(player_name, SkillType.CHARISMA, 3)
             self.reputation.handle_action_reputation(player_name, "flirt")
+            self._record_event("flirt", [player_name, npc_name], f"{player_name} flirted with {npc_name}.")
 
             return True, f"Your flirt was successful! (Roll: {roll:.0f})"
         else:
@@ -171,6 +198,7 @@ class GameManager:
 
             receiver_stats = self.statistics.get_stats(receiver)
             receiver_stats.gifts_received += 1
+            self._record_event("gift", [giver, receiver], f"{giver} gave {receiver} a gift.")
 
         return success, msg
 
@@ -178,6 +206,12 @@ class GameManager:
         """Two people go on a date"""
         # Record date
         self.relationships.record_interaction(person_a, person_b, "date")
+        self._record_event(
+            "date",
+            [person_a, person_b],
+            f"{person_a} and {person_b} went on a date at {location}.",
+            location=location,
+        )
 
         # Add XP
         self.skills.add_experience(person_a, SkillType.CHARISMA, 10)
@@ -237,36 +271,58 @@ class GameManager:
         current_day = self.sim.time.total_days
         current_hour = self.sim.time.hour
 
-        # NPC autonomy - NPCs interact with each other
-        self.npc_autonomy.simulate_npc_interactions(
-            self.sim.npcs,
-            self.relationships,
-            current_day,
-            current_hour,
-            memory_system=self.memory,
-            economy_system=self.economy,
-            llm_client=self.llm_client,
-        )
+        with self.profiler.track("npc_autonomy"):
+            self.npc_autonomy.simulate_npc_interactions(
+                self.sim.npcs,
+                self.relationships,
+                current_day,
+                current_hour,
+                memory_system=self.memory,
+                economy_system=self.economy,
+                llm_client=self.llm_client,
+            )
 
-        # Decay memories for all characters
-        self.memory.decay_memories(current_day)
+        with self.profiler.track("memory_decay"):
+            self.memory.decay_memories(current_day)
 
-        # Gossip spreads
-        self.reputation.simulate_gossip_spread(self.sim.npcs, current_day)
+        with self.profiler.track("gossip_spread"):
+            self.reputation.simulate_gossip_spread(self.sim.npcs, current_day)
+            self.advanced_gossip.simulate_spread([npc.full_name for npc in self.sim.npcs], current_day)
 
-        # Check for consequences
-        self.consequences.check_for_consequences(
-            self.relationships,
-            self.reputation,
-            getattr(self.sim, 'pregnancy', None),
-            current_day
-        )
+        with self.profiler.track("consequences"):
+            self.consequences.check_for_consequences(
+                self.relationships,
+                self.reputation,
+                getattr(self.sim, 'pregnancy', None),
+                current_day
+            )
+
+        with self.profiler.track("economy"):
+            self.market.update_market()
+            self.job_market.update_for_day([npc.full_name for npc in self.sim.npcs], current_day)
+
+        with self.profiler.track("aging"):
+            death_events = self.aging.update_for_day(self.sim.npcs, current_day)
+            for event in death_events:
+                self._record_event("death", [], event)
+                deceased_name = event.split(" passed away")[0]
+                inheritance = self.family_tree.distribute_inheritance(deceased_name, estate_value=5000)
+                for heir, amount in inheritance.items():
+                    self.economy.add_money(heir, amount)
+
+        with self.profiler.track("story_arcs"):
+            self.story_arcs.seed_daily_arc([npc.full_name for npc in self.sim.npcs])
+            self.story_arcs.update_for_day()
+
+        with self.profiler.track("drama_detection"):
+            self.drama.evaluate_events(self.event_log[-20:])
 
         # Weekly wage payment (every 7 days)
         if current_day % 7 == 0:
             self.economy.pay_weekly_wages()
             for character_name in list(self.economy.character_jobs.keys()):
                 self.economy.evaluate_promotions(character_name)
+            self.ab_testing.record_metric("weekly_wages_paid", len(self.economy.character_jobs))
 
     # ========================================================================
     # SAVE/LOAD
@@ -293,6 +349,45 @@ class GameManager:
     def load_game(self, slot_name: str) -> Optional[Dict]:
         """Load game state"""
         return self.save_system.load_game(slot_name)
+
+    def save_game_db(self, slot_name: str, branch: str = "main") -> bool:
+        """Save game state into SQLite with branch support."""
+        game_state = {
+            "current_day": self.sim.time.total_days if self.sim else 0,
+            "current_hour": self.sim.time.hour if self.sim else 0,
+            "market": self.market.summary(),
+            "story_arcs": [arc.title for arc in self.story_arcs.arcs.values()],
+        }
+        return self.db_save_system.save_game(slot_name, branch, game_state)
+
+    def load_game_db(self, slot_name: str, branch: str = "main") -> Optional[Dict]:
+        """Load game state from SQLite."""
+        return self.db_save_system.load_game(slot_name, branch)
+
+    def create_timeline_branch(self, branch_name: str, parent: str = "main") -> None:
+        self.timeline.create_branch(branch_name, parent=parent)
+
+    def _record_event(self, event_type: str, participants: List[str], summary: str, location: str = "Unknown"):
+        self.event_log.append(
+            {
+                "type": event_type,
+                "participants": participants,
+                "summary": summary,
+                "location": location,
+                "time_of_day": getattr(self.sim.time, "time_of_day", "evening") if self.sim else "evening",
+                "weather": getattr(self.sim.world, "weather", "clear") if self.sim else "clear",
+            }
+        )
+        if event_type in {"conflict", "breakup", "death"}:
+            subject = participants[0] if participants else "Town"
+            self.advanced_gossip.create_rumor(
+                subject=subject,
+                content=summary,
+                source="Town Gossip",
+                is_true=True,
+                current_day=self.sim.time.total_days if self.sim else 0,
+                juiciness=8,
+            )
 
     # ========================================================================
     # UI DATA METHODS
