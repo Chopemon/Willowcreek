@@ -9,6 +9,15 @@ from simulation_v2 import WillowCreekSimulation
 from entities.npc import NPC
 from enhanced_snapshot_builder import create_narrative_context
 from llm_client import LocalLLMClient
+from systems.ai_orchestrator import (
+    AIDirector,
+    BrainRouter,
+    CentralWorldEngine,
+    CharacterState,
+    PerceptionSystem,
+    VectorMemoryStore,
+    WorldEvent,
+)
 
 def _resolve_max_tokens(env_name: str, default: int) -> int:
     value = os.getenv(env_name)
@@ -45,6 +54,7 @@ CONFIG = {
 
 NARRATIVE_MAX_TOKENS = 2048
 MEMORY_MAX_TOKENS = 2048
+DIRECTOR_MAX_REQUESTS_PER_TICK = 2
 
 class NarrativeChat:
     def __init__(
@@ -62,6 +72,18 @@ class NarrativeChat:
         self.memory_model_name = memory_model_name or self.model_name or CONFIG[mode]["memory_model_name"]
         self.local_client: Optional[LocalLLMClient] = None
         self.local_memory_client: Optional[LocalLLMClient] = None
+        self.context_size = CONFIG[mode].get("context_size")
+        self.ai_director_enabled = os.getenv("ENABLE_AI_DIRECTOR", "1") != "0"
+        self.director_max_requests_per_tick = _resolve_max_tokens(
+            "DIRECTOR_MAX_REQUESTS_PER_TICK",
+            DIRECTOR_MAX_REQUESTS_PER_TICK,
+        )
+        self.world_engine: Optional[CentralWorldEngine] = None
+        self.perception_system: Optional[PerceptionSystem] = None
+        self.vector_memory: Optional[VectorMemoryStore] = None
+        self.brain_router: Optional[BrainRouter] = None
+        self.ai_director: Optional[AIDirector] = None
+        self.last_director_events: List[str] = []
 
         # Debug logging for mode initialization
         print(f"\n[NarrativeChat] ===== INITIALIZING =====")
@@ -130,6 +152,9 @@ class NarrativeChat:
         # Note: We don't put `last_narrated` in history yet; it gets fed via the user prompt structure below.
         self.narrative_history = []
 
+        if self.ai_director_enabled:
+            self._initialize_ai_director()
+
     def narrate(self, user_input: str) -> str:
         # 1. Get World Snapshot
         world_snapshot = create_narrative_context(self.sim, self.malcolm)
@@ -142,6 +167,9 @@ class NarrativeChat:
             )
             if retrieved:
                 world_snapshot = f"{world_snapshot}\n\n{retrieved}"
+        if self.last_director_events:
+            events_block = "\n".join(f"- {item}" for item in self.last_director_events)
+            world_snapshot = f"{world_snapshot}\n\n## NPC EVENT-DRIVEN REACTIONS\n{events_block}"
 
         # --- DIALOGUE-FOCUSED SYSTEM PROMPT ---
         system_prompt = (
@@ -238,6 +266,7 @@ class NarrativeChat:
             self.narrative_history.append({"role": "assistant", "content": content})
 
             self.last_narrated = content
+            self._run_ai_director(user_input)
             self._update_memory(user_input, content, world_snapshot)
             return content
         except Exception as e:
@@ -246,6 +275,7 @@ class NarrativeChat:
     def advance_time(self, hours):
         if self.sim:
             self.sim.tick(hours)
+            self._sync_world_engine_state()
 
     def _update_memory(self, user_input: str, response: str, world_snapshot: str) -> None:
         if not self.sim or not self.sim.memory or not self.memory_enabled:
@@ -400,3 +430,139 @@ class NarrativeChat:
                 participants=participants,
                 location=location,
             )
+
+    def _initialize_ai_director(self) -> None:
+        if not self.sim:
+            return
+
+        self.world_engine = CentralWorldEngine(
+            hour=self.sim.time.hour,
+            weather=getattr(self.sim.world, "weather", "Clear"),
+        )
+        self.world_engine.day = self.sim.time.total_days
+
+        for npc in self.sim.npcs:
+            location = getattr(npc, "current_location", "Unknown") or "Unknown"
+            self.world_engine.upsert_character(
+                CharacterState(
+                    name=npc.full_name,
+                    location=location,
+                    state="idle",
+                    persona=f"You are {npc.full_name}, a resident of Willow Creek.",
+                    routine_state="background",
+                )
+            )
+
+        self.perception_system = PerceptionSystem(self.world_engine)
+        self.vector_memory = VectorMemoryStore()
+        self.brain_router = BrainRouter(self._director_model_call)
+        self.ai_director = AIDirector(
+            self.world_engine,
+            self.perception_system,
+            self.vector_memory,
+            self.brain_router,
+        )
+
+    def _sync_world_engine_state(self) -> None:
+        if not self.sim or not self.world_engine:
+            return
+
+        self.world_engine.day = self.sim.time.total_days
+        self.world_engine.hour = self.sim.time.hour
+        self.world_engine.set_weather(getattr(self.sim.world, "weather", "Clear"))
+
+        for npc in self.sim.npcs:
+            location = getattr(npc, "current_location", "Unknown") or "Unknown"
+            if npc.full_name in self.world_engine.characters:
+                self.world_engine.move_character(npc.full_name, location)
+            else:
+                self.world_engine.upsert_character(
+                    CharacterState(
+                        name=npc.full_name,
+                        location=location,
+                        state="idle",
+                        persona=f"You are {npc.full_name}, a resident of Willow Creek.",
+                        routine_state="background",
+                    )
+                )
+
+    def _run_ai_director(self, user_input: str) -> None:
+        self.last_director_events = []
+        if not self.ai_director_enabled or not self.ai_director or not self.world_engine:
+            return
+
+        self._sync_world_engine_state()
+        event_location = getattr(self.malcolm, "current_location", "Unknown") if self.malcolm else "Unknown"
+        event = WorldEvent(
+            event_type="player_action",
+            location=event_location or "Unknown",
+            description=user_input,
+            participants=["Malcolm Newt"],
+            priority=2,
+        )
+
+        self.ai_director.enqueue_event(event)
+        self.ai_director.run_background_routines()
+        decisions = self.ai_director.process_queue(
+            max_requests_per_tick=self.director_max_requests_per_tick,
+        )
+
+        if not decisions:
+            return
+
+        for npc_name, decision in decisions:
+            action = decision.get("action", "wait")
+            target = decision.get("target")
+            dialogue = decision.get("dialogue", "")
+            summary = f"{npc_name}: {action}"
+            if target:
+                summary += f" -> {target}"
+            if dialogue:
+                summary += f" | says: {dialogue}"
+            self.last_director_events.append(summary)
+            if self.vector_memory:
+                self.vector_memory.add_memory(
+                    npc_name,
+                    f"Responded to player event with action '{action}' and dialogue '{dialogue}'",
+                    tags=["player_action", "director_decision"],
+                    weight=1.2,
+                )
+
+    def _director_model_call(self, prompt: str) -> str:
+        messages = [
+            {
+                "role": "system",
+                "content": (
+                    "Return strict JSON only with keys: dialogue, action, target, reasoning. "
+                    "No markdown, no prose outside JSON."
+                ),
+            },
+            {"role": "user", "content": prompt},
+        ]
+
+        headers = {"Content-Type": "application/json"}
+        if self.api_key and self.api_key != "NOT_REQUIRED":
+            headers["Authorization"] = f"Bearer {self.api_key}"
+
+        payload = {
+            "model": self.model_name,
+            "messages": messages,
+            "temperature": 0.2,
+            "max_tokens": 300,
+        }
+        if self.context_size:
+            payload["max_context_tokens"] = self.context_size
+
+        if self.local_client:
+            local_prompt = self._build_prompt(messages)
+            result = self.local_client.generate(
+                local_prompt,
+                max_new_tokens=payload["max_tokens"],
+                temperature=payload["temperature"],
+            )
+            return result.text
+
+        res = requests.post(self.api_url, headers=headers, json=payload, timeout=20)
+        if res.status_code != 200:
+            return "{\"dialogue\":\"...\",\"action\":\"wait\",\"target\":null,\"reasoning\":\"director_api_error\"}"
+        return res.json()["choices"][0]["message"]["content"]
