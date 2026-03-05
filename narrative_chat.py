@@ -3,7 +3,7 @@
 
 import requests
 import os
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Tuple
 from pathlib import Path
 from simulation_v2 import WillowCreekSimulation
 from entities.npc import NPC
@@ -119,6 +119,11 @@ class NarrativeChat:
         self.narrative_history: List[Dict] = [] 
         self.last_narrated: str = ""
         self.memory_enabled = True
+        self.tv_mode_enabled = os.getenv("ENABLE_TV_MODE", "1") != "0"
+        self.tv_cut_interval = _resolve_max_tokens("TV_CUT_INTERVAL", 3)
+        self.tv_scene_hours = _resolve_max_tokens("TV_SCENE_HOURS", 1)
+        self.tv_beat = 0
+        self.tv_focus_npc_name: Optional[str] = None
 
     def initialize(self):
         self.sim = WillowCreekSimulation()
@@ -156,6 +161,13 @@ class NarrativeChat:
             self._initialize_ai_director()
 
     def narrate(self, user_input: str) -> str:
+        if self.tv_mode_enabled:
+            return self._narrate_tv_mode(user_input)
+
+        # Legacy Malcolm-anchored flow
+        return self._narrate_single_focus(user_input)
+
+    def _narrate_single_focus(self, user_input: str) -> str:
         # 1. Get World Snapshot
         world_snapshot = create_narrative_context(self.sim, self.malcolm)
         if self.sim and self.sim.memory and self.memory_enabled:
@@ -171,32 +183,10 @@ class NarrativeChat:
             events_block = "\n".join(f"- {item}" for item in self.last_director_events)
             world_snapshot = f"{world_snapshot}\n\n## NPC EVENT-DRIVEN REACTIONS\n{events_block}"
 
-        # --- DIALOGUE-FOCUSED SYSTEM PROMPT ---
         system_prompt = (
-            "You are the narrative voice of Willow Creek, autumn 2025: a small American town heavy with secrets and unspoken desires. "
-            "Write in third-person limited, anchored to Malcolm Newt's perspective. "
-            "\n\n"
-            "DIALOGUE REQUIREMENTS:\n"
-            "- Include substantial character dialogue in every response (60-70% dialogue, 30-40% description)\n"
-            "- Characters speak naturally with distinct voices, regional quirks, and subtext\n"
-            "- Malcolm speaks his thoughts aloud - show his words in quotes\n"
-            "- Use dialogue to reveal character, advance plot, and create tension\n"
-            "- Balance conversation with brief sensory details (scents, textures, sounds)\n"
-            "\n"
-            "STYLE:\n"
-            "- Literary noir atmosphere: tense, observant, laden with meaning\n"
-            "- Show subtext through what's said vs. what's meant\n"
-            "- Use body language and micro-reactions between dialogue lines\n"
-            "- The air feels damp with woodsmoke; every word carries weight\n"
-            "\n"
-            "RULES:\n"
-            "- Use provided world snapshot as absolute truth\n"
-            "- Continue the scene in 6-10 sentences with multiple lines of dialogue\n"
-            "- Never summarize, never offer choices, never break immersion\n"
-            "- The town is watching. Something is always about to happen."
+            "You are the narrative voice of Willow Creek, autumn 2025. "
+            "Write in third-person limited, anchored to Malcolm Newt's perspective."
         )
-
-        # --- RESTORED ORIGINAL USER PROMPT STRUCTURE ---
         user_prompt = f"""
         Current scene:
         \"\"\"{self.last_narrated}\"\"\"
@@ -205,22 +195,78 @@ class NarrativeChat:
         {world_snapshot}
 
         Player action: {user_input}
+        """
+        return self._generate_scene(system_prompt, user_prompt, user_input, world_snapshot, "Malcolm Newt")
 
-        Continue the narrative with substantial dialogue. Include Malcolm's spoken words and NPC responses.
+    def _narrate_tv_mode(self, user_input: str) -> str:
+        if self.sim and self.tv_scene_hours > 0:
+            self.sim.tick(float(self.tv_scene_hours))
+            self._sync_world_engine_state()
+
+        self.tv_beat += 1
+        focus_npc, tension_reason = self._select_focus_npc(user_input)
+        focus_name = focus_npc.full_name if focus_npc else "Malcolm Newt"
+
+        world_snapshot = create_narrative_context(self.sim, self.malcolm)
+        if self.sim and self.sim.memory and self.memory_enabled:
+            query = f"{user_input}\n{self.last_narrated}\n{focus_name}"
+            retrieved = self.sim.memory.build_retrieved_memory_context(
+                focus_name,
+                query,
+                current_sim_day=self.sim.time.total_days,
+            )
+            if retrieved:
+                world_snapshot = f"{world_snapshot}\n\n{retrieved}"
+
+        if self.last_director_events:
+            events_block = "\n".join(f"- {item}" for item in self.last_director_events)
+            world_snapshot = f"{world_snapshot}\n\n## DIRECTOR FEED\n{events_block}"
+
+        focus_profile = self._build_focus_profile(focus_npc)
+        system_prompt = (
+            "You are the showrunner-narrator for an ensemble TV drama set in Willow Creek. "
+            "Malcolm Newt is the catalyst and central thread, but each scene can focus on different residents.\n"
+            "Write in third-person limited from the CURRENT CAMERA FOCUS character only.\n"
+            "Preserve character truth using their profile, conflict, vulnerabilities, and social context.\n"
+            "Scene cuts should feel like prestige TV: motivated by gossip, relationship tension, and emerging conflict.\n"
+            "Use 6-10 sentences with meaningful dialogue and subtext."
+        )
+
+        user_prompt = f"""
+        EPISODE BEAT: {self.tv_beat}
+        CAMERA FOCUS: {focus_name}
+        CUT MOTIVATION: {tension_reason}
+
+        FOCUS CHARACTER PROFILE:
+        {focus_profile}
+
+        PREVIOUS SCENE:
+        \"\"\"{self.last_narrated}\"\"\"
+
+        WORLD STATE:
+        {world_snapshot}
+
+        STORY THREAD:
+        Malcolm is the new stranger in town. Gossip about him is spreading through Willow Creek.
+
+        DIRECTION:
+        {user_input or 'Continue the episode naturally with a meaningful scene cut if needed.'}
         """
 
-        # Build Messages for API
-        # OPTIMIZED: Reduced from 6 to 4 turns to save tokens (250-500 tokens per call)
-        messages = [{"role": "system", "content": system_prompt}]
+        return self._generate_scene(system_prompt, user_prompt, user_input, world_snapshot, focus_name)
 
-        # Add simple history (exclude system/rich prompts to save tokens, just raw conversation)
-        # We take the last 4 interactions (2 user + 2 assistant) from history to maintain continuity
-        messages.extend(self.narrative_history[-4:]) 
-        
-        # Append the current detailed prompt
+    def _generate_scene(
+        self,
+        system_prompt: str,
+        user_prompt: str,
+        user_input: str,
+        world_snapshot: str,
+        memory_owner: str,
+    ) -> str:
+        messages = [{"role": "system", "content": system_prompt}]
+        messages.extend(self.narrative_history[-4:])
         messages.append({"role": "user", "content": user_prompt})
 
-        # Prepare Payload
         headers = {"Content-Type": "application/json"}
         if self.api_key and self.api_key != "NOT_REQUIRED":
             headers["Authorization"] = f"Bearer {self.api_key}"
@@ -228,15 +274,14 @@ class NarrativeChat:
         payload = {
             "model": self.model_name,
             "messages": messages,
-            "temperature": 0.85, # Slightly higher for creative writing
-            "max_tokens": NARRATIVE_MAX_TOKENS
+            "temperature": 0.85,
+            "max_tokens": NARRATIVE_MAX_TOKENS,
         }
         if self.context_size:
             payload["max_context_tokens"] = self.context_size
 
         try:
             if self.local_client:
-                print(f"[NarrativeChat] Using local model: {self.model_name}")
                 prompt = self._build_prompt(messages)
                 response = self.local_client.generate(
                     prompt,
@@ -245,26 +290,13 @@ class NarrativeChat:
                 )
                 content = response.text
             else:
-                print(f"[NarrativeChat] Making API call to: {self.api_url}")
-                print(f"[NarrativeChat] Using model: {self.model_name}")
-                print(f"[NarrativeChat] Temperature: {payload['temperature']}, Max tokens: {payload['max_tokens']}")
-
                 res = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
-
-                print(f"[NarrativeChat] Response status: {res.status_code}")
-
                 if res.status_code != 200:
-                    print(f"[NarrativeChat] API Error: {res.text}")
                     return f"[API Error: {res.text}]"
-
                 content = res.json()["choices"][0]["message"]["content"]
-                print(f"[NarrativeChat] Response received, length: {len(content)} characters")
 
-            # Update History
-            # We store the simplified version in history to avoid exploding context size with repetitive World States
-            self.narrative_history.append({"role": "user", "content": user_input})
+            self.narrative_history.append({"role": "user", "content": user_input or "continue"})
             self.narrative_history.append({"role": "assistant", "content": content})
-
             self.last_narrated = content
             self._run_ai_director(user_input)
             self._update_memory(user_input, content, world_snapshot)
@@ -277,7 +309,7 @@ class NarrativeChat:
             self.sim.tick(hours)
             self._sync_world_engine_state()
 
-    def _update_memory(self, user_input: str, response: str, world_snapshot: str) -> None:
+    def _update_memory(self, user_input: str, response: str, world_snapshot: str, memory_owner: str = "Malcolm Newt") -> None:
         if not self.sim or not self.sim.memory or not self.memory_enabled:
             return
 
@@ -421,7 +453,7 @@ class NarrativeChat:
             location = str(entry.get("location", "")).strip()
 
             self.sim.memory.add_memory(
-                "Malcolm Newt",
+                memory_owner,
                 memory_type,
                 description,
                 current_day,
