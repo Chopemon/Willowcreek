@@ -69,8 +69,3 @@ This allows many NPCs to share a single API budget while still reacting believab
    - Run background routines
    - Process queue with a capped request count
 
-## Current repo integration status
-
-- `NarrativeChat` now initializes and uses the orchestrator pipeline when `ENABLE_AI_DIRECTOR` is not set to `0`.
-- The director uses the **same configured narrative model** for brain routing by default, so integration does not require adding another LLM service.
-- Per-tick NPC decision calls are rate-limited with `DIRECTOR_MAX_REQUESTS_PER_TICK` (default: `2`).
