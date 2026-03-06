@@ -3,12 +3,21 @@
 
 import requests
 import os
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Tuple
 from pathlib import Path
 from simulation_v2 import WillowCreekSimulation
 from entities.npc import NPC
 from enhanced_snapshot_builder import create_narrative_context
 from llm_client import LocalLLMClient
+from systems.ai_orchestrator import (
+    AIDirector,
+    BrainRouter,
+    CentralWorldEngine,
+    CharacterState,
+    PerceptionSystem,
+    VectorMemoryStore,
+    WorldEvent,
+)
 
 def _resolve_max_tokens(env_name: str, default: int) -> int:
     value = os.getenv(env_name)
@@ -45,6 +54,7 @@ CONFIG = {
 
 NARRATIVE_MAX_TOKENS = 2048
 MEMORY_MAX_TOKENS = 2048
+DIRECTOR_MAX_REQUESTS_PER_TICK = 2
 
 class NarrativeChat:
     def __init__(
@@ -62,6 +72,18 @@ class NarrativeChat:
         self.memory_model_name = memory_model_name or self.model_name or CONFIG[mode]["memory_model_name"]
         self.local_client: Optional[LocalLLMClient] = None
         self.local_memory_client: Optional[LocalLLMClient] = None
+        self.context_size = CONFIG[mode].get("context_size")
+        self.ai_director_enabled = os.getenv("ENABLE_AI_DIRECTOR", "1") != "0"
+        self.director_max_requests_per_tick = _resolve_max_tokens(
+            "DIRECTOR_MAX_REQUESTS_PER_TICK",
+            DIRECTOR_MAX_REQUESTS_PER_TICK,
+        )
+        self.world_engine: Optional[CentralWorldEngine] = None
+        self.perception_system: Optional[PerceptionSystem] = None
+        self.vector_memory: Optional[VectorMemoryStore] = None
+        self.brain_router: Optional[BrainRouter] = None
+        self.ai_director: Optional[AIDirector] = None
+        self.last_director_events: List[str] = []
 
         # Debug logging for mode initialization
         print(f"\n[NarrativeChat] ===== INITIALIZING =====")
@@ -97,6 +119,11 @@ class NarrativeChat:
         self.narrative_history: List[Dict] = [] 
         self.last_narrated: str = ""
         self.memory_enabled = True
+        self.tv_mode_enabled = os.getenv("ENABLE_TV_MODE", "1") != "0"
+        self.tv_cut_interval = _resolve_max_tokens("TV_CUT_INTERVAL", 3)
+        self.tv_scene_hours = _resolve_max_tokens("TV_SCENE_HOURS", 1)
+        self.tv_beat = 0
+        self.tv_focus_npc_name: Optional[str] = None
 
     def initialize(self):
         self.sim = WillowCreekSimulation()
@@ -130,7 +157,17 @@ class NarrativeChat:
         # Note: We don't put `last_narrated` in history yet; it gets fed via the user prompt structure below.
         self.narrative_history = []
 
+        if self.ai_director_enabled:
+            self._initialize_ai_director()
+
     def narrate(self, user_input: str) -> str:
+        if self.tv_mode_enabled:
+            return self._narrate_tv_mode(user_input)
+
+        # Legacy Malcolm-anchored flow
+        return self._narrate_single_focus(user_input)
+
+    def _narrate_single_focus(self, user_input: str) -> str:
         # 1. Get World Snapshot
         world_snapshot = create_narrative_context(self.sim, self.malcolm)
         if self.sim and self.sim.memory and self.memory_enabled:
@@ -142,33 +179,14 @@ class NarrativeChat:
             )
             if retrieved:
                 world_snapshot = f"{world_snapshot}\n\n{retrieved}"
+        if self.last_director_events:
+            events_block = "\n".join(f"- {item}" for item in self.last_director_events)
+            world_snapshot = f"{world_snapshot}\n\n## NPC EVENT-DRIVEN REACTIONS\n{events_block}"
 
-        # --- DIALOGUE-FOCUSED SYSTEM PROMPT ---
         system_prompt = (
-            "You are the narrative voice of Willow Creek, autumn 2025: a small American town heavy with secrets and unspoken desires. "
-            "Write in third-person limited, anchored to Malcolm Newt's perspective. "
-            "\n\n"
-            "DIALOGUE REQUIREMENTS:\n"
-            "- Include substantial character dialogue in every response (60-70% dialogue, 30-40% description)\n"
-            "- Characters speak naturally with distinct voices, regional quirks, and subtext\n"
-            "- Malcolm speaks his thoughts aloud - show his words in quotes\n"
-            "- Use dialogue to reveal character, advance plot, and create tension\n"
-            "- Balance conversation with brief sensory details (scents, textures, sounds)\n"
-            "\n"
-            "STYLE:\n"
-            "- Literary noir atmosphere: tense, observant, laden with meaning\n"
-            "- Show subtext through what's said vs. what's meant\n"
-            "- Use body language and micro-reactions between dialogue lines\n"
-            "- The air feels damp with woodsmoke; every word carries weight\n"
-            "\n"
-            "RULES:\n"
-            "- Use provided world snapshot as absolute truth\n"
-            "- Continue the scene in 6-10 sentences with multiple lines of dialogue\n"
-            "- Never summarize, never offer choices, never break immersion\n"
-            "- The town is watching. Something is always about to happen."
+            "You are the narrative voice of Willow Creek, autumn 2025. "
+            "Write in third-person limited, anchored to Malcolm Newt's perspective."
         )
-
-        # --- RESTORED ORIGINAL USER PROMPT STRUCTURE ---
         user_prompt = f"""
         Current scene:
         \"\"\"{self.last_narrated}\"\"\"
@@ -177,22 +195,78 @@ class NarrativeChat:
         {world_snapshot}
 
         Player action: {user_input}
+        """
+        return self._generate_scene(system_prompt, user_prompt, user_input, world_snapshot, "Malcolm Newt")
 
-        Continue the narrative with substantial dialogue. Include Malcolm's spoken words and NPC responses.
+    def _narrate_tv_mode(self, user_input: str) -> str:
+        if self.sim and self.tv_scene_hours > 0:
+            self.sim.tick(float(self.tv_scene_hours))
+            self._sync_world_engine_state()
+
+        self.tv_beat += 1
+        focus_npc, tension_reason = self._select_focus_npc(user_input)
+        focus_name = focus_npc.full_name if focus_npc else "Malcolm Newt"
+
+        world_snapshot = create_narrative_context(self.sim, self.malcolm)
+        if self.sim and self.sim.memory and self.memory_enabled:
+            query = f"{user_input}\n{self.last_narrated}\n{focus_name}"
+            retrieved = self.sim.memory.build_retrieved_memory_context(
+                focus_name,
+                query,
+                current_sim_day=self.sim.time.total_days,
+            )
+            if retrieved:
+                world_snapshot = f"{world_snapshot}\n\n{retrieved}"
+
+        if self.last_director_events:
+            events_block = "\n".join(f"- {item}" for item in self.last_director_events)
+            world_snapshot = f"{world_snapshot}\n\n## DIRECTOR FEED\n{events_block}"
+
+        focus_profile = self._build_focus_profile(focus_npc)
+        system_prompt = (
+            "You are the showrunner-narrator for an ensemble TV drama set in Willow Creek. "
+            "Malcolm Newt is the catalyst and central thread, but each scene can focus on different residents.\n"
+            "Write in third-person limited from the CURRENT CAMERA FOCUS character only.\n"
+            "Preserve character truth using their profile, conflict, vulnerabilities, and social context.\n"
+            "Scene cuts should feel like prestige TV: motivated by gossip, relationship tension, and emerging conflict.\n"
+            "Use 6-10 sentences with meaningful dialogue and subtext."
+        )
+
+        user_prompt = f"""
+        EPISODE BEAT: {self.tv_beat}
+        CAMERA FOCUS: {focus_name}
+        CUT MOTIVATION: {tension_reason}
+
+        FOCUS CHARACTER PROFILE:
+        {focus_profile}
+
+        PREVIOUS SCENE:
+        \"\"\"{self.last_narrated}\"\"\"
+
+        WORLD STATE:
+        {world_snapshot}
+
+        STORY THREAD:
+        Malcolm is the new stranger in town. Gossip about him is spreading through Willow Creek.
+
+        DIRECTION:
+        {user_input or 'Continue the episode naturally with a meaningful scene cut if needed.'}
         """
 
-        # Build Messages for API
-        # OPTIMIZED: Reduced from 6 to 4 turns to save tokens (250-500 tokens per call)
-        messages = [{"role": "system", "content": system_prompt}]
+        return self._generate_scene(system_prompt, user_prompt, user_input, world_snapshot, focus_name)
 
-        # Add simple history (exclude system/rich prompts to save tokens, just raw conversation)
-        # We take the last 4 interactions (2 user + 2 assistant) from history to maintain continuity
-        messages.extend(self.narrative_history[-4:]) 
-        
-        # Append the current detailed prompt
+    def _generate_scene(
+        self,
+        system_prompt: str,
+        user_prompt: str,
+        user_input: str,
+        world_snapshot: str,
+        memory_owner: str,
+    ) -> str:
+        messages = [{"role": "system", "content": system_prompt}]
+        messages.extend(self.narrative_history[-4:])
         messages.append({"role": "user", "content": user_prompt})
 
-        # Prepare Payload
         headers = {"Content-Type": "application/json"}
         if self.api_key and self.api_key != "NOT_REQUIRED":
             headers["Authorization"] = f"Bearer {self.api_key}"
@@ -200,15 +274,14 @@ class NarrativeChat:
         payload = {
             "model": self.model_name,
             "messages": messages,
-            "temperature": 0.85, # Slightly higher for creative writing
-            "max_tokens": NARRATIVE_MAX_TOKENS
+            "temperature": 0.85,
+            "max_tokens": NARRATIVE_MAX_TOKENS,
         }
         if self.context_size:
             payload["max_context_tokens"] = self.context_size
 
         try:
             if self.local_client:
-                print(f"[NarrativeChat] Using local model: {self.model_name}")
                 prompt = self._build_prompt(messages)
                 response = self.local_client.generate(
                     prompt,
@@ -217,28 +290,16 @@ class NarrativeChat:
                 )
                 content = response.text
             else:
-                print(f"[NarrativeChat] Making API call to: {self.api_url}")
-                print(f"[NarrativeChat] Using model: {self.model_name}")
-                print(f"[NarrativeChat] Temperature: {payload['temperature']}, Max tokens: {payload['max_tokens']}")
-
                 res = requests.post(self.api_url, headers=headers, json=payload, timeout=30)
-
-                print(f"[NarrativeChat] Response status: {res.status_code}")
-
                 if res.status_code != 200:
-                    print(f"[NarrativeChat] API Error: {res.text}")
                     return f"[API Error: {res.text}]"
-
                 content = res.json()["choices"][0]["message"]["content"]
-                print(f"[NarrativeChat] Response received, length: {len(content)} characters")
 
-            # Update History
-            # We store the simplified version in history to avoid exploding context size with repetitive World States
-            self.narrative_history.append({"role": "user", "content": user_input})
+            self.narrative_history.append({"role": "user", "content": user_input or "continue"})
             self.narrative_history.append({"role": "assistant", "content": content})
-
             self.last_narrated = content
-            self._update_memory(user_input, content, world_snapshot)
+            self._run_ai_director(user_input or "world shifts")
+            self._update_memory(user_input or "continue", content, world_snapshot, memory_owner)
             return content
         except Exception as e:
             return f"[Connection Error: {e}]"
@@ -246,8 +307,9 @@ class NarrativeChat:
     def advance_time(self, hours):
         if self.sim:
             self.sim.tick(hours)
+            self._sync_world_engine_state()
 
-    def _update_memory(self, user_input: str, response: str, world_snapshot: str) -> None:
+    def _update_memory(self, user_input: str, response: str, world_snapshot: str, memory_owner: str = "Malcolm Newt") -> None:
         if not self.sim or not self.sim.memory or not self.memory_enabled:
             return
 
@@ -391,7 +453,7 @@ class NarrativeChat:
             location = str(entry.get("location", "")).strip()
 
             self.sim.memory.add_memory(
-                "Malcolm Newt",
+                memory_owner,
                 memory_type,
                 description,
                 current_day,
@@ -400,3 +462,219 @@ class NarrativeChat:
                 participants=participants,
                 location=location,
             )
+
+    def _build_focus_profile(self, npc: Optional[NPC]) -> str:
+        if not npc:
+            return "Focus unavailable; default to Malcolm as catalyst."
+
+        background = getattr(npc, "background", None)
+        conflict = getattr(background, "currentConflict", "") if background else ""
+        vulnerability = getattr(background, "vulnerability", "") if background else ""
+        traits = ", ".join(getattr(npc, "coreTraits", [])[:5]) or "unspecified"
+        return (
+            f"Name: {npc.full_name}\n"
+            f"Age: {getattr(npc, 'age', 'unknown')}\n"
+            f"Occupation: {getattr(npc, 'occupation', '') or 'unknown'}\n"
+            f"Affiliation: {getattr(npc, 'affiliation', '') or 'unknown'}\n"
+            f"Location: {getattr(npc, 'current_location', 'Unknown')}\n"
+            f"Mood: {getattr(npc, 'mood', 'Neutral')}\n"
+            f"Core traits: {traits}\n"
+            f"Current conflict: {conflict or 'none known'}\n"
+            f"Vulnerability: {vulnerability or 'none known'}"
+        )
+
+    def _score_npc_tension(self, npc: NPC) -> Tuple[float, str]:
+        score = 0.0
+        reasons: List[str] = []
+
+        if self.sim and hasattr(self.sim, "reputation"):
+            gossip_count = len(self.sim.reputation.get_gossip_about(npc.full_name))
+            if gossip_count:
+                score += gossip_count * 2.0
+                reasons.append(f"{gossip_count} gossip thread(s)")
+
+        background = getattr(npc, "background", None)
+        conflict = getattr(background, "currentConflict", "") if background else ""
+        if conflict:
+            score += 2.0
+            reasons.append("active personal conflict")
+
+        mood = str(getattr(npc, "mood", "Neutral")).lower()
+        if mood not in {"neutral", "calm", ""}:
+            score += 1.5
+            reasons.append(f"heightened mood ({mood})")
+
+        malcolm_loc = getattr(self.malcolm, "current_location", None) if self.malcolm else None
+        if malcolm_loc and getattr(npc, "current_location", None) == malcolm_loc:
+            score += 2.0
+            reasons.append("near Malcolm (catalyst proximity)")
+
+        if any(npc.full_name in event for event in self.last_director_events):
+            score += 2.5
+            reasons.append("director flagged reaction")
+
+        reason = ", ".join(reasons) if reasons else "ambient town rhythm"
+        return score, reason
+
+    def _select_focus_npc(self, user_input: str) -> Tuple[Optional[NPC], str]:
+        if not self.sim or not self.sim.npcs:
+            return self.malcolm, "fallback focus"
+
+        scored: List[Tuple[float, NPC, str]] = []
+        for npc in self.sim.npcs:
+            score, reason = self._score_npc_tension(npc)
+            scored.append((score, npc, reason))
+
+        scored.sort(key=lambda item: item[0], reverse=True)
+        candidate_score, candidate_npc, candidate_reason = scored[0]
+
+        current_focus = self.sim.npc_dict.get(self.tv_focus_npc_name) if self.tv_focus_npc_name else None
+        if current_focus:
+            current_score, current_reason = self._score_npc_tension(current_focus)
+            should_cut = (self.tv_beat % max(self.tv_cut_interval, 1) == 0) or (candidate_score >= current_score + 2.0)
+            if not should_cut:
+                return current_focus, f"stay on current arc: {current_reason}"
+
+        self.tv_focus_npc_name = candidate_npc.full_name
+        return candidate_npc, f"cut to tension: {candidate_reason}"
+
+    def start_story(self, starter_text: str) -> None:
+        """Set a custom story starter and reset short narrative history."""
+        self.last_narrated = (starter_text or "").strip() or self.last_narrated
+        self.narrative_history = []
+
+    def _initialize_ai_director(self) -> None:
+        if not self.sim:
+            return
+
+        self.world_engine = CentralWorldEngine(
+            hour=self.sim.time.hour,
+            weather=getattr(self.sim.world, "weather", "Clear"),
+        )
+        self.world_engine.day = self.sim.time.total_days
+
+        for npc in self.sim.npcs:
+            location = getattr(npc, "current_location", "Unknown") or "Unknown"
+            self.world_engine.upsert_character(
+                CharacterState(
+                    name=npc.full_name,
+                    location=location,
+                    state="idle",
+                    persona=f"You are {npc.full_name}, a resident of Willow Creek.",
+                    routine_state="background",
+                )
+            )
+
+        self.perception_system = PerceptionSystem(self.world_engine)
+        self.vector_memory = VectorMemoryStore()
+        self.brain_router = BrainRouter(self._director_model_call)
+        self.ai_director = AIDirector(
+            self.world_engine,
+            self.perception_system,
+            self.vector_memory,
+            self.brain_router,
+        )
+
+    def _sync_world_engine_state(self) -> None:
+        if not self.sim or not self.world_engine:
+            return
+
+        self.world_engine.day = self.sim.time.total_days
+        self.world_engine.hour = self.sim.time.hour
+        self.world_engine.set_weather(getattr(self.sim.world, "weather", "Clear"))
+
+        for npc in self.sim.npcs:
+            location = getattr(npc, "current_location", "Unknown") or "Unknown"
+            if npc.full_name in self.world_engine.characters:
+                self.world_engine.move_character(npc.full_name, location)
+            else:
+                self.world_engine.upsert_character(
+                    CharacterState(
+                        name=npc.full_name,
+                        location=location,
+                        state="idle",
+                        persona=f"You are {npc.full_name}, a resident of Willow Creek.",
+                        routine_state="background",
+                    )
+                )
+
+    def _run_ai_director(self, user_input: str) -> None:
+        self.last_director_events = []
+        if not self.ai_director_enabled or not self.ai_director or not self.world_engine:
+            return
+
+        self._sync_world_engine_state()
+        event_location = getattr(self.malcolm, "current_location", "Unknown") if self.malcolm else "Unknown"
+        event = WorldEvent(
+            event_type="player_action",
+            location=event_location or "Unknown",
+            description=user_input,
+            participants=["Malcolm Newt"],
+            priority=2,
+        )
+
+        self.ai_director.enqueue_event(event)
+        self.ai_director.run_background_routines()
+        decisions = self.ai_director.process_queue(
+            max_requests_per_tick=self.director_max_requests_per_tick,
+        )
+
+        if not decisions:
+            return
+
+        for npc_name, decision in decisions:
+            action = decision.get("action", "wait")
+            target = decision.get("target")
+            dialogue = decision.get("dialogue", "")
+            summary = f"{npc_name}: {action}"
+            if target:
+                summary += f" -> {target}"
+            if dialogue:
+                summary += f" | says: {dialogue}"
+            self.last_director_events.append(summary)
+            if self.vector_memory:
+                self.vector_memory.add_memory(
+                    npc_name,
+                    f"Responded to player event with action '{action}' and dialogue '{dialogue}'",
+                    tags=["player_action", "director_decision"],
+                    weight=1.2,
+                )
+
+    def _director_model_call(self, prompt: str) -> str:
+        messages = [
+            {
+                "role": "system",
+                "content": (
+                    "Return strict JSON only with keys: dialogue, action, target, reasoning. "
+                    "No markdown, no prose outside JSON."
+                ),
+            },
+            {"role": "user", "content": prompt},
+        ]
+
+        headers = {"Content-Type": "application/json"}
+        if self.api_key and self.api_key != "NOT_REQUIRED":
+            headers["Authorization"] = f"Bearer {self.api_key}"
+
+        payload = {
+            "model": self.model_name,
+            "messages": messages,
+            "temperature": 0.2,
+            "max_tokens": 300,
+        }
+        if self.context_size:
+            payload["max_context_tokens"] = self.context_size
+
+        if self.local_client:
+            local_prompt = self._build_prompt(messages)
+            result = self.local_client.generate(
+                local_prompt,
+                max_new_tokens=payload["max_tokens"],
+                temperature=payload["temperature"],
+            )
+            return result.text
+
+        res = requests.post(self.api_url, headers=headers, json=payload, timeout=20)
+        if res.status_code != 200:
+            return "{\"dialogue\":\"...\",\"action\":\"wait\",\"target\":null,\"reasoning\":\"director_api_error\"}"
+        return res.json()["choices"][0]["message"]["content"]
