@@ -69,16 +69,3 @@ This allows many NPCs to share a single API budget while still reacting believab
    - Run background routines
    - Process queue with a capped request count
 
-## Current repo integration status
-
-- `NarrativeChat` now initializes and uses the orchestrator pipeline when `ENABLE_AI_DIRECTOR` is not set to `0`.
-- The director uses the **same configured narrative model** for brain routing by default, so integration does not require adding another LLM service.
-- Per-tick NPC decision calls are rate-limited with `DIRECTOR_MAX_REQUESTS_PER_TICK` (default: `2`).
-
-## TV mode (ensemble narrative integration)
-
-- `NarrativeChat` can now run in a rotating POV "TV mode" (`ENABLE_TV_MODE=1` by default).
-- Malcolm remains the central catalyst thread, but camera focus can cut across residents.
-- Focus selection is tension-driven (gossip volume, active conflict, mood shifts, proximity to Malcolm, director reactions).
-- Scene cut cadence can be tuned with `TV_CUT_INTERVAL`; world progression per scene is controlled with `TV_SCENE_HOURS`.
-- Character profile blocks (traits/conflict/vulnerability/location/mood) are injected into prompts to keep narration in-character for each focused resident.

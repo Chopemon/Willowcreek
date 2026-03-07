@@ -298,8 +298,8 @@ class NarrativeChat:
             self.narrative_history.append({"role": "user", "content": user_input or "continue"})
             self.narrative_history.append({"role": "assistant", "content": content})
             self.last_narrated = content
-            self._run_ai_director(user_input or "world shifts")
-            self._update_memory(user_input or "continue", content, world_snapshot, memory_owner)
+            self._run_ai_director(user_input)
+            self._update_memory(user_input, content, world_snapshot)
             return content
         except Exception as e:
             return f"[Connection Error: {e}]"
@@ -462,86 +462,6 @@ class NarrativeChat:
                 participants=participants,
                 location=location,
             )
-
-    def _build_focus_profile(self, npc: Optional[NPC]) -> str:
-        if not npc:
-            return "Focus unavailable; default to Malcolm as catalyst."
-
-        background = getattr(npc, "background", None)
-        conflict = getattr(background, "currentConflict", "") if background else ""
-        vulnerability = getattr(background, "vulnerability", "") if background else ""
-        traits = ", ".join(getattr(npc, "coreTraits", [])[:5]) or "unspecified"
-        return (
-            f"Name: {npc.full_name}\n"
-            f"Age: {getattr(npc, 'age', 'unknown')}\n"
-            f"Occupation: {getattr(npc, 'occupation', '') or 'unknown'}\n"
-            f"Affiliation: {getattr(npc, 'affiliation', '') or 'unknown'}\n"
-            f"Location: {getattr(npc, 'current_location', 'Unknown')}\n"
-            f"Mood: {getattr(npc, 'mood', 'Neutral')}\n"
-            f"Core traits: {traits}\n"
-            f"Current conflict: {conflict or 'none known'}\n"
-            f"Vulnerability: {vulnerability or 'none known'}"
-        )
-
-    def _score_npc_tension(self, npc: NPC) -> Tuple[float, str]:
-        score = 0.0
-        reasons: List[str] = []
-
-        if self.sim and hasattr(self.sim, "reputation"):
-            gossip_count = len(self.sim.reputation.get_gossip_about(npc.full_name))
-            if gossip_count:
-                score += gossip_count * 2.0
-                reasons.append(f"{gossip_count} gossip thread(s)")
-
-        background = getattr(npc, "background", None)
-        conflict = getattr(background, "currentConflict", "") if background else ""
-        if conflict:
-            score += 2.0
-            reasons.append("active personal conflict")
-
-        mood = str(getattr(npc, "mood", "Neutral")).lower()
-        if mood not in {"neutral", "calm", ""}:
-            score += 1.5
-            reasons.append(f"heightened mood ({mood})")
-
-        malcolm_loc = getattr(self.malcolm, "current_location", None) if self.malcolm else None
-        if malcolm_loc and getattr(npc, "current_location", None) == malcolm_loc:
-            score += 2.0
-            reasons.append("near Malcolm (catalyst proximity)")
-
-        if any(npc.full_name in event for event in self.last_director_events):
-            score += 2.5
-            reasons.append("director flagged reaction")
-
-        reason = ", ".join(reasons) if reasons else "ambient town rhythm"
-        return score, reason
-
-    def _select_focus_npc(self, user_input: str) -> Tuple[Optional[NPC], str]:
-        if not self.sim or not self.sim.npcs:
-            return self.malcolm, "fallback focus"
-
-        scored: List[Tuple[float, NPC, str]] = []
-        for npc in self.sim.npcs:
-            score, reason = self._score_npc_tension(npc)
-            scored.append((score, npc, reason))
-
-        scored.sort(key=lambda item: item[0], reverse=True)
-        candidate_score, candidate_npc, candidate_reason = scored[0]
-
-        current_focus = self.sim.npc_dict.get(self.tv_focus_npc_name) if self.tv_focus_npc_name else None
-        if current_focus:
-            current_score, current_reason = self._score_npc_tension(current_focus)
-            should_cut = (self.tv_beat % max(self.tv_cut_interval, 1) == 0) or (candidate_score >= current_score + 2.0)
-            if not should_cut:
-                return current_focus, f"stay on current arc: {current_reason}"
-
-        self.tv_focus_npc_name = candidate_npc.full_name
-        return candidate_npc, f"cut to tension: {candidate_reason}"
-
-    def start_story(self, starter_text: str) -> None:
-        """Set a custom story starter and reset short narrative history."""
-        self.last_narrated = (starter_text or "").strip() or self.last_narrated
-        self.narrative_history = []
 
     def _initialize_ai_director(self) -> None:
         if not self.sim:
