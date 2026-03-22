@@ -133,24 +133,17 @@ class NarrativeChat:
         if not self.malcolm and self.sim.npcs:
             self.malcolm = self.sim.npcs[0]
 
-        # --- RESTORED ORIGINAL STARTING MESSAGE ---
+        # TV-mode cold open: visual, concise, and action-forward.
         self.last_narrated = (
-            "The small town of Willow Creek, on this Monday morning at 8:30 AM, carried the heavy scent of recent rain and distant woodsmoke. "
-            "It was the smell of quiet stagnation.\n"
-            "A sleek, matte-black Rivian R1S—silent as a predator—glided to a stop outside Malcolm’s new house on Oak Street. "
-            "The electric silence of the truck was quickly absorbed by the low ambient hum of the neighborhood.\n"
-            "Malcolm Newt stepped out, his expensive, unzipped jacket offering a casual contrast to his sharp, unblinking gaze. "
-            "Loki, his Doberman, moved with coiled efficiency from the passenger side, his collar jangling once before Malcolm snapped the leash on.\n"
-            "\"Time to map the territory, boy,\" Malcolm murmured, taking in the scene. He thought of his new possession—the house—as a strategic insertion point into this closed system. He intended to master it.\n"
-            "He observed his immediate neighbors with the detached interest of a scientist studying a petri dish:\n"
-            "On a nearby porch, a woman in her early thirties was attempting to usher a teenage boy toward the street. Her agitation was palpable—a tightly pinched mouth, arms gesturing sharply. "
-            "The boy, however, resisted, hunched over a small notebook, scribbling furiously as if battling a deadline for his life. He looked up, his movements stiff and defensive, his eyes meeting Malcolm’s across the distance. "
-            "The boy's gaze was unsettlingly analytical, holding none of the usual teenage boredom. Malcolm registered a spark of suspicion—an observer who was also being observed. Interesting. The pressure point is the son.\n"
-            "Further down the street, a different kind of tension was unfolding. A woman with unruly chestnut hair, clearly past forty, was pacing beside her parked sedan. "
-            "She was twisting a section of her hair repeatedly—a tell for acute anxiety—while holding a phone to her ear. Her voice was too low to discern, but her body language spoke of distress and vulnerability, a private storm being aired on a public street. "
-            "Malcolm cataloged the hurried gestures and the restless energy. Unresolved conflict, easily exploitable.\n"
-            "Loki gave a soft, expectant whuff, tugging the leash gently toward the newly mown lawn. The crisp air, the contained dramas, the predictable routines—all waiting to be disrupted. "
-            "Malcolm smiled faintly, adjusting the collar of his jacket."
+            "Morning rain still clung to the sidewalks of Willow Creek when a matte-black Rivian R1S rolled silently onto Oak Street. "
+            "The neighborhood carried the smell of wet leaves, woodsmoke, and routines no one had interrupted yet.\n"
+            "Malcolm Newt stepped out like he already belonged there—open jacket, steady hands, unreadable eyes. "
+            "Loki, his Doberman, dropped from the passenger side, and Malcolm clipped on the leash without looking away from the houses around him.\n"
+            "Across the street, a woman on a porch was trying to push a teenage boy out the door while he kept scribbling in a notebook, refusing to move. "
+            "Halfway down the block, another woman paced beside a sedan with a phone pressed to her ear, twisting her hair tighter every few seconds.\n"
+            "\"Time to map the territory, boy,\" Malcolm said softly.\n"
+            "His attention settled on the woman by the sedan. Public distress usually meant private fracture. "
+            "He reached back into the Rivian, took a bouquet from the front seat, and started across the street with Loki at his side."
         )
 
         # Initialize history with the static system prompt
