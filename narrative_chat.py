@@ -248,6 +248,91 @@ class NarrativeChat:
 
         return self._generate_scene(system_prompt, user_prompt, user_input, world_snapshot, focus_name)
 
+    def _select_focus_npc(self, user_input: str) -> Tuple[Optional[NPC], str]:
+        if not self.sim or not self.sim.npcs:
+            self.tv_focus_npc_name = "Malcolm Newt"
+            return self.malcolm, "Holding on Malcolm while the ensemble initializes."
+
+        normalized_input = (user_input or "").strip().lower()
+        candidates: List[NPC] = [npc for npc in self.sim.npcs if npc.full_name != "Malcolm Newt"]
+        if not candidates:
+            self.tv_focus_npc_name = "Malcolm Newt"
+            return self.malcolm, "No alternate cast available yet."
+
+        # 1) Player-directed override: if user names an NPC, focus them immediately.
+        for npc in candidates:
+            if npc.full_name.lower() in normalized_input:
+                self.tv_focus_npc_name = npc.full_name
+                return npc, f"Player directed camera toward {npc.full_name}."
+
+        candidate_names = {npc.full_name for npc in candidates}
+
+        # 2) Keep the current POV between cuts for scene continuity.
+        if self.tv_focus_npc_name in candidate_names and self.tv_cut_interval > 1:
+            if self.tv_beat % self.tv_cut_interval != 0:
+                held = next((npc for npc in candidates if npc.full_name == self.tv_focus_npc_name), None)
+                if held:
+                    return held, f"Hold on {held.full_name} to complete the current scene beat."
+
+        # 3) Automatic cut: score cast tension and rotate deterministically across top contenders.
+        scored: List[Tuple[int, str, NPC]] = []
+        for npc in candidates:
+            score = self._score_npc_tension(npc)
+            scored.append((score, npc.full_name, npc))
+
+        scored.sort(key=lambda item: (-item[0], item[1]))
+        top_pool = [item[2] for item in scored[: max(1, min(4, len(scored)))]]
+        chosen = top_pool[(self.tv_beat // max(self.tv_cut_interval, 1)) % len(top_pool)]
+        self.tv_focus_npc_name = chosen.full_name
+        return chosen, f"Automatic ensemble cut to {chosen.full_name} based on active conflict and vulnerability signals."
+
+    @staticmethod
+    def _score_npc_tension(npc: NPC) -> int:
+        score = 1
+
+        conflict = (getattr(getattr(npc, "background", None), "currentConflict", "") or "").strip()
+        vulnerability = (getattr(getattr(npc, "background", None), "vulnerability", "") or "").strip()
+        mood = (getattr(npc, "mood", "") or "").strip().lower()
+
+        if conflict:
+            score += 4
+        if vulnerability:
+            score += 3
+        if mood and mood not in {"neutral", "fine", "okay"}:
+            score += 2
+
+        needs = getattr(npc, "needs", None)
+        if needs:
+            pressure_channels = [
+                getattr(needs, "social", 100),
+                getattr(needs, "energy", 100),
+                getattr(needs, "fun", 100),
+                100 - getattr(needs, "bladder", 0),
+            ]
+            if any(value < 40 for value in pressure_channels):
+                score += 1
+
+        return score
+
+    def _build_focus_profile(self, focus_npc: Optional[NPC]) -> str:
+        if not focus_npc:
+            return "Malcolm Newt remains the implied focus while ensemble context loads."
+
+        conflict = (focus_npc.background.currentConflict or "none surfaced") if focus_npc.background else "none surfaced"
+        vulnerability = (focus_npc.background.vulnerability or "not publicly visible") if focus_npc.background else "not publicly visible"
+        traits = ", ".join(focus_npc.coreTraits[:4]) if focus_npc.coreTraits else "No clear trait tags"
+        location = getattr(focus_npc, "current_location", "Unknown") or "Unknown"
+        occupation = focus_npc.occupation or focus_npc.affiliation or "unlisted"
+
+        return (
+            f"Name: {focus_npc.full_name}\n"
+            f"Age: {focus_npc.age} | Occupation/Affiliation: {occupation}\n"
+            f"Current location: {location} | Mood: {focus_npc.mood}\n"
+            f"Core traits: {traits}\n"
+            f"Current conflict: {conflict}\n"
+            f"Vulnerability: {vulnerability}"
+        )
+
     def _generate_scene(
         self,
         system_prompt: str,
