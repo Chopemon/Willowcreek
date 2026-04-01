@@ -133,24 +133,17 @@ class NarrativeChat:
         if not self.malcolm and self.sim.npcs:
             self.malcolm = self.sim.npcs[0]
 
-        # --- RESTORED ORIGINAL STARTING MESSAGE ---
+        # TV-mode cold open: visual, concise, and action-forward.
         self.last_narrated = (
-            "The small town of Willow Creek, on this Monday morning at 8:30 AM, carried the heavy scent of recent rain and distant woodsmoke. "
-            "It was the smell of quiet stagnation.\n"
-            "A sleek, matte-black Rivian R1S—silent as a predator—glided to a stop outside Malcolm’s new house on Oak Street. "
-            "The electric silence of the truck was quickly absorbed by the low ambient hum of the neighborhood.\n"
-            "Malcolm Newt stepped out, his expensive, unzipped jacket offering a casual contrast to his sharp, unblinking gaze. "
-            "Loki, his Doberman, moved with coiled efficiency from the passenger side, his collar jangling once before Malcolm snapped the leash on.\n"
-            "\"Time to map the territory, boy,\" Malcolm murmured, taking in the scene. He thought of his new possession—the house—as a strategic insertion point into this closed system. He intended to master it.\n"
-            "He observed his immediate neighbors with the detached interest of a scientist studying a petri dish:\n"
-            "On a nearby porch, a woman in her early thirties was attempting to usher a teenage boy toward the street. Her agitation was palpable—a tightly pinched mouth, arms gesturing sharply. "
-            "The boy, however, resisted, hunched over a small notebook, scribbling furiously as if battling a deadline for his life. He looked up, his movements stiff and defensive, his eyes meeting Malcolm’s across the distance. "
-            "The boy's gaze was unsettlingly analytical, holding none of the usual teenage boredom. Malcolm registered a spark of suspicion—an observer who was also being observed. Interesting. The pressure point is the son.\n"
-            "Further down the street, a different kind of tension was unfolding. A woman with unruly chestnut hair, clearly past forty, was pacing beside her parked sedan. "
-            "She was twisting a section of her hair repeatedly—a tell for acute anxiety—while holding a phone to her ear. Her voice was too low to discern, but her body language spoke of distress and vulnerability, a private storm being aired on a public street. "
-            "Malcolm cataloged the hurried gestures and the restless energy. Unresolved conflict, easily exploitable.\n"
-            "Loki gave a soft, expectant whuff, tugging the leash gently toward the newly mown lawn. The crisp air, the contained dramas, the predictable routines—all waiting to be disrupted. "
-            "Malcolm smiled faintly, adjusting the collar of his jacket."
+            "Morning rain still clung to the sidewalks of Willow Creek when a matte-black Rivian R1S rolled silently onto Oak Street. "
+            "The neighborhood carried the smell of wet leaves, woodsmoke, and routines no one had interrupted yet.\n"
+            "Malcolm Newt stepped out like he already belonged there—open jacket, steady hands, unreadable eyes. "
+            "Loki, his Doberman, dropped from the passenger side, and Malcolm clipped on the leash without looking away from the houses around him.\n"
+            "Across the street, a woman on a porch was trying to push a teenage boy out the door while he kept scribbling in a notebook, refusing to move. "
+            "Halfway down the block, another woman paced beside a sedan with a phone pressed to her ear, twisting her hair tighter every few seconds.\n"
+            "\"Time to map the territory, boy,\" Malcolm said softly.\n"
+            "His attention settled on the woman by the sedan. Public distress usually meant private fracture. "
+            "He reached back into the Rivian, took a bouquet from the front seat, and started across the street with Loki at his side."
         )
 
         # Initialize history with the static system prompt
@@ -254,6 +247,91 @@ class NarrativeChat:
         """
 
         return self._generate_scene(system_prompt, user_prompt, user_input, world_snapshot, focus_name)
+
+    def _select_focus_npc(self, user_input: str) -> Tuple[Optional[NPC], str]:
+        if not self.sim or not self.sim.npcs:
+            self.tv_focus_npc_name = "Malcolm Newt"
+            return self.malcolm, "Holding on Malcolm while the ensemble initializes."
+
+        normalized_input = (user_input or "").strip().lower()
+        candidates: List[NPC] = [npc for npc in self.sim.npcs if npc.full_name != "Malcolm Newt"]
+        if not candidates:
+            self.tv_focus_npc_name = "Malcolm Newt"
+            return self.malcolm, "No alternate cast available yet."
+
+        # 1) Player-directed override: if user names an NPC, focus them immediately.
+        for npc in candidates:
+            if npc.full_name.lower() in normalized_input:
+                self.tv_focus_npc_name = npc.full_name
+                return npc, f"Player directed camera toward {npc.full_name}."
+
+        candidate_names = {npc.full_name for npc in candidates}
+
+        # 2) Keep the current POV between cuts for scene continuity.
+        if self.tv_focus_npc_name in candidate_names and self.tv_cut_interval > 1:
+            if self.tv_beat % self.tv_cut_interval != 0:
+                held = next((npc for npc in candidates if npc.full_name == self.tv_focus_npc_name), None)
+                if held:
+                    return held, f"Hold on {held.full_name} to complete the current scene beat."
+
+        # 3) Automatic cut: score cast tension and rotate deterministically across top contenders.
+        scored: List[Tuple[int, str, NPC]] = []
+        for npc in candidates:
+            score = self._score_npc_tension(npc)
+            scored.append((score, npc.full_name, npc))
+
+        scored.sort(key=lambda item: (-item[0], item[1]))
+        top_pool = [item[2] for item in scored[: max(1, min(4, len(scored)))]]
+        chosen = top_pool[(self.tv_beat // max(self.tv_cut_interval, 1)) % len(top_pool)]
+        self.tv_focus_npc_name = chosen.full_name
+        return chosen, f"Automatic ensemble cut to {chosen.full_name} based on active conflict and vulnerability signals."
+
+    @staticmethod
+    def _score_npc_tension(npc: NPC) -> int:
+        score = 1
+
+        conflict = (getattr(getattr(npc, "background", None), "currentConflict", "") or "").strip()
+        vulnerability = (getattr(getattr(npc, "background", None), "vulnerability", "") or "").strip()
+        mood = (getattr(npc, "mood", "") or "").strip().lower()
+
+        if conflict:
+            score += 4
+        if vulnerability:
+            score += 3
+        if mood and mood not in {"neutral", "fine", "okay"}:
+            score += 2
+
+        needs = getattr(npc, "needs", None)
+        if needs:
+            pressure_channels = [
+                getattr(needs, "social", 100),
+                getattr(needs, "energy", 100),
+                getattr(needs, "fun", 100),
+                100 - getattr(needs, "bladder", 0),
+            ]
+            if any(value < 40 for value in pressure_channels):
+                score += 1
+
+        return score
+
+    def _build_focus_profile(self, focus_npc: Optional[NPC]) -> str:
+        if not focus_npc:
+            return "Malcolm Newt remains the implied focus while ensemble context loads."
+
+        conflict = (focus_npc.background.currentConflict or "none surfaced") if focus_npc.background else "none surfaced"
+        vulnerability = (focus_npc.background.vulnerability or "not publicly visible") if focus_npc.background else "not publicly visible"
+        traits = ", ".join(focus_npc.coreTraits[:4]) if focus_npc.coreTraits else "No clear trait tags"
+        location = getattr(focus_npc, "current_location", "Unknown") or "Unknown"
+        occupation = focus_npc.occupation or focus_npc.affiliation or "unlisted"
+
+        return (
+            f"Name: {focus_npc.full_name}\n"
+            f"Age: {focus_npc.age} | Occupation/Affiliation: {occupation}\n"
+            f"Current location: {location} | Mood: {focus_npc.mood}\n"
+            f"Core traits: {traits}\n"
+            f"Current conflict: {conflict}\n"
+            f"Vulnerability: {vulnerability}"
+        )
 
     def _generate_scene(
         self,
